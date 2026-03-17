@@ -145,6 +145,19 @@ def create_torch_dataset(
         },
     )
 
+    # Filter to specific episodes if requested.
+    # We load the full dataset and then select frames via Subset, rather than
+    # passing episodes= to LeRobotDataset, because LeRobot has a bug where
+    # episode_data_index is positionally indexed but __getitem__ uses the
+    # original episode_index, causing IndexError with delta_timestamps.
+    if data_config.episodes is not None:
+        episode_set = set(data_config.episodes)
+        all_ep_indices = torch.stack(dataset.hf_dataset["episode_index"]).numpy()
+        mask = np.isin(all_ep_indices, list(episode_set))
+        indices = np.where(mask)[0].tolist()
+        logging.info(f"Filtering to {len(data_config.episodes)} episodes: {len(indices)}/{len(dataset)} frames")
+        dataset = torch.utils.data.Subset(dataset, indices)
+
     if data_config.prompt_from_task:
         dataset = TransformedDataset(dataset, [_transforms.PromptFromLeRobotTask(dataset_meta.tasks)])
 

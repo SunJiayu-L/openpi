@@ -11,6 +11,8 @@ from libero.libero.envs import OffScreenRenderEnv
 import numpy as np
 from openpi_client import image_tools
 from openpi_client import websocket_client_policy as _websocket_client_policy
+import typing
+
 import tqdm
 import tyro
 
@@ -44,6 +46,8 @@ class Args:
 
     seed: int = 7  # Random Seed (for reproducibility)
 
+    task_ids: typing.Optional[typing.Tuple[int, ...]] = None  # If provided, only evaluate these task IDs (0-indexed within the suite)
+
 
 def eval_libero(args: Args) -> None:
     # Set random seed
@@ -73,8 +77,9 @@ def eval_libero(args: Args) -> None:
     client = _websocket_client_policy.WebsocketClientPolicy(args.host, args.port)
 
     # Start evaluation
+    task_id_list = list(args.task_ids) if args.task_ids is not None else list(range(num_tasks_in_suite))
     total_episodes, total_successes = 0, 0
-    for task_id in tqdm.tqdm(range(num_tasks_in_suite)):
+    for task_id in tqdm.tqdm(task_id_list):
         # Get task
         task = task_suite.get_task(task_id)
 

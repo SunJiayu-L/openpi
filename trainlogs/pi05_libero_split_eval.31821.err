@@ -1,0 +1,159 @@
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+INFO:root:Loading model...
+INFO:2026-03-16 14:09:03,046:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:jax._src.xla_bridge:Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:2026-03-16 14:09:03,047:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:jax._src.xla_bridge:Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:absl:orbax-checkpoint version: 0.11.13
+INFO:absl:Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f4348172350>
+INFO:absl:Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_no10/split_experiment/5000/params.
+INFO:absl:[thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID.
+INFO:absl:[process=0] /jax/checkpoint/read/bytes_per_sec: 1.9 GiB/s (total bytes: 6.2 GiB) (time elapsed: 3 seconds) (per-host)
+INFO:absl:Finished restoring checkpoint in 3.32 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_no10/split_experiment/5000/params.
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/assets/pi05_libero_no10/physical-intelligence/libero
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_no10/split_experiment/5000/assets/physical-intelligence/libero
+INFO:root:Creating server (host: gnho009, ip: 192.168.180.109)
+INFO:websockets.server:server listening on 0.0.0.0:8000
+INFO:websockets.server:connection rejected (200 OK)
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Traceback (most recent call last):
+  File "examples/libero/main.py", line 22, in <module>
+    class Args:
+  File "examples/libero/main.py", line 47, in Args
+    task_ids: tuple[int, ...] | None = None  # If provided, only evaluate these task IDs (0-indexed within the suite)
+TypeError: 'type' object is not subscriptable
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Traceback (most recent call last):
+  File "examples/libero/main.py", line 22, in <module>
+    class Args:
+  File "examples/libero/main.py", line 47, in Args
+    task_ids: tuple[int, ...] | None = None  # If provided, only evaluate these task IDs (0-indexed within the suite)
+TypeError: 'type' object is not subscriptable
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Traceback (most recent call last):
+  File "examples/libero/main.py", line 22, in <module>
+    class Args:
+  File "examples/libero/main.py", line 47, in Args
+    task_ids: tuple[int, ...] | None = None  # If provided, only evaluate these task IDs (0-indexed within the suite)
+TypeError: 'type' object is not subscriptable
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Traceback (most recent call last):
+  File "examples/libero/main.py", line 22, in <module>
+    class Args:
+  File "examples/libero/main.py", line 47, in Args
+    task_ids: tuple[int, ...] | None = None  # If provided, only evaluate these task IDs (0-indexed within the suite)
+TypeError: 'type' object is not subscriptable
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+INFO:root:Loading model...
+INFO:2026-03-16 14:09:17,068:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:jax._src.xla_bridge:Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:2026-03-16 14:09:17,069:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:jax._src.xla_bridge:Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:absl:orbax-checkpoint version: 0.11.13
+INFO:absl:Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7fbe631ff450>
+INFO:absl:Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_no10/split_experiment/10000/params.
+INFO:absl:[thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID.
+INFO:absl:[process=0] /jax/checkpoint/read/bytes_per_sec: 1.8 GiB/s (total bytes: 6.2 GiB) (time elapsed: 3 seconds) (per-host)
+INFO:absl:Finished restoring checkpoint in 3.39 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_no10/split_experiment/10000/params.
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/assets/pi05_libero_no10/physical-intelligence/libero
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_no10/split_experiment/10000/assets/physical-intelligence/libero
+INFO:root:Creating server (host: gnho009, ip: 192.168.180.109)
+INFO:websockets.server:server listening on 0.0.0.0:8000
+INFO:websockets.server:connection rejected (200 OK)
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Traceback (most recent call last):
+  File "examples/libero/main.py", line 22, in <module>
+    class Args:
+  File "examples/libero/main.py", line 47, in Args
+    task_ids: tuple[int, ...] | None = None  # If provided, only evaluate these task IDs (0-indexed within the suite)
+TypeError: 'type' object is not subscriptable
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Traceback (most recent call last):
+  File "examples/libero/main.py", line 22, in <module>
+    class Args:
+  File "examples/libero/main.py", line 47, in Args
+    task_ids: tuple[int, ...] | None = None  # If provided, only evaluate these task IDs (0-indexed within the suite)
+TypeError: 'type' object is not subscriptable
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Traceback (most recent call last):
+  File "examples/libero/main.py", line 22, in <module>
+    class Args:
+  File "examples/libero/main.py", line 47, in Args
+    task_ids: tuple[int, ...] | None = None  # If provided, only evaluate these task IDs (0-indexed within the suite)
+TypeError: 'type' object is not subscriptable
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Traceback (most recent call last):
+  File "examples/libero/main.py", line 22, in <module>
+    class Args:
+  File "examples/libero/main.py", line 47, in Args
+    task_ids: tuple[int, ...] | None = None  # If provided, only evaluate these task IDs (0-indexed within the suite)
+TypeError: 'type' object is not subscriptable
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+INFO:root:Loading model...
+INFO:2026-03-16 14:09:31,914:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:jax._src.xla_bridge:Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:2026-03-16 14:09:31,914:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:jax._src.xla_bridge:Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:absl:orbax-checkpoint version: 0.11.13
+INFO:absl:Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7fa74efb4bd0>
+INFO:absl:Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_no10/split_experiment/14000/params.
+INFO:absl:[thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID.
+INFO:absl:[process=0] /jax/checkpoint/read/bytes_per_sec: 1.9 GiB/s (total bytes: 6.2 GiB) (time elapsed: 3 seconds) (per-host)
+INFO:absl:Finished restoring checkpoint in 3.29 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_no10/split_experiment/14000/params.
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/assets/pi05_libero_no10/physical-intelligence/libero
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_no10/split_experiment/14000/assets/physical-intelligence/libero
+INFO:root:Creating server (host: gnho009, ip: 192.168.180.109)
+INFO:websockets.server:server listening on 0.0.0.0:8000
+INFO:websockets.server:connection rejected (200 OK)
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Traceback (most recent call last):
+  File "examples/libero/main.py", line 22, in <module>
+    class Args:
+  File "examples/libero/main.py", line 47, in Args
+    task_ids: tuple[int, ...] | None = None  # If provided, only evaluate these task IDs (0-indexed within the suite)
+TypeError: 'type' object is not subscriptable
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Traceback (most recent call last):
+  File "examples/libero/main.py", line 22, in <module>
+    class Args:
+  File "examples/libero/main.py", line 47, in Args
+    task_ids: tuple[int, ...] | None = None  # If provided, only evaluate these task IDs (0-indexed within the suite)
+TypeError: 'type' object is not subscriptable
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Traceback (most recent call last):
+  File "examples/libero/main.py", line 22, in <module>
+    class Args:
+  File "examples/libero/main.py", line 47, in Args
+    task_ids: tuple[int, ...] | None = None  # If provided, only evaluate these task IDs (0-indexed within the suite)
+TypeError: 'type' object is not subscriptable
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Traceback (most recent call last):
+  File "examples/libero/main.py", line 22, in <module>
+    class Args:
+  File "examples/libero/main.py", line 47, in Args
+    task_ids: tuple[int, ...] | None = None  # If provided, only evaluate these task IDs (0-indexed within the suite)
+TypeError: 'type' object is not subscriptable
