@@ -1,7 +1,7 @@
 """Episode indices for the LIBERO train/test split.
 
 Split strategy: From each of the 4 suites, the first task is held out for testing.
-- Test tasks (4): task 0 (libero_10), task 10 (libero_spatial), task 20 (libero_object), task 30 (libero_goal)
+- Test tasks (4): task 0 (libero_10), task 10 (libero_goal), task 20 (libero_object), task 30 (libero_spatial)
 - Train tasks (36): all remaining tasks
 """
 
@@ -14,7 +14,7 @@ TEST_EPISODES = [0, 18, 22, 33, 58, 85, 88, 105, 107, 114, 121, 125, 129, 157, 1
 
 # Test task descriptions:
 # task 0  (libero_10):      "put the white mug on the left plate and put the yellow and white mug on the right plate"
-# task 10 (libero_spatial):  "put the bowl on the plate"
+# task 10 (libero_goal):     "put the bowl on the plate"
 # task 20 (libero_object):   "pick up the orange juice and place it in the basket"
-# task 30 (libero_goal):     "pick up the black bowl next to the cookie box and place it on the plate"
+# task 30 (libero_spatial):  "pick up the black bowl next to the cookie box and place it on the plate"
 # fmt: on
