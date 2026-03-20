@@ -13,7 +13,7 @@
 # limitations under the License.
 
 """Gemma adaptation for Pi, taken from big_vision.
-
+Allen Institute for AI
 We follow this einsum axis naming convention:
   B: batch
   T: query length

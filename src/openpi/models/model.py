@@ -23,10 +23,21 @@ import openpi.shared.array_typing as at
 
 logger = logging.getLogger("openpi")
 
+# ==============================
+# model.py 可分为 6 个部分：
+# 1) 基础类型与常量：定义模型类型、默认图像键与分辨率
+# 2) 输入数据结构 Observation：统一图像/状态/文本输入格式
+# 3) 数据预处理 preprocess_observation：训练增强、尺寸对齐、mask 补全
+# 4) 配置抽象 BaseModelConfig：定义模型创建/加载/输入规格接口
+# 5) 模型抽象 BaseModel：定义训练与推理核心接口
+# 6) 参数恢复 restore_params：从 checkpoint 还原纯参数字典
+# ==============================
+
 # Type variable for array types (JAX arrays, PyTorch tensors, or numpy arrays)
 ArrayT = TypeVar("ArrayT", bound=jax.Array | torch.Tensor | np.ndarray)
 
 
+# 部分 1：模型类型枚举（决定实例化哪一种模型实现）。
 class ModelType(enum.Enum):
     """Supported model types."""
 
@@ -36,6 +47,7 @@ class ModelType(enum.Enum):
 
 
 # The model always expects these images
+# 部分 1：模型默认期望的多视角图像键。
 IMAGE_KEYS = (
     "base_0_rgb",
     "left_wrist_0_rgb",
@@ -44,6 +56,7 @@ IMAGE_KEYS = (
 
 
 # This may need change if we release a small model.
+# 部分 1：模型默认输入图像分辨率。
 IMAGE_RESOLUTION = (224, 224)
 
 
@@ -78,6 +91,7 @@ IMAGE_RESOLUTION = (224, 224)
 #   s = state dimension
 #   l = sequence length
 #
+# 部分 2：Observation 结构体，承载模型的结构化输入。
 @at.typecheck
 @struct.dataclass
 class Observation(Generic[ArrayT]):
@@ -109,14 +123,17 @@ class Observation(Generic[ArrayT]):
     @classmethod
     def from_dict(cls, data: at.PyTree[ArrayT]) -> "Observation[ArrayT]":
         """This method defines the mapping between unstructured data (i.e., nested dict) to the structured Observation format."""
+        # 入口是数据管道产出的嵌套字典；这里把它整理成类型安全的 Observation。
         # Ensure that tokenized_prompt and tokenized_prompt_mask are provided together.
         if ("tokenized_prompt" in data) != ("tokenized_prompt_mask" in data):
             raise ValueError("tokenized_prompt and tokenized_prompt_mask must be provided together.")
-        # If images are uint8, convert them to [-1, 1] float32.
+        # 如果图像是 uint8（0~255），统一映射为 float32 的 [-1, 1] 区间。
         for key in data["image"]:
             if data["image"][key].dtype == np.uint8:
+                # numpy 图像：保持 HWC 排列，只做数值归一化。
                 data["image"][key] = data["image"][key].astype(np.float32) / 255.0 * 2.0 - 1.0
             elif hasattr(data["image"][key], "dtype") and data["image"][key].dtype == torch.uint8:
+                # torch 图像：转 float 后从 BHWC 变为 BCHW（供 PyTorch 分支使用）。
                 data["image"][key] = data["image"][key].to(torch.float32).permute(0, 3, 1, 2) / 255.0 * 2.0 - 1.0
         return cls(
             images=data["image"],
@@ -130,6 +147,7 @@ class Observation(Generic[ArrayT]):
 
     def to_dict(self) -> at.PyTree[ArrayT]:
         """Convert the Observation to a nested dict."""
+        # 与 from_dict 相反：把 dataclass 字段名映射回数据流水线约定的键名。
         result = dataclasses.asdict(self)
         result["image"] = result.pop("images")
         result["image_mask"] = result.pop("image_masks")
@@ -141,6 +159,7 @@ class Observation(Generic[ArrayT]):
 Actions = at.Float[ArrayT, "*b ah ad"]
 
 
+# 部分 3：输入预处理（resize / augment / mask），训练和推理都走这里。
 def preprocess_observation(
     rng: at.KeyArrayLike | None,
     observation: Observation,
@@ -153,23 +172,28 @@ def preprocess_observation(
     filling in a default image mask (if necessary).
     """
 
+    # 必须包含模型要求的所有相机视角，否则直接报错。
     if not set(image_keys).issubset(observation.images):
         raise ValueError(f"images dict missing keys: expected {image_keys}, got {list(observation.images)}")
 
+    # state 最后一维是状态特征维；其余维度视为 batch 维。
     batch_shape = observation.state.shape[:-1]
 
     out_images = {}
     for key in image_keys:
         image = observation.images[key]
+        # 分辨率不符时，按目标尺寸 resize+pad，保证多路图像尺寸一致。
         if image.shape[1:3] != image_resolution:
             logger.info(f"Resizing image {key} from {image.shape[1:3]} to {image_resolution}")
             image = image_tools.resize_with_pad(image, *image_resolution)
 
+        # 仅训练时启用数据增强；推理时保持输入确定性。
         if train:
             # Convert from [-1, 1] to [0, 1] for augmax.
             image = image / 2.0 + 0.5
 
             transforms = []
+            # wrist 相机通常视角变化大，避免过强几何增强；非 wrist 相机再加 crop/rotate。
             if "wrist" not in key:
                 height, width = image.shape[1:3]
                 transforms += [
@@ -180,6 +204,7 @@ def preprocess_observation(
             transforms += [
                 augmax.ColorJitter(brightness=0.3, contrast=0.4, saturation=0.5),
             ]
+            # 为 batch 内每张图分配独立随机种子，再用 vmap 批量执行增强。
             sub_rngs = jax.random.split(rng, image.shape[0])
             image = jax.vmap(augmax.Chain(*transforms))(sub_rngs, image)
 
@@ -188,7 +213,7 @@ def preprocess_observation(
 
         out_images[key] = image
 
-    # obtain mask
+    # 构造图像有效位：缺失 mask 时默认全 True（不屏蔽）。
     out_masks = {}
     for key in out_images:
         if key not in observation.image_masks:
@@ -209,6 +234,7 @@ def preprocess_observation(
 
 
 @dataclasses.dataclass(frozen=True)
+# 部分 4：模型配置抽象，负责创建模型与加载参数。
 class BaseModelConfig(abc.ABC):
     """Configuration shared by all models. Specific models should inherit from this class, and implement the `create`
     method to create the corresponding model.
@@ -232,15 +258,19 @@ class BaseModelConfig(abc.ABC):
 
     def load(self, params: at.Params, *, remove_extra_params: bool = True) -> "BaseModel":
         """Create a model with the given parameters."""
+        # 先用 eval_shape 构建“空模型结构”，拿到参数树模板（不实际分配完整权重）。
         model = nnx.eval_shape(self.create, jax.random.key(0))
         graphdef, state = nnx.split(model)
+        # 某些 checkpoint 可能包含当前模型不存在的冗余参数；可选择先求交集再加载。
         if remove_extra_params:
             params = ocp.transform_utils.intersect_trees(state.to_pure_dict(), params)
+        # 校验参数树结构和 shape，dtype 可放宽以支持混精度/迁移加载。
         at.check_pytree_equality(expected=state.to_pure_dict(), got=params, check_shapes=True, check_dtypes=False)
         state.replace_by_pure_dict(params)
         return nnx.merge(graphdef, state)
 
     def load_pytorch(self, train_config, weight_path: str):
+        # PyTorch 兼容加载路径：构造 torch 模型并从 safetensors 读权重。
         logger.info(f"train_config: {train_config}")
         model = pi0_pytorch.PI0Pytorch(config=train_config.model)
         safetensors.torch.load_model(model, weight_path)
@@ -251,15 +281,18 @@ class BaseModelConfig(abc.ABC):
         """Returns the input specification for the model. Values are jax.ShapeDtypeStruct."""
 
     def fake_obs(self, batch_size: int = 1) -> Observation:
+        # 基于 inputs_spec 生成全 1 假输入，常用于 lazy init / shape tracing。
         observation_spec, _ = self.inputs_spec(batch_size=batch_size)
         return jax.tree.map(lambda x: jnp.ones(x.shape, x.dtype), observation_spec)
 
     def fake_act(self, batch_size: int = 1) -> Actions:
+        # 与 fake_obs 对应，生成动作张量假数据。
         _, action_spec = self.inputs_spec(batch_size=batch_size)
         return jax.tree.map(lambda x: jnp.ones(x.shape, x.dtype), action_spec)
 
 
 @dataclasses.dataclass
+# 部分 5：模型抽象基类，统一 loss 与采样接口。
 class BaseModel(nnx.Module, abc.ABC):
     """Base class for all model implementations. Specific models should inherit from this class. They should call
     super().__init__() to initialize the shared attributes (action_dim, action_horizon, and max_token_len).
@@ -283,6 +316,7 @@ class BaseModel(nnx.Module, abc.ABC):
     def sample_actions(self, rng: at.KeyArrayLike, observation: Observation, **kwargs) -> Actions: ...
 
 
+# 部分 6：参数恢复工具，从 orbax checkpoint 读取并标准化参数树。
 def restore_params(
     params_path: pathlib.Path | str,
     *,
@@ -304,16 +338,20 @@ def restore_params(
     Returns:
         The restored params.
     """
+    # 本地路径转绝对路径；若是 gs:// 云路径则保持原样。
     params_path = pathlib.Path(params_path).resolve() if not str(params_path).startswith("gs://") else params_path
 
+    # 恢复为 jax.Array 且未指定分片时，默认做全设备复制分片。
     if restore_type is jax.Array and sharding is None:
         mesh = jax.sharding.Mesh(jax.devices(), ("x",))
         sharding = jax.sharding.NamedSharding(mesh, jax.sharding.PartitionSpec())
 
     with ocp.PyTreeCheckpointer() as ckptr:
+        # 先读 metadata，构造与 checkpoint 对齐的 restore 结构。
         metadata = ckptr.metadata(params_path)
         item = {"params": metadata["params"]}
 
+        # 按给定 restore_type / dtype / sharding 实际恢复参数。
         params = ckptr.restore(
             params_path,
             ocp.args.PyTreeRestore(
@@ -326,7 +364,9 @@ def restore_params(
 
     # If the params were saved with `save_state` during openpi training, every key path will end with "value", which is
     # added by `nnx.State`. We remove the "value" suffix here and always return what NNX calls a "pure dict".
+    # 扁平化后检查是否存在 nnx.State 附加的末尾 "value" 键。
     flat_params = traverse_util.flatten_dict(params)
+    # 若所有叶子路径都以 value 结尾，则统一去掉该层并还原为 pure dict。
     if all(kp[-1] == "value" for kp in flat_params):
         flat_params = {kp[:-1]: v for kp, v in flat_params.items()}
     return traverse_util.unflatten_dict(flat_params)
