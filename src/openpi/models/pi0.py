@@ -100,9 +100,9 @@ class Pi0(_model.BaseModel):
         super().__init__(config.action_dim, config.action_horizon, config.max_token_len)
         # 记录是否启用 pi0.5 分支（影响状态输入和时间注入方式）。
         self.pi05 = config.pi05
-        # 获取 PaliGemma 主干配置。
+        #! 获取 PaliGemma 主干配置。
         paligemma_config = _gemma.get_config(config.paligemma_variant)
-        # 获取 action expert 配置。
+        #! 获取 action expert 配置。
         action_expert_config = _gemma.get_config(config.action_expert_variant)
         # TODO: rewrite gemma in NNX. For now, use bridge.
         # 构建双专家 Gemma，并桥接到 NNX。
@@ -130,6 +130,7 @@ class Pi0(_model.BaseModel):
         # 用 fake observation 里的一张图进行惰性初始化。
         img.lazy_init(next(iter(config.fake_obs().images.values())), train=False, rngs=rngs)
         # 统一封装视觉与语言主干。
+        ###! 总模型 PaliGmma（llm+img）
         self.PaliGemma = nnx.Dict(llm=llm, img=img)
         # 将动作（或噪声动作）投影到 action expert 隐藏空间。
         self.action_in_proj = nnx.Linear(config.action_dim, action_expert_config.width, rngs=rngs)
@@ -176,7 +177,7 @@ class Pi0(_model.BaseModel):
                 )
             )
             # image tokens attend to each other
-            # 图像 prefix 内采用全互看（同一块）。
+            #!  图像 prefix 内采用全互看（同一块）。
             ar_mask += [False] * image_tokens.shape[1]
 
         # add language (aka tokenized inputs)
@@ -256,12 +257,12 @@ class Pi0(_model.BaseModel):
             action_expert_tokens = action_time_tokens
             # pi0：不用 adaRMS 条件。
             adarms_cond = None
-        # 追加 action token 序列。
+        # 追加 action token 序列。 
         tokens.append(action_expert_tokens)
         # action token 全有效。
         input_mask.append(jnp.ones(action_expert_tokens.shape[:2], dtype=jnp.bool_))
         # image/language/state inputs do not attend to action tokens
-        # action 序列为因果块：第一个 token 开新块，后续 token 递增因果可见域。
+        #! action 序列为因果块：第一个 token 开新块，后续 token 递增因果可见域。
         ar_mask += [True] + ([False] * (self.action_horizon - 1))
         # 拼接完整 suffix token。
         tokens = jnp.concatenate(tokens, axis=1)
@@ -289,11 +290,15 @@ class Pi0(_model.BaseModel):
         time = jax.random.beta(time_rng, 1.5, 1, batch_shape) * 0.999 + 0.001
         # 扩展 t 到动作张量形状，便于广播计算。
         time_expanded = time[..., None, None]
+
+        ###! 构造flow matching 目标
         # 线性插值构造 x_t = t * noise + (1 - t) * actions。
         x_t = time_expanded * noise + (1 - time_expanded) * actions
         # 目标速度场 u_t = noise - actions。
         u_t = noise - actions
 
+
+        #! 前向传播
         # one big forward pass of prefix + suffix at once
         # 编码 prefix（图像+文本）。
         prefix_tokens, prefix_mask, prefix_ar_mask = self.embed_prefix(observation)
@@ -301,22 +306,32 @@ class Pi0(_model.BaseModel):
         suffix_tokens, suffix_mask, suffix_ar_mask, adarms_cond = self.embed_suffix(observation, x_t, time)
         # 拼接完整序列有效位。
         input_mask = jnp.concatenate([prefix_mask, suffix_mask], axis=1)
-        # 拼接完整序列的分块因果规则。
+        # 把 prefix 和 suffix 的自回归分块规则拼成一条完整序列规则。
         ar_mask = jnp.concatenate([prefix_ar_mask, suffix_ar_mask], axis=0)
-        # 生成注意力 mask。
+        #  根据“有效位 + 分块规则”生成最终注意力掩码（[B, T, T]）
         attn_mask = make_attn_mask(input_mask, ar_mask)
-        # 位置索引：只对有效 token 递增（padding 不递增）。
+        # 生成每个 token 的位置 id（给 RoPE/位置编码用）。
         positions = jnp.cumsum(input_mask, axis=1) - 1
+        ###! 模型推理
         # 单次前向同时计算 prefix/suffix，adaRMS 条件只喂给 action expert 路径。
         (prefix_out, suffix_out), _ = self.PaliGemma.llm(
             [prefix_tokens, suffix_tokens], mask=attn_mask, positions=positions, adarms_cond=[None, adarms_cond]
         )
+        
         # 只取 suffix 末尾 action_horizon 段并回投影得到预测速度 v_t。
         v_t = self.action_out_proj(suffix_out[:, -self.action_horizon :])
 
+        #! 计算损失
         # Flow Matching 的逐动作维 MSE，最后在动作维上求均值。
         return jnp.mean(jnp.square(v_t - u_t), axis=-1)
 
+
+
+    ###############################
+    #### 采样动作
+    ####从一段高斯噪声动作 x_1 出发，反复调用模型预测当前速度场 v_t，
+    ####再用 Euler 法把噪声一步步积分到干净动作 x_0。
+    ###############################
     @override
     def sample_actions(
         self,

@@ -162,17 +162,36 @@ class Attention(nn.Module):
 
     @nn.compact
     def __call__(self, xs, positions, attn_mask, kv_cache):
+        # 核心流程（多 expert 共享注意力）：
+        # 1) 对每个非空 expert 各自做 Q/K/V 投影（支持 LoRA）。
+        # 2) 把各 expert 的 Q/K/V 在序列维拼接，形成统一注意力序列。
+        # 3) 对 Q/K 应用 RoPE 位置编码。
+        # 4) 若有 kv_cache，把历史 K/V 与当前 K/V 拼接。
+        # 5) 结合 attn_mask 计算 masked attention。
+        # 6) 得到编码后，按原 expert 序列长度切回各自分支。
+        # 7) 每个 expert 用自己的输出投影（attn_vec_einsum）映射回隐藏维。
         # all experts must share the same head dim, num heads, and num kv heads for self-attention to work
+        
+        # 约束所有 expert 的注意力头维一致，才能在后续拼接共享注意力计算。
         assert all(config.head_dim == self.configs[0].head_dim for config in self.configs)
+        # 约束所有 expert 的 query 头数一致。
         assert all(config.num_heads == self.configs[0].num_heads for config in self.configs)
+        # 约束所有 expert 的 kv 头数一致。
         assert all(config.num_kv_heads == self.configs[0].num_kv_heads for config in self.configs)
 
+        # 记录输入 dtype（常见 bfloat16），后续 softmax 结束后会 cast 回来。
         dtype = next(x.dtype for x in xs if x is not None)  # original dtype, could be half-precision
 
+        # 收集每个 expert 的 (q,k,v)，后面会在序列维拼接。
         qkvs = []
-        for i, (x, config) in enumerate(zip(xs, self.configs, strict=True)):
+        # 遍历 expert：x 为该 expert 的 token 序列，可能为 None（该 expert 本次不参与）。
+        for i, (x, config) in enumerate(zip(xs, self.configs, strict=True)):    
             if x is None:
+                # 当前 expert 没有输入 token，跳过。
                 continue
+            
+            #! MHA,GQA: 两条路。 对每个非空 expert 各自做 Q/K/V 投影（支持 LoRA）
+            # MHA 情形：Q/K/V 头数一致，可一次性做 qkv 联合投影。
             if config.num_kv_heads == config.num_heads:
                 qkv_einsum = lora.Einsum(
                     shape=(3, config.num_heads, config.width, config.head_dim),
@@ -180,14 +199,17 @@ class Attention(nn.Module):
                     init_fn=nn.initializers.lecun_normal(in_axis=-2, out_axis=-1, batch_axis=(0, 1)),
                     lora_config=config.lora_configs.get("attn"),
                 )
+                # 形状：[B,S,D] -> [3,B,S,K,H]，其中 3 对应 q/k/v。
                 qkvs.append(qkv_einsum("BSD,3KDH->3BSKH", x))
             else:
+                # GQA 情形：Q 与 KV 分开投影（kv 头数可小于 query 头数）。
                 q_einsum = lora.Einsum(
                     shape=(config.num_heads, config.width, config.head_dim),
                     name=_name("q_einsum", i),
                     init_fn=nn.initializers.lecun_normal(in_axis=-2, out_axis=-1, batch_axis=(0,)),
                     lora_config=config.lora_configs.get("attn"),
                 )
+                # Q: [B,T,N,H]
                 q = q_einsum("BTD,NDH->BTNH", x)
                 kv_einsum = lora.Einsum(
                     shape=(2, config.num_kv_heads, config.width, config.head_dim),
@@ -195,27 +217,41 @@ class Attention(nn.Module):
                     init_fn=nn.initializers.lecun_normal(in_axis=-2, out_axis=-1, batch_axis=(0, 1)),
                     lora_config=config.lora_configs.get("attn"),
                 )
+                # K/V: [B,S,K,H]
                 k, v = kv_einsum("BSD,2KDH->2BSKH", x)
                 qkvs.append((q, k, v))
 
+        #! 把各 expert 的 Q/K/V 在序列维拼接
+        # 把各 expert 的 q/k/v 沿序列维拼接，形成统一注意力序列。
         q, k, v = (jnp.concatenate(y, axis=1) for y in zip(*qkvs, strict=True))
 
+        #!  对 Q/K 应用 RoPE
+        # 对 Q 应用 RoPE 位置编码，并做标准缩放。
         q = _apply_rope(q, positions=positions)
         q *= self.configs[0].head_dim ** -0.5
 
+        # 对 K 应用相同的 RoPE。
         k = _apply_rope(k, positions=positions)
 
         # should still be half-precision here (if input was half-precision)
         assert q.dtype == k.dtype == v.dtype == dtype
 
+        #! 若有 kv_cache，把历史 K/V 与当前 K/V 拼接。
         if kv_cache is not None:
+            # 推理阶段：把历史 K/V 与当前步 K/V 拼接，得到完整上下文。
             cache_k, cache_v = kv_cache
             k = jnp.concatenate([cache_k, k], axis=1)
             v = jnp.concatenate([cache_v, v], axis=1)
 
+
+        #! rearrange q  和  q k 做点积
+        # 把 query 头拆成 (K,G)：每个 KV 头对应 G 个 query 头。
         q = einops.rearrange(q, "B T (K G) H -> B T K G H", K=self.configs[0].num_kv_heads)
+        # 注意力 logits 在 float32 里计算，提升数值稳定性。
         logits = jnp.einsum("BTKGH,BSKH->BKGTS", q, k, preferred_element_type=jnp.float32)
 
+
+        # 校验 mask 形状是否与 (batch,1,query_len,key_len) 对齐。
         if attn_mask.shape != (q.shape[0], 1, q.shape[1], k.shape[1]):
             raise ValueError(
                 f"Attention mask with shape {attn_mask.shape} but shapes for q and k are: {q.shape} and {k.shape}"
@@ -223,17 +259,24 @@ class Attention(nn.Module):
 
         # big_neg = jnp.finfo(logits.dtype).min
         big_neg = -2.3819763e38  # See gemma/modules.py
-        masked_logits = jnp.where(attn_mask[:, :, None, :, :], logits, big_neg)
 
+
+        # 不可见位置填充极小值，softmax 后概率近似为 0。
+        masked_logits = jnp.where(attn_mask[:, :, None, :, :], logits, big_neg)
+        # softmax 得到注意力权重，再 cast 回原 dtype。
         probs = jax.nn.softmax(masked_logits, axis=-1).astype(dtype)
 
+        # 加权汇聚 V，得到编码表示。
         encoded = jnp.einsum("BKGTS,BSKH->BTKGH", probs, v)
         encoded = einops.rearrange(encoded, "B T K G H -> B T (K G) H")
 
+        
+        #! 按原 expert 的 token 长度切片 encoded，并分别做输出投影。
         out = []
         start = 0
         for i, (x, config) in enumerate(zip(xs, self.configs, strict=True)):
             if x is not None:
+                # 取回当前 expert 对应的序列片段。
                 end = start + x.shape[1]
                 out_einsum = lora.Einsum(
                     shape=(config.num_heads, config.head_dim, config.width),
@@ -241,11 +284,13 @@ class Attention(nn.Module):
                     init_fn=nn.initializers.lecun_normal(in_axis=(-3, -2), out_axis=-1),
                     lora_config=config.lora_configs.get("attn"),
                 )
+                # 投影回该 expert 的隐藏维。
                 out.append(out_einsum("BTNH,NHD->BTD", encoded[:, start:end]))
                 start = end
             else:
                 out.append(None)
 
+        # 返回每个 expert 的 attention 输出，以及可复用的最新 (K,V) cache。
         return out, (k, v)
 
 
@@ -259,6 +304,7 @@ class FeedForward(nn.Module):
     @nn.compact
     def __call__(self, x):
         dtype = x.dtype  # original dtype, could be half-precision
+        #!  创建两个“上投影”矩阵
         w_gating = self.param(
             "gating_einsum",
             nn.initializers.lecun_normal(in_axis=-2, out_axis=-1, batch_axis=(0,)),
