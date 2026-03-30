@@ -95,6 +95,17 @@ class DataConfig:
     # If provided, only these episode indices will be used from the LeRobot dataset.
     episodes: list[int] | None = None
 
+    # Additional LeRobot datasets to concatenate with the main dataset.
+    # Each entry is (repo_id, root_dir, episodes). root_dir can be None to use the default HF cache.
+    # episodes can be None to use all episodes from that dataset.
+    extra_lerobot_datasets: Sequence[tuple[str, str | None, Sequence[int] | None]] = ()
+
+    # Optional sampling weights for the concatenated LeRobot datasets.
+    # If provided, the length must equal: 1 + len(extra_lerobot_datasets),
+    # where index 0 is the primary dataset and the rest follow extra_lerobot_datasets order.
+    # Weights control dataset-level sampling ratio (implemented with replacement sampling).
+    dataset_mix_weights: Sequence[float] | None = None
+
     # Only used for RLDS data loader (ie currently only used for DROID).
     rlds_data_dir: str | None = None
     # Action space for DROID dataset.
@@ -689,7 +700,7 @@ _CONFIGS = [
             base_config=DataConfig(prompt_from_task=True),
             extra_delta_transform=True,
         ),
-        weight_loader=weight_loaders.CheckpointWeightLoader("gs://openpi-assets/checkpoints/pi0_base/params"),
+        weight_loader=weight_loaders.CheckpointWeightLoader("/storage/yukaichengLab/lishiwen/.cache/openpi/openpi-assets/checkpoints/pi0_base/params"),
         num_train_steps=30_000,
         # The freeze filter defines which parameters should be frozen during training.
         # We have a convenience function in the model config that returns the default freeze filter
@@ -899,6 +910,295 @@ _CONFIGS = [
         optimizer=_optimizer.AdamW(clip_gradient_norm=1.0),
         ema_decay=0.999,
         weight_loader=weight_loaders.CheckpointWeightLoader("gs://openpi-assets/checkpoints/pi05_base/params"),
+        num_train_steps=30_000,
+    ),
+    # --- pi0.5 LIBERO-10 single-task retraining from custom base (10k step) ---
+    # Task ids are within libero_10 suite indexing: 0, 6, 9.
+    # Episode ids below are extracted from local LeRobot dataset at:
+    # /storage/yukaichengLab/lishiwen/jiayusun/huggingface/lerobot
+    TrainConfig(
+        name="pi05_libero10_task0_retrain",
+        model=pi0_config.Pi0Config(pi05=True, action_horizon=10, discrete_state_input=False),
+        data=LeRobotLiberoDataConfig(
+            repo_id="physical-intelligence/libero",
+            assets=AssetsConfig(asset_id="pi05_libero10_task0_retrain"),
+            base_config=DataConfig(
+                prompt_from_task=True,
+                episodes=[0, 18, 22, 33, 58, 85, 88, 105, 107],
+            ),
+            extra_delta_transform=False,
+        ),
+        batch_size=64,
+        lr_schedule=_optimizer.CosineDecaySchedule(
+            warmup_steps=1_000,
+            peak_lr=5e-5,
+            decay_steps=30_000,
+            decay_lr=5e-6,
+        ),
+        optimizer=_optimizer.AdamW(clip_gradient_norm=1.0),
+        ema_decay=0.999,
+        weight_loader=weight_loaders.CheckpointWeightLoader(
+            "/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_RETRAIN_base/pi05_libero_RETRAIN_base/10000/params"
+        ),
+        num_train_steps=30_000,
+    ),
+    TrainConfig(
+        name="pi05_libero10_task6_retrain",
+        model=pi0_config.Pi0Config(pi05=True, action_horizon=10, discrete_state_input=False),
+        data=LeRobotLiberoDataConfig(
+            repo_id="physical-intelligence/libero",
+            assets=AssetsConfig(asset_id="pi05_libero10_task6_retrain"),
+            base_config=DataConfig(
+                prompt_from_task=True,
+                episodes=[10, 20, 23, 46, 51, 54, 67, 70, 73, 86, 100, 106],
+            ),
+            extra_delta_transform=False,
+        ),
+        batch_size=64,
+        lr_schedule=_optimizer.CosineDecaySchedule(
+            warmup_steps=1_000,
+            peak_lr=5e-5,
+            decay_steps=30_000,
+            decay_lr=5e-6,
+        ),
+        optimizer=_optimizer.AdamW(clip_gradient_norm=1.0),
+        ema_decay=0.999,
+        weight_loader=weight_loaders.CheckpointWeightLoader(
+            "/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_RETRAIN_base/pi05_libero_RETRAIN_base/10000/params"
+        ),
+        num_train_steps=30_000,
+    ),
+    TrainConfig(
+        name="pi05_libero10_task9_retrain",
+        model=pi0_config.Pi0Config(pi05=True, action_horizon=10, discrete_state_input=False),
+        data=LeRobotLiberoDataConfig(
+            repo_id="physical-intelligence/libero",
+            assets=AssetsConfig(asset_id="pi05_libero10_task9_retrain"),
+            base_config=DataConfig(
+                prompt_from_task=True,
+                episodes=[27, 28, 47, 55, 61, 64, 81, 103, 104, 109],
+            ),
+            extra_delta_transform=False,
+        ),
+        batch_size=64,
+        lr_schedule=_optimizer.CosineDecaySchedule(
+            warmup_steps=1_000,
+            peak_lr=5e-5,
+            decay_steps=30_000,
+            decay_lr=5e-6,
+        ),
+        optimizer=_optimizer.AdamW(clip_gradient_norm=1.0),
+        ema_decay=0.999,
+        weight_loader=weight_loaders.CheckpointWeightLoader(
+            "/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_RETRAIN_base/pi05_libero_RETRAIN_base/10000/params"
+        ),
+        num_train_steps=30_000,
+    ),
+    # --- pi0.5 50/50 co-training: (SGO+LM90) vs (single libero_10 task) ---
+    # Group A (50%): SGO + LM90
+    # Group B (50%): task-specific libero_10 episodes
+    # Since Group A is represented as two concatenated datasets (SGO, LM90),
+    # we split its 50% proportionally by episode counts: 1314 and 3917.
+    # Resulting dataset_mix_weights: [0.1256, 0.3744, 0.5]
+    TrainConfig(
+        name="pi05_sgo_lm90_mix50_task0",
+        model=pi0_config.Pi0Config(pi05=True, action_horizon=10, discrete_state_input=False),
+        data=LeRobotLiberoDataConfig(
+            repo_id="physical-intelligence/libero",
+            assets=AssetsConfig(asset_id="pi05_sgo_lm90_mix50_task0"),
+            base_config=DataConfig(
+                prompt_from_task=True,
+                episodes=(
+                    _suite_eps.LIBERO_GOAL_EPISODES
+                    + _suite_eps.LIBERO_OBJECT_EPISODES
+                    + _suite_eps.LIBERO_SPATIAL_EPISODES
+                ),
+                extra_lerobot_datasets=(
+                    (
+                        "lerobot_lm90",
+                        "/storage/yukaichengLab/lishiwen/jiayusun/huggingface/lerobot_lm90",
+                        None,
+                    ),
+                    (
+                        "physical-intelligence/libero",
+                        None,
+                        [0, 18, 22, 33, 58, 85, 88, 105, 107],
+                    ),
+                ),
+                dataset_mix_weights=(0.1256, 0.3744, 0.5),
+            ),
+            extra_delta_transform=False,
+        ),
+        batch_size=64,
+        lr_schedule=_optimizer.CosineDecaySchedule(
+            warmup_steps=1_000,
+            peak_lr=5e-5,
+            decay_steps=30_000,
+            decay_lr=5e-6,
+        ),
+        optimizer=_optimizer.AdamW(clip_gradient_norm=1.0),
+        ema_decay=0.999,
+        weight_loader=weight_loaders.CheckpointWeightLoader(
+            "/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_RETRAIN_base/pi05_libero_RETRAIN_base/10000/params"
+        ),
+        num_train_steps=30_000,
+    ),
+    TrainConfig(
+        name="pi05_sgo_lm90_mix50_task6",
+        model=pi0_config.Pi0Config(pi05=True, action_horizon=10, discrete_state_input=False),
+        data=LeRobotLiberoDataConfig(
+            repo_id="physical-intelligence/libero",
+            assets=AssetsConfig(asset_id="pi05_sgo_lm90_mix50_task6"),
+            base_config=DataConfig(
+                prompt_from_task=True,
+                episodes=(
+                    _suite_eps.LIBERO_GOAL_EPISODES
+                    + _suite_eps.LIBERO_OBJECT_EPISODES
+                    + _suite_eps.LIBERO_SPATIAL_EPISODES
+                ),
+                extra_lerobot_datasets=(
+                    (
+                        "lerobot_lm90",
+                        "/storage/yukaichengLab/lishiwen/jiayusun/huggingface/lerobot_lm90",
+                        None,
+                    ),
+                    (
+                        "physical-intelligence/libero",
+                        None,
+                        [10, 20, 23, 46, 51, 54, 67, 70, 73, 86, 100, 106],
+                    ),
+                ),
+                dataset_mix_weights=(0.1256, 0.3744, 0.5),
+            ),
+            extra_delta_transform=False,
+        ),
+        batch_size=64,
+        lr_schedule=_optimizer.CosineDecaySchedule(
+            warmup_steps=1_000,
+            peak_lr=5e-5,
+            decay_steps=30_000,
+            decay_lr=5e-6,
+        ),
+        optimizer=_optimizer.AdamW(clip_gradient_norm=1.0),
+        ema_decay=0.999,
+        weight_loader=weight_loaders.CheckpointWeightLoader(
+            "/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_RETRAIN_base/pi05_libero_RETRAIN_base/10000/params"
+        ),
+        num_train_steps=30_000,
+    ),
+    TrainConfig(
+        name="pi05_sgo_lm90_mix50_task9",
+        model=pi0_config.Pi0Config(pi05=True, action_horizon=10, discrete_state_input=False),
+        data=LeRobotLiberoDataConfig(
+            repo_id="physical-intelligence/libero",
+            assets=AssetsConfig(asset_id="pi05_sgo_lm90_mix50_task9"),
+            base_config=DataConfig(
+                prompt_from_task=True,
+                episodes=(
+                    _suite_eps.LIBERO_GOAL_EPISODES
+                    + _suite_eps.LIBERO_OBJECT_EPISODES
+                    + _suite_eps.LIBERO_SPATIAL_EPISODES
+                ),
+                extra_lerobot_datasets=(
+                    (
+                        "lerobot_lm90",
+                        "/storage/yukaichengLab/lishiwen/jiayusun/huggingface/lerobot_lm90",
+                        None,
+                    ),
+                    (
+                        "physical-intelligence/libero",
+                        None,
+                        [27, 28, 47, 55, 61, 64, 81, 103, 104, 109],
+                    ),
+                ),
+                dataset_mix_weights=(0.1256, 0.3744, 0.5),
+            ),
+            extra_delta_transform=False,
+        ),
+        batch_size=64,
+        lr_schedule=_optimizer.CosineDecaySchedule(
+            warmup_steps=1_000,
+            peak_lr=5e-5,
+            decay_steps=30_000,
+            decay_lr=5e-6,
+        ),
+        optimizer=_optimizer.AdamW(clip_gradient_norm=1.0),
+        ema_decay=0.999,
+        weight_loader=weight_loaders.CheckpointWeightLoader(
+            "/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_RETRAIN_base/pi05_libero_RETRAIN_base/10000/params"
+        ),
+        num_train_steps=30_000,
+    ),
+    # --- pi0.5 spatial+goal+object (3 suites combined) ---
+    TrainConfig(
+        name="pi05_libero_sgo",
+        model=pi0_config.Pi0Config(pi05=True, action_horizon=10, discrete_state_input=False),
+        data=LeRobotLiberoDataConfig(
+            repo_id="physical-intelligence/libero",
+            base_config=DataConfig(
+                prompt_from_task=True,
+                # spatial (1261-1692) + goal (379-806) + object (807-1260) = 1314 episodes
+                episodes=(
+                    _suite_eps.LIBERO_GOAL_EPISODES
+                    + _suite_eps.LIBERO_OBJECT_EPISODES
+                    + _suite_eps.LIBERO_SPATIAL_EPISODES
+                ),
+            ),
+            extra_delta_transform=False,
+        ),
+        batch_size=64,
+        lr_schedule=_optimizer.CosineDecaySchedule(
+            warmup_steps=1_000,
+            peak_lr=5e-5,
+            decay_steps=30_000,
+            decay_lr=5e-6,
+        ),
+        optimizer=_optimizer.AdamW(clip_gradient_norm=1.0),
+        ema_decay=0.999,
+        weight_loader=weight_loaders.CheckpointWeightLoader(
+            "/storage/yukaichengLab/lishiwen/jiayusun/openpi_pt/pi05_model/pi05_base/params"
+        ),
+        num_train_steps=30_000,
+    ),
+    # --- pi0.5 spatial+goal+object + libero_lm90 (all 90 tasks) ---
+    # Primary: physical-intelligence/libero SGO (1314 eps)
+    # Extra:   lerobot_lm90 (3917 eps, 73 tasks, locally at /storage/.../huggingface/lerobot_lm90)
+    # Combined: ~5231 eps. Unified norm stats saved under asset_id "pi05_libero_sgo_lm90".
+    TrainConfig(
+        name="pi05_libero_sgo_lm90",
+        model=pi0_config.Pi0Config(pi05=True, action_horizon=10, discrete_state_input=False),
+        data=LeRobotLiberoDataConfig(
+            repo_id="physical-intelligence/libero",
+            assets=AssetsConfig(asset_id="pi05_libero_sgo_lm90"),
+            base_config=DataConfig(
+                prompt_from_task=True,
+                episodes=(
+                    _suite_eps.LIBERO_GOAL_EPISODES
+                    + _suite_eps.LIBERO_OBJECT_EPISODES
+                    + _suite_eps.LIBERO_SPATIAL_EPISODES
+                ),
+                extra_lerobot_datasets=(
+                    (
+                        "lerobot_lm90",
+                        "/storage/yukaichengLab/lishiwen/jiayusun/huggingface/lerobot_lm90",
+                        None,  # use all 3917 episodes
+                    ),
+                ),
+            ),
+            extra_delta_transform=False,
+        ),
+        batch_size=64,
+        lr_schedule=_optimizer.CosineDecaySchedule(
+            warmup_steps=1_000,
+            peak_lr=5e-5,
+            decay_steps=30_000,
+            decay_lr=5e-6,
+        ),
+        optimizer=_optimizer.AdamW(clip_gradient_norm=1.0),
+        ema_decay=0.999,
+        weight_loader=weight_loaders.CheckpointWeightLoader(
+            "/storage/yukaichengLab/lishiwen/jiayusun/openpi_pt/pi05_model/pi05_base/params"
+        ),
         num_train_steps=30_000,
     ),
     #

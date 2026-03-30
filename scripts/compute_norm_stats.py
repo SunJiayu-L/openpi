@@ -12,6 +12,7 @@ to the config assets directory.
 import numpy as np
 import tqdm
 import tyro
+import torch
 
 import openpi.models.model as _model
 import openpi.shared.normalize as normalize
@@ -47,9 +48,9 @@ def create_torch_dataloader(
         raise ValueError("Data config must have a repo_id")
 
     # 先构建原始 torch dataset，再串联重排/预处理/去字符串三个变换。
-    dataset = _data_loader.create_torch_dataset(data_config, action_horizon, model_config)
+    raw_dataset = _data_loader.create_torch_dataset(data_config, action_horizon, model_config)
     dataset = _data_loader.TransformedDataset(
-        dataset,
+        raw_dataset,
         [
             *data_config.repack_transforms.inputs,
             *data_config.data_transforms.inputs,
@@ -66,11 +67,40 @@ def create_torch_dataloader(
     else:
         num_batches = len(dataset) // batch_size
         shuffle = False
+
+    sampler = None
+    if data_config.dataset_mix_weights is not None:
+        if not isinstance(raw_dataset, torch.utils.data.ConcatDataset):
+            raise ValueError("dataset_mix_weights requires concatenated datasets (set extra_lerobot_datasets).")
+        mix_weights = list(data_config.dataset_mix_weights)
+        subdatasets = list(raw_dataset.datasets)
+        if len(mix_weights) != len(subdatasets):
+            raise ValueError(
+                f"dataset_mix_weights length ({len(mix_weights)}) must match number of datasets ({len(subdatasets)})."
+            )
+        if any(w <= 0 for w in mix_weights):
+            raise ValueError("dataset_mix_weights must be positive.")
+
+        sample_weights = []
+        for w, ds in zip(mix_weights, subdatasets, strict=True):
+            n = len(ds)
+            if n <= 0:
+                raise ValueError("All datasets in mixture must be non-empty.")
+            sample_weights.extend([w / n] * n)
+
+        sampler = torch.utils.data.WeightedRandomSampler(
+            weights=torch.as_tensor(sample_weights, dtype=torch.double),
+            num_samples=len(dataset),
+            replacement=True,
+        )
+        shuffle = False
+
     data_loader = _data_loader.TorchDataLoader(
         dataset,
         local_batch_size=batch_size,
         num_workers=num_workers,
         shuffle=shuffle,
+        sampler=sampler,
         num_batches=num_batches,
     )
     return data_loader, num_batches
@@ -140,7 +170,8 @@ def main(config_name: str, max_frames: int | None = None):
     # 导出最终统计结果并保存到 assets/{config_name}/{repo_id}/norm_stats.json。
     norm_stats = {key: stats.get_statistics() for key, stats in stats.items()}
 
-    output_path = config.assets_dirs / data_config.repo_id
+    # Use asset_id if available (e.g. for mixed datasets), otherwise fall back to repo_id.
+    output_path = config.assets_dirs / (data_config.asset_id or data_config.repo_id)
     print(f"Writing stats to: {output_path}")
     normalize.save(output_path, norm_stats)
 

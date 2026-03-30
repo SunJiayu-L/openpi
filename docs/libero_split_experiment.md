@@ -20,7 +20,7 @@
 
 ### 2.2 数据集 task_index 与 suite 的对应关系
 
-**关键发现：数据集的 task_index 排列与 LIBERO benchmark 库的 suite 内部排列不同。**
+**cc**
 
 数据集中 task_index 按以下规则分布：
 

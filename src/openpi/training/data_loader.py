@@ -2,6 +2,7 @@ from collections.abc import Iterator, Sequence
 import logging
 import multiprocessing
 import os
+import pathlib
 import typing
 from typing import Literal, Protocol, SupportsIndex, TypeVar
 
@@ -161,7 +162,37 @@ def create_torch_dataset(
     if data_config.prompt_from_task:
         dataset = TransformedDataset(dataset, [_transforms.PromptFromLeRobotTask(dataset_meta.tasks)])
 
-    return dataset
+    if not data_config.extra_lerobot_datasets:
+        return dataset
+
+    # Concatenate with extra datasets.
+    all_datasets = [dataset]
+    for extra_repo_id, extra_root, extra_episodes in data_config.extra_lerobot_datasets:
+        root_path = pathlib.Path(extra_root) if extra_root else None
+        extra_meta = lerobot_dataset.LeRobotDatasetMetadata(extra_repo_id, root=root_path)
+        extra_ds = lerobot_dataset.LeRobotDataset(
+            extra_repo_id,
+            root=root_path,
+            delta_timestamps={
+                key: [t / extra_meta.fps for t in range(action_horizon)]
+                for key in data_config.action_sequence_keys
+            },
+        )
+        if extra_episodes is not None:
+            episode_set = set(extra_episodes)
+            all_ep_indices = torch.stack(extra_ds.hf_dataset["episode_index"]).numpy()
+            mask = np.isin(all_ep_indices, list(episode_set))
+            indices = np.where(mask)[0].tolist()
+            logging.info(f"[extra] Filtering {extra_repo_id} to {len(episode_set)} episodes: {len(indices)} frames")
+            extra_ds = torch.utils.data.Subset(extra_ds, indices)
+        if data_config.prompt_from_task:
+            extra_ds = TransformedDataset(extra_ds, [_transforms.PromptFromLeRobotTask(extra_meta.tasks)])
+        logging.info(f"Adding extra dataset {extra_repo_id}: {len(extra_ds)} samples")
+        all_datasets.append(extra_ds)
+
+    combined = torch.utils.data.ConcatDataset(all_datasets)
+    logging.info(f"Combined dataset size: {len(combined)} samples")
+    return combined
 
 
 def create_rlds_dataset(
@@ -319,8 +350,37 @@ def create_torch_data_loader(
     # For PyTorch DDP, create DistributedSampler and divide batch size by world size
     # For JAX, divide by process count
     sampler = None
+    if data_config.dataset_mix_weights is not None:
+        base_dataset = dataset._dataset if isinstance(dataset, TransformedDataset) else dataset
+        if not isinstance(base_dataset, torch.utils.data.ConcatDataset):
+            raise ValueError("dataset_mix_weights requires concatenated datasets (set extra_lerobot_datasets).")
+        mix_weights = list(data_config.dataset_mix_weights)
+        subdatasets = list(base_dataset.datasets)
+        if len(mix_weights) != len(subdatasets):
+            raise ValueError(
+                f"dataset_mix_weights length ({len(mix_weights)}) must match number of datasets ({len(subdatasets)})."
+            )
+        if any(w <= 0 for w in mix_weights):
+            raise ValueError("dataset_mix_weights must be positive.")
+
+        # Convert dataset-level weights to per-sample weights so effective dataset sampling ratio follows mix_weights.
+        sample_weights = []
+        for w, ds in zip(mix_weights, subdatasets, strict=True):
+            n = len(ds)
+            if n <= 0:
+                raise ValueError("All datasets in mixture must be non-empty.")
+            sample_weights.extend([w / n] * n)
+
+        sampler = torch.utils.data.WeightedRandomSampler(
+            weights=torch.as_tensor(sample_weights, dtype=torch.double),
+            num_samples=len(dataset),
+            replacement=True,
+        )
+
     if framework == "pytorch":
         if torch.distributed.is_initialized():
+            if sampler is not None:
+                raise NotImplementedError("dataset_mix_weights is not supported with torch distributed sampler yet.")
             sampler = torch.utils.data.distributed.DistributedSampler(
                 dataset,
                 num_replicas=torch.distributed.get_world_size(),

@@ -546,109 +546,192 @@ time_emb (B, 1024)             action_tokens (B, 50, 1024)
 
 ## 四、双专家 Transformer：PaliGemma + Action Expert
 
-这是整个系统最核心的设计。**两个 Gemma 模型共享同一套 Attention 权重，但有各自独立的 FFN、Norm 和 Projection 权重**。
+这是整个系统最核心的设计。**两个专家各自拥有完全独立的全部权重（Q/K/V 投影、输出投影、FFN、Norm），但两个专家的 token 序列拼接后共同参与同一次 Attention 计算，从而实现跨专家的信息交互**。
 
 源码位于 `src/openpi/models/gemma.py`
 
-### 4.1 设计思想：混合专家注意力
+### 4.1 设计思想：跨专家注意力
 
 ```
 Prefix 序列 (图像 + 文本 tokens)        Suffix 序列 (动作 tokens)
   │                                         │
-  │  使用 PaliGemma 的 FFN/Norm 权重          │  使用 Action Expert 的 FFN/Norm 权重
+  │  各自用独立的 Q/K/V 投影权重              │  各自用独立的 Q/K/V 投影权重
+  │  q_einsum (2048→256 per head)           │  q_einsum_1 (1024→256 per head)
   │                                         │
   └──────────────┬──────────────────────────┘
-                 │  两个序列拼接，
-                 │  共享同一套 Attention Q/K/V 权重
-                 │  → 统一做注意力计算
+                 │  投影后的 Q/K/V 拼接，
+                 │  → 统一做一次 Attention 计算
+                 │  → 动作 token 可 attend 图像/文本 token
                  │
                  ▼
-              输出分开
+              输出按序列分割
        Prefix 输出 (忽略)      Suffix 输出 → 动作预测
 ```
 
-**关键点**：共享 Attention 意味着动作 token 可以直接 attend 到图像和语言 token，实现视觉-语言-动作的统一建模。
+> ⚠️ **常见误解**：两个专家并不共享 Q/K/V 权重。Language expert 的 Q 输入维度是 2048，Action expert 是 1024，物理上无法共享。"共享 Attention" 的含义是两个序列拼接后参与同一次 softmax 计算，而非共享权重张量。
+
+**关键点**：跨序列 Attention 意味着动作 token 可以直接 attend 到图像和语言 token，实现视觉-语言-动作的统一建模。
 
 ### 4.2 双专家 Transformer 整体结构
 
 ```
 PaliGemmaWithExpert (Module in gemma.py)
-├── embedder: Embedder(vocab_size=257152, embed_dim=2048)   ← 只有 PaliGemma 用
+├── embedder: Embedder(vocab_size=257152, embed_dim=2048)   ← 只有 language expert 用
+│   └── input_embedding [257152, 2048]
 ├── layers: [Block × 18]                                    ← 18 层，每层双专家
 │   └── 每层 Block:
-│       ├── pre_attention_norm (RMSNorm)      ← 两个专家各一个
-│       ├── attn (Attention)                  ← 两个专家共享
-│       ├── pre_ffw_norm (RMSNorm)            ← 两个专家各一个
-│       └── mlp (FeedForward)                 ← 两个专家各一个
-└── final_norms: [RMSNorm × 2]                ← 两个专家各一个最终 Norm
+│       ├── pre_attention_norm   (language, RMSNorm)     ← 参数: scale [18, 2048]
+│       ├── pre_attention_norm_1 (action,   adaRMSNorm)  ← 参数: Dense_0/kernel [18,1024,3072]
+│       │                                                          Dense_0/bias   [18, 3072]
+│       ├── attn                                         ← 两个专家各有独立的 Q/K/V/O 投影
+│       │   ├── q_einsum          (language) [18, 8, 2048, 256]
+│       │   ├── q_einsum_1        (action)   [18, 8, 1024, 256]
+│       │   ├── kv_einsum         (language) [18, 2, 1, 2048, 256]
+│       │   ├── kv_einsum_1       (action)   [18, 2, 1, 1024, 256]
+│       │   ├── attn_vec_einsum   (language) [18, 8, 256, 2048]
+│       │   └── attn_vec_einsum_1 (action)   [18, 8, 256, 1024]
+│       ├── pre_ffw_norm   (language, RMSNorm)     ← 参数: scale [18, 2048]
+│       ├── pre_ffw_norm_1 (action,   adaRMSNorm)  ← 参数: Dense_0/kernel [18,1024,3072]
+│       │                                                    Dense_0/bias   [18, 3072]
+│       ├── mlp   (language FFN) [18,2,2048,16384] + [18,16384,2048]
+│       └── mlp_1 (action FFN)   [18,2,1024,4096]  + [18,4096,1024]
+└── final_norms:
+    ├── final_norm   (language, RMSNorm)    ← scale [2048]
+    └── final_norm_1 (action,   adaRMSNorm) ← Dense_0/kernel [1024,3072], bias [3072]
 ```
 
-### 4.3 单个 Block 前向传播
+### 4.3 Module 完整前向传播
 
-源码位于 `gemma.py:283-333`
+源码位于 `gemma.py:386-457`（Module.__call__）、`gemma.py:338-379`（Block.__call__）
 
 ```
-输入 xs = [prefix_tokens (B, S_pre, 2048), suffix_tokens (B, S_suf, 1024)]
-         adarms_cond = [None, time_emb (B, 1024)]  ← π0.5 时 suffix 有条件
+══════════════════════════════════════════════════════════════
+  【输入】（由 pi0.py 在外部准备好后传入 Module）
+══════════════════════════════════════════════════════════════
+
+  prefix_tokens  (B, S_pre, 2048)   ← 已经 embed 好的图像+语言 tokens
+  suffix_tokens  (B, S_suf, 1024)   ← action_in_proj 投影后的动作 tokens
+  adarms_cond  = [None, time_emb (B, 1024)]
+                   ↑         ↑
+               language    action（π0.5 有，π0 为 None）
+
+══════════════════════════════════════════════════════════════
+  【Embedder】（gemma.py:134-151，在 pi0.py 中调用 Module.embed()）
+  注：embed 步骤在 Block 之前，由 pi0.py 显式调用，不在 Module.__call__ 内
+══════════════════════════════════════════════════════════════
+
+  token_ids (B, T)                   ← 语言 token ID
+        |
+        v
+  input_embedding_table[token_ids]   ← 查表，参数: embedder/input_embedding [257152, 2048]
+        |
+        v  × √2048 ≈ 45.25           ← 缩放（gemma.py:150）
+        |
+  prefix_lang_tokens (B, T, 2048)    ← 送入 prefix 序列
+
+══════════════════════════════════════════════════════════════
+  【Block × 18】（nn.scan，权重 axis=0 扫描，gemma.py:411-427）
+  每层结构相同，参数独立（shape 第 0 维为层索引）
+══════════════════════════════════════════════════════════════
+
         |
         |  === Attention 子层 ===
         |
         v
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  Pre-Attention Norm（各专家独立）                                     │
+  │  Pre-Attention Norm（各专家独立，gemma.py:347-351）                   │
   │                                                                     │
-  │  prefix: pre_attention_norm_0(prefix_tokens, cond=None)             │
-  │          → RMSNorm → (B, S_pre, 2048)                               │
+  │  prefix: pre_attention_norm (cond=None)                             │
+  │          → RMSNorm                                                  │
+  │          → (B, S_pre, 2048)，gate=None                              │
+  │          参数: pre_attention_norm/scale  [18, 2048]                  │
   │                                                                     │
-  │  suffix: pre_attention_norm_1(suffix_tokens, cond=time_emb)         │
-  │          → adaRMSNorm (π0.5) 或 RMSNorm (π0)                        │
-  │          → (B, S_suf, 1024)，同时输出 gate                           │
+  │  suffix: pre_attention_norm_1 (cond=time_emb)                       │
+  │          → adaRMSNorm (π0.5) 或 RMSNorm (π0，cond=None)             │
+  │          → (B, S_suf, 1024)，同时输出 gate (B, 1, 1024)             │
+  │          参数: pre_attention_norm_1/Dense_0/kernel [18, 1024, 3072]  │
+  │                pre_attention_norm_1/Dense_0/bias   [18, 3072]        │
   └─────────────────────────────────────────────────────────────────────┘
         |
         v
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  Shared Attention（两专家共享权重，拼接后统一计算）                     │
+  │  跨专家 Attention（各自投影，拼接后统一做 softmax，gemma.py:353-354）  │
   │                                                                     │
-  │  Q: q_einsum_0(prefix) ── 拼接 ──> (B, S_total, 8, 256)            │
-  │     q_einsum_1(suffix) ──┘                                          │
+  │  Q: q_einsum   (prefix,  2048→256/head) ── concat ──> (B,S_tot,8,256) │
+  │     q_einsum_1 (suffix,  1024→256/head) ──┘                        │
+  │     参数: q_einsum [18,8,2048,256]  /  q_einsum_1 [18,8,1024,256]  │
   │                                                                     │
-  │  K: kv_einsum_0(prefix) ── 拼接 ──> (B, S_total, 1, 256)           │
-  │     kv_einsum_1(suffix) ──┘                                         │
-  │                                                                     │
-  │  V: 同上                                                             │
+  │  K/V: kv_einsum   (prefix, 2048→256) ─── concat ──> (B,S_tot,1,256) │
+  │       kv_einsum_1 (suffix, 1024→256) ──┘                           │
+  │       参数: kv_einsum [18,2,1,2048,256]  /  kv_einsum_1 [18,2,1,1024,256] │
+  │       （第 0 维索引 0=K，1=V）                                       │
   │                                                                     │
   │  RoPE 位置编码 → Q, K 旋转                                           │
   │  Scale: head_dim^(-0.5) = 256^(-0.5) = 0.0625                      │
   │  掩码（make_attn_mask）控制注意力可见性                               │
-  │  softmax → (B, 1, 8, S_total, S_total) [GQA: 8Q 共享 1 KV]         │
-  │  → 输出分割回各专家                                                   │
+  │  softmax，GQA: 8 个 Q head 共享 1 个 KV head                        │
+  │  → 输出按序列长度分割回各专家                                          │
   │                                                                     │
-  │  output_proj_0(prefix_out) → (B, S_pre, 2048)                      │
-  │  output_proj_1(suffix_out) → (B, S_suf, 1024)                      │
+  │  attn_vec_einsum   (prefix_out, 256→2048) → (B, S_pre, 2048)       │
+  │  attn_vec_einsum_1 (suffix_out, 256→1024) → (B, S_suf, 1024)       │
+  │  参数: attn_vec_einsum [18,8,256,2048]  /  attn_vec_einsum_1 [18,8,256,1024] │
   └─────────────────────────────────────────────────────────────────────┘
         |
-        |  gated_residual: x + y * gate (π0.5 adaRMS) 或 x + y (π0)
+        |  gated_residual（gemma.py:357）
+        |  x + y * gate  (π0.5 adaRMS，gate 非 None)
+        |  x + y         (π0，gate=None)
         v
-        x (B, S_pre, 2048) + x (B, S_suf, 1024)
+        xs (B, S_pre, 2048) + (B, S_suf, 1024)
         |
         |  === FFN 子层 ===
-        v
-  ┌─────────────────────────────────────────────────────────────────────┐
-  │  Pre-FFW Norm（各专家独立，与 Attention 同样的 RMS/adaRMS 机制）       │
-  └─────────────────────────────────────────────────────────────────────┘
         |
         v
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  FeedForward（各专家独立权重）                                        │
+  │  Pre-FFW Norm（各专家独立，gemma.py:364，与 Attention Norm 机制相同）  │
   │                                                                     │
-  │  PaliGemma FFN: (B, S_pre, 2048) → 16384 → 2048  (GeGLU)          │
-  │  Action Expert FFN: (B, S_suf, 1024) → 4096 → 1024  (GeGLU)       │
-  │  (详见 4.5)                                                          │
+  │  prefix: pre_ffw_norm (cond=None)    → RMSNorm，gate=None           │
+  │          参数: pre_ffw_norm/scale  [18, 2048]                        │
+  │                                                                     │
+  │  suffix: pre_ffw_norm_1 (cond=time_emb) → adaRMSNorm，输出 gate     │
+  │          参数: pre_ffw_norm_1/Dense_0/kernel [18, 1024, 3072]        │
+  │                pre_ffw_norm_1/Dense_0/bias   [18, 3072]              │
   └─────────────────────────────────────────────────────────────────────┘
         |
-        |  gated_residual
         v
-   输出 xs = [prefix_out (B, S_pre, 2048), suffix_out (B, S_suf, 1024)]
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  FeedForward（各专家独立权重，GeGLU，gemma.py:365-370）               │
+  │                                                                     │
+  │  PaliGemma:    (B,S_pre,2048) → 16384 → 2048                       │
+  │    mlp/gating_einsum [18,2,2048,16384]  （[i,0]=gate，[i,1]=up）    │
+  │    mlp/linear        [18,16384,2048]    （down 投影）                │
+  │                                                                     │
+  │  Action Expert: (B,S_suf,1024) → 4096 → 1024                       │
+  │    mlp_1/gating_einsum [18,2,1024,4096] （[i,0]=gate，[i,1]=up）    │
+  │    mlp_1/linear        [18,4096,1024]   （down 投影）                │
+  └─────────────────────────────────────────────────────────────────────┘
+        |
+        |  gated_residual（同上）
+        v
+   每层输出 xs = [(B, S_pre, 2048), (B, S_suf, 1024)]
+   ↑ 重复 18 次（nn.scan）
+
+══════════════════════════════════════════════════════════════
+  【final_norm】（gemma.py:428,455-457，所有 Block 之后）
+══════════════════════════════════════════════════════════════
+
+  prefix_out → final_norm   (cond=None)     → RMSNorm → (B, S_pre, 2048)
+               参数: llm/final_norm/scale  [2048]
+
+  suffix_out → final_norm_1 (cond=time_emb) → adaRMSNorm → (B, S_suf, 1024)
+               参数: llm/final_norm_1/Dense_0/kernel [1024, 3072]
+                     llm/final_norm_1/Dense_0/bias   [3072]
+
+══════════════════════════════════════════════════════════════
+  【输出】
+══════════════════════════════════════════════════════════════
+
+  [prefix_out (B, S_pre, 2048),  suffix_out (B, S_suf, 1024)]
+  suffix_out 的后 50 个 token → action_out_proj → 预测动作 (B, 50, 32)
 ```
 
 ### 4.4 Attention（GQA + RoPE）
@@ -713,51 +796,76 @@ w_linear: (hidden_dim, features)
 output = activations @ w_linear      # (B, T, features)
 ```
 
-**PaliGemma FFN 参数**：
+**PaliGemma FFN 参数**（checkpoint 键名：`mlp/`）：
 
-| 参数 | 形状 | 说明 |
-|------|------|------|
-| `gating_einsum` | (2, 2048, 16384) | gate + up 投影 |
-| `linear` | (16384, 2048) | down 投影 |
+| checkpoint 参数 | 实际 shape | 说明 |
+|----------------|-----------|------|
+| `mlp/gating_einsum` | `[18, 2, 2048, 16384]` | `[i,0]`=gate 投影，`[i,1]`=up 投影（打包存储） |
+| `mlp/linear`        | `[18, 16384, 2048]`    | down 投影 |
 
-**Action Expert FFN 参数**：
+**Action Expert FFN 参数**（checkpoint 键名：`mlp_1/`）：
 
-| 参数 | 形状 | 说明 |
-|------|------|------|
-| `gating_einsum_1` | (2, 1024, 4096) | gate + up 投影 |
-| `linear_1` | (4096, 1024) | down 投影 |
+| checkpoint 参数 | 实际 shape | 说明 |
+|----------------|-----------|------|
+| `mlp_1/gating_einsum` | `[18, 2, 1024, 4096]` | `[i,0]`=gate 投影，`[i,1]`=up 投影（打包存储） |
+| `mlp_1/linear`        | `[18, 4096, 1024]`    | down 投影 |
+
+> `gating_einsum` 第一维的 `2` 就是 gate 和 up 的索引，**一个张量打包了两个逻辑独立的投影矩阵**。`linear` 是第三个（down 投影）。
 
 ### 4.6 Normalization：RMSNorm 与 adaRMSNorm
 
 源码位于 `gemma.py:112-131`
 
-**普通 RMSNorm**（PaliGemma 专家使用，π0 Action Expert 也使用）：
+同一个 `RMSNorm` 类根据 `cond` 参数走不同分支：
+
+**普通 RMSNorm**（`cond=None`，language expert 全程使用；π0 的 action expert 也使用）：
 ```python
-var = mean(x²)                         # float32
-normed = x / sqrt(var + 1e-6)
-scale = param("scale", zeros, (dim,))  # 初始化为 0
-return normed * (1 + scale)            # 注意: 初始等效于 normed * 1
+# cond is None → 普通 RMSNorm
+scale = self.param("scale", zeros_init(), (dim,))   # 唯一参数，初始化为 0
+normed = x / sqrt(mean(x²) + 1e-6)
+return normed * (1 + scale)     # 初始等效于恒等映射
 ```
 
-**adaRMSNorm**（π0.5 的 Action Expert 使用）：
-```python
-# cond 是时步 embedding (B, 1024)
-modulation = Dense(dim * 3, kernel_init=zeros)(cond)  # 初始化为 0
-scale, shift, gate = split(modulation, 3)              # 各 (B, 1, dim)
+checkpoint 参数：只有 `scale [dim]`
 
-normed = RMSNorm(x)
+**adaRMSNorm**（`cond=time_emb`，π0.5 的 action expert 使用）：
+```python
+# cond = time_emb (B, 1024)
+modulation = nn.Dense(dim * 3, kernel_init=zeros)(cond)  # Dense_0: 1024 → dim*3
+scale, shift, gate = split(modulation[:, None, :], 3)    # 各 (B, 1, dim)
+
+normed = x / sqrt(mean(x²) + 1e-6)
 output = normed * (1 + scale) + shift    # 时步条件调制
-gate                                     # 用于残差连接: x + y * gate
+return output, gate                      # gate 用于门控残差: x + y * gate
+```
+
+checkpoint 参数：`Dense_0/kernel [1024, dim*3]` + `Dense_0/bias [dim*3]`
+
+**调用时传入的 adarms_cond**（`gemma.py:339,449`）：
+```python
+adarms_cond = [None,     time_emb]
+#              ↑              ↑
+#          language        action
+#        → 普通RMSNorm   → adaRMSNorm（有 Dense_0 参数）
 ```
 
 **adaRMSNorm 与普通 RMSNorm 的区别**：
 
 | | 普通 RMSNorm | adaRMSNorm |
 |--|-------------|-----------|
+| checkpoint 参数 | `scale [dim]` | `Dense_0/kernel [1024, dim*3]` + `bias [dim*3]` |
 | scale | 固定可学习参数 | 由时步 embedding 动态生成 |
 | shift | 无 | 由时步 embedding 动态生成 |
 | gate | 无 | 由时步 embedding 动态生成，用于门控残差 |
 | 残差 | `x + y` | `x + y * gate` |
+
+**adaRMSNorm 出现位置**（π0.5，action expert）：
+
+| 位置 | checkpoint 键 | 输入→输出 |
+|------|-------------|---------|
+| 每层 attention 前 | `pre_attention_norm_1/Dense_0/*` | `[18, 1024, 3072]` / `[18, 3072]` |
+| 每层 FFN 前 | `pre_ffw_norm_1/Dense_0/*` | `[18, 1024, 3072]` / `[18, 3072]` |
+| 最终输出 norm | `llm/final_norm_1/Dense_0/*` | `[1024, 3072]` / `[3072]` |
 
 ### 4.7 Gemma 配置汇总
 
