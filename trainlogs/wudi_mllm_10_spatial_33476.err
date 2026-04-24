@@ -1,0 +1,81 @@
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.19.11
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+2026-04-09 23:04:46,887 INFO wandb initialized.
+2026-04-09 23:04:46,887 INFO Loading base checkpoint…
+2026-04-09 23:04:59,959 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000/params
+2026-04-09 23:04:59,959 INFO orbax-checkpoint version: 0.11.13
+2026-04-09 23:04:59,959 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7fe9a5917f50>
+2026-04-09 23:04:59,981 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000/params.
+2026-04-09 23:05:04,596 INFO [thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID.
+INFO:2026-04-09 23:05:05,623:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-04-09 23:05:05,623 INFO Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:2026-04-09 23:05:05,624:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-04-09 23:05:05,624 INFO Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-04-09 23:05:05,633 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 2.2 GiB/s (total bytes: 12.5 GiB) (time elapsed: 5 seconds) (per-host)
+2026-04-09 23:05:05,633 INFO Finished restoring checkpoint in 5.65 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000/params.
+2026-04-09 23:05:05,634 INFO Loading 2 fine-tuned checkpoint(s)…
+2026-04-09 23:05:05,637 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_10_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params
+2026-04-09 23:05:05,638 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7fe9a5917f50>
+2026-04-09 23:05:05,652 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_10_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-09 23:05:09,926 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 2.9 GiB/s (total bytes: 12.5 GiB) (time elapsed: 4 seconds) (per-host)
+2026-04-09 23:05:09,927 INFO Finished restoring checkpoint in 4.27 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_10_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-09 23:05:09,931 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params
+2026-04-09 23:05:09,931 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7fe9a5917f50>
+2026-04-09 23:05:09,946 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-09 23:05:13,778 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 3.3 GiB/s (total bytes: 12.5 GiB) (time elapsed: 3 seconds) (per-host)
+2026-04-09 23:05:13,778 INFO Finished restoring checkpoint in 3.83 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-09 23:05:13,779 INFO WUDI-eligible: 10 / 51 params  (scope=llm_only)
+2026-04-09 23:05:13,779 INFO In-scope (avg for non-attn/FFN, excl norm/bias): 19 params
+2026-04-09 23:05:13,779 INFO Norm/bias frozen at base: 27 params
+2026-04-09 23:05:15,818 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L0][b0]] step   0  loss=1.7851e-01  lr=1.00e-05
+2026-04-09 23:05:17,396 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L0][b0]] step 833  loss=1.8998e-02  lr=1.00e-05
+2026-04-09 23:05:18,952 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L0][b0]] step 1666  loss=1.1623e-02  lr=1.00e-05
+2026-04-09 23:05:20,508 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L0][b0]] step 2499  loss=8.4356e-03  lr=1.00e-05
+2026-04-09 23:05:22,064 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L0][b0]] step 3332  loss=6.4849e-03  lr=1.00e-05
+2026-04-09 23:05:23,619 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L0][b0]] step 4165  loss=5.1263e-03  lr=1.00e-05
+2026-04-09 23:05:25,173 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L0][b0]] step 4998  loss=4.1196e-03  lr=1.00e-05
+2026-04-09 23:05:25,175 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L0][b0]] step 4999  loss=4.1186e-03  lr=1.00e-05
+2026-04-09 23:05:25,176 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L0][b0]] summary first=1.7851e-01 best=4.1186e-03@4999 final=4.1186e-03
+2026-04-09 23:05:26,167 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L1][b0]] step   0  loss=1.3030e-01  lr=1.00e-05
+2026-04-09 23:05:27,722 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L1][b0]] step 833  loss=1.5908e-02  lr=1.00e-05
+2026-04-09 23:05:29,278 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L1][b0]] step 1666  loss=1.0051e-02  lr=1.00e-05
+2026-04-09 23:05:30,836 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L1][b0]] step 2499  loss=7.3645e-03  lr=1.00e-05
+2026-04-09 23:05:32,395 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L1][b0]] step 3332  loss=5.6854e-03  lr=1.00e-05
+2026-04-09 23:05:33,954 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L1][b0]] step 4165  loss=4.5023e-03  lr=1.00e-05
+2026-04-09 23:05:35,510 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L1][b0]] step 4998  loss=3.6190e-03  lr=1.00e-05
+2026-04-09 23:05:35,512 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L1][b0]] step 4999  loss=3.6181e-03  lr=1.00e-05
+2026-04-09 23:05:35,513 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L1][b0]] summary first=1.3030e-01 best=3.6181e-03@4999 final=3.6181e-03
+2026-04-09 23:05:36,490 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L2][b0]] step   0  loss=1.4551e-01  lr=1.00e-05
+2026-04-09 23:05:38,044 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L2][b0]] step 833  loss=2.5505e-02  lr=1.00e-05
+2026-04-09 23:05:39,601 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L2][b0]] step 1666  loss=1.6471e-02  lr=1.00e-05
+2026-04-09 23:05:41,156 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L2][b0]] step 2499  loss=1.2134e-02  lr=1.00e-05
+2026-04-09 23:05:42,713 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L2][b0]] step 3332  loss=9.3975e-03  lr=1.00e-05
+2026-04-09 23:05:44,267 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L2][b0]] step 4165  loss=7.4694e-03  lr=1.00e-05
+2026-04-09 23:05:45,824 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L2][b0]] step 4998  loss=6.0317e-03  lr=1.00e-05
+2026-04-09 23:05:45,826 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L2][b0]] step 4999  loss=6.0302e-03  lr=1.00e-05
+2026-04-09 23:05:45,826 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L2][b0]] summary first=1.4551e-01 best=6.0302e-03@4999 final=6.0302e-03
+2026-04-09 23:05:46,799 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L3][b0]] step   0  loss=1.5715e-01  lr=1.00e-05
+2026-04-09 23:05:48,355 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L3][b0]] step 833  loss=2.5600e-02  lr=1.00e-05
+2026-04-09 23:05:49,912 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L3][b0]] step 1666  loss=1.6746e-02  lr=1.00e-05
+2026-04-09 23:05:51,469 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L3][b0]] step 2499  loss=1.2409e-02  lr=1.00e-05
+2026-04-09 23:05:53,026 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L3][b0]] step 3332  loss=9.6361e-03  lr=1.00e-05
+2026-04-09 23:05:54,581 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L3][b0]] step 4165  loss=7.6662e-03  lr=1.00e-05
+2026-04-09 23:05:56,138 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L3][b0]] step 4998  loss=6.1893e-03  lr=1.00e-05
+2026-04-09 23:05:56,140 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L3][b0]] step 4999  loss=6.1877e-03  lr=1.00e-05
+2026-04-09 23:05:56,141 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L3][b0]] summary first=1.5715e-01 best=6.1877e-03@4999 final=6.1877e-03
+2026-04-09 23:05:57,124 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L4][b0]] step   0  loss=1.4386e-01  lr=1.00e-05
+2026-04-09 23:05:58,681 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L4][b0]] step 833  loss=2.2490e-02  lr=1.00e-05
+2026-04-09 23:06:00,240 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L4][b0]] step 1666  loss=1.4532e-02  lr=1.00e-05
+2026-04-09 23:06:01,800 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L4][b0]] step 2499  loss=1.0705e-02  lr=1.00e-05
+2026-04-09 23:06:03,359 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L4][b0]] step 3332  loss=8.2864e-03  lr=1.00e-05
+2026-04-09 23:06:04,933 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L4][b0]] step 4165  loss=6.5807e-03  lr=1.00e-05
+2026-04-09 23:06:06,507 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L4][b0]] step 4998  loss=5.3080e-03  lr=1.00e-05
+2026-04-09 23:06:06,509 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L4][b0]] step 4999  loss=5.3066e-03  lr=1.00e-05
+2026-04-09 23:06:06,510 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L4][b0]] summary first=1.4386e-01 best=5.3066e-03@4999 final=5.3066e-03
+2026-04-09 23:06:07,486 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L5][b0]] step   0  loss=1.8586e-01  lr=1.00e-05
+2026-04-09 23:06:09,061 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L5][b0]] step 833  loss=2.8325e-02  lr=1.00e-05
+2026-04-09 23:06:10,635 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L5][b0]] step 1666  loss=1.8596e-02  lr=1.00e-05
+2026-04-09 23:06:12,210 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L5][b0]] step 2499  loss=1.3879e-02  lr=1.00e-05
+2026-04-09 23:06:13,785 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L5][b0]] step 3332  loss=1.0849e-02  lr=1.00e-05
+slurmstepd: error: *** JOB 33476 ON gnho031 CANCELLED AT 2026-04-09T23:06:15 ***

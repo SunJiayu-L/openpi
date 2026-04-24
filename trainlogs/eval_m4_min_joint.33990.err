@@ -1,0 +1,36 @@
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+2026-04-20 15:35:10.677875: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-04-20 15:35:10.678008: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-04-20 15:35:10.680205: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-04-20 15:35:12.145054: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+INFO:root:Loading model...
+INFO:2026-04-20 15:35:18,366:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:jax._src.xla_bridge:Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:2026-04-20 15:35:18,367:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:jax._src.xla_bridge:Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:absl:orbax-checkpoint version: 0.11.13
+INFO:absl:Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7fd134e1b190>
+INFO:absl:Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ablation_selective_protect/mean4_protect_minimal_joint/params.
+INFO:absl:[thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID.
+INFO:absl:[process=0][thread=MainThread] No metadata found for any process_index, checkpoint_dir=/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ablation_selective_protect/mean4_protect_minimal_joint/params. time elapsed=0.0008361339569091797 seconds. If the checkpoint does not contain jax.Array then it is expected. If checkpoint contains jax.Array then it should lead to an error eventually; if no error is raised then it is a bug.
+INFO:absl:[process=0] /jax/checkpoint/read/bytes_per_sec: 1.5 GiB/s (total bytes: 6.2 GiB) (time elapsed: 4 seconds) (per-host)
+INFO:absl:Finished restoring checkpoint in 4.12 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ablation_selective_protect/mean4_protect_minimal_joint/params.
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/assets/pi05_libero/physical-intelligence/libero
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/serve_policy.py", line 122, in <module>
+    main(tyro.cli(Args))
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/serve_policy.py", line 100, in main
+    policy = create_policy(args)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/serve_policy.py", line 92, in create_policy
+    return _policy_config.create_trained_policy(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/policies/policy_config.py", line 64, in create_trained_policy
+    norm_stats = _checkpoints.load_norm_stats(checkpoint_dir / "assets", data_config.asset_id)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/training/checkpoints.py", line 112, in load_norm_stats
+    norm_stats = _normalize.load(norm_stats_dir)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/shared/normalize.py", line 145, in load
+    raise FileNotFoundError(f"Norm stats file not found at: {path}")
+FileNotFoundError: Norm stats file not found at: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ablation_selective_protect/mean4_protect_minimal_joint/assets/physical-intelligence/libero/norm_stats.json

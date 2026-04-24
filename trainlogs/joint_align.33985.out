@@ -1,0 +1,8 @@
+Saved:
+  docs/analysis/joint_target_alignment_2026-04-20/geometry_alignment_to_joint_global.csv
+  docs/analysis/joint_target_alignment_2026-04-20/geometry_alignment_to_joint_by_module.csv
+  docs/analysis/joint_target_alignment_2026-04-20/geometry_alignment_to_joint_ffn_layer.csv
+Saved:
+  docs/analysis/joint_target_alignment_2026-04-20/repair_module_norm.csv
+  docs/analysis/joint_target_alignment_2026-04-20/repair_ffn_layer_norm.csv
+  docs/analysis/joint_target_alignment_2026-04-20/repair_vs_drop_correlation.csv

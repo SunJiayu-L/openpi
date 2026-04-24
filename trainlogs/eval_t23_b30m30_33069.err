@@ -1,0 +1,433 @@
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+2026-04-02 15:31:43.972972: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-04-02 15:31:43.973098: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-04-02 15:31:43.974854: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-04-02 15:31:44.634626: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+INFO:root:Loading model...
+INFO:2026-04-02 15:31:47,309:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:jax._src.xla_bridge:Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:2026-04-02 15:31:47,310:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:jax._src.xla_bridge:Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:absl:orbax-checkpoint version: 0.11.13
+INFO:absl:Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7fd1c001e050>
+INFO:absl:Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_obj_task23_ep46_from_libero10_5000_retrain_30/t23_from_libero10_5000_30steps/30/params.
+INFO:absl:[thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID.
+INFO:absl:[process=0] /jax/checkpoint/read/bytes_per_sec: 1.9 GiB/s (total bytes: 6.2 GiB) (time elapsed: 3 seconds) (per-host)
+INFO:absl:Finished restoring checkpoint in 3.36 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_obj_task23_ep46_from_libero10_5000_retrain_30/t23_from_libero10_5000_30steps/30/params.
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/assets/pi05_libero_obj_task23_ep46_from_libero10_5000_retrain_30/physical-intelligence/libero
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_obj_task23_ep46_from_libero10_5000_retrain_30/t23_from_libero10_5000_30steps/30/assets/physical-intelligence/libero
+INFO:root:Creating server (host: gnho031, ip: 192.168.180.131)
+INFO:websockets.server:server listening on 0.0.0.0:49069
+INFO:websockets.server:connection rejected (200 OK)
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+INFO:root:Task suite: libero_object
+INFO:root:Waiting for server at ws://0.0.0.0:49069...
+INFO:websockets.server:connection open
+INFO:openpi.serving.websocket_policy_server:Connection from ('127.0.0.1', 34862) opened
+  0%|          | 0/1 [00:00<?, ?it/s]/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+
+  0%|          | 0/20 [00:00<?, ?it/s][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 1...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 1
+INFO:root:# successes: 0 (0.0%)
+
+  5%|▌         | 1/20 [00:21<06:47, 21.44s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 2...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 2
+INFO:root:# successes: 0 (0.0%)
+
+ 10%|█         | 2/20 [00:29<04:00, 13.37s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 3...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 3
+INFO:root:# successes: 0 (0.0%)
+
+ 15%|█▌        | 3/20 [00:36<03:04, 10.84s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 4...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 4
+INFO:root:# successes: 1 (25.0%)
+
+ 20%|██        | 4/20 [00:44<02:33,  9.62s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 5...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 5
+INFO:root:# successes: 1 (20.0%)
+
+ 25%|██▌       | 5/20 [00:52<02:14,  8.94s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 6...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 6
+INFO:root:# successes: 1 (16.7%)
+
+ 30%|███       | 6/20 [00:59<01:58,  8.44s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 7...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 7
+INFO:root:# successes: 1 (14.3%)
+
+ 35%|███▌      | 7/20 [01:07<01:47,  8.23s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 8...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 8
+INFO:root:# successes: 1 (12.5%)
+
+ 40%|████      | 8/20 [01:15<01:36,  8.06s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 9...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 9
+INFO:root:# successes: 1 (11.1%)
+
+ 45%|████▌     | 9/20 [01:22<01:26,  7.90s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 10...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 10
+INFO:root:# successes: 1 (10.0%)
+
+ 50%|█████     | 10/20 [01:30<01:18,  7.88s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 11...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 11
+INFO:root:# successes: 1 (9.1%)
+
+ 55%|█████▌    | 11/20 [01:38<01:09,  7.77s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 12...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 12
+INFO:root:# successes: 1 (8.3%)
+
+ 60%|██████    | 12/20 [01:45<01:01,  7.70s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 13...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 13
+INFO:root:# successes: 1 (7.7%)
+
+ 65%|██████▌   | 13/20 [01:53<00:54,  7.73s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 14...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 14
+INFO:root:# successes: 1 (7.1%)
+
+ 70%|███████   | 14/20 [02:01<00:45,  7.65s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 15...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 15
+INFO:root:# successes: 1 (6.7%)
+
+ 75%|███████▌  | 15/20 [02:09<00:38,  7.75s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 16...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 16
+INFO:root:# successes: 1 (6.2%)
+
+ 80%|████████  | 16/20 [02:16<00:31,  7.76s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 17...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 17
+INFO:root:# successes: 1 (5.9%)
+
+ 85%|████████▌ | 17/20 [02:25<00:23,  7.93s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 18...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 18
+INFO:root:# successes: 1 (5.6%)
+
+ 90%|█████████ | 18/20 [02:32<00:15,  7.87s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 19...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 19
+INFO:root:# successes: 1 (5.3%)
+
+ 95%|█████████▌| 19/20 [02:40<00:07,  7.81s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 20...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 20
+INFO:root:# successes: 1 (5.0%)
+
+100%|██████████| 20/20 [02:48<00:00,  7.85s/it][A100%|██████████| 20/20 [02:48<00:00,  8.43s/it]
+INFO:root:Current task success rate: 0.05
+INFO:root:Current total success rate: 0.05
+100%|██████████| 1/1 [02:50<00:00, 170.05s/it]100%|██████████| 1/1 [02:50<00:00, 170.05s/it]
+INFO:root:Total success rate: 0.05
+INFO:root:Total episodes: 20
+Exception ignored in: <function MjRenderContext.__del__ at 0x7fa9a2366040>
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE, EGL.EGL_NO_SURFACE, EGL.EGL_NO_CONTEXT)
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: INFO:OpenGL.platform.ctypesloader:Failed to load library ( 'libGLU.so.0' ): libGLU.so.0: cannot open shared object file: No such file or directory
+EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglMakeCurrent,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fa996e76340>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7fa9a26b9440>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7fa9a26b9440>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fa9a26b90c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7fa9a2397e50>
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE, EGL.EGL_NO_SURFACE, EGL.EGL_NO_CONTEXT)
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglMakeCurrent,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fa996e76340>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7fa9a26b9440>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7fa9a26b9440>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fa9a26b90c0>,
+	),
+	result = 0
+)
+INFO:openpi.serving.websocket_policy_server:Connection from ('127.0.0.1', 34862) closed
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+2026-04-02 15:34:48.683279: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-04-02 15:34:48.683401: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-04-02 15:34:48.685149: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-04-02 15:34:49.273050: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+INFO:root:Loading model...
+INFO:2026-04-02 15:34:51,502:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:jax._src.xla_bridge:Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:2026-04-02 15:34:51,503:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:jax._src.xla_bridge:Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:absl:orbax-checkpoint version: 0.11.13
+INFO:absl:Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f7356ffbbd0>
+INFO:absl:Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_obj_task23_ep46_from_merged_t22w02_t24w08_retrain_30/t23_from_merged_t22w02_t24w08_30steps/30/params.
+INFO:absl:[thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID.
+INFO:absl:[process=0] /jax/checkpoint/read/bytes_per_sec: 1.9 GiB/s (total bytes: 6.2 GiB) (time elapsed: 3 seconds) (per-host)
+INFO:absl:Finished restoring checkpoint in 3.30 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_obj_task23_ep46_from_merged_t22w02_t24w08_retrain_30/t23_from_merged_t22w02_t24w08_30steps/30/params.
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/assets/pi05_libero_obj_task23_ep46_from_merged_t22w02_t24w08_retrain_30/physical-intelligence/libero
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_obj_task23_ep46_from_merged_t22w02_t24w08_retrain_30/t23_from_merged_t22w02_t24w08_30steps/30/assets/physical-intelligence/libero
+INFO:root:Creating server (host: gnho031, ip: 192.168.180.131)
+INFO:websockets.server:server listening on 0.0.0.0:49070
+INFO:websockets.server:connection rejected (200 OK)
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+INFO:root:Task suite: libero_object
+INFO:root:Waiting for server at ws://0.0.0.0:49070...
+INFO:websockets.server:connection open
+INFO:openpi.serving.websocket_policy_server:Connection from ('127.0.0.1', 51380) opened
+  0%|          | 0/1 [00:00<?, ?it/s]/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+
+  0%|          | 0/20 [00:00<?, ?it/s][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 1...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 1
+INFO:root:# successes: 0 (0.0%)
+
+  5%|▌         | 1/20 [00:21<06:45, 21.34s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 2...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 2
+INFO:root:# successes: 0 (0.0%)
+
+ 10%|█         | 2/20 [00:29<03:59, 13.30s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 3...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 3
+INFO:root:# successes: 0 (0.0%)
+
+ 15%|█▌        | 3/20 [00:36<03:03, 10.80s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 4...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 4
+INFO:root:# successes: 0 (0.0%)
+
+ 20%|██        | 4/20 [00:44<02:34,  9.64s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 5...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 5
+INFO:root:# successes: 0 (0.0%)
+
+ 25%|██▌       | 5/20 [00:52<02:14,  8.99s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 6...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 6
+INFO:root:# successes: 0 (0.0%)
+
+ 30%|███       | 6/20 [01:00<02:00,  8.63s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 7...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 7
+INFO:root:# successes: 0 (0.0%)
+
+ 35%|███▌      | 7/20 [01:08<01:48,  8.34s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 8...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 8
+INFO:root:# successes: 0 (0.0%)
+
+ 40%|████      | 8/20 [01:15<01:37,  8.16s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 9...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 9
+INFO:root:# successes: 0 (0.0%)
+
+ 45%|████▌     | 9/20 [01:23<01:27,  7.97s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 10...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 10
+INFO:root:# successes: 0 (0.0%)
+
+ 50%|█████     | 10/20 [01:31<01:19,  8.00s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 11...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 11
+INFO:root:# successes: 0 (0.0%)
+
+ 55%|█████▌    | 11/20 [01:39<01:11,  7.96s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 12...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 12
+INFO:root:# successes: 0 (0.0%)
+
+ 60%|██████    | 12/20 [01:47<01:03,  7.92s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 13...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 13
+INFO:root:# successes: 0 (0.0%)
+
+ 65%|██████▌   | 13/20 [01:55<00:55,  7.86s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 14...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 14
+INFO:root:# successes: 0 (0.0%)
+
+ 70%|███████   | 14/20 [02:02<00:47,  7.88s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 15...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 15
+INFO:root:# successes: 0 (0.0%)
+
+ 75%|███████▌  | 15/20 [02:11<00:39,  7.94s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 16...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 16
+INFO:root:# successes: 0 (0.0%)
+
+ 80%|████████  | 16/20 [02:18<00:31,  7.83s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 17...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 17
+INFO:root:# successes: 1 (5.9%)
+
+ 85%|████████▌ | 17/20 [02:25<00:22,  7.66s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 18...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 18
+INFO:root:# successes: 1 (5.6%)
+
+ 90%|█████████ | 18/20 [02:33<00:15,  7.67s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 19...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 19
+INFO:root:# successes: 1 (5.3%)
+
+ 95%|█████████▌| 19/20 [02:41<00:07,  7.75s/it][AINFO:root:
+Task: pick up the bbq sauce and place it in the basket
+INFO:root:Starting episode 20...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 20
+INFO:root:# successes: 1 (5.0%)
+
+100%|██████████| 20/20 [02:49<00:00,  7.81s/it][A100%|██████████| 20/20 [02:49<00:00,  8.47s/it]
+INFO:root:Current task success rate: 0.05
+INFO:root:Current total success rate: 0.05
+100%|██████████| 1/1 [02:50<00:00, 170.80s/it]100%|██████████| 1/1 [02:50<00:00, 170.80s/it]
+INFO:root:Total success rate: 0.05
+INFO:root:Total episodes: 20
+Exception ignored in: <function MjRenderContext.__del__ at 0x7fca51562040>
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE, EGL.EGL_NO_SURFACE, EGL.EGL_NO_CONTEXT)
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: INFO:OpenGL.platform.ctypesloader:Failed to load library ( 'libGLU.so.0' ): libGLU.so.0: cannot open shared object file: No such file or directory
+EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglMakeCurrent,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fca46076340>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7fca518b9440>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7fca518b9440>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fca518b90c0>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7fca51597e50>
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE, EGL.EGL_NO_SURFACE, EGL.EGL_NO_CONTEXT)
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglMakeCurrent,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7fca46076340>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7fca518b9440>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7fca518b9440>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7fca518b90c0>,
+	),
+	result = 0
+)

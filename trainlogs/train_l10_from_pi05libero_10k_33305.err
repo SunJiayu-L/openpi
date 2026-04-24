@@ -1,0 +1,37 @@
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+12:09:56.974 [I] Running on: gnho031                                                              (1741007:train.py:196)
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/xla_bridge.py", line 915, in backends
+    backend = _init_backend(platform)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/xla_bridge.py", line 1001, in _init_backend
+    backend = registration.factory()
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/xla_bridge.py", line 693, in factory
+    return xla_client.make_c_api_client(plugin_name, updated_options, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jaxlib/xla_client.py", line 207, in make_c_api_client
+    return _xla.get_c_api_client(plugin_name, options, distributed_client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jaxlib.xla_extension.XlaRuntimeError: FAILED_PRECONDITION: No visible GPU devices.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/train.py", line 280, in <module>
+    main(_config.cli())
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/train.py", line 198, in main
+    if config.batch_size % jax.device_count() != 0:
+                           ^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/xla_bridge.py", line 1080, in device_count
+    return int(get_backend(backend).device_count())
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/xla_bridge.py", line 1049, in get_backend
+    return _get_backend_uncached(platform)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/xla_bridge.py", line 1028, in _get_backend_uncached
+    bs = backends()
+         ^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/xla_bridge.py", line 931, in backends
+    raise RuntimeError(err_msg)
+RuntimeError: Unable to initialize backend 'cuda': FAILED_PRECONDITION: No visible GPU devices. (you may need to uninstall the failing plugin package, or set JAX_PLATFORMS=cpu to skip this backend.)

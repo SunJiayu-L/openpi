@@ -1,0 +1,12 @@
+2026-03-29 10:04:19.267296: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-03-29 10:04:19.267444: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-03-29 10:04:19.269213: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-03-29 10:04:19.880846: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+  File "/storage/yukaichengLab/lishiwen/jiayusun/RETAIN_code/src/openpi/policies/model_merging.py", line 24, in <module>
+    from openpi.training import config as _config
+  File "/storage/yukaichengLab/lishiwen/jiayusun/RETAIN_code/src/openpi/training/config.py", line 623, in <module>
+    base_config=DataConfig(prompt_from_task=True, episodes=_suite_eps.LIBERO_GOAL_EPISODES),
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: DataConfig.__init__() got an unexpected keyword argument 'episodes'

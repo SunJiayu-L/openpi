@@ -1,0 +1,93 @@
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+2026-04-03 11:50:30.298436: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-04-03 11:50:30.298535: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-04-03 11:50:30.301078: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-04-03 11:50:31.712572: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Downloading data:   0%|          | 0/14347 [00:00<?, ?files/s]Downloading data:  70%|██████▉   | 9999/14347 [00:00<00:00, 99815.89files/s]Downloading data: 100%|██████████| 14347/14347 [00:00<00:00, 64815.15files/s]
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 21263 examples [00:00, 208589.02 examples/s]Generating train split: 42253 examples [00:00, 208996.23 examples/s]Generating train split: 63456 examples [00:00, 209620.21 examples/s]Generating train split: 85850 examples [00:00, 214219.70 examples/s]Generating train split: 108425 examples [00:00, 217631.36 examples/s]Generating train split: 130340 examples [00:00, 217862.64 examples/s]Generating train split: 153516 examples [00:00, 221803.31 examples/s]Generating train split: 176569 examples [00:00, 224089.46 examples/s]Generating train split: 201369 examples [00:00, 230923.91 examples/s]Generating train split: 235240 examples [00:01, 228306.89 examples/s]Generating train split: 268826 examples [00:01, 226311.66 examples/s]Generating train split: 302428 examples [00:01, 224805.54 examples/s]Generating train split: 334198 examples [00:01, 219838.56 examples/s]Generating train split: 356760 examples [00:01, 221034.13 examples/s]Generating train split: 379337 examples [00:01, 222202.62 examples/s]Generating train split: 412431 examples [00:01, 220998.73 examples/s]Generating train split: 435647 examples [00:01, 223328.11 examples/s]Generating train split: 467701 examples [00:02, 219479.81 examples/s]Generating train split: 491003 examples [00:02, 222434.31 examples/s]Generating train split: 525352 examples [00:02, 224510.88 examples/s]Generating train split: 548435 examples [00:02, 225942.59 examples/s]Generating train split: 580601 examples [00:02, 221491.17 examples/s]Generating train split: 603664 examples [00:02, 223592.48 examples/s]Generating train split: 627215 examples [00:02, 226336.13 examples/s]Generating train split: 660478 examples [00:02, 224377.95 examples/s]Generating train split: 683485 examples [00:03, 225531.60 examples/s]Generating train split: 716060 examples [00:03, 222459.43 examples/s]Generating train split: 748332 examples [00:03, 219353.34 examples/s]Generating train split: 772006 examples [00:03, 222901.24 examples/s]Generating train split: 803827 examples [00:03, 218639.40 examples/s]Generating train split: 836590 examples [00:03, 218401.64 examples/s]Generating train split: 858727 examples [00:03, 218662.12 examples/s]Generating train split: 892756 examples [00:04, 220915.74 examples/s]Generating train split: 925311 examples [00:04, 219277.18 examples/s]Generating train split: 948041 examples [00:04, 220561.30 examples/s]Generating train split: 970763 examples [00:04, 222020.98 examples/s]Generating train split: 1002840 examples [00:04, 218566.28 examples/s]Generating train split: 1024889 examples [00:04, 218585.34 examples/s]Generating train split: 1047902 examples [00:04, 221251.50 examples/s]Generating train split: 1079168 examples [00:04, 216100.19 examples/s]Generating train split: 1101433 examples [00:04, 217275.40 examples/s]Generating train split: 1123885 examples [00:05, 218856.90 examples/s]Generating train split: 1147603 examples [00:05, 223162.86 examples/s]Generating train split: 1171134 examples [00:05, 226104.07 examples/s]Generating train split: 1203632 examples [00:05, 221969.62 examples/s]Generating train split: 1237142 examples [00:05, 222020.06 examples/s]Generating train split: 1259460 examples [00:05, 222108.36 examples/s]Generating train split: 1292786 examples [00:05, 221833.63 examples/s]Generating train split: 1315793 examples [00:05, 223605.63 examples/s]Generating train split: 1348449 examples [00:06, 220800.61 examples/s]Generating train split: 1381438 examples [00:06, 220049.16 examples/s]Generating train split: 1403677 examples [00:06, 220469.29 examples/s]Generating train split: 1427276 examples [00:06, 224128.64 examples/s]Generating train split: 1460881 examples [00:06, 223736.56 examples/s]Generating train split: 1485077 examples [00:06, 227974.57 examples/s]Generating train split: 1517190 examples [00:06, 222706.08 examples/s]Generating train split: 1550493 examples [00:06, 222122.26 examples/s]Generating train split: 1584018 examples [00:07, 221604.00 examples/s]Generating train split: 1606412 examples [00:07, 221603.97 examples/s]Generating train split: 1628777 examples [00:07, 221853.73 examples/s]Generating train split: 1661754 examples [00:07, 220487.58 examples/s]Generating train split: 1683967 examples [00:07, 220379.07 examples/s]Generating train split: 1706644 examples [00:07, 221779.36 examples/s]Generating train split: 1729109 examples [00:07, 222150.13 examples/s]Generating train split: 1761418 examples [00:07, 219002.97 examples/s]Generating train split: 1784499 examples [00:08, 221480.78 examples/s]Generating train split: 1806792 examples [00:08, 221404.11 examples/s]Generating train split: 1829633 examples [00:08, 222982.53 examples/s]Generating train split: 1852201 examples [00:08, 223562.27 examples/s]Generating train split: 1885154 examples [00:08, 221465.16 examples/s]Generating train split: 1917914 examples [00:08, 219921.95 examples/s]Generating train split: 1940481 examples [00:08, 221169.15 examples/s]Generating train split: 1963588 examples [00:08, 223444.36 examples/s]Generating train split: 1987324 examples [00:08, 226628.38 examples/s]Generating train split: 2020006 examples [00:09, 223012.70 examples/s]Generating train split: 2043125 examples [00:09, 224855.59 examples/s]Generating train split: 2074854 examples [00:09, 219465.50 examples/s]Generating train split: 2108574 examples [00:09, 220649.97 examples/s]Generating train split: 2132264 examples [00:09, 224050.87 examples/s]Generating train split: 2164607 examples [00:09, 220583.70 examples/s]Generating train split: 2199436 examples [00:09, 223820.76 examples/s]Generating train split: 2223013 examples [00:10, 226625.12 examples/s]Generating train split: 2238036 examples [00:10, 221957.63 examples/s]
+Computing stats:   0%|          | 0/8742 [00:00<?, ?it/s]2026-04-03 11:51:43.099124: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-04-03 11:51:43.099220: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-04-03 11:51:43.100949: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-04-03 11:51:43.704511: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2026-04-03 11:51:50.953144: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-04-03 11:51:50.953233: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-04-03 11:51:50.954991: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-04-03 11:51:51.552307: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Computing stats:   0%|          | 0/8742 [00:16<?, ?it/s]
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/compute_norm_stats.py", line 185, in <module>
+    tyro.cli(main)
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/tyro/_cli.py", line 229, in cli
+    return run_with_args_from_cli()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/compute_norm_stats.py", line 166, in main
+    for batch in tqdm.tqdm(data_loader, total=num_batches, desc="Computing stats"):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/training/data_loader.py", line 536, in __iter__
+    batch = next(data_iter)
+            ^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1515, in _next_data
+    return self._process_data(data, worker_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1550, in _process_data
+    data.reraise()
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/torch/_utils.py", line 750, in reraise
+    raise exception
+KeyError: Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/worker.py", line 349, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 52, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/training/data_loader.py", line 60, in __getitem__
+    return self._transform(self._dataset[index])
+                           ~~~~~~~~~~~~~^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/training/data_loader.py", line 60, in __getitem__
+    return self._transform(self._dataset[index])
+                           ~~~~~~~~~~~~~^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/lerobot/common/datasets/lerobot_dataset.py", line 731, in __getitem__
+    query_result = self._query_hf_dataset(query_indices)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/lerobot/common/datasets/lerobot_dataset.py", line 696, in _query_hf_dataset
+    return {
+           ^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/lerobot/common/datasets/lerobot_dataset.py", line 697, in <dictcomp>
+    key: torch.stack(self.hf_dataset.select(q_idx)[key])
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/datasets/arrow_dataset.py", line 2777, in __getitem__
+    return self._getitem(key)
+           ^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/datasets/arrow_dataset.py", line 2761, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/datasets/formatting/formatting.py", line 604, in query_table
+    _check_valid_column_key(key, table.column_names)
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/datasets/formatting/formatting.py", line 541, in _check_valid_column_key
+    raise KeyError(f"Column {key} not in the dataset. Current columns in the dataset: {columns}")
+KeyError: "Column actions not in the dataset. Current columns in the dataset: ['observation.state', 'action', 'timestamp', 'frame_index', 'episode_index', 'index', 'task_index']"
+
+Exception ignored in atexit callback: <function _exit_function at 0x7feab7bb65c0>
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/multiprocessing/util.py", line 360, in _exit_function
+    p.join()
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/multiprocessing/popen_fork.py", line 43, in wait
+    return self.poll(os.WNOHANG if timeout == 0.0 else 0)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/multiprocessing/popen_fork.py", line 27, in poll
+    pid, sts = os.waitpid(self.pid, flag)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/signal_handling.py", line 73, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 624762) is killed by signal: Terminated. 

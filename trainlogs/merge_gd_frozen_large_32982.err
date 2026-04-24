@@ -1,0 +1,40 @@
+wandb: Tracking run with wandb version 0.19.11
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+Loading checkpoints:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoints:  25%|██▌       | 1/4 [00:04<00:12,  4.32s/it]Loading checkpoints:  50%|█████     | 2/4 [00:08<00:08,  4.23s/it]Loading checkpoints:  75%|███████▌  | 3/4 [00:12<00:04,  4.25s/it]Loading checkpoints: 100%|██████████| 4/4 [00:16<00:00,  4.19s/it]Loading checkpoints: 100%|██████████| 4/4 [00:16<00:00,  4.21s/it]
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/arithmetic.py", line 626, in <module>
+    main()
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/arithmetic.py", line 526, in main
+    args.weights = optimize_weights_with_gradient_descent(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/arithmetic.py", line 196, in optimize_weights_with_gradient_descent
+    mixed_params_gpu = jax.device_put(mixed_params_cpu, gpu_device)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/api.py", line 2376, in device_put
+    out_flat = dispatch.device_put_p.bind(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/core.py", line 502, in bind
+    return self._true_bind(*args, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/core.py", line 520, in _true_bind
+    return self.bind_with_trace(prev_trace, args, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/core.py", line 525, in bind_with_trace
+    return trace.process_primitive(self, args, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/core.py", line 1029, in process_primitive
+    return primitive.impl(*args, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/dispatch.py", line 553, in _batched_device_put_impl
+    y = _device_put_impl(x, device=device, src=src, copy=cp)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/dispatch.py", line 542, in _device_put_impl
+    return _device_put_sharding_impl(x, aval, device, copy)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/dispatch.py", line 498, in _device_put_sharding_impl
+    return pxla.batched_device_put(aval, SingleDeviceSharding(device), [x],
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/interpreters/pxla.py", line 243, in batched_device_put
+    return xc.batched_device_put(aval, sharding, xs, list(devices), committed)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jaxlib.xla_extension.XlaRuntimeError: RESOURCE_EXHAUSTED: Failed to allocate request for 576.00MiB (603979776B) on device ordinal 0

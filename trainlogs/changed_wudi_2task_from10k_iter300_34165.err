@@ -1,0 +1,34 @@
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.19.11
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+2026-04-22 15:52:49,491 INFO wandb initialized.
+2026-04-22 15:52:49,491 INFO Loading base checkpoint…
+2026-04-22 15:52:53,610 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000
+2026-04-22 15:52:53,610 INFO orbax-checkpoint version: 0.11.13
+2026-04-22 15:52:53,610 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f0ac5df8b50>
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/wudi_merge.py", line 745, in <module>
+    main()
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/wudi_merge.py", line 730, in main
+    run_merge(
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/wudi_merge.py", line 503, in run_merge
+    base = _load_flat(base_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/wudi_merge.py", line 431, in _load_flat
+    params = restore_params(path, restore_type=np.ndarray)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/models/model.py", line 351, in restore_params
+    metadata = ckptr.metadata(params_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/orbax/checkpoint/_src/checkpointers/checkpointer.py", line 324, in metadata
+    return self._handler.metadata(directory)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/orbax/checkpoint/_src/handlers/pytree_checkpoint_handler.py", line 1025, in metadata
+    return self._handler_impl.metadata(directory)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/orbax/checkpoint/_src/handlers/base_pytree_checkpoint_handler.py", line 969, in metadata
+    internal_tree_metadata = self._read_metadata_file(directory)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/orbax/checkpoint/_src/handlers/base_pytree_checkpoint_handler.py", line 926, in _read_metadata_file
+    raise FileNotFoundError(
+FileNotFoundError: Metadata file (named _METADATA) does not exist at /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000.

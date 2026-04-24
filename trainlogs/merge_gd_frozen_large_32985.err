@@ -1,0 +1,16 @@
+wandb: Tracking run with wandb version 0.19.11
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+Loading checkpoints:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoints:  25%|██▌       | 1/4 [00:04<00:12,  4.27s/it]Loading checkpoints:  50%|█████     | 2/4 [00:08<00:08,  4.26s/it]Loading checkpoints:  75%|███████▌  | 3/4 [00:12<00:04,  4.21s/it]Loading checkpoints: 100%|██████████| 4/4 [00:16<00:00,  4.18s/it]Loading checkpoints: 100%|██████████| 4/4 [00:16<00:00,  4.20s/it]
+E0401 17:30:52.484832 1004500 pjrt_stream_executor_client.cc:3077] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Failed to allocate request for 4.22GiB (4536169168B) on device ordinal 0
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/arithmetic.py", line 635, in <module>
+    main()
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/arithmetic.py", line 535, in main
+    args.weights = optimize_weights_with_gradient_descent(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/arithmetic.py", line 207, in optimize_weights_with_gradient_descent
+    loss_value, param_grads_gpu = jax.value_and_grad(compute_loss_wrt_params)(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jaxlib.xla_extension.XlaRuntimeError: RESOURCE_EXHAUSTED: Failed to allocate request for 4.22GiB (4536169168B) on device ordinal 0
+--------------------
+For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.

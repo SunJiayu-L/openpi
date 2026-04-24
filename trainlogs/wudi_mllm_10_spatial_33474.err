@@ -1,0 +1,32 @@
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.19.11
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+2026-04-09 22:06:34,856 INFO wandb initialized.
+2026-04-09 22:06:34,856 INFO Loading base checkpoint…
+2026-04-09 22:06:39,275 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000/params
+2026-04-09 22:06:39,275 INFO orbax-checkpoint version: 0.11.13
+2026-04-09 22:06:39,275 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7fdd3ca57ad0>
+2026-04-09 22:06:39,293 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000/params.
+2026-04-09 22:06:43,759 INFO [thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID.
+INFO:2026-04-09 22:06:45,532:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-04-09 22:06:45,532 INFO Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:2026-04-09 22:06:45,533:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-04-09 22:06:45,533 INFO Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-04-09 22:06:45,542 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 2.0 GiB/s (total bytes: 12.5 GiB) (time elapsed: 6 seconds) (per-host)
+2026-04-09 22:06:45,542 INFO Finished restoring checkpoint in 6.25 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000/params.
+2026-04-09 22:06:45,542 INFO Loading 2 fine-tuned checkpoint(s)…
+2026-04-09 22:06:45,542 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_10_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params
+2026-04-09 22:06:45,543 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7fdd3ca57ad0>
+2026-04-09 22:06:45,553 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_10_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-09 22:06:49,778 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 3.0 GiB/s (total bytes: 12.5 GiB) (time elapsed: 4 seconds) (per-host)
+2026-04-09 22:06:49,778 INFO Finished restoring checkpoint in 4.22 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_10_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-09 22:06:49,779 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params
+2026-04-09 22:06:49,779 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7fdd3ca57ad0>
+2026-04-09 22:06:49,792 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-09 22:06:53,813 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 3.1 GiB/s (total bytes: 12.5 GiB) (time elapsed: 4 seconds) (per-host)
+2026-04-09 22:06:53,813 INFO Finished restoring checkpoint in 4.02 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-09 22:06:53,814 INFO WUDI-eligible: 10 / 51 params  (scope=llm_only)
+2026-04-09 22:06:53,814 INFO In-scope (avg for non-attn/FFN, excl norm/bias): 19 params
+2026-04-09 22:06:53,814 INFO Norm/bias frozen at base: 27 params
+2026-04-09 22:06:58,012 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L0][b0]] step   0  loss=1.7851e-01  lr=1.00e-05
+slurmstepd: error: *** JOB 33474 ON gnho009 CANCELLED AT 2026-04-09T22:06:58 ***

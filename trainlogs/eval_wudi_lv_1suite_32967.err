@@ -1,0 +1,805 @@
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+2026-04-01 16:39:25.996515: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-04-01 16:39:25.996631: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-04-01 16:39:25.998705: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-04-01 16:39:27.453060: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+INFO:root:Loading model...
+INFO:2026-04-01 16:39:33,633:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:jax._src.xla_bridge:Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:2026-04-01 16:39:33,634:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:jax._src.xla_bridge:Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:absl:orbax-checkpoint version: 0.11.13
+INFO:absl:Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f1308198650>
+INFO:absl:Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/merged/wudi_lang_vision_sgo_mix50_task6_task9_10k_iter800/params.
+INFO:absl:[thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID.
+INFO:absl:[process=0][thread=MainThread] No metadata found for any process_index, checkpoint_dir=/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/merged/wudi_lang_vision_sgo_mix50_task6_task9_10k_iter800/params. time elapsed=0.00040841102600097656 seconds. If the checkpoint does not contain jax.Array then it is expected. If checkpoint contains jax.Array then it should lead to an error eventually; if no error is raised then it is a bug.
+INFO:absl:[process=0] /jax/checkpoint/read/bytes_per_sec: 1.4 GiB/s (total bytes: 6.2 GiB) (time elapsed: 4 seconds) (per-host)
+INFO:absl:Finished restoring checkpoint in 4.58 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/merged/wudi_lang_vision_sgo_mix50_task6_task9_10k_iter800/params.
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/assets/pi05_libero/physical-intelligence/libero
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/merged/wudi_lang_vision_sgo_mix50_task6_task9_10k_iter800/assets/physical-intelligence/libero
+INFO:root:Creating server (host: gnho034, ip: 192.168.180.134)
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/serve_policy.py", line 122, in <module>
+    main(tyro.cli(Args))
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/serve_policy.py", line 117, in main
+    server.serve_forever()
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/serving/websocket_policy_server.py", line 35, in serve_forever
+    asyncio.run(self.run())
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/serving/websocket_policy_server.py", line 38, in run
+    async with _server.serve(
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/websockets/asyncio/server.py", line 813, in __aenter__
+    return await self
+           ^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/websockets/asyncio/server.py", line 831, in __await_impl__
+    server = await self.create_server
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 1536, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 98] error while attempting to bind on address ('0.0.0.0', 8000): address already in use
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+INFO:root:Task suite: libero_goal
+INFO:root:Waiting for server at ws://0.0.0.0:8000...
+  0%|          | 0/10 [00:00<?, ?it/s]/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+
+  0%|          | 0/20 [00:00<?, ?it/s][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 1...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 1
+INFO:root:# successes: 1 (100.0%)
+
+  5%|▌         | 1/20 [00:18<05:43, 18.07s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 2...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 2
+INFO:root:# successes: 1 (50.0%)
+
+ 10%|█         | 2/20 [00:28<04:06, 13.69s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 3...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 3
+INFO:root:# successes: 2 (66.7%)
+
+ 15%|█▌        | 3/20 [00:33<02:45,  9.71s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 4...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 4
+INFO:root:# successes: 3 (75.0%)
+
+ 20%|██        | 4/20 [00:38<02:07,  7.96s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 5...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 5
+INFO:root:# successes: 4 (80.0%)
+
+ 25%|██▌       | 5/20 [00:43<01:40,  6.70s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 6...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 6
+INFO:root:# successes: 5 (83.3%)
+
+ 30%|███       | 6/20 [00:49<01:28,  6.35s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 7...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 7
+INFO:root:# successes: 6 (85.7%)
+
+ 35%|███▌      | 7/20 [00:54<01:18,  6.04s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 8...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 8
+INFO:root:# successes: 7 (87.5%)
+
+ 40%|████      | 8/20 [00:59<01:10,  5.86s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 9...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 9
+INFO:root:# successes: 8 (88.9%)
+
+ 45%|████▌     | 9/20 [01:04<01:01,  5.59s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 10...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 10
+INFO:root:# successes: 8 (80.0%)
+
+ 50%|█████     | 10/20 [01:16<01:13,  7.34s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 11...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 11
+INFO:root:# successes: 9 (81.8%)
+
+ 55%|█████▌    | 11/20 [01:23<01:05,  7.33s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 12...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 12
+INFO:root:# successes: 9 (75.0%)
+
+ 60%|██████    | 12/20 [01:35<01:08,  8.61s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 13...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 13
+INFO:root:# successes: 10 (76.9%)
+
+ 65%|██████▌   | 13/20 [01:39<00:51,  7.41s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 14...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 14
+INFO:root:# successes: 11 (78.6%)
+
+ 70%|███████   | 14/20 [01:45<00:41,  6.94s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 15...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 15
+INFO:root:# successes: 12 (80.0%)
+
+ 75%|███████▌  | 15/20 [01:51<00:33,  6.61s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 16...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 16
+INFO:root:# successes: 13 (81.2%)
+
+ 80%|████████  | 16/20 [01:57<00:25,  6.42s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 17...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 17
+INFO:root:# successes: 14 (82.4%)
+
+ 85%|████████▌ | 17/20 [02:03<00:19,  6.40s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 18...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 18
+INFO:root:# successes: 15 (83.3%)
+
+ 90%|█████████ | 18/20 [02:10<00:12,  6.45s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 19...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 19
+INFO:root:# successes: 16 (84.2%)
+
+ 95%|█████████▌| 19/20 [02:16<00:06,  6.31s/it][AINFO:root:
+Task: open the middle drawer of the cabinet
+INFO:root:Starting episode 20...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 20
+INFO:root:# successes: 17 (85.0%)
+
+100%|██████████| 20/20 [02:25<00:00,  7.17s/it][A100%|██████████| 20/20 [02:25<00:00,  7.27s/it]
+INFO:root:Current task success rate: 0.85
+INFO:root:Current total success rate: 0.85
+ 10%|█         | 1/10 [02:27<22:03, 147.01s/it]
+  0%|          | 0/20 [00:00<?, ?it/s][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 1...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 21
+INFO:root:# successes: 18 (85.7%)
+
+  5%|▌         | 1/20 [00:04<01:21,  4.28s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 2...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 22
+INFO:root:# successes: 19 (86.4%)
+
+ 10%|█         | 2/20 [00:08<01:15,  4.17s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 3...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 23
+INFO:root:# successes: 20 (87.0%)
+
+ 15%|█▌        | 3/20 [00:12<01:09,  4.11s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 4...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 24
+INFO:root:# successes: 21 (87.5%)
+
+ 20%|██        | 4/20 [00:16<01:06,  4.16s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 5...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 25
+INFO:root:# successes: 22 (88.0%)
+
+ 25%|██▌       | 5/20 [00:20<01:00,  4.04s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 6...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 26
+INFO:root:# successes: 23 (88.5%)
+
+ 30%|███       | 6/20 [00:24<00:54,  3.88s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 7...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 27
+INFO:root:# successes: 24 (88.9%)
+
+ 35%|███▌      | 7/20 [00:27<00:49,  3.80s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 8...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 28
+INFO:root:# successes: 25 (89.3%)
+
+ 40%|████      | 8/20 [00:31<00:44,  3.71s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 9...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 29
+INFO:root:# successes: 26 (89.7%)
+
+ 45%|████▌     | 9/20 [00:35<00:41,  3.79s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 10...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 30
+INFO:root:# successes: 27 (90.0%)
+
+ 50%|█████     | 10/20 [00:39<00:40,  4.00s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 11...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 31
+INFO:root:# successes: 28 (90.3%)
+
+ 55%|█████▌    | 11/20 [00:43<00:35,  3.96s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 12...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 32
+INFO:root:# successes: 29 (90.6%)
+
+ 60%|██████    | 12/20 [00:47<00:31,  3.89s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 13...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 33
+INFO:root:# successes: 30 (90.9%)
+
+ 65%|██████▌   | 13/20 [00:51<00:27,  3.95s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 14...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 34
+INFO:root:# successes: 31 (91.2%)
+
+ 70%|███████   | 14/20 [00:55<00:24,  4.02s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 15...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 35
+INFO:root:# successes: 32 (91.4%)
+
+ 75%|███████▌  | 15/20 [00:59<00:19,  3.97s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 16...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 36
+INFO:root:# successes: 33 (91.7%)
+
+ 80%|████████  | 16/20 [01:03<00:16,  4.08s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 17...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 37
+INFO:root:# successes: 34 (91.9%)
+
+ 85%|████████▌ | 17/20 [01:07<00:11,  3.98s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 18...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 38
+INFO:root:# successes: 35 (92.1%)
+
+ 90%|█████████ | 18/20 [01:11<00:07,  3.99s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 19...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 39
+INFO:root:# successes: 36 (92.3%)
+
+ 95%|█████████▌| 19/20 [01:15<00:04,  4.05s/it][AINFO:root:
+Task: put the bowl on the stove
+INFO:root:Starting episode 20...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 40
+INFO:root:# successes: 37 (92.5%)
+
+100%|██████████| 20/20 [01:19<00:00,  3.98s/it][A100%|██████████| 20/20 [01:19<00:00,  3.97s/it]
+INFO:root:Current task success rate: 1.0
+INFO:root:Current total success rate: 0.925
+ 20%|██        | 2/10 [03:46<14:20, 107.58s/it]
+  0%|          | 0/20 [00:00<?, ?it/s][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 1...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 41
+INFO:root:# successes: 38 (92.7%)
+
+  5%|▌         | 1/20 [00:04<01:19,  4.18s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 2...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 42
+INFO:root:# successes: 39 (92.9%)
+
+ 10%|█         | 2/20 [00:08<01:15,  4.17s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 3...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 43
+INFO:root:# successes: 40 (93.0%)
+
+ 15%|█▌        | 3/20 [00:12<01:12,  4.26s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 4...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 44
+INFO:root:# successes: 41 (93.2%)
+
+ 20%|██        | 4/20 [00:16<01:05,  4.09s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 5...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 45
+INFO:root:# successes: 42 (93.3%)
+
+ 25%|██▌       | 5/20 [00:20<01:03,  4.20s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 6...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 46
+INFO:root:# successes: 43 (93.5%)
+
+ 30%|███       | 6/20 [00:25<00:58,  4.20s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 7...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 47
+INFO:root:# successes: 44 (93.6%)
+
+ 35%|███▌      | 7/20 [00:29<00:54,  4.22s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 8...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 48
+INFO:root:# successes: 45 (93.8%)
+
+ 40%|████      | 8/20 [00:33<00:52,  4.34s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 9...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 49
+INFO:root:# successes: 45 (91.8%)
+
+ 45%|████▌     | 9/20 [00:46<01:16,  6.99s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 10...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 50
+INFO:root:# successes: 46 (92.0%)
+
+ 50%|█████     | 10/20 [00:51<01:03,  6.31s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 11...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 51
+INFO:root:# successes: 47 (92.2%)
+
+ 55%|█████▌    | 11/20 [00:56<00:52,  5.88s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 12...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 52
+INFO:root:# successes: 48 (92.3%)
+
+ 60%|██████    | 12/20 [01:00<00:42,  5.29s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 13...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 53
+INFO:root:# successes: 49 (92.5%)
+
+ 65%|██████▌   | 13/20 [01:07<00:41,  5.94s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 14...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 54
+INFO:root:# successes: 50 (92.6%)
+
+ 70%|███████   | 14/20 [01:12<00:33,  5.63s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 15...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 55
+INFO:root:# successes: 51 (92.7%)
+
+ 75%|███████▌  | 15/20 [01:17<00:27,  5.41s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 16...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 56
+INFO:root:# successes: 52 (92.9%)
+
+ 80%|████████  | 16/20 [01:21<00:20,  5.03s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 17...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 57
+INFO:root:# successes: 53 (93.0%)
+
+ 85%|████████▌ | 17/20 [01:26<00:15,  5.03s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 18...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 58
+INFO:root:# successes: 54 (93.1%)
+
+ 90%|█████████ | 18/20 [01:31<00:09,  4.87s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 19...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 59
+INFO:root:# successes: 55 (93.2%)
+
+ 95%|█████████▌| 19/20 [01:37<00:05,  5.26s/it][AINFO:root:
+Task: put the wine bottle on top of the cabinet
+INFO:root:Starting episode 20...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 60
+INFO:root:# successes: 56 (93.3%)
+
+100%|██████████| 20/20 [01:42<00:00,  5.10s/it][A100%|██████████| 20/20 [01:42<00:00,  5.11s/it]
+INFO:root:Current task success rate: 0.95
+INFO:root:Current total success rate: 0.9333333333333333
+ 30%|███       | 3/10 [05:29<12:17, 105.37s/it]
+  0%|          | 0/20 [00:00<?, ?it/s][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 1...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 61
+INFO:root:# successes: 57 (93.4%)
+
+  5%|▌         | 1/20 [00:07<02:15,  7.11s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 2...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 62
+INFO:root:# successes: 58 (93.5%)
+
+ 10%|█         | 2/20 [00:17<02:46,  9.26s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 3...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 63
+INFO:root:# successes: 59 (93.7%)
+
+ 15%|█▌        | 3/20 [00:25<02:22,  8.38s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 4...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 64
+INFO:root:# successes: 60 (93.8%)
+
+ 20%|██        | 4/20 [00:32<02:07,  7.94s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 5...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 65
+INFO:root:# successes: 60 (92.3%)
+
+ 25%|██▌       | 5/20 [00:45<02:27,  9.85s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 6...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 66
+INFO:root:# successes: 61 (92.4%)
+
+ 30%|███       | 6/20 [00:53<02:07,  9.13s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 7...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 67
+INFO:root:# successes: 62 (92.5%)
+
+ 35%|███▌      | 7/20 [01:01<01:54,  8.82s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 8...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 68
+INFO:root:# successes: 63 (92.6%)
+
+ 40%|████      | 8/20 [01:11<01:49,  9.14s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 9...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 69
+INFO:root:# successes: 64 (92.8%)
+
+ 45%|████▌     | 9/20 [01:19<01:36,  8.81s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 10...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 70
+INFO:root:# successes: 65 (92.9%)
+
+ 50%|█████     | 10/20 [01:26<01:23,  8.30s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 11...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 71
+INFO:root:# successes: 66 (93.0%)
+
+ 55%|█████▌    | 11/20 [01:34<01:14,  8.25s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 12...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 72
+INFO:root:# successes: 67 (93.1%)
+
+ 60%|██████    | 12/20 [01:41<01:02,  7.76s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 13...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 73
+INFO:root:# successes: 68 (93.2%)
+
+ 65%|██████▌   | 13/20 [01:49<00:55,  7.96s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 14...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 74
+INFO:root:# successes: 69 (93.2%)
+
+ 70%|███████   | 14/20 [01:56<00:45,  7.55s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 15...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 75
+INFO:root:# successes: 70 (93.3%)
+
+ 75%|███████▌  | 15/20 [02:03<00:37,  7.44s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 16...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 76
+INFO:root:# successes: 71 (93.4%)
+
+ 80%|████████  | 16/20 [02:11<00:30,  7.59s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 17...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 77
+INFO:root:# successes: 72 (93.5%)
+
+ 85%|████████▌ | 17/20 [02:20<00:23,  7.83s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 18...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 78
+INFO:root:# successes: 73 (93.6%)
+
+ 90%|█████████ | 18/20 [02:27<00:15,  7.78s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 19...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 79
+INFO:root:# successes: 74 (93.7%)
+
+ 95%|█████████▌| 19/20 [02:35<00:07,  7.67s/it][AINFO:root:
+Task: open the top drawer and put the bowl inside
+INFO:root:Starting episode 20...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 80
+INFO:root:# successes: 75 (93.8%)
+
+100%|██████████| 20/20 [02:43<00:00,  7.87s/it][A100%|██████████| 20/20 [02:43<00:00,  8.17s/it]
+INFO:root:Current task success rate: 0.95
+INFO:root:Current total success rate: 0.9375
+ 40%|████      | 4/10 [08:13<12:50, 128.49s/it]
+  0%|          | 0/20 [00:00<?, ?it/s][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 1...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 81
+INFO:root:# successes: 76 (93.8%)
+
+  5%|▌         | 1/20 [00:04<01:20,  4.25s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 2...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 82
+INFO:root:# successes: 77 (93.9%)
+
+ 10%|█         | 2/20 [00:08<01:15,  4.21s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 3...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 83
+INFO:root:# successes: 78 (94.0%)
+
+ 15%|█▌        | 3/20 [00:13<01:15,  4.46s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 4...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 84
+INFO:root:# successes: 79 (94.0%)
+
+ 20%|██        | 4/20 [00:17<01:09,  4.31s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 5...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 85
+INFO:root:# successes: 80 (94.1%)
+
+ 25%|██▌       | 5/20 [00:21<01:03,  4.22s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 6...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 86
+INFO:root:# successes: 81 (94.2%)
+
+ 30%|███       | 6/20 [00:26<01:01,  4.41s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 7...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 87
+INFO:root:# successes: 82 (94.3%)
+
+ 35%|███▌      | 7/20 [00:29<00:54,  4.23s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 8...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 88
+INFO:root:# successes: 83 (94.3%)
+
+ 40%|████      | 8/20 [00:34<00:50,  4.22s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 9...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 89
+INFO:root:# successes: 84 (94.4%)
+
+ 45%|████▌     | 9/20 [00:38<00:47,  4.30s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 10...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 90
+INFO:root:# successes: 85 (94.4%)
+
+ 50%|█████     | 10/20 [00:42<00:42,  4.28s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 11...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 91
+INFO:root:# successes: 86 (94.5%)
+
+ 55%|█████▌    | 11/20 [00:47<00:39,  4.40s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 12...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 92
+INFO:root:# successes: 87 (94.6%)
+
+ 60%|██████    | 12/20 [00:51<00:34,  4.25s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 13...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 93
+INFO:root:# successes: 88 (94.6%)
+
+ 65%|██████▌   | 13/20 [00:55<00:29,  4.20s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 14...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 94
+INFO:root:# successes: 89 (94.7%)
+
+ 70%|███████   | 14/20 [01:00<00:25,  4.28s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 15...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 95
+INFO:root:# successes: 90 (94.7%)
+
+ 75%|███████▌  | 15/20 [01:04<00:21,  4.29s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 16...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 96
+INFO:root:# successes: 91 (94.8%)
+
+ 80%|████████  | 16/20 [01:08<00:17,  4.31s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 17...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 97
+INFO:root:# successes: 92 (94.8%)
+
+ 85%|████████▌ | 17/20 [01:12<00:12,  4.18s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 18...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 98
+INFO:root:# successes: 93 (94.9%)
+
+ 90%|█████████ | 18/20 [01:16<00:08,  4.19s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 19...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 99
+INFO:root:# successes: 94 (94.9%)
+
+ 95%|█████████▌| 19/20 [01:20<00:04,  4.15s/it][AINFO:root:
+Task: put the bowl on top of the cabinet
+INFO:root:Starting episode 20...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 100
+INFO:root:# successes: 95 (95.0%)
+
+100%|██████████| 20/20 [01:25<00:00,  4.29s/it][A100%|██████████| 20/20 [01:25<00:00,  4.27s/it]
+INFO:root:Current task success rate: 1.0
+INFO:root:Current total success rate: 0.95
+ 50%|█████     | 5/10 [09:39<09:25, 113.14s/it]
+  0%|          | 0/20 [00:00<?, ?it/s][AINFO:root:
+Task: push the plate to the front of the stove
+INFO:root:Starting episode 1...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 101
+INFO:root:# successes: 95 (94.1%)
+
+  5%|▌         | 1/20 [00:12<04:03, 12.84s/it][AINFO:root:
+Task: push the plate to the front of the stove
+INFO:root:Starting episode 2...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 102
+INFO:root:# successes: 96 (94.1%)
+
+ 10%|█         | 2/20 [00:18<02:39,  8.89s/it][AINFO:root:
+Task: push the plate to the front of the stove
+INFO:root:Starting episode 3...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 103
+INFO:root:# successes: 97 (94.2%)
+
+ 15%|█▌        | 3/20 [00:26<02:22,  8.41s/it][AINFO:root:
+Task: push the plate to the front of the stove
+INFO:root:Starting episode 4...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 104
+INFO:root:# successes: 97 (93.3%)
+
+ 20%|██        | 4/20 [00:40<02:46, 10.38s/it][AINFO:root:
+Task: push the plate to the front of the stove

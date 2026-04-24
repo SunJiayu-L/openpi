@@ -1,0 +1,43 @@
+wandb: Tracking run with wandb version 0.19.11
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+Loading checkpoints:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoints:  25%|██▌       | 1/4 [00:04<00:12,  4.11s/it]Loading checkpoints:  50%|█████     | 2/4 [00:08<00:08,  4.10s/it]Loading checkpoints:  75%|███████▌  | 3/4 [00:12<00:04,  4.08s/it]Loading checkpoints: 100%|██████████| 4/4 [00:16<00:00,  4.06s/it]Loading checkpoints: 100%|██████████| 4/4 [00:16<00:00,  4.07s/it]
+Mixing parameters:   0%|          | 0/51 [00:00<?, ?it/s]Mixing parameters:  16%|█▌        | 8/51 [00:03<00:19,  2.24it/s]Mixing parameters:  20%|█▉        | 10/51 [00:07<00:32,  1.25it/s]Mixing parameters:  24%|██▎       | 12/51 [00:08<00:27,  1.40it/s]Mixing parameters:  27%|██▋       | 14/51 [00:09<00:24,  1.54it/s]Mixing parameters:  31%|███▏      | 16/51 [00:10<00:21,  1.66it/s]Mixing parameters:  35%|███▌      | 18/51 [00:11<00:18,  1.77it/s]Mixing parameters:  47%|████▋     | 24/51 [00:25<00:41,  1.55s/it]Mixing parameters:  53%|█████▎    | 27/51 [00:25<00:26,  1.12s/it]Mixing parameters:  55%|█████▍    | 28/51 [00:27<00:28,  1.23s/it]Mixing parameters:  57%|█████▋    | 29/51 [00:28<00:26,  1.20s/it]Mixing parameters:  59%|█████▉    | 30/51 [00:28<00:22,  1.08s/it]Mixing parameters:  61%|██████    | 31/51 [00:29<00:18,  1.09it/s]Mixing parameters:  63%|██████▎   | 32/51 [00:31<00:22,  1.16s/it]Mixing parameters:  65%|██████▍   | 33/51 [00:32<00:20,  1.12s/it]Mixing parameters:  67%|██████▋   | 34/51 [01:04<02:35,  9.13s/it]Mixing parameters:  69%|██████▊   | 35/51 [01:20<02:56, 11.01s/it]Mixing parameters:  71%|███████   | 36/51 [01:24<02:16,  9.09s/it]Mixing parameters:  73%|███████▎  | 37/51 [01:26<01:39,  7.09s/it]Mixing parameters:  78%|███████▊  | 40/51 [01:28<00:38,  3.49s/it]Mixing parameters:  84%|████████▍ | 43/51 [01:29<00:17,  2.18s/it]Mixing parameters: 100%|██████████| 51/51 [01:29<00:00,  1.76s/it]
+WARNING:absl:Missing metrics for step 0
+ERROR:absl:File /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_4task_merge_gd_balanced/0/metrics/metrics not found.
+wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb: final/mixed_loss ▁
+wandb:   final/weight_0 ▁
+wandb:   final/weight_1 ▁
+wandb:   final/weight_2 ▁
+wandb:   final/weight_3 ▁
+wandb:     gd/best_loss ▁
+wandb:     gd/iteration ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇██
+wandb:          gd/loss ▃▅▇▄▅▅▅▃▇▆▂▄▅▅▃▆▂▃▄▅▄▇█▃▇▄▅▃▅▄▁▇▁▄█▁▃▇▅▆
+wandb:      gd/weight_0 █▇▆▅▅▄▄▄▄▃▃▃▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:      gd/weight_1 ▇▄▁▂▃▂▂▂▂▁▃▃▄▄▄▄▅▅▄▅▅▅▆▆▆▆▇▇▇▇▇▇████████
+wandb:      gd/weight_2 ▁▄▄▅▄▆▆▆▇▇▇█████████▇▇▇▇▇▇▇▇▆▆▆▆▆▆▆▆▆▆▆▅
+wandb:      gd/weight_3 ▁▄▅▅▅▆▆▆▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇████████████████
+wandb: 
+wandb: Run summary:
+wandb:     final/ckpt_0 /storage/yukaichengL...
+wandb:     final/ckpt_1 /storage/yukaichengL...
+wandb:     final/ckpt_2 /storage/yukaichengL...
+wandb:     final/ckpt_3 /storage/yukaichengL...
+wandb: final/mixed_loss 0.09213
+wandb:   final/weight_0 0.187
+wandb:   final/weight_1 0.25272
+wandb:   final/weight_2 0.26149
+wandb:   final/weight_3 0.29879
+wandb:     gd/best_loss 0.06125
+wandb:     gd/iteration 50
+wandb:          gd/loss 0.10134
+wandb:      gd/weight_0 0.18697
+wandb:      gd/weight_1 0.25307
+wandb:      gd/weight_2 0.26095
+wandb:      gd/weight_3 0.299
+wandb: 
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /storage/yukaichengLab/lishiwen/jiayusun/openpi/wandb_offline/wandb/offline-run-20260331_152215-s7myq976
+wandb: Find logs at: ./wandb_offline/wandb/offline-run-20260331_152215-s7myq976/logs

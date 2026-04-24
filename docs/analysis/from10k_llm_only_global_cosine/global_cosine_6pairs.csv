@@ -1,0 +1,7 @@
+task_i,task_j,cosine
+libero_10,libero_spatial,0.048576195995
+libero_10,libero_object,0.052842211365
+libero_10,libero_goal,0.049357678180
+libero_spatial,libero_object,0.052164204667
+libero_spatial,libero_goal,0.054143477866
+libero_object,libero_goal,0.048923983287

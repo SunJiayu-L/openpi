@@ -1,0 +1,86 @@
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+INFO:root:Available merging functions: ['linear_interpolation', 'slerp_interpolation', 'multimodal_linear_interpolation', 'dare_interpolation', 'dare_slerp_interpolation', 'task_vector_interpolation'], using multimodal_linear_interpolation
+INFO:2026-03-18 18:05:58,028:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:jax._src.xla_bridge:Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:2026-03-18 18:05:58,029:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:jax._src.xla_bridge:Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:absl:orbax-checkpoint version: 0.11.13
+INFO:absl:Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f9b0b09a010>
+INFO:absl:Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_object/my_experiment/29999/params.
+INFO:absl:[thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID.
+INFO:absl:[process=0] /jax/checkpoint/read/bytes_per_sec: 1.8 GiB/s (total bytes: 6.2 GiB) (time elapsed: 3 seconds) (per-host)
+INFO:absl:Finished restoring checkpoint in 3.49 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_object/my_experiment/29999/params.
+INFO:absl:Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f9b0b09a010>
+INFO:absl:Restoring checkpoint from /storage/yukaichengLab/lishiwen/.cache/openpi/openpi-assets/checkpoints/pi05_base/params.
+INFO:absl:[process=0] /jax/checkpoint/read/bytes_per_sec: 1.8 GiB/s (total bytes: 6.2 GiB) (time elapsed: 3 seconds) (per-host)
+INFO:absl:Finished restoring checkpoint in 3.57 seconds from /storage/yukaichengLab/lishiwen/.cache/openpi/openpi-assets/checkpoints/pi05_base/params.
+INFO:root:Merging 2 param sets with coefficients [1.0, 0.0]
+INFO:root:Merging 2 param sets with coefficients [0.9, 0.1]
+INFO:root:Merging 2 param sets with coefficients [1.0, 0.0]
+INFO:root:Merging 2 param sets with coefficients [1.0, 0.0]
+INFO:root:Merging 2 param sets with coefficients [1.0, 0.0]
+INFO:root:Merging 2 param sets with coefficients [1.0, 0.0]
+INFO:root:Merging 2 param sets with coefficients [1.0, 0.0]
+INFO:root:Merging 2 param sets with coefficients [1.0, 0.0]
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/assets/pi05_libero/physical-intelligence/libero
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/assets/pi05_libero/physical-intelligence/libero
+INFO:root:Saving merged params to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/merged/pi05_multimodal_llm09/params
+INFO:absl:Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f9b0b09a010>
+INFO:absl:[process=0] Started saving checkpoint to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/merged/pi05_multimodal_llm09/params.
+INFO:absl:Creating tmp directory /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/merged/pi05_multimodal_llm09/params.orbax-checkpoint-tmp-0
+INFO:absl:Wrote Metadata={'item_handlers': None, 'metrics': {}, 'performance_metrics': {}, 'init_timestamp_nsecs': 1773828369135382915, 'commit_timestamp_nsecs': None, 'custom_metadata': {}}, json={"item_handlers": null, "metrics": {}, "performance_metrics": {}, "init_timestamp_nsecs": 1773828369135382915, "commit_timestamp_nsecs": null, "custom_metadata": {}} to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/merged/pi05_multimodal_llm09/params.orbax-checkpoint-tmp-0/_CHECKPOINT_METADATA
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/orbax/checkpoint/_src/handlers/base_pytree_checkpoint_handler.py", line 197, in _group_value
+    handler = registry.get(type_for_registry_lookup)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/orbax/checkpoint/_src/serialization/type_handlers.py", line 1801, in get
+    raise ValueError(f'Unknown type: "{ty}". Must register a TypeHandler.')
+ValueError: Unknown type: "<class 'jax._src.api.ShapeDtypeStruct'>". Must register a TypeHandler.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/merging_experiments.py", line 81, in <module>
+    main(tyro.cli(Args))
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/merging_experiments.py", line 57, in main
+    policy = _policy_config.create_merged_policy(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/policies/policy_config.py", line 104, in create_merged_policy
+    save_merged_checkpoint(model, save_path, norm_stats, data_config.asset_id)
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/policies/policy_config.py", line 52, in save_merged_checkpoint
+    ckptr.save(params_path, ocp.args.PyTreeSave({"params": params}))
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/orbax/checkpoint/_src/checkpointers/checkpointer.py", line 255, in save
+    self._handler.save(tmpdir.get(), args=ckpt_args)
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/orbax/checkpoint/_src/handlers/pytree_checkpoint_handler.py", line 594, in save
+    self._handler_impl.save(directory, args=args)
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/orbax/checkpoint/_src/handlers/base_pytree_checkpoint_handler.py", line 554, in save
+    asyncio_utils.run_sync(async_save(directory, *args, **kwargs))
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/orbax/checkpoint/_src/asyncio_utils.py", line 50, in run_sync
+    return asyncio.run(coro)
+           ^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/orbax/checkpoint/_src/handlers/base_pytree_checkpoint_handler.py", line 547, in async_save
+    commit_futures = await self.async_save(*args, **kwargs)  # pytype: disable=bad-return-type
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/orbax/checkpoint/_src/handlers/base_pytree_checkpoint_handler.py", line 475, in async_save
+    batch_requests = batched_serialization_requests(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/orbax/checkpoint/_src/handlers/base_pytree_checkpoint_handler.py", line 216, in batched_serialization_requests
+    jax.tree_util.tree_map_with_path(
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/tree_util.py", line 1183, in tree_map_with_path
+    return treedef.unflatten(f(*xs) for xs in zip(*all_keypath_leaves))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/tree_util.py", line 1183, in <genexpr>
+    return treedef.unflatten(f(*xs) for xs in zip(*all_keypath_leaves))
+                             ^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/orbax/checkpoint/_src/handlers/base_pytree_checkpoint_handler.py", line 199, in _group_value
+    raise ValueError(
+ValueError: TypeHandler lookup failed for: type=<class 'jax._src.api.ShapeDtypeStruct'>, keypath=(DictKey(key='params'), DictKey(key='time_mlp_in'), DictKey(key='bias')), ParamInfo=ParamInfo(name='params.time_mlp_in.bias', path=PosixGPath('/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/merged/pi05_multimodal_llm09/params.orbax-checkpoint-tmp-0/params.time_mlp_in.bias'), parent_dir=PosixGPath('/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/merged/pi05_multimodal_llm09/params.orbax-checkpoint-tmp-0'), skip_deserialize=False, byte_limiter=<orbax.checkpoint._src.serialization.serialization.LimitInFlightBytes object at 0x7f99a82c2690>, is_ocdbt_checkpoint=True, use_zarr3=False, ocdbt_target_data_file_size=None, ts_context=<tensorstore.Context object at 0x7f997c4a7df0>, value_typestr='None', enable_pinned_host_transfer=False, raise_array_data_missing_error=True, write_shape=None), RestoreArgs=SaveArgs(aggregate=False, dtype=None, chunk_byte_size=None, shard_axes=()), value=ShapeDtypeStruct(shape=(1024,), dtype=float32)

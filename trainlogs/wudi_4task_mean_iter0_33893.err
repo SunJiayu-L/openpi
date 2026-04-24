@@ -1,0 +1,1596 @@
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.19.11
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+2026-04-17 17:42:11,208 INFO wandb initialized.
+2026-04-17 17:42:11,208 INFO Loading base checkpoint…
+2026-04-17 17:42:16,627 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000/params
+2026-04-17 17:42:16,627 INFO orbax-checkpoint version: 0.11.13
+2026-04-17 17:42:16,627 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7faa11fe4fd0>
+2026-04-17 17:42:16,646 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000/params.
+2026-04-17 17:42:21,109 INFO [thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID.
+INFO:2026-04-17 17:42:22,034:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-04-17 17:42:22,034 INFO Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:2026-04-17 17:42:22,047:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-04-17 17:42:22,047 INFO Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-04-17 17:42:22,056 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 2.3 GiB/s (total bytes: 12.5 GiB) (time elapsed: 5 seconds) (per-host)
+2026-04-17 17:42:22,056 INFO Finished restoring checkpoint in 5.41 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000/params.
+2026-04-17 17:42:22,057 INFO Loading 4 fine-tuned checkpoint(s)…
+2026-04-17 17:42:22,058 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_10_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params
+2026-04-17 17:42:22,058 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7faa11fe4fd0>
+2026-04-17 17:42:22,071 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_10_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-17 17:42:25,963 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 3.2 GiB/s (total bytes: 12.5 GiB) (time elapsed: 3 seconds) (per-host)
+2026-04-17 17:42:25,964 INFO Finished restoring checkpoint in 3.89 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_10_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-17 17:42:25,970 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_goal_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params
+2026-04-17 17:42:25,971 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7faa11fe4fd0>
+2026-04-17 17:42:25,985 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_goal_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-17 17:42:30,106 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 3.0 GiB/s (total bytes: 12.5 GiB) (time elapsed: 4 seconds) (per-host)
+2026-04-17 17:42:30,106 INFO Finished restoring checkpoint in 4.12 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_goal_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-17 17:42:30,112 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_object_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params
+2026-04-17 17:42:30,113 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7faa11fe4fd0>
+2026-04-17 17:42:30,128 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_object_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-17 17:42:34,280 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 3.0 GiB/s (total bytes: 12.5 GiB) (time elapsed: 4 seconds) (per-host)
+2026-04-17 17:42:34,280 INFO Finished restoring checkpoint in 4.15 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_object_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-17 17:42:34,282 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params
+2026-04-17 17:42:34,282 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7faa11fe4fd0>
+2026-04-17 17:42:34,295 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-17 17:42:38,232 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 3.2 GiB/s (total bytes: 12.5 GiB) (time elapsed: 3 seconds) (per-host)
+2026-04-17 17:42:38,232 INFO Finished restoring checkpoint in 3.94 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-17 17:42:38,233 INFO WUDI-eligible: 10 / 51 params  (scope=llm_only)
+2026-04-17 17:42:38,233 INFO In-scope (avg for non-attn/FFN, excl norm/bias): 19 params
+2026-04-17 17:42:38,233 INFO Norm/bias frozen at base: 27 params
+2026-04-17 17:42:41,589 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L0][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:42:43,561 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L1][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:42:45,499 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L2][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:42:47,441 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L3][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:42:49,381 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L4][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:42:51,322 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L5][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:42:53,253 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L6][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:42:55,195 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L7][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:42:57,136 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L8][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:42:59,083 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L9][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:01,035 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L10][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:02,986 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L11][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:04,941 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L12][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:06,903 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L13][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:08,877 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L14][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:10,840 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L15][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:12,846 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L16][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:15,022 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum/w[L17][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:15,244 INFO   merged PaliGemma/llm/layers/attn/attn_vec_einsum/w  (18, 8, 256, 2048)
+2026-04-17 17:43:16,052 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L0][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:16,550 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L1][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:17,033 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L2][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:17,518 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L3][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:18,006 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L4][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:18,497 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L5][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:18,988 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L6][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:19,475 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L7][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:19,958 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L8][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:20,448 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L9][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:20,935 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L10][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:21,426 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L11][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:21,913 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L12][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:22,402 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L13][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:22,893 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L14][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:23,388 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L15][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:23,876 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L16][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:24,367 INFO   [PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L17][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:24,478 INFO   merged PaliGemma/llm/layers/attn/attn_vec_einsum_1/w  (18, 8, 256, 1024)
+2026-04-17 17:43:24,703 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L0][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:24,768 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L0][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:24,833 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L1][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:24,899 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L1][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:24,963 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L2][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:25,027 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L2][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:25,092 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L3][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:25,156 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L3][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:25,220 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L4][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:25,285 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L4][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:25,349 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L5][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:25,413 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L5][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:25,477 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L6][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:25,541 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L6][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:25,606 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L7][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:25,670 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L7][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:25,734 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L8][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:25,798 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L8][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:25,863 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L9][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:25,927 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L9][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:25,991 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L10][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:26,055 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L10][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:26,119 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L11][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:26,184 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L11][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:26,248 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L12][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:26,311 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L12][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:26,375 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L13][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:26,440 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L13][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:26,503 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L14][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:26,570 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L14][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:26,634 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L15][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:26,698 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L15][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:26,763 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L16][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:26,832 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L16][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:26,896 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L17][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:26,964 INFO   [PaliGemma/llm/layers/attn/kv_einsum/w[L17][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:27,019 INFO   merged PaliGemma/llm/layers/attn/kv_einsum/w  (18, 2, 1, 2048, 256)
+2026-04-17 17:43:27,209 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L0][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:27,271 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L0][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:27,335 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L1][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:27,399 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L1][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:27,464 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L2][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:27,528 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L2][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:27,593 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L3][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:27,657 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L3][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:27,722 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L4][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:27,785 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L4][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:27,848 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L5][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:27,913 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L5][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:27,977 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L6][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:28,041 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L6][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:28,106 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L7][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:28,169 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L7][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:28,232 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L8][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:28,295 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L8][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:28,360 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L9][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:28,423 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L9][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:28,485 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L10][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:28,547 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L10][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:28,609 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L11][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:28,672 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L11][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:28,734 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L12][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:28,796 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L12][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:28,858 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L13][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:28,921 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L13][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:28,984 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L14][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:29,045 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L14][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:29,109 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L15][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:29,172 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L15][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:29,235 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L16][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:29,298 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L16][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:29,360 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L17][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:29,423 INFO   [PaliGemma/llm/layers/attn/kv_einsum_1/w[L17][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:29,451 INFO   merged PaliGemma/llm/layers/attn/kv_einsum_1/w  (18, 2, 1, 1024, 256)
+2026-04-17 17:43:30,259 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L0][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:30,395 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L1][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:30,530 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L2][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:30,666 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L3][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:30,803 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L4][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:30,942 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L5][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:31,080 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L6][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:31,219 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L7][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:31,357 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L8][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:31,495 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L9][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:31,633 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L10][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:31,772 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L11][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:31,910 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L12][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:32,048 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L13][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:32,187 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L14][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:32,326 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L15][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:32,465 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L16][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:32,564 INFO   [PaliGemma/llm/layers/attn/q_einsum/w[L17][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:32,785 INFO   merged PaliGemma/llm/layers/attn/q_einsum/w  (18, 8, 2048, 256)
+2026-04-17 17:43:33,201 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L0][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:33,297 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L1][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:33,392 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L2][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:33,487 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L3][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:33,583 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L4][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:33,681 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L5][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:33,779 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L6][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:33,877 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L7][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:33,973 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L8][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:34,070 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L9][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:34,168 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L10][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:34,266 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L11][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:34,364 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L12][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:34,462 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L13][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:34,559 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L14][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:34,658 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L15][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:34,757 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L16][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:34,855 INFO   [PaliGemma/llm/layers/attn/q_einsum_1/w[L17][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:34,965 INFO   merged PaliGemma/llm/layers/attn/q_einsum_1/w  (18, 8, 1024, 256)
+2026-04-17 17:43:47,417 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L0][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:49,909 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L0][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:52,386 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L1][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:54,799 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L1][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:57,234 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L2][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:43:59,600 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L2][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:02,024 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L3][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:04,401 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L3][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:06,825 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L4][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:09,188 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L4][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:11,607 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L5][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:13,969 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L5][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:16,396 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L6][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:18,754 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L6][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:21,164 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L7][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:23,525 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L7][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:25,944 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L8][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:28,309 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L8][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:30,733 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L9][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:33,090 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L9][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:35,512 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L10][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:37,870 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L10][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:40,284 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L11][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:42,636 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L11][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:45,056 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L12][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:47,418 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L12][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:49,828 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L13][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:52,189 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L13][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:54,612 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L14][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:56,980 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L14][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:44:59,398 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L15][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:01,771 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L15][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:04,213 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L16][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:06,580 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L16][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:08,045 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L17][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:09,485 INFO   [PaliGemma/llm/layers/mlp/gating_einsum[L17][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:13,099 INFO   merged PaliGemma/llm/layers/mlp/gating_einsum  (18, 2, 2048, 16384)
+2026-04-17 17:45:20,490 INFO   [PaliGemma/llm/layers/mlp/linear[L0][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:22,857 INFO   [PaliGemma/llm/layers/mlp/linear[L1][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:25,218 INFO   [PaliGemma/llm/layers/mlp/linear[L2][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:27,580 INFO   [PaliGemma/llm/layers/mlp/linear[L3][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:29,939 INFO   [PaliGemma/llm/layers/mlp/linear[L4][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:32,300 INFO   [PaliGemma/llm/layers/mlp/linear[L5][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:34,653 INFO   [PaliGemma/llm/layers/mlp/linear[L6][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:37,011 INFO   [PaliGemma/llm/layers/mlp/linear[L7][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:39,373 INFO   [PaliGemma/llm/layers/mlp/linear[L8][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:41,735 INFO   [PaliGemma/llm/layers/mlp/linear[L9][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:44,103 INFO   [PaliGemma/llm/layers/mlp/linear[L10][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:46,479 INFO   [PaliGemma/llm/layers/mlp/linear[L11][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:48,861 INFO   [PaliGemma/llm/layers/mlp/linear[L12][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:51,298 INFO   [PaliGemma/llm/layers/mlp/linear[L13][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:53,697 INFO   [PaliGemma/llm/layers/mlp/linear[L14][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:56,189 INFO   [PaliGemma/llm/layers/mlp/linear[L15][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:45:58,734 INFO   [PaliGemma/llm/layers/mlp/linear[L16][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:00,149 INFO   [PaliGemma/llm/layers/mlp/linear[L17][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:01,950 INFO   merged PaliGemma/llm/layers/mlp/linear  (18, 16384, 2048)
+2026-04-17 17:46:03,773 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L0][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:04,321 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L0][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:04,862 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L1][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:05,397 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L1][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:05,944 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L2][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:06,482 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L2][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:07,032 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L3][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:07,577 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L3][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:08,128 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L4][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:08,673 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L4][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:09,226 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L5][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:09,770 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L5][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:10,320 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L6][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:10,865 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L6][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:11,410 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L7][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:11,947 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L7][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:12,498 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L8][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:13,041 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L8][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:13,588 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L9][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:14,128 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L9][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:14,675 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L10][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:15,214 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L10][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:15,762 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L11][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:16,298 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L11][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:16,842 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L12][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:17,384 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L12][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:17,925 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L13][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:18,456 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L13][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:19,007 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L14][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:19,551 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L14][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:20,097 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L15][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:20,634 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L15][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:21,181 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L16][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:21,722 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L16][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:22,267 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L17][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:22,809 INFO   [PaliGemma/llm/layers/mlp_1/gating_einsum[L17][b1]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:23,266 INFO   merged PaliGemma/llm/layers/mlp_1/gating_einsum  (18, 2, 1024, 4096)
+2026-04-17 17:46:24,419 INFO   [PaliGemma/llm/layers/mlp_1/linear[L0][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:24,943 INFO   [PaliGemma/llm/layers/mlp_1/linear[L1][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:25,475 INFO   [PaliGemma/llm/layers/mlp_1/linear[L2][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:26,011 INFO   [PaliGemma/llm/layers/mlp_1/linear[L3][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:26,541 INFO   [PaliGemma/llm/layers/mlp_1/linear[L4][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:27,071 INFO   [PaliGemma/llm/layers/mlp_1/linear[L5][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:27,602 INFO   [PaliGemma/llm/layers/mlp_1/linear[L6][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:28,130 INFO   [PaliGemma/llm/layers/mlp_1/linear[L7][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:28,662 INFO   [PaliGemma/llm/layers/mlp_1/linear[L8][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:29,192 INFO   [PaliGemma/llm/layers/mlp_1/linear[L9][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:29,720 INFO   [PaliGemma/llm/layers/mlp_1/linear[L10][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:30,250 INFO   [PaliGemma/llm/layers/mlp_1/linear[L11][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:30,789 INFO   [PaliGemma/llm/layers/mlp_1/linear[L12][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:31,331 INFO   [PaliGemma/llm/layers/mlp_1/linear[L13][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:31,869 INFO   [PaliGemma/llm/layers/mlp_1/linear[L14][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:32,409 INFO   [PaliGemma/llm/layers/mlp_1/linear[L15][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:32,946 INFO   [PaliGemma/llm/layers/mlp_1/linear[L16][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:33,467 INFO   [PaliGemma/llm/layers/mlp_1/linear[L17][b0]] summary first=inf best=inf@0 final=inf
+2026-04-17 17:46:33,698 INFO   merged PaliGemma/llm/layers/mlp_1/linear  (18, 4096, 1024)
+2026-04-17 17:46:33,700 INFO WUDI loss summary (mean over blocks): first=inf best=inf final=inf (blocks=252)
+2026-04-17 17:46:33,700 INFO Saving…
+2026-04-17 17:46:33,702 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7faa11fe4fd0>
+2026-04-17 17:46:33,702 INFO [process=0] Started saving checkpoint to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/wudi_mllm/4task_mean_iter0/params.
+2026-04-17 17:46:33,704 INFO Creating tmp directory /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/wudi_mllm/4task_mean_iter0/params.orbax-checkpoint-tmp-0
+2026-04-17 17:46:33,707 INFO Wrote Metadata={'item_handlers': None, 'metrics': {}, 'performance_metrics': {}, 'init_timestamp_nsecs': 1776419193706328671, 'commit_timestamp_nsecs': None, 'custom_metadata': {}}, json={"item_handlers": null, "metrics": {}, "performance_metrics": {}, "init_timestamp_nsecs": 1776419193706328671, "commit_timestamp_nsecs": null, "custom_metadata": {}} to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/wudi_mllm/4task_mean_iter0/params.orbax-checkpoint-tmp-0/_CHECKPOINT_METADATA
+2026-04-17 17:46:36,363 INFO Using ThreadSafeKeyValueSignalingClient
+2026-04-17 17:46:36,365 INFO Array name: 'params.PaliGemma.llm.layers.mlp.gating_einsum', global shape: (18, 2, 2048, 16384), write shape: (18, 2, 2048, 16384), chosen chunk shape: (18, 2, 2048, 4096)
+2026-04-17 17:46:36,365 INFO [process=0] /jax/checkpoint/write/blocking_bytes_per_sec: 4.7 GiB/s (total bytes: 12.5 GiB) (time elapsed: 2 seconds) (per-host)
+2026-04-17 17:46:36,366 INFO Array name: 'params.PaliGemma.llm.layers.mlp.linear', global shape: (18, 16384, 2048), write shape: (18, 16384, 2048), chosen chunk shape: (18, 8192, 2048)
+2026-04-17 17:46:45,046 INFO [process=0][thread=write_metadata_after_commits] No metadata found for process_index=0, checkpoint_dir=/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/wudi_mllm/4task_mean_iter0/params.orbax-checkpoint-tmp-0. If the checkpoint does not contain jax.Array then it is expected. If checkpoint contains jax.Array then it should lead to an error eventually; if no error is raised then it is a bug.
+2026-04-17 17:46:45,068 INFO [process=0] /jax/checkpoint/write/bytes_per_sec: 1.1 GiB/s (total bytes: 12.5 GiB) (time elapsed: 11 seconds) (per-host)
+2026-04-17 17:46:45,069 INFO Read Metadata={'item_handlers': None, 'metrics': {}, 'performance_metrics': {}, 'init_timestamp_nsecs': 1776419193706328671, 'commit_timestamp_nsecs': None, 'custom_metadata': {}} from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/wudi_mllm/4task_mean_iter0/params.orbax-checkpoint-tmp-0/_CHECKPOINT_METADATA
+2026-04-17 17:46:45,071 INFO Updated Metadata={'item_handlers': 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler', 'metrics': {}, 'performance_metrics': {}, 'init_timestamp_nsecs': 1776419193706328671, 'commit_timestamp_nsecs': None, 'custom_metadata': {}} to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/wudi_mllm/4task_mean_iter0/params.orbax-checkpoint-tmp-0/_CHECKPOINT_METADATA
+2026-04-17 17:46:45,072 INFO [process=0][thread=MainThread] No metadata found for any process_index, checkpoint_dir=/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/wudi_mllm/4task_mean_iter0/params.orbax-checkpoint-tmp-0. time elapsed=0.0003833770751953125 seconds. If the checkpoint does not contain jax.Array then it is expected. If checkpoint contains jax.Array then it should lead to an error eventually; if no error is raised then it is a bug.
+2026-04-17 17:46:45,094 INFO Renaming /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/wudi_mllm/4task_mean_iter0/params.orbax-checkpoint-tmp-0 to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/wudi_mllm/4task_mean_iter0/params
+2026-04-17 17:46:45,097 INFO [process=0][thread=MainThread] Finished saving checkpoint (finalized tmp dir) to `/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/wudi_mllm/4task_mean_iter0/params`.
+2026-04-17 17:46:45,097 INFO Finished synchronous save in 11.40 seconds to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/wudi_mllm/4task_mean_iter0/params
+2026-04-17 17:46:45,097 INFO   Saved: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/wudi_mllm/4task_mean_iter0/params
+2026-04-17 17:46:45,097 INFO Done. Output: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/wudi_mllm/4task_mean_iter0
+wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L0][b0]/best_step ▁
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L10][b0]/best_step ▁
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L11][b0]/best_step ▁
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L12][b0]/best_step ▁
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L13][b0]/best_step ▁
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L14][b0]/best_step ▁
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L15][b0]/best_step ▁
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L16][b0]/best_step ▁
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L17][b0]/best_step ▁
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L1][b0]/best_step ▁
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L2][b0]/best_step ▁
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L3][b0]/best_step ▁
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L4][b0]/best_step ▁
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L5][b0]/best_step ▁
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L6][b0]/best_step ▁
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L7][b0]/best_step ▁
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L8][b0]/best_step ▁
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L9][b0]/best_step ▁
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L0][b0]/best_step ▁
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L10][b0]/best_step ▁
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L11][b0]/best_step ▁
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L12][b0]/best_step ▁
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L13][b0]/best_step ▁
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L14][b0]/best_step ▁
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L15][b0]/best_step ▁
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L16][b0]/best_step ▁
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L17][b0]/best_step ▁
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L1][b0]/best_step ▁
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L2][b0]/best_step ▁
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L3][b0]/best_step ▁
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L4][b0]/best_step ▁
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L5][b0]/best_step ▁
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L6][b0]/best_step ▁
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L7][b0]/best_step ▁
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L8][b0]/best_step ▁
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L9][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L0][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L0][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L10][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L10][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L11][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L11][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L12][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L12][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L13][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L13][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L14][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L14][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L15][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L15][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L16][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L16][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L17][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L17][b1]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L1][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L1][b1]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L2][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L2][b1]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L3][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L3][b1]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L4][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L4][b1]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L5][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L5][b1]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L6][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L6][b1]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L7][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L7][b1]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L8][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L8][b1]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L9][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L9][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L0][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L0][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L10][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L10][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L11][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L11][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L12][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L12][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L13][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L13][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L14][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L14][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L15][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L15][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L16][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L16][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L17][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L17][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L1][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L1][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L2][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L2][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L3][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L3][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L4][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L4][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L5][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L5][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L6][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L6][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L7][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L7][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L8][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L8][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L9][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L9][b1]/best_step ▁
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L0][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L10][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L11][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L12][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L13][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L14][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L15][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L16][b0]/best_step ▁
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L17][b0]/best_step ▁
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L1][b0]/best_step ▁
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L2][b0]/best_step ▁
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L3][b0]/best_step ▁
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L4][b0]/best_step ▁
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L5][b0]/best_step ▁
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L6][b0]/best_step ▁
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L7][b0]/best_step ▁
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L8][b0]/best_step ▁
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L9][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L0][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L10][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L11][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L12][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L13][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L14][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L15][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L16][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L17][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L1][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L2][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L3][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L4][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L5][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L6][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L7][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L8][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L9][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L0][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L0][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L10][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L10][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L11][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L11][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L12][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L12][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L13][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L13][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L14][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L14][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L15][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L15][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L16][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L16][b1]/best_step ▁
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L17][b0]/best_step ▁
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L17][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L1][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L1][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L2][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L2][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L3][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L3][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L4][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L4][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L5][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L5][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L6][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L6][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L7][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L7][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L8][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L8][b1]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L9][b0]/best_step ▁
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L9][b1]/best_step ▁
+wandb:                PaliGemma/llm/layers/mlp/linear[L0][b0]/best_step ▁
+wandb:               PaliGemma/llm/layers/mlp/linear[L10][b0]/best_step ▁
+wandb:               PaliGemma/llm/layers/mlp/linear[L11][b0]/best_step ▁
+wandb:               PaliGemma/llm/layers/mlp/linear[L12][b0]/best_step ▁
+wandb:               PaliGemma/llm/layers/mlp/linear[L13][b0]/best_step ▁
+wandb:               PaliGemma/llm/layers/mlp/linear[L14][b0]/best_step ▁
+wandb:               PaliGemma/llm/layers/mlp/linear[L15][b0]/best_step ▁
+wandb:               PaliGemma/llm/layers/mlp/linear[L16][b0]/best_step ▁
+wandb:               PaliGemma/llm/layers/mlp/linear[L17][b0]/best_step ▁
+wandb:                PaliGemma/llm/layers/mlp/linear[L1][b0]/best_step ▁
+wandb:                PaliGemma/llm/layers/mlp/linear[L2][b0]/best_step ▁
+wandb:                PaliGemma/llm/layers/mlp/linear[L3][b0]/best_step ▁
+wandb:                PaliGemma/llm/layers/mlp/linear[L4][b0]/best_step ▁
+wandb:                PaliGemma/llm/layers/mlp/linear[L5][b0]/best_step ▁
+wandb:                PaliGemma/llm/layers/mlp/linear[L6][b0]/best_step ▁
+wandb:                PaliGemma/llm/layers/mlp/linear[L7][b0]/best_step ▁
+wandb:                PaliGemma/llm/layers/mlp/linear[L8][b0]/best_step ▁
+wandb:                PaliGemma/llm/layers/mlp/linear[L9][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L0][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L0][b1]/best_step ▁
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L10][b0]/best_step ▁
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L10][b1]/best_step ▁
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L11][b0]/best_step ▁
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L11][b1]/best_step ▁
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L12][b0]/best_step ▁
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L12][b1]/best_step ▁
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L13][b0]/best_step ▁
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L13][b1]/best_step ▁
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L14][b0]/best_step ▁
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L14][b1]/best_step ▁
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L15][b0]/best_step ▁
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L15][b1]/best_step ▁
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L16][b0]/best_step ▁
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L16][b1]/best_step ▁
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L17][b0]/best_step ▁
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L17][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L1][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L1][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L2][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L2][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L3][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L3][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L4][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L4][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L5][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L5][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L6][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L6][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L7][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L7][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L8][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L8][b1]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L9][b0]/best_step ▁
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L9][b1]/best_step ▁
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L0][b0]/best_step ▁
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L10][b0]/best_step ▁
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L11][b0]/best_step ▁
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L12][b0]/best_step ▁
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L13][b0]/best_step ▁
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L14][b0]/best_step ▁
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L15][b0]/best_step ▁
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L16][b0]/best_step ▁
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L17][b0]/best_step ▁
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L1][b0]/best_step ▁
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L2][b0]/best_step ▁
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L3][b0]/best_step ▁
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L4][b0]/best_step ▁
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L5][b0]/best_step ▁
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L6][b0]/best_step ▁
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L7][b0]/best_step ▁
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L8][b0]/best_step ▁
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L9][b0]/best_step ▁
+wandb:                                                  loss/num_blocks ▁
+wandb: 
+wandb: Run summary:
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L0][b0]/best_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L0][b0]/best_step 0
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L0][b0]/final_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L0][b0]/first_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L10][b0]/best_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L10][b0]/best_step 0
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L10][b0]/final_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L10][b0]/first_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L11][b0]/best_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L11][b0]/best_step 0
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L11][b0]/final_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L11][b0]/first_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L12][b0]/best_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L12][b0]/best_step 0
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L12][b0]/final_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L12][b0]/first_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L13][b0]/best_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L13][b0]/best_step 0
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L13][b0]/final_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L13][b0]/first_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L14][b0]/best_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L14][b0]/best_step 0
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L14][b0]/final_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L14][b0]/first_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L15][b0]/best_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L15][b0]/best_step 0
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L15][b0]/final_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L15][b0]/first_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L16][b0]/best_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L16][b0]/best_step 0
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L16][b0]/final_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L16][b0]/first_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L17][b0]/best_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L17][b0]/best_step 0
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L17][b0]/final_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum/w[L17][b0]/first_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L1][b0]/best_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L1][b0]/best_step 0
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L1][b0]/final_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L1][b0]/first_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L2][b0]/best_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L2][b0]/best_step 0
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L2][b0]/final_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L2][b0]/first_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L3][b0]/best_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L3][b0]/best_step 0
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L3][b0]/final_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L3][b0]/first_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L4][b0]/best_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L4][b0]/best_step 0
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L4][b0]/final_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L4][b0]/first_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L5][b0]/best_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L5][b0]/best_step 0
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L5][b0]/final_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L5][b0]/first_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L6][b0]/best_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L6][b0]/best_step 0
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L6][b0]/final_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L6][b0]/first_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L7][b0]/best_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L7][b0]/best_step 0
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L7][b0]/final_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L7][b0]/first_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L8][b0]/best_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L8][b0]/best_step 0
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L8][b0]/final_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L8][b0]/first_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L9][b0]/best_loss inf
+wandb:     PaliGemma/llm/layers/attn/attn_vec_einsum/w[L9][b0]/best_step 0
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L9][b0]/final_loss inf
+wandb:    PaliGemma/llm/layers/attn/attn_vec_einsum/w[L9][b0]/first_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L0][b0]/best_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L0][b0]/best_step 0
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L0][b0]/final_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L0][b0]/first_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L10][b0]/best_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L10][b0]/best_step 0
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L10][b0]/final_loss inf
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L10][b0]/first_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L11][b0]/best_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L11][b0]/best_step 0
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L11][b0]/final_loss inf
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L11][b0]/first_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L12][b0]/best_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L12][b0]/best_step 0
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L12][b0]/final_loss inf
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L12][b0]/first_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L13][b0]/best_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L13][b0]/best_step 0
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L13][b0]/final_loss inf
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L13][b0]/first_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L14][b0]/best_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L14][b0]/best_step 0
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L14][b0]/final_loss inf
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L14][b0]/first_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L15][b0]/best_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L15][b0]/best_step 0
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L15][b0]/final_loss inf
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L15][b0]/first_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L16][b0]/best_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L16][b0]/best_step 0
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L16][b0]/final_loss inf
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L16][b0]/first_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L17][b0]/best_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L17][b0]/best_step 0
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L17][b0]/final_loss inf
+wandb: PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L17][b0]/first_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L1][b0]/best_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L1][b0]/best_step 0
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L1][b0]/final_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L1][b0]/first_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L2][b0]/best_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L2][b0]/best_step 0
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L2][b0]/final_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L2][b0]/first_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L3][b0]/best_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L3][b0]/best_step 0
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L3][b0]/final_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L3][b0]/first_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L4][b0]/best_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L4][b0]/best_step 0
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L4][b0]/final_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L4][b0]/first_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L5][b0]/best_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L5][b0]/best_step 0
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L5][b0]/final_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L5][b0]/first_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L6][b0]/best_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L6][b0]/best_step 0
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L6][b0]/final_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L6][b0]/first_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L7][b0]/best_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L7][b0]/best_step 0
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L7][b0]/final_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L7][b0]/first_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L8][b0]/best_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L8][b0]/best_step 0
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L8][b0]/final_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L8][b0]/first_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L9][b0]/best_loss inf
+wandb:   PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L9][b0]/best_step 0
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L9][b0]/final_loss inf
+wandb:  PaliGemma/llm/layers/attn/attn_vec_einsum_1/w[L9][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L0][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L0][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L0][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L0][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L0][b1]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L0][b1]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L0][b1]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L0][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L10][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L10][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L10][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L10][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L10][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L10][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L10][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L10][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L11][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L11][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L11][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L11][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L11][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L11][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L11][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L11][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L12][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L12][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L12][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L12][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L12][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L12][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L12][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L12][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L13][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L13][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L13][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L13][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L13][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L13][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L13][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L13][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L14][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L14][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L14][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L14][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L14][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L14][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L14][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L14][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L15][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L15][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L15][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L15][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L15][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L15][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L15][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L15][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L16][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L16][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L16][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L16][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L16][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L16][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L16][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L16][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L17][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L17][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L17][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L17][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L17][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L17][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L17][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum/w[L17][b1]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L1][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L1][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L1][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L1][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L1][b1]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L1][b1]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L1][b1]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L1][b1]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L2][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L2][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L2][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L2][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L2][b1]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L2][b1]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L2][b1]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L2][b1]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L3][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L3][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L3][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L3][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L3][b1]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L3][b1]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L3][b1]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L3][b1]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L4][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L4][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L4][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L4][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L4][b1]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L4][b1]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L4][b1]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L4][b1]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L5][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L5][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L5][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L5][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L5][b1]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L5][b1]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L5][b1]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L5][b1]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L6][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L6][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L6][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L6][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L6][b1]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L6][b1]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L6][b1]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L6][b1]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L7][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L7][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L7][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L7][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L7][b1]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L7][b1]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L7][b1]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L7][b1]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L8][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L8][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L8][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L8][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L8][b1]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L8][b1]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L8][b1]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L8][b1]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L9][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L9][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L9][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L9][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L9][b1]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/kv_einsum/w[L9][b1]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L9][b1]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/kv_einsum/w[L9][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L0][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L0][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L0][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L0][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L0][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L0][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L0][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L0][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L10][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L10][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L10][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L10][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L10][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L10][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L10][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L10][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L11][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L11][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L11][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L11][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L11][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L11][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L11][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L11][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L12][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L12][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L12][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L12][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L12][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L12][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L12][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L12][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L13][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L13][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L13][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L13][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L13][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L13][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L13][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L13][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L14][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L14][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L14][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L14][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L14][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L14][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L14][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L14][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L15][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L15][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L15][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L15][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L15][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L15][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L15][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L15][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L16][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L16][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L16][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L16][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L16][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L16][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L16][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L16][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L17][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L17][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L17][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L17][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L17][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L17][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L17][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/attn/kv_einsum_1/w[L17][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L1][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L1][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L1][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L1][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L1][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L1][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L1][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L1][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L2][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L2][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L2][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L2][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L2][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L2][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L2][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L2][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L3][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L3][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L3][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L3][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L3][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L3][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L3][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L3][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L4][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L4][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L4][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L4][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L4][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L4][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L4][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L4][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L5][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L5][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L5][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L5][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L5][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L5][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L5][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L5][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L6][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L6][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L6][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L6][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L6][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L6][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L6][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L6][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L7][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L7][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L7][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L7][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L7][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L7][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L7][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L7][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L8][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L8][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L8][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L8][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L8][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L8][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L8][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L8][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L9][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L9][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L9][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L9][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L9][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/kv_einsum_1/w[L9][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L9][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/kv_einsum_1/w[L9][b1]/first_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L0][b0]/best_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L0][b0]/best_step 0
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L0][b0]/final_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L0][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L10][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L10][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L10][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L10][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L11][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L11][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L11][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L11][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L12][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L12][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L12][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L12][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L13][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L13][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L13][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L13][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L14][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L14][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L14][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L14][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L15][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L15][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L15][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L15][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L16][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L16][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L16][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L16][b0]/first_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L17][b0]/best_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L17][b0]/best_step 0
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L17][b0]/final_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum/w[L17][b0]/first_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L1][b0]/best_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L1][b0]/best_step 0
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L1][b0]/final_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L1][b0]/first_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L2][b0]/best_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L2][b0]/best_step 0
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L2][b0]/final_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L2][b0]/first_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L3][b0]/best_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L3][b0]/best_step 0
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L3][b0]/final_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L3][b0]/first_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L4][b0]/best_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L4][b0]/best_step 0
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L4][b0]/final_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L4][b0]/first_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L5][b0]/best_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L5][b0]/best_step 0
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L5][b0]/final_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L5][b0]/first_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L6][b0]/best_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L6][b0]/best_step 0
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L6][b0]/final_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L6][b0]/first_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L7][b0]/best_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L7][b0]/best_step 0
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L7][b0]/final_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L7][b0]/first_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L8][b0]/best_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L8][b0]/best_step 0
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L8][b0]/final_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L8][b0]/first_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L9][b0]/best_loss inf
+wandb:            PaliGemma/llm/layers/attn/q_einsum/w[L9][b0]/best_step 0
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L9][b0]/final_loss inf
+wandb:           PaliGemma/llm/layers/attn/q_einsum/w[L9][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L0][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L0][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L0][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L0][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L10][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L10][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L10][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L10][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L11][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L11][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L11][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L11][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L12][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L12][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L12][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L12][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L13][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L13][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L13][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L13][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L14][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L14][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L14][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L14][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L15][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L15][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L15][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L15][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L16][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L16][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L16][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L16][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L17][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L17][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L17][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/attn/q_einsum_1/w[L17][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L1][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L1][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L1][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L1][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L2][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L2][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L2][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L2][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L3][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L3][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L3][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L3][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L4][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L4][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L4][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L4][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L5][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L5][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L5][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L5][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L6][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L6][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L6][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L6][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L7][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L7][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L7][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L7][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L8][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L8][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L8][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L8][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L9][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/attn/q_einsum_1/w[L9][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L9][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/attn/q_einsum_1/w[L9][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L0][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L0][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L0][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L0][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L0][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L0][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L0][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L0][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L10][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L10][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L10][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L10][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L10][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L10][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L10][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L10][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L11][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L11][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L11][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L11][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L11][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L11][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L11][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L11][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L12][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L12][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L12][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L12][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L12][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L12][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L12][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L12][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L13][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L13][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L13][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L13][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L13][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L13][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L13][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L13][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L14][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L14][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L14][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L14][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L14][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L14][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L14][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L14][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L15][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L15][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L15][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L15][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L15][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L15][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L15][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L15][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L16][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L16][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L16][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L16][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L16][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L16][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L16][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L16][b1]/first_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L17][b0]/best_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L17][b0]/best_step 0
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L17][b0]/final_loss inf
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L17][b0]/first_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L17][b1]/best_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L17][b1]/best_step 0
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L17][b1]/final_loss inf
+wandb:        PaliGemma/llm/layers/mlp/gating_einsum[L17][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L1][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L1][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L1][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L1][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L1][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L1][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L1][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L1][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L2][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L2][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L2][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L2][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L2][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L2][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L2][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L2][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L3][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L3][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L3][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L3][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L3][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L3][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L3][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L3][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L4][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L4][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L4][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L4][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L4][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L4][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L4][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L4][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L5][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L5][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L5][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L5][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L5][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L5][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L5][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L5][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L6][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L6][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L6][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L6][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L6][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L6][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L6][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L6][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L7][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L7][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L7][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L7][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L7][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L7][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L7][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L7][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L8][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L8][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L8][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L8][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L8][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L8][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L8][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L8][b1]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L9][b0]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L9][b0]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L9][b0]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L9][b0]/first_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L9][b1]/best_loss inf
+wandb:          PaliGemma/llm/layers/mlp/gating_einsum[L9][b1]/best_step 0
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L9][b1]/final_loss inf
+wandb:         PaliGemma/llm/layers/mlp/gating_einsum[L9][b1]/first_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L0][b0]/best_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L0][b0]/best_step 0
+wandb:                PaliGemma/llm/layers/mlp/linear[L0][b0]/final_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L0][b0]/first_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L10][b0]/best_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L10][b0]/best_step 0
+wandb:               PaliGemma/llm/layers/mlp/linear[L10][b0]/final_loss inf
+wandb:               PaliGemma/llm/layers/mlp/linear[L10][b0]/first_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L11][b0]/best_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L11][b0]/best_step 0
+wandb:               PaliGemma/llm/layers/mlp/linear[L11][b0]/final_loss inf
+wandb:               PaliGemma/llm/layers/mlp/linear[L11][b0]/first_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L12][b0]/best_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L12][b0]/best_step 0
+wandb:               PaliGemma/llm/layers/mlp/linear[L12][b0]/final_loss inf
+wandb:               PaliGemma/llm/layers/mlp/linear[L12][b0]/first_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L13][b0]/best_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L13][b0]/best_step 0
+wandb:               PaliGemma/llm/layers/mlp/linear[L13][b0]/final_loss inf
+wandb:               PaliGemma/llm/layers/mlp/linear[L13][b0]/first_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L14][b0]/best_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L14][b0]/best_step 0
+wandb:               PaliGemma/llm/layers/mlp/linear[L14][b0]/final_loss inf
+wandb:               PaliGemma/llm/layers/mlp/linear[L14][b0]/first_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L15][b0]/best_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L15][b0]/best_step 0
+wandb:               PaliGemma/llm/layers/mlp/linear[L15][b0]/final_loss inf
+wandb:               PaliGemma/llm/layers/mlp/linear[L15][b0]/first_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L16][b0]/best_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L16][b0]/best_step 0
+wandb:               PaliGemma/llm/layers/mlp/linear[L16][b0]/final_loss inf
+wandb:               PaliGemma/llm/layers/mlp/linear[L16][b0]/first_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L17][b0]/best_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L17][b0]/best_step 0
+wandb:               PaliGemma/llm/layers/mlp/linear[L17][b0]/final_loss inf
+wandb:               PaliGemma/llm/layers/mlp/linear[L17][b0]/first_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L1][b0]/best_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L1][b0]/best_step 0
+wandb:                PaliGemma/llm/layers/mlp/linear[L1][b0]/final_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L1][b0]/first_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L2][b0]/best_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L2][b0]/best_step 0
+wandb:                PaliGemma/llm/layers/mlp/linear[L2][b0]/final_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L2][b0]/first_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L3][b0]/best_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L3][b0]/best_step 0
+wandb:                PaliGemma/llm/layers/mlp/linear[L3][b0]/final_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L3][b0]/first_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L4][b0]/best_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L4][b0]/best_step 0
+wandb:                PaliGemma/llm/layers/mlp/linear[L4][b0]/final_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L4][b0]/first_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L5][b0]/best_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L5][b0]/best_step 0
+wandb:                PaliGemma/llm/layers/mlp/linear[L5][b0]/final_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L5][b0]/first_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L6][b0]/best_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L6][b0]/best_step 0
+wandb:                PaliGemma/llm/layers/mlp/linear[L6][b0]/final_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L6][b0]/first_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L7][b0]/best_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L7][b0]/best_step 0
+wandb:                PaliGemma/llm/layers/mlp/linear[L7][b0]/final_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L7][b0]/first_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L8][b0]/best_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L8][b0]/best_step 0
+wandb:                PaliGemma/llm/layers/mlp/linear[L8][b0]/final_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L8][b0]/first_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L9][b0]/best_loss inf
+wandb:                 PaliGemma/llm/layers/mlp/linear[L9][b0]/best_step 0
+wandb:                PaliGemma/llm/layers/mlp/linear[L9][b0]/final_loss inf
+wandb:                PaliGemma/llm/layers/mlp/linear[L9][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L0][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L0][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L0][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L0][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L0][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L0][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L0][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L0][b1]/first_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L10][b0]/best_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L10][b0]/best_step 0
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L10][b0]/final_loss inf
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L10][b0]/first_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L10][b1]/best_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L10][b1]/best_step 0
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L10][b1]/final_loss inf
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L10][b1]/first_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L11][b0]/best_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L11][b0]/best_step 0
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L11][b0]/final_loss inf
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L11][b0]/first_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L11][b1]/best_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L11][b1]/best_step 0
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L11][b1]/final_loss inf
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L11][b1]/first_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L12][b0]/best_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L12][b0]/best_step 0
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L12][b0]/final_loss inf
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L12][b0]/first_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L12][b1]/best_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L12][b1]/best_step 0
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L12][b1]/final_loss inf
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L12][b1]/first_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L13][b0]/best_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L13][b0]/best_step 0
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L13][b0]/final_loss inf
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L13][b0]/first_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L13][b1]/best_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L13][b1]/best_step 0
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L13][b1]/final_loss inf
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L13][b1]/first_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L14][b0]/best_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L14][b0]/best_step 0
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L14][b0]/final_loss inf
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L14][b0]/first_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L14][b1]/best_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L14][b1]/best_step 0
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L14][b1]/final_loss inf
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L14][b1]/first_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L15][b0]/best_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L15][b0]/best_step 0
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L15][b0]/final_loss inf
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L15][b0]/first_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L15][b1]/best_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L15][b1]/best_step 0
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L15][b1]/final_loss inf
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L15][b1]/first_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L16][b0]/best_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L16][b0]/best_step 0
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L16][b0]/final_loss inf
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L16][b0]/first_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L16][b1]/best_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L16][b1]/best_step 0
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L16][b1]/final_loss inf
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L16][b1]/first_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L17][b0]/best_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L17][b0]/best_step 0
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L17][b0]/final_loss inf
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L17][b0]/first_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L17][b1]/best_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L17][b1]/best_step 0
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L17][b1]/final_loss inf
+wandb:      PaliGemma/llm/layers/mlp_1/gating_einsum[L17][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L1][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L1][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L1][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L1][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L1][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L1][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L1][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L1][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L2][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L2][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L2][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L2][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L2][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L2][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L2][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L2][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L3][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L3][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L3][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L3][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L3][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L3][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L3][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L3][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L4][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L4][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L4][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L4][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L4][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L4][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L4][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L4][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L5][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L5][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L5][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L5][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L5][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L5][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L5][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L5][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L6][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L6][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L6][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L6][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L6][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L6][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L6][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L6][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L7][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L7][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L7][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L7][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L7][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L7][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L7][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L7][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L8][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L8][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L8][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L8][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L8][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L8][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L8][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L8][b1]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L9][b0]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L9][b0]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L9][b0]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L9][b0]/first_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L9][b1]/best_loss inf
+wandb:        PaliGemma/llm/layers/mlp_1/gating_einsum[L9][b1]/best_step 0
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L9][b1]/final_loss inf
+wandb:       PaliGemma/llm/layers/mlp_1/gating_einsum[L9][b1]/first_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L0][b0]/best_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L0][b0]/best_step 0
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L0][b0]/final_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L0][b0]/first_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L10][b0]/best_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L10][b0]/best_step 0
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L10][b0]/final_loss inf
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L10][b0]/first_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L11][b0]/best_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L11][b0]/best_step 0
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L11][b0]/final_loss inf
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L11][b0]/first_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L12][b0]/best_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L12][b0]/best_step 0
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L12][b0]/final_loss inf
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L12][b0]/first_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L13][b0]/best_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L13][b0]/best_step 0
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L13][b0]/final_loss inf
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L13][b0]/first_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L14][b0]/best_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L14][b0]/best_step 0
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L14][b0]/final_loss inf
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L14][b0]/first_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L15][b0]/best_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L15][b0]/best_step 0
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L15][b0]/final_loss inf
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L15][b0]/first_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L16][b0]/best_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L16][b0]/best_step 0
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L16][b0]/final_loss inf
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L16][b0]/first_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L17][b0]/best_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L17][b0]/best_step 0
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L17][b0]/final_loss inf
+wandb:             PaliGemma/llm/layers/mlp_1/linear[L17][b0]/first_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L1][b0]/best_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L1][b0]/best_step 0
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L1][b0]/final_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L1][b0]/first_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L2][b0]/best_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L2][b0]/best_step 0
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L2][b0]/final_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L2][b0]/first_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L3][b0]/best_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L3][b0]/best_step 0
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L3][b0]/final_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L3][b0]/first_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L4][b0]/best_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L4][b0]/best_step 0
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L4][b0]/final_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L4][b0]/first_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L5][b0]/best_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L5][b0]/best_step 0
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L5][b0]/final_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L5][b0]/first_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L6][b0]/best_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L6][b0]/best_step 0
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L6][b0]/final_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L6][b0]/first_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L7][b0]/best_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L7][b0]/best_step 0
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L7][b0]/final_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L7][b0]/first_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L8][b0]/best_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L8][b0]/best_step 0
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L8][b0]/final_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L8][b0]/first_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L9][b0]/best_loss inf
+wandb:               PaliGemma/llm/layers/mlp_1/linear[L9][b0]/best_step 0
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L9][b0]/final_loss inf
+wandb:              PaliGemma/llm/layers/mlp_1/linear[L9][b0]/first_loss inf
+wandb:                                                    loss/best_mean inf
+wandb:                                                   loss/final_mean inf
+wandb:                                                   loss/first_mean inf
+wandb:                                                   loss/num_blocks 252
+wandb: 
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /storage/yukaichengLab/lishiwen/jiayusun/openpi/wandb_offline/wandb/offline-run-20260417_174210-z9j5iu78
+wandb: Find logs at: ./wandb_offline/wandb/offline-run-20260417_174210-z9j5iu78/logs

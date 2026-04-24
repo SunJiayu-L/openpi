@@ -117,14 +117,15 @@ def find_norm_stats_path(ckpt_path: str) -> str | None:
     return None
 
 
-def compute_checkpoint_losses(checkpoints, config, data_samples_list):
+def compute_checkpoint_losses(checkpoints, config, data_samples_list, max_eval_batches=None):
     """Compute mean loss per checkpoint on validation batches (for inverse_loss weights)."""
+    eval_batches = data_samples_list[:max_eval_batches] if max_eval_batches else data_samples_list
     losses = []
     for ckpt_path in checkpoints:
         # norm_stats=None: create_trained_policy auto-loads from checkpoint's assets/ dir
         policy = _policy_config.create_trained_policy(config, ckpt_path, norm_stats=None)
         ckpt_losses = []
-        for data_samples in tqdm(data_samples_list, desc="Computing checkpoint losses"):
+        for data_samples in tqdm(eval_batches, desc="Computing checkpoint losses"):
             loss = policy._model.compute_loss(jax.random.key(0), data_samples[0], data_samples[1])
             ckpt_losses.append(float(jnp.mean(loss)))
         print(f"Checkpoint losses for {ckpt_path}: {ckpt_losses}")
@@ -178,6 +179,14 @@ def optimize_weights_with_gradient_descent(
         return jax.tree.map(weighted_sum, *params_list)
 
     @partial(jax.jit, backend="cpu")
+    def cast_mixed_params_for_gd(tree):
+        # Reduce temporary GPU footprint during GD by casting floating params to bf16.
+        return jax.tree.map(
+            lambda x: x.astype(jnp.bfloat16) if jnp.issubdtype(x.dtype, jnp.floating) else x,
+            tree,
+        )
+
+    @partial(jax.jit, backend="cpu")
     def project_grads_cpu(grads, params_list):
         dots = []
         for p_k in params_list:
@@ -192,6 +201,7 @@ def optimize_weights_with_gradient_descent(
     for iteration in range(num_iterations):
         current_weights = jax.nn.softmax(log_weights)
         mixed_params_cpu = mix_params_cpu(params_list_jax_cpu, current_weights)
+        mixed_params_cpu = cast_mixed_params_for_gd(mixed_params_cpu)
         mixed_params_gpu = jax.device_put(mixed_params_cpu, gpu_device)
 
         loss_value, param_grads_gpu = jax.value_and_grad(compute_loss_wrt_params)(
@@ -432,17 +442,17 @@ def optimize_weights_greedy(checkpoints, config, data_samples_list):
 # Validation helper
 # ==============================
 
-def test_mixed_checkpoint_jax(config, checkpoint_path, data_samples_list):
+def test_mixed_checkpoint_jax(config, checkpoint_path, data_samples_list, max_eval_batches=None):
     """Load mixed JAX checkpoint and compute average loss on validation batches."""
-    # norm_stats.json saved directly in checkpoint_path by save_norm_stats
+    eval_batches = data_samples_list[:max_eval_batches] if max_eval_batches else data_samples_list
     norm_stats = _normalize.load(checkpoint_path)
     ckpt_dir = os.path.join(checkpoint_path, "0")
     policy = _policy_config.create_trained_policy(config, ckpt_dir, norm_stats=norm_stats)
     avg_loss = 0.0
-    for data_samples in data_samples_list:
+    for data_samples in eval_batches:
         loss = policy._model.compute_loss(jax.random.key(0), data_samples[0], data_samples[1])
         avg_loss += float(jnp.mean(loss))
-    avg_loss /= len(data_samples_list)
+    avg_loss /= len(eval_batches)
     del policy
     return avg_loss
 
@@ -468,13 +478,23 @@ def main():
     parser.add_argument("--num_iterations", type=int, default=50)
     parser.add_argument("--learning_rate", type=float, default=0.05)
     parser.add_argument("--memory_fraction", type=float, default=0.8)
-    parser.add_argument("--gpu_ids", type=str, default="0", help="Comma-separated GPU IDs")
+    parser.add_argument("--gpu_ids", type=str, default=None, help="Comma-separated GPU IDs (default: use SLURM/env CUDA_VISIBLE_DEVICES)")
     parser.add_argument("--wandb_project", type=str, default=None, help="W&B project name (enables logging)")
     parser.add_argument("--wandb_run_name", type=str, default=None, help="W&B run name")
     parser.add_argument("--wandb_dir", type=str, default=None, help="Local dir to save W&B offline logs")
+    parser.add_argument("--freeze_action", action="store_true",
+                        help="Skip mixing action params; replace with values from --action_src checkpoint")
+    parser.add_argument("--action_src", type=str, default=None,
+                        help="Checkpoint whose action params to use when --freeze_action is set "
+                             "(defaults to last checkpoint in --checkpoints)")
+    parser.add_argument("--max_eval_batches", type=int, default=None,
+                        help="Limit batches used in compute_checkpoint_losses and test_mixed_checkpoint (prevents GPU OOM with large pkls; does NOT limit GD loop)")
     args = parser.parse_args()
 
-    os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu_ids
+    if args.gpu_ids is not None:
+        os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu_ids
+    # else: respect CUDA_VISIBLE_DEVICES already set by SLURM or the environment
+    print(f"CUDA_VISIBLE_DEVICES={os.environ.get('CUDA_VISIBLE_DEVICES', 'not set')}")
     os.environ["XLA_PYTHON_CLIENT_PREALLOCATE"] = "false"
     os.environ["XLA_PYTHON_CLIENT_MEM_FRACTION"] = str(args.memory_fraction)
     os.environ["XLA_PYTHON_CLIENT_ALLOCATOR"] = "platform"
@@ -501,6 +521,9 @@ def main():
     config = _config.get_config(args.config)
     with open(args.data_path, "rb") as f:
         data_samples_list = pickle.load(f)
+    print(f"Loaded {len(data_samples_list)} validation batches from {args.data_path}")
+    if args.max_eval_batches:
+        print(f"  (eval functions limited to {args.max_eval_batches} batches; GD loop uses all {len(data_samples_list)})")
 
     losses = []
     if args.weights is None:
@@ -519,7 +542,7 @@ def main():
                 num_iterations=args.num_iterations, learning_rate=args.learning_rate
             )
         elif args.optimize_method == "inverse_loss":
-            losses = compute_checkpoint_losses(args.checkpoints, config, data_samples_list)
+            losses = compute_checkpoint_losses(args.checkpoints, config, data_samples_list, args.max_eval_batches)
             args.weights = compute_optimal_weights(losses)
         elif args.optimize_method == "greedy":
             args.weights = optimize_weights_greedy(args.checkpoints, config, data_samples_list)
@@ -528,7 +551,7 @@ def main():
         print(f"\n✓ Optimized weights: {args.weights}")
     else:
         print(f"\nUsing provided weights: {args.weights}")
-        losses = compute_checkpoint_losses(args.checkpoints, config, data_samples_list)
+        losses = compute_checkpoint_losses(args.checkpoints, config, data_samples_list, args.max_eval_batches)
 
     if len(args.weights) != len(args.checkpoints):
         raise ValueError("Number of weights must match number of checkpoints")
@@ -540,9 +563,27 @@ def main():
             print(f"  Ckpt {i+1}: {loss:.6f} (w={args.weights[i]:.4f})")
     print("=" * 60)
 
+    _FROZEN_PREFIXES = (
+        "action_in_proj/",
+        "action_out_proj/",
+        "time_mlp_in/",
+        "time_mlp_out/",
+    )
+
     print("\nMixing parameters...")
     params_list = [load_jax_params(p) for p in args.checkpoints]
     mixed = mix_params(params_list, args.weights)
+
+    if args.freeze_action:
+        action_src = args.action_src or args.checkpoints[-1]
+        print(f"\nFreezing action params — loading from: {action_src}")
+        src_params = load_jax_params(action_src)
+        frozen_keys = [k for k in mixed if any(k.startswith(pfx) for pfx in _FROZEN_PREFIXES)]
+        print(f"  Replacing {len(frozen_keys)} keys: {frozen_keys[:8]}{'...' if len(frozen_keys) > 8 else ''}")
+        for k in frozen_keys:
+            mixed[k] = src_params[k]
+        del src_params
+
     del params_list
     gc.collect()
     save_jax_params(mixed, args.output)
@@ -569,7 +610,7 @@ def main():
         gc.collect()
         time.sleep(2)
         print("\nTesting mixed checkpoint...")
-        mixed_loss = test_mixed_checkpoint_jax(config, args.output, data_samples_list)
+        mixed_loss = test_mixed_checkpoint_jax(config, args.output, data_samples_list, args.max_eval_batches)
         print("\n" + "=" * 60)
         print("Results:")
         if losses:

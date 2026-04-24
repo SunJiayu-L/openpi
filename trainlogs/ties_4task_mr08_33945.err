@@ -1,0 +1,73 @@
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.19.11
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+2026-04-19 08:21:49,678 INFO wandb initialized.
+2026-04-19 08:21:49,678 INFO Loading base checkpoint...
+2026-04-19 08:21:54,779 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000/params
+2026-04-19 08:21:54,779 INFO orbax-checkpoint version: 0.11.13
+2026-04-19 08:21:54,779 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f9040b0c910>
+2026-04-19 08:21:54,796 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000/params.
+2026-04-19 08:21:57,184 INFO [thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID.
+2026-04-19 08:21:57,216 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 5.2 GiB/s (total bytes: 12.5 GiB) (time elapsed: 2 seconds) (per-host)
+2026-04-19 08:21:57,217 INFO Finished restoring checkpoint in 2.42 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000/params.
+2026-04-19 08:21:57,217 INFO Loading 4 fine-tuned checkpoint(s)...
+2026-04-19 08:21:57,218 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_10_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params
+2026-04-19 08:21:57,218 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f9040b0c910>
+2026-04-19 08:21:57,231 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_10_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-19 08:22:00,001 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 4.5 GiB/s (total bytes: 12.5 GiB) (time elapsed: 2 seconds) (per-host)
+2026-04-19 08:22:00,001 INFO Finished restoring checkpoint in 2.77 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_10_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-19 08:22:00,003 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_goal_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params
+2026-04-19 08:22:00,003 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f9040b0c910>
+2026-04-19 08:22:00,015 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_goal_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-19 08:22:02,778 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 4.5 GiB/s (total bytes: 12.5 GiB) (time elapsed: 2 seconds) (per-host)
+2026-04-19 08:22:02,778 INFO Finished restoring checkpoint in 2.76 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_goal_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-19 08:22:02,780 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_object_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params
+2026-04-19 08:22:02,780 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f9040b0c910>
+2026-04-19 08:22:02,792 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_object_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-19 08:22:05,401 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 4.8 GiB/s (total bytes: 12.5 GiB) (time elapsed: 2 seconds) (per-host)
+2026-04-19 08:22:05,402 INFO Finished restoring checkpoint in 2.61 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_object_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-19 08:22:05,403 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params
+2026-04-19 08:22:05,403 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f9040b0c910>
+2026-04-19 08:22:05,416 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-19 08:22:08,200 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 4.5 GiB/s (total bytes: 12.5 GiB) (time elapsed: 2 seconds) (per-host)
+2026-04-19 08:22:08,201 INFO Finished restoring checkpoint in 2.78 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-19 08:22:08,201 INFO TIES-eligible: 10 / 51  (scope=llm_only)
+2026-04-19 08:22:08,201 INFO Norm/bias frozen at base: 27 params
+2026-04-19 08:22:08,202 INFO Total eligible params: 2,293,235,712
+2026-04-19 08:22:40,953 INFO Flat task-vector matrix: (4, 2293235712)  dtype=float32
+2026-04-19 08:23:38,080 INFO Saving...
+2026-04-19 08:23:38,082 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f9040b0c910>
+2026-04-19 08:23:38,083 INFO [process=0] Started saving checkpoint to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ties_mllm/4task_mr08_s10/params.
+2026-04-19 08:23:38,084 INFO Creating tmp directory /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ties_mllm/4task_mr08_s10/params.orbax-checkpoint-tmp-0
+2026-04-19 08:23:38,088 INFO Wrote Metadata={'item_handlers': None, 'metrics': {}, 'performance_metrics': {}, 'init_timestamp_nsecs': 1776558218087353609, 'commit_timestamp_nsecs': None, 'custom_metadata': {}}, json={"item_handlers": null, "metrics": {}, "performance_metrics": {}, "init_timestamp_nsecs": 1776558218087353609, "commit_timestamp_nsecs": null, "custom_metadata": {}} to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ties_mllm/4task_mr08_s10/params.orbax-checkpoint-tmp-0/_CHECKPOINT_METADATA
+2026-04-19 08:23:40,701 INFO Using ThreadSafeKeyValueSignalingClient
+2026-04-19 08:23:40,704 INFO Array name: 'params.PaliGemma.llm.layers.mlp.gating_einsum', global shape: (18, 2, 2048, 16384), write shape: (18, 2, 2048, 16384), chosen chunk shape: (18, 2, 2048, 4096)
+2026-04-19 08:23:40,704 INFO [process=0] /jax/checkpoint/write/blocking_bytes_per_sec: 4.8 GiB/s (total bytes: 12.5 GiB) (time elapsed: 2 seconds) (per-host)
+2026-04-19 08:23:40,704 INFO Array name: 'params.PaliGemma.llm.layers.mlp.linear', global shape: (18, 16384, 2048), write shape: (18, 16384, 2048), chosen chunk shape: (18, 8192, 2048)
+2026-04-19 08:23:46,069 INFO [process=0][thread=write_metadata_after_commits] No metadata found for process_index=0, checkpoint_dir=/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ties_mllm/4task_mr08_s10/params.orbax-checkpoint-tmp-0. If the checkpoint does not contain jax.Array then it is expected. If checkpoint contains jax.Array then it should lead to an error eventually; if no error is raised then it is a bug.
+2026-04-19 08:23:46,082 INFO [process=0] /jax/checkpoint/write/bytes_per_sec: 1.6 GiB/s (total bytes: 12.5 GiB) (time elapsed: 7 seconds) (per-host)
+2026-04-19 08:23:46,083 INFO Read Metadata={'item_handlers': None, 'metrics': {}, 'performance_metrics': {}, 'init_timestamp_nsecs': 1776558218087353609, 'commit_timestamp_nsecs': None, 'custom_metadata': {}} from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ties_mllm/4task_mr08_s10/params.orbax-checkpoint-tmp-0/_CHECKPOINT_METADATA
+2026-04-19 08:23:46,086 INFO Updated Metadata={'item_handlers': 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler', 'metrics': {}, 'performance_metrics': {}, 'init_timestamp_nsecs': 1776558218087353609, 'commit_timestamp_nsecs': None, 'custom_metadata': {}} to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ties_mllm/4task_mr08_s10/params.orbax-checkpoint-tmp-0/_CHECKPOINT_METADATA
+2026-04-19 08:23:46,088 INFO [process=0][thread=MainThread] No metadata found for any process_index, checkpoint_dir=/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ties_mllm/4task_mr08_s10/params.orbax-checkpoint-tmp-0. time elapsed=0.00041747093200683594 seconds. If the checkpoint does not contain jax.Array then it is expected. If checkpoint contains jax.Array then it should lead to an error eventually; if no error is raised then it is a bug.
+2026-04-19 08:23:46,099 INFO Renaming /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ties_mllm/4task_mr08_s10/params.orbax-checkpoint-tmp-0 to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ties_mllm/4task_mr08_s10/params
+2026-04-19 08:23:46,102 INFO [process=0][thread=MainThread] Finished saving checkpoint (finalized tmp dir) to `/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ties_mllm/4task_mr08_s10/params`.
+2026-04-19 08:23:46,103 INFO Finished synchronous save in 8.02 seconds to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ties_mllm/4task_mr08_s10/params
+2026-04-19 08:23:46,103 INFO   Saved: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ties_mllm/4task_mr08_s10/params
+2026-04-19 08:23:46,103 INFO Done. Output: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/ties_mllm/4task_mr08_s10
+wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:         ties/mask_rate ▁
+wandb:         ties/merged_l2 ▁
+wandb: ties/num_eligible_keys ▁
+wandb:        ties/num_params ▁
+wandb: 
+wandb: Run summary:
+wandb:         ties/mask_rate 0.8
+wandb:         ties/merged_l2 257.26633
+wandb: ties/num_eligible_keys 10
+wandb:        ties/num_params 2293235712
+wandb: 
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /storage/yukaichengLab/lishiwen/jiayusun/openpi/wandb_offline/wandb/offline-run-20260419_082149-omo9yz5p
+wandb: Find logs at: ./wandb_offline/wandb/offline-run-20260419_082149-omo9yz5p/logs

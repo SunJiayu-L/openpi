@@ -1,0 +1,56 @@
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.19.11
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+2026-04-18 21:54:26,128 INFO wandb initialized.
+2026-04-18 21:54:26,128 INFO Loading base checkpoint...
+2026-04-18 21:54:35,659 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000/params
+2026-04-18 21:54:35,659 INFO orbax-checkpoint version: 0.11.13
+2026-04-18 21:54:35,659 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f300f29e110>
+2026-04-18 21:54:35,678 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000/params.
+2026-04-18 21:54:40,090 INFO [thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID.
+INFO:2026-04-18 21:54:40,358:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+2026-04-18 21:54:40,358 INFO Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:2026-04-18 21:54:40,359:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-04-18 21:54:40,359 INFO Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+2026-04-18 21:54:40,367 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 2.7 GiB/s (total bytes: 12.5 GiB) (time elapsed: 4 seconds) (per-host)
+2026-04-18 21:54:40,367 INFO Finished restoring checkpoint in 4.69 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000/params.
+2026-04-18 21:54:40,368 INFO Loading 4 fine-tuned checkpoint(s)...
+2026-04-18 21:54:40,369 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_10_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params
+2026-04-18 21:54:40,369 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f300f29e110>
+2026-04-18 21:54:40,381 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_10_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-18 21:54:44,399 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 3.1 GiB/s (total bytes: 12.5 GiB) (time elapsed: 4 seconds) (per-host)
+2026-04-18 21:54:44,399 INFO Finished restoring checkpoint in 4.02 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_10_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-18 21:54:44,400 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_goal_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params
+2026-04-18 21:54:44,400 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f300f29e110>
+2026-04-18 21:54:44,412 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_goal_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-18 21:54:48,596 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 3.0 GiB/s (total bytes: 12.5 GiB) (time elapsed: 4 seconds) (per-host)
+2026-04-18 21:54:48,596 INFO Finished restoring checkpoint in 4.18 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_goal_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-18 21:54:48,598 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_object_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params
+2026-04-18 21:54:48,598 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f300f29e110>
+2026-04-18 21:54:48,609 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_object_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-18 21:54:52,770 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 3.0 GiB/s (total bytes: 12.5 GiB) (time elapsed: 4 seconds) (per-host)
+2026-04-18 21:54:52,771 INFO Finished restoring checkpoint in 4.16 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_object_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-18 21:54:52,772 INFO   Loading: /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params
+2026-04-18 21:54:52,772 INFO Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f300f29e110>
+2026-04-18 21:54:52,786 INFO Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-18 21:54:56,847 INFO [process=0] /jax/checkpoint/read/bytes_per_sec: 3.1 GiB/s (total bytes: 12.5 GiB) (time elapsed: 4 seconds) (per-host)
+2026-04-18 21:54:56,847 INFO Finished restoring checkpoint in 4.06 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/20000/params.
+2026-04-18 21:54:56,848 INFO TIES-eligible: 10 / 51  (scope=llm_only)
+2026-04-18 21:54:56,848 INFO Norm/bias frozen at base: 27 params
+2026-04-18 21:54:56,848 INFO Total eligible params: 2,293,235,712
+2026-04-18 21:55:29,463 INFO Flat task-vector matrix: (4, 2293235712)  dtype=float32
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/ties_merge.py", line 483, in <module>
+    main()
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/ties_merge.py", line 469, in main
+    run_merge(
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/ties_merge.py", line 341, in run_merge
+    merged_flat = ties_core(flat, mask_rate=mask_rate).cpu().numpy()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/ties_merge.py", line 202, in ties_core
+    signs = _elect_signs(masked)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/ties_merge.py", line 175, in _elect_signs
+    signs = torch.sign(flat.sum(dim=0))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.54 GiB. GPU 0 has a total capacity of 79.22 GiB of which 1.71 GiB is free. Including non-PyTorch memory, this process has 77.50 GiB memory in use. Of the allocated memory 76.89 GiB is allocated by PyTorch, and 0 bytes is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

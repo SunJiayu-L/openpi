@@ -1,0 +1,4 @@
+wandb: Tracking run with wandb version 0.19.11
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+Loading checkpoints:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoints:  25%|██▌       | 1/4 [00:04<00:12,  4.23s/it]Loading checkpoints:  50%|█████     | 2/4 [00:08<00:08,  4.18s/it]Loading checkpoints:  75%|███████▌  | 3/4 [00:12<00:04,  4.16s/it]Loading checkpoints: 100%|██████████| 4/4 [00:16<00:00,  4.16s/it]Loading checkpoints: 100%|██████████| 4/4 [00:16<00:00,  4.17s/it]
+slurmstepd: error: *** JOB 33044 ON gnho034 CANCELLED AT 2026-04-02T14:35:33 ***

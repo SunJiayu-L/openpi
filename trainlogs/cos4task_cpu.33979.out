@@ -1,0 +1,9 @@
+\nGlobal cosine (focus 6 pairs):
+  cos(libero_10, libero_spatial) = 0.04857620
+  cos(libero_10, libero_object) = 0.05284221
+  cos(libero_10, libero_goal) = 0.04935768
+  cos(libero_spatial, libero_object) = 0.05216420
+  cos(libero_spatial, libero_goal) = 0.05414348
+  cos(libero_object, libero_goal) = 0.04892398
+\nSaved: docs/analysis/from10k_llm_only_global_cosine/global_cosine_6pairs.csv
+Saved: docs/analysis/from10k_llm_only_global_cosine/global_cosine_matrix_4x4.csv

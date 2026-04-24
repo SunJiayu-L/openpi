@@ -1,0 +1,292 @@
+09:51:06.592 [I] Running on: gnho009                                                              (373492:train.py:196)
+INFO:2026-04-09 09:51:07,501:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+09:51:07.501 [I] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig' (373492:xla_bridge.py:925)
+INFO:2026-04-09 09:51:07,502:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+09:51:07.502 [I] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory (373492:xla_bridge.py:925)
+09:51:07.770 [I] Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f3f83eed2d0> (373492:base_pytree_checkpoint_handler.py:334)
+09:51:07.770 [I] Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f3f83eed2d0> (373492:base_pytree_checkpoint_handler.py:334)
+09:51:07.770 [I] [thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID. (373492:multihost.py:390)
+09:51:07.770 [I] [process=0][thread=MainThread] CheckpointManager init: checkpointers=None, item_names=None, item_handlers={'assets': <openpi.training.checkpoints.CallbackHandler object at 0x7f3e25c43d10>, 'train_state': <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7f3f8a41fc10>, 'params': <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7f3e25697fd0>}, handler_registry=None (373492:checkpoint_manager.py:620)
+09:51:07.771 [I] Deferred registration for item: "assets". Adding handler `<openpi.training.checkpoints.CallbackHandler object at 0x7f3e25c43d10>` for item "assets" and save args `<class 'openpi.training.checkpoints.CallbackSave'>` and restore args `<class 'openpi.training.checkpoints.CallbackRestore'>` to `_handler_registry`. (373492:composite_checkpoint_handler.py:234)
+09:51:07.771 [I] Deferred registration for item: "train_state". Adding handler `<orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7f3f8a41fc10>` for item "train_state" and save args `<class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeSaveArgs'>` and restore args `<class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeRestoreArgs'>` to `_handler_registry`. (373492:composite_checkpoint_handler.py:234)
+09:51:07.771 [I] Deferred registration for item: "params". Adding handler `<orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7f3e25697fd0>` for item "params" and save args `<class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeSaveArgs'>` and restore args `<class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeRestoreArgs'>` to `_handler_registry`. (373492:composite_checkpoint_handler.py:234)
+09:51:07.771 [I] Deferred registration for item: "metrics". Adding handler `<orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonCheckpointHandler object at 0x7f3e2540eb10>` for item "metrics" and save args `<class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonSaveArgs'>` and restore args `<class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonRestoreArgs'>` to `_handler_registry`. (373492:composite_checkpoint_handler.py:234)
+09:51:07.771 [I] Initialized registry DefaultCheckpointHandlerRegistry({('assets', <class 'openpi.training.checkpoints.CallbackSave'>): <openpi.training.checkpoints.CallbackHandler object at 0x7f3e25c43d10>, ('assets', <class 'openpi.training.checkpoints.CallbackRestore'>): <openpi.training.checkpoints.CallbackHandler object at 0x7f3e25c43d10>, ('train_state', <class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeSaveArgs'>): <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7f3f8a41fc10>, ('train_state', <class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeRestoreArgs'>): <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7f3f8a41fc10>, ('params', <class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeSaveArgs'>): <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7f3e25697fd0>, ('params', <class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeRestoreArgs'>): <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7f3e25697fd0>, ('metrics', <class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonSaveArgs'>): <orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonCheckpointHandler object at 0x7f3e2540eb10>, ('metrics', <class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonRestoreArgs'>): <orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonCheckpointHandler object at 0x7f3e2540eb10>}). (373492:composite_checkpoint_handler.py:502)
+09:51:07.771 [I] orbax-checkpoint version: 0.11.13                                                (373492:abstract_checkpointer.py:35)
+09:51:07.771 [I] [process=0][thread=MainThread] Using barrier_sync_fn: <function get_barrier_sync_fn.<locals>.<lambda> at 0x7f3e25296ca0> timeout: 7200 secs and primary_host=0 for async checkpoint writes (373492:async_checkpointer.py:170)
+09:51:07.774 [I] Read Metadata={'item_handlers': {'assets': 'openpi.training.checkpoints.CallbackHandler', 'params': 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler', 'train_state': 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler'}, 'metrics': {}, 'performance_metrics': {}, 'init_timestamp_nsecs': 1775676295931564163, 'commit_timestamp_nsecs': 1775676324011494548, 'custom_metadata': {}} from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29000/_CHECKPOINT_METADATA (373492:checkpoint.py:226)
+09:51:07.775 [W] Missing metrics for step 29000                                                   (373492:checkpoint_manager.py:1654)
+09:51:07.775 [E] File /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29000/metrics/metrics not found. (373492:checkpoint_manager.py:1655)
+09:51:07.777 [W] Missing metrics for step 10000                                                   (373492:checkpoint_manager.py:1654)
+09:51:07.777 [E] File /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/10000/metrics/metrics not found. (373492:checkpoint_manager.py:1655)
+09:51:07.779 [W] Missing metrics for step 5000                                                    (373492:checkpoint_manager.py:1654)
+09:51:07.779 [E] File /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/5000/metrics/metrics not found. (373492:checkpoint_manager.py:1655)
+09:51:07.779 [W] Missing metrics for step 15000                                                   (373492:checkpoint_manager.py:1654)
+09:51:07.779 [E] File /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/15000/metrics/metrics not found. (373492:checkpoint_manager.py:1655)
+09:51:07.780 [W] Missing metrics for step 20000                                                   (373492:checkpoint_manager.py:1654)
+09:51:07.781 [E] File /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/20000/metrics/metrics not found. (373492:checkpoint_manager.py:1655)
+09:51:07.781 [W] Missing metrics for step 25000                                                   (373492:checkpoint_manager.py:1654)
+09:51:07.781 [E] File /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/25000/metrics/metrics not found. (373492:checkpoint_manager.py:1655)
+09:51:07.781 [I] Found 6 checkpoint steps in /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k (373492:checkpoint_manager.py:1701)
+09:51:07.782 [I] [process=0][thread=MainThread] CheckpointManager created,  primary_host=0, CheckpointManagerOptions=CheckpointManagerOptions(save_interval_steps=1, max_to_keep=1, keep_time_interval=None, keep_period=5000, should_keep_fn=None, best_fn=None, best_mode='max', keep_checkpoints_without_metrics=True, step_prefix=None, step_format_fixed_length=None, step_name_format=None, create=False, cleanup_tmp_directories=False, save_on_steps=frozenset(), single_host_load_and_broadcast=False, todelete_subdir=None, enable_background_delete=False, read_only=False, enable_async_checkpointing=True, async_options=AsyncOptions(timeout_secs=7200, barrier_sync_fn=None, post_finalization_callback=None, create_directories_asynchronously=True), multiprocessing_options=MultiprocessingOptions(primary_host=0, active_processes=None, barrier_sync_key_prefix=None), should_save_fn=None, file_options=FileOptions(path_permission_mode=None), save_root_metadata=True, temporary_path_class=None, save_decision_policy=None, prevent_write_metrics=False), root_directory=/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k: <orbax.checkpoint.checkpoint_manager.CheckpointManager object at 0x7f3e2554e090> (373492:checkpoint_manager.py:801)
+wandb: WARNING `resume` will be ignored since W&B syncing is set to `offline`. Starting a new run with run id 6m91i1ri.
+wandb: Tracking run with wandb version 0.19.11
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+09:51:08.333 [I] Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/10000/assets/physical-intelligence/libero (373492:config.py:214)
+09:51:08.334 [I] data_config: DataConfig(repo_id='physical-intelligence/libero', lerobot_root=None, asset_id='physical-intelligence/libero', norm_stats={'state': NormStats(mean=array([-0.04651536,  0.03437928,  0.76449764,  2.97217774, -0.22033744,
+       -0.12564771,  0.02691822, -0.02719478]), std=array([0.10494291, 0.15176797, 0.37853545, 0.34430304, 0.90699339,
+       0.32538688, 0.01417407, 0.01405702]), q01=array([-3.99227868e-01, -2.68878135e-01,  3.80015922e-02,  1.50832780e+00,
+       -2.72100443e+00, -1.08132181e+00,  1.73520013e-03, -4.00442422e-02]), q99=array([ 1.35320103e-01,  3.35663146e-01,  1.27014405e+00,  3.27650592e+00,
+        2.40543680e+00,  5.97152898e-01,  4.03033407e-02, -1.78783794e-03])), 'actions': NormStats(mean=array([ 0.0550874 ,  0.08771197, -0.08736418,  0.00071264,  0.00547544,
+       -0.00553408, -0.04571558]), std=array([0.33181563, 0.37583771, 0.44807112, 0.03933164, 0.06357799,
+       0.07857697, 0.99895447]), q01=array([-0.70725   , -0.798375  , -0.9375    , -0.11467779, -0.1641    ,
+       -0.22404901, -1.        ]), q99=array([0.937125  , 0.86775   , 0.937125  , 0.13163036, 0.1917    ,
+       0.3374295 , 0.9996    ]))}, repack_transforms=Group(inputs=[RepackTransform(structure={'observation/image': 'image', 'observation/wrist_image': 'wrist_image', 'observation/state': 'state', 'actions': 'actions', 'prompt': 'prompt'})], outputs=()), data_transforms=Group(inputs=[LiberoInputs(model_type=<ModelType.PI05: 'pi05'>)], outputs=[LiberoOutputs()]), model_transforms=Group(inputs=[InjectDefaultPrompt(prompt=None), ResizeImages(height=224, width=224), TokenizePrompt(tokenizer=<openpi.models.tokenizer.PaligemmaTokenizer object at 0x7f3e25c5ca90>, discrete_state_input=False), PadStatesAndActions(model_action_dim=32)], outputs=()), use_quantile_norm=True, action_sequence_keys=('actions',), prompt_from_task=True, episodes=[1261, 1262, 1263, 1264, 1265, 1266, 1267, 1268, 1269, 1270, 1271, 1272, 1273, 1274, 1275, 1276, 1277, 1278, 1279, 1280, 1281, 1282, 1283, 1284, 1285, 1286, 1287, 1288, 1289, 1290, 1291, 1292, 1293, 1294, 1295, 1296, 1297, 1298, 1299, 1300, 1301, 1302, 1303, 1304, 1305, 1306, 1307, 1308, 1309, 1310, 1311, 1312, 1313, 1314, 1315, 1316, 1317, 1318, 1319, 1320, 1321, 1322, 1323, 1324, 1325, 1326, 1327, 1328, 1329, 1330, 1331, 1332, 1333, 1334, 1335, 1336, 1337, 1338, 1339, 1340, 1341, 1342, 1343, 1344, 1345, 1346, 1347, 1348, 1349, 1350, 1351, 1352, 1353, 1354, 1355, 1356, 1357, 1358, 1359, 1360, 1361, 1362, 1363, 1364, 1365, 1366, 1367, 1368, 1369, 1370, 1371, 1372, 1373, 1374, 1375, 1376, 1377, 1378, 1379, 1380, 1381, 1382, 1383, 1384, 1385, 1386, 1387, 1388, 1389, 1390, 1391, 1392, 1393, 1394, 1395, 1396, 1397, 1398, 1399, 1400, 1401, 1402, 1403, 1404, 1405, 1406, 1407, 1408, 1409, 1410, 1411, 1412, 1413, 1414, 1415, 1416, 1417, 1418, 1419, 1420, 1421, 1422, 1423, 1424, 1425, 1426, 1427, 1428, 1429, 1430, 1431, 1432, 1433, 1434, 1435, 1436, 1437, 1438, 1439, 1440, 1441, 1442, 1443, 1444, 1445, 1446, 1447, 1448, 1449, 1450, 1451, 1452, 1453, 1454, 1455, 1456, 1457, 1458, 1459, 1460, 1461, 1462, 1463, 1464, 1465, 1466, 1467, 1468, 1469, 1470, 1471, 1472, 1473, 1474, 1475, 1476, 1477, 1478, 1479, 1480, 1481, 1482, 1483, 1484, 1485, 1486, 1487, 1488, 1489, 1490, 1491, 1492, 1493, 1494, 1495, 1496, 1497, 1498, 1499, 1500, 1501, 1502, 1503, 1504, 1505, 1506, 1507, 1508, 1509, 1510, 1511, 1512, 1513, 1514, 1515, 1516, 1517, 1518, 1519, 1520, 1521, 1522, 1523, 1524, 1525, 1526, 1527, 1528, 1529, 1530, 1531, 1532, 1533, 1534, 1535, 1536, 1537, 1538, 1539, 1540, 1541, 1542, 1543, 1544, 1545, 1546, 1547, 1548, 1549, 1550, 1551, 1552, 1553, 1554, 1555, 1556, 1557, 1558, 1559, 1560, 1561, 1562, 1563, 1564, 1565, 1566, 1567, 1568, 1569, 1570, 1571, 1572, 1573, 1574, 1575, 1576, 1577, 1578, 1579, 1580, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 1593, 1594, 1595, 1596, 1597, 1598, 1599, 1600, 1601, 1602, 1603, 1604, 1605, 1606, 1607, 1608, 1609, 1610, 1611, 1612, 1613, 1614, 1615, 1616, 1617, 1618, 1619, 1620, 1621, 1622, 1623, 1624, 1625, 1626, 1627, 1628, 1629, 1630, 1631, 1632, 1633, 1634, 1635, 1636, 1637, 1638, 1639, 1640, 1641, 1642, 1643, 1644, 1645, 1646, 1647, 1648, 1649, 1650, 1651, 1652, 1653, 1654, 1655, 1656, 1657, 1658, 1659, 1660, 1661, 1662, 1663, 1664, 1665, 1666, 1667, 1668, 1669, 1670, 1671, 1672, 1673, 1674, 1675, 1676, 1677, 1678, 1679, 1680, 1681, 1682, 1683, 1684, 1685, 1686, 1687, 1688, 1689, 1690, 1691, 1692], extra_lerobot_datasets=(), dataset_mix_weights=None, rlds_data_dir=None, action_space=None, datasets=()) (373492:data_loader.py:290)
+09:51:08.334 [W] 
+The dataset you requested (physical-intelligence/libero) is in 2.0 format.
+While current version of LeRobot is backward-compatible with it, the version of your dataset still uses global
+stats instead of per-episode stats. Update your dataset stats to the new format using this command:
+```
+python lerobot/common/datasets/v21/convert_dataset_v20_to_v21.py --repo-id=physical-intelligence/libero
+```
+
+If you encounter a problem, contact LeRobot maintainers on [Discord](https://discord.com/invite/s3KuuzsPFb)
+or open an [issue on GitHub](https://github.com/huggingface/lerobot/issues/new/choose).
+ (373492:utils.py:303)
+09:51:08.339 [W] 
+The dataset you requested (physical-intelligence/libero) is in 2.0 format.
+While current version of LeRobot is backward-compatible with it, the version of your dataset still uses global
+stats instead of per-episode stats. Update your dataset stats to the new format using this command:
+```
+python lerobot/common/datasets/v21/convert_dataset_v20_to_v21.py --repo-id=physical-intelligence/libero
+```
+
+If you encounter a problem, contact LeRobot maintainers on [Discord](https://discord.com/invite/s3KuuzsPFb)
+or open an [issue on GitHub](https://github.com/huggingface/lerobot/issues/new/choose).
+ (373492:utils.py:303)
+09:51:12.539 [I] Filtering to 432 episodes: 52970/273465 frames                                   (373492:data_loader.py:162)
+09:51:12.539 [I] local_batch_size: 32                                                             (373492:data_loader.py:400)
+09:51:26.149 [I] Initialized data loader:
+[0].images['base_0_rgb']: (32, 224, 224, 3)@float32
+[0].images['left_wrist_0_rgb']: (32, 224, 224, 3)@float32
+[0].images['right_wrist_0_rgb']: (32, 224, 224, 3)@float32
+[0].image_masks['base_0_rgb']: (32,)@bool
+[0].image_masks['left_wrist_0_rgb']: (32,)@bool
+[0].image_masks['right_wrist_0_rgb']: (32,)@bool
+[0].state: (32, 32)@float32
+[0].tokenized_prompt: (32, 200)@int32
+[0].tokenized_prompt_mask: (32, 200)@bool
+[1]: (32, 10, 32)@float32 (373492:train.py:227)
+09:51:27.317 [I] Initialized train state:
+['PaliGemma']['img']['Transformer']['encoder_norm']['bias'].value: (1152,)@float32
+['PaliGemma']['img']['Transformer']['encoder_norm']['scale'].value: (1152,)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['LayerNorm_0']['bias'].value: (27, 1152)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['LayerNorm_0']['scale'].value: (27, 1152)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['LayerNorm_1']['bias'].value: (27, 1152)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['LayerNorm_1']['scale'].value: (27, 1152)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_0']['bias'].value: (27, 4304)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_0']['kernel'].value: (27, 1152, 4304)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_1']['bias'].value: (27, 1152)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_1']['kernel'].value: (27, 4304, 1152)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['key']['bias'].value: (27, 16, 72)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['key']['kernel'].value: (27, 1152, 16, 72)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['out']['bias'].value: (27, 1152)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['out']['kernel'].value: (27, 16, 72, 1152)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['query']['bias'].value: (27, 16, 72)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['query']['kernel'].value: (27, 1152, 16, 72)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['value']['bias'].value: (27, 16, 72)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['value']['kernel'].value: (27, 1152, 16, 72)@float32
+['PaliGemma']['img']['embedding']['bias'].value: (1152,)@float32
+['PaliGemma']['img']['embedding']['kernel'].value: (14, 14, 3, 1152)@float32
+['PaliGemma']['img']['head']['bias'].value: (2048,)@float32
+['PaliGemma']['img']['head']['kernel'].value: (1152, 2048)@float32
+['PaliGemma']['img']['pos_embedding'].value: (1, 256, 1152)@float32
+['PaliGemma']['llm']['embedder']['input_embedding'].value: (257152, 2048)@float32
+['PaliGemma']['llm']['final_norm']['scale'].value: (2048,)@float32
+['PaliGemma']['llm']['final_norm_1']['Dense_0']['bias'].value: (3072,)@float32
+['PaliGemma']['llm']['final_norm_1']['Dense_0']['kernel'].value: (1024, 3072)@float32
+['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum']['w'].value: (18, 8, 256, 2048)@float32
+['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum_1']['w'].value: (18, 8, 256, 1024)@float32
+['PaliGemma']['llm']['layers']['attn']['kv_einsum']['w'].value: (18, 2, 1, 2048, 256)@float32
+['PaliGemma']['llm']['layers']['attn']['kv_einsum_1']['w'].value: (18, 2, 1, 1024, 256)@float32
+['PaliGemma']['llm']['layers']['attn']['q_einsum']['w'].value: (18, 8, 2048, 256)@float32
+['PaliGemma']['llm']['layers']['attn']['q_einsum_1']['w'].value: (18, 8, 1024, 256)@float32
+['PaliGemma']['llm']['layers']['mlp']['gating_einsum'].value: (18, 2, 2048, 16384)@float32
+['PaliGemma']['llm']['layers']['mlp']['linear'].value: (18, 16384, 2048)@float32
+['PaliGemma']['llm']['layers']['mlp_1']['gating_einsum'].value: (18, 2, 1024, 4096)@float32
+['PaliGemma']['llm']['layers']['mlp_1']['linear'].value: (18, 4096, 1024)@float32
+['PaliGemma']['llm']['layers']['pre_attention_norm']['scale'].value: (18, 2048)@float32
+['PaliGemma']['llm']['layers']['pre_attention_norm_1']['Dense_0']['bias'].value: (18, 3072)@float32
+['PaliGemma']['llm']['layers']['pre_attention_norm_1']['Dense_0']['kernel'].value: (18, 1024, 3072)@float32
+['PaliGemma']['llm']['layers']['pre_ffw_norm']['scale'].value: (18, 2048)@float32
+['PaliGemma']['llm']['layers']['pre_ffw_norm_1']['Dense_0']['bias'].value: (18, 3072)@float32
+['PaliGemma']['llm']['layers']['pre_ffw_norm_1']['Dense_0']['kernel'].value: (18, 1024, 3072)@float32
+['action_in_proj']['bias'].value: (1024,)@float32
+['action_in_proj']['kernel'].value: (32, 1024)@float32
+['action_out_proj']['bias'].value: (32,)@float32
+['action_out_proj']['kernel'].value: (1024, 32)@float32
+['time_mlp_in']['bias'].value: (1024,)@float32
+['time_mlp_in']['kernel'].value: (1024, 1024)@float32
+['time_mlp_out']['bias'].value: (1024,)@float32
+['time_mlp_out']['kernel'].value: (1024, 1024)@float32 (373492:train.py:238)
+09:51:27.320 [I] Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29000. (373492:checkpointer.py:298)
+/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/orbax/checkpoint/_src/serialization/type_handlers.py:1251: UserWarning: Sharding info not provided when restoring. Populating sharding info from sharding file. Please note restoration time will be slightly increased due to reading from file. Note also that this option is unsafe when restoring on a different topology than the checkpoint was saved with.
+  warnings.warn(
+09:51:32.033 [I] [process=0] /jax/checkpoint/read/bytes_per_sec: 5.3 GiB/s (total bytes: 25.0 GiB) (time elapsed: 4 seconds) (per-host) (373492:base_pytree_checkpoint_handler.py:114)
+09:51:42.994 [I] [process=0] /jax/checkpoint/read/bytes_per_sec: 6.8 GiB/s (total bytes: 75.0 GiB) (time elapsed: 10 seconds) (per-host) (373492:base_pytree_checkpoint_handler.py:114)
+09:51:42.995 [I] Finished restoring checkpoint in 15.68 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29000. (373492:checkpointer.py:309)
+09:51:42.995 [I] {'step': 29000, 'event_type': 'restore', 'directory': '/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k', 'checkpointer_start_time': 1775699487.3202922, 'checkpointer_duration_secs': 15.675340175628662, 'checkpoint_manager_start_time': 1775699487.3196626, 'checkpoint_manager_duration_secs': 15.675972938537598} (373492:standard_logger.py:34)
+09:51:43.012 [I] Progress on: 29.0kit/30.0kit rate:- remaining:? elapsed:00:00 postfix:-          (373492:tqdm_logging.py:145)
+09:51:53.766 [I] Progress on: 29.0kit/30.0kit rate:1.5s/it remaining:24:50 elapsed:00:10 postfix:- (373492:tqdm_logging.py:145)
+09:52:04.275 [I] Progress on: 29.0kit/30.0kit rate:1.1s/it remaining:17:47 elapsed:00:21 postfix:- (373492:tqdm_logging.py:145)
+09:52:14.434 [I] Progress on: 29.0kit/30.0kit rate:1.0s/it remaining:16:38 elapsed:00:31 postfix:- (373492:tqdm_logging.py:145)
+09:52:24.642 [I] Progress on: 29.0kit/30.0kit rate:1.0s/it remaining:16:13 elapsed:00:41 postfix:- (373492:tqdm_logging.py:145)
+09:52:34.835 [I] Progress on: 29.0kit/30.0kit rate:1.0s/it remaining:16:04 elapsed:00:51 postfix:- (373492:tqdm_logging.py:145)
+09:52:45.091 [I] Progress on: 29.1kit/30.0kit rate:1.0s/it remaining:16:00 elapsed:01:02 postfix:- (373492:tqdm_logging.py:145)
+09:52:55.424 [I] Progress on: 29.1kit/30.0kit rate:1.0s/it remaining:16:00 elapsed:01:12 postfix:- (373492:tqdm_logging.py:145)
+09:53:05.880 [I] Progress on: 29.1kit/30.0kit rate:1.1s/it remaining:16:10 elapsed:01:22 postfix:- (373492:tqdm_logging.py:145)
+09:53:16.230 [I] Progress on: 29.1kit/30.0kit rate:1.0s/it remaining:15:44 elapsed:01:33 postfix:- (373492:tqdm_logging.py:145)
+09:53:26.363 [I] Progress on: 29.1kit/30.0kit rate:1.0s/it remaining:15:04 elapsed:01:43 postfix:- (373492:tqdm_logging.py:145)
+09:53:36.654 [I] Progress on: 29.1kit/30.0kit rate:1.0s/it remaining:15:07 elapsed:01:53 postfix:- (373492:tqdm_logging.py:145)
+09:53:46.785 [I] Progress on: 29.1kit/30.0kit rate:1.0s/it remaining:14:51 elapsed:02:03 postfix:- (373492:tqdm_logging.py:145)
+09:53:57.002 [I] Progress on: 29.1kit/30.0kit rate:1.0s/it remaining:15:00 elapsed:02:13 postfix:- (373492:tqdm_logging.py:145)
+09:54:07.493 [I] Progress on: 29.1kit/30.0kit rate:1.0s/it remaining:14:56 elapsed:02:24 postfix:- (373492:tqdm_logging.py:145)
+09:54:17.746 [I] Progress on: 29.1kit/30.0kit rate:1.1s/it remaining:15:42 elapsed:02:34 postfix:- (373492:tqdm_logging.py:145)
+09:54:28.236 [I] Progress on: 29.2kit/30.0kit rate:1.0s/it remaining:14:48 elapsed:02:45 postfix:- (373492:tqdm_logging.py:145)
+09:54:38.270 [I] Progress on: 29.2kit/30.0kit rate:1.0it/s remaining:13:52 elapsed:02:55 postfix:- (373492:tqdm_logging.py:145)
+09:54:48.399 [I] Progress on: 29.2kit/30.0kit rate:1.0s/it remaining:14:02 elapsed:03:05 postfix:- (373492:tqdm_logging.py:145)
+09:54:58.626 [I] Progress on: 29.2kit/30.0kit rate:1.0s/it remaining:13:52 elapsed:03:15 postfix:- (373492:tqdm_logging.py:145)
+09:55:09.116 [I] Progress on: 29.2kit/30.0kit rate:1.0s/it remaining:13:50 elapsed:03:26 postfix:- (373492:tqdm_logging.py:145)
+09:55:19.259 [I] Progress on: 29.2kit/30.0kit rate:1.0s/it remaining:13:30 elapsed:03:36 postfix:- (373492:tqdm_logging.py:145)
+09:55:29.454 [I] Progress on: 29.2kit/30.0kit rate:1.0s/it remaining:13:25 elapsed:03:46 postfix:- (373492:tqdm_logging.py:145)
+09:55:39.672 [I] Progress on: 29.2kit/30.0kit rate:1.0s/it remaining:13:11 elapsed:03:56 postfix:- (373492:tqdm_logging.py:145)
+09:55:49.802 [I] Progress on: 29.2kit/30.0kit rate:1.0s/it remaining:12:52 elapsed:04:06 postfix:- (373492:tqdm_logging.py:145)
+09:55:59.965 [I] Progress on: 29.2kit/30.0kit rate:1.0s/it remaining:12:54 elapsed:04:16 postfix:- (373492:tqdm_logging.py:145)
+09:56:10.655 [I] Progress on: 29.3kit/30.0kit rate:1.0s/it remaining:12:43 elapsed:04:27 postfix:- (373492:tqdm_logging.py:145)
+09:56:20.827 [I] Progress on: 29.3kit/30.0kit rate:1.0s/it remaining:12:28 elapsed:04:37 postfix:- (373492:tqdm_logging.py:145)
+09:56:30.992 [I] Progress on: 29.3kit/30.0kit rate:1.0s/it remaining:12:26 elapsed:04:47 postfix:- (373492:tqdm_logging.py:145)
+09:56:41.243 [I] Progress on: 29.3kit/30.0kit rate:1.0s/it remaining:12:09 elapsed:04:58 postfix:- (373492:tqdm_logging.py:145)
+09:56:51.491 [I] Progress on: 29.3kit/30.0kit rate:1.0s/it remaining:11:57 elapsed:05:08 postfix:- (373492:tqdm_logging.py:145)
+09:57:01.691 [I] Progress on: 29.3kit/30.0kit rate:1.0s/it remaining:11:48 elapsed:05:18 postfix:- (373492:tqdm_logging.py:145)
+09:57:12.281 [I] Progress on: 29.3kit/30.0kit rate:1.0s/it remaining:11:44 elapsed:05:29 postfix:- (373492:tqdm_logging.py:145)
+09:57:22.431 [I] Progress on: 29.3kit/30.0kit rate:1.0s/it remaining:11:30 elapsed:05:39 postfix:- (373492:tqdm_logging.py:145)
+09:57:32.677 [I] Progress on: 29.3kit/30.0kit rate:1.0s/it remaining:11:18 elapsed:05:49 postfix:- (373492:tqdm_logging.py:145)
+09:57:42.950 [I] Progress on: 29.3kit/30.0kit rate:1.0s/it remaining:11:16 elapsed:05:59 postfix:- (373492:tqdm_logging.py:145)
+09:57:53.227 [I] Progress on: 29.4kit/30.0kit rate:1.0s/it remaining:11:03 elapsed:06:10 postfix:- (373492:tqdm_logging.py:145)
+09:58:03.711 [I] Progress on: 29.4kit/30.0kit rate:1.1s/it remaining:11:28 elapsed:06:20 postfix:- (373492:tqdm_logging.py:145)
+09:58:13.926 [I] Progress on: 29.4kit/30.0kit rate:1.0s/it remaining:10:46 elapsed:06:30 postfix:- (373492:tqdm_logging.py:145)
+09:58:24.137 [I] Progress on: 29.4kit/30.0kit rate:1.0s/it remaining:10:32 elapsed:06:41 postfix:- (373492:tqdm_logging.py:145)
+09:58:34.208 [I] Progress on: 29.4kit/30.0kit rate:1.0s/it remaining:10:14 elapsed:06:51 postfix:- (373492:tqdm_logging.py:145)
+09:58:44.447 [I] Progress on: 29.4kit/30.0kit rate:1.0s/it remaining:10:03 elapsed:07:01 postfix:- (373492:tqdm_logging.py:145)
+09:58:54.619 [I] Progress on: 29.4kit/30.0kit rate:1.0s/it remaining:10:05 elapsed:07:11 postfix:- (373492:tqdm_logging.py:145)
+09:59:05.234 [I] Progress on: 29.4kit/30.0kit rate:1.1s/it remaining:10:16 elapsed:07:22 postfix:- (373492:tqdm_logging.py:145)
+09:59:15.391 [I] Progress on: 29.4kit/30.0kit rate:1.0s/it remaining:09:44 elapsed:07:32 postfix:- (373492:tqdm_logging.py:145)
+09:59:25.604 [I] Progress on: 29.4kit/30.0kit rate:1.0s/it remaining:09:24 elapsed:07:42 postfix:- (373492:tqdm_logging.py:145)
+09:59:35.785 [I] Progress on: 29.5kit/30.0kit rate:1.0s/it remaining:09:14 elapsed:07:52 postfix:- (373492:tqdm_logging.py:145)
+09:59:45.995 [I] Progress on: 29.5kit/30.0kit rate:1.0s/it remaining:09:10 elapsed:08:02 postfix:- (373492:tqdm_logging.py:145)
+09:59:56.258 [I] Progress on: 29.5kit/30.0kit rate:1.0s/it remaining:09:01 elapsed:08:13 postfix:- (373492:tqdm_logging.py:145)
+10:00:06.851 [I] Progress on: 29.5kit/30.0kit rate:1.0s/it remaining:09:01 elapsed:08:23 postfix:- (373492:tqdm_logging.py:145)
+10:00:17.025 [I] Progress on: 29.5kit/30.0kit rate:1.0s/it remaining:08:36 elapsed:08:34 postfix:- (373492:tqdm_logging.py:145)
+10:00:27.374 [I] Progress on: 29.5kit/30.0kit rate:1.0s/it remaining:08:28 elapsed:08:44 postfix:- (373492:tqdm_logging.py:145)
+10:00:37.634 [I] Progress on: 29.5kit/30.0kit rate:1.0s/it remaining:08:17 elapsed:08:54 postfix:- (373492:tqdm_logging.py:145)
+10:00:47.799 [I] Progress on: 29.5kit/30.0kit rate:1.0s/it remaining:08:11 elapsed:09:04 postfix:- (373492:tqdm_logging.py:145)
+10:00:58.057 [I] Progress on: 29.5kit/30.0kit rate:1.0s/it remaining:07:59 elapsed:09:15 postfix:- (373492:tqdm_logging.py:145)
+10:01:08.540 [I] Progress on: 29.5kit/30.0kit rate:1.0s/it remaining:07:50 elapsed:09:25 postfix:- (373492:tqdm_logging.py:145)
+10:01:18.723 [I] Progress on: 29.6kit/30.0kit rate:1.0s/it remaining:07:36 elapsed:09:35 postfix:- (373492:tqdm_logging.py:145)
+10:01:28.893 [I] Progress on: 29.6kit/30.0kit rate:1.0s/it remaining:07:22 elapsed:09:45 postfix:- (373492:tqdm_logging.py:145)
+10:01:39.140 [I] Progress on: 29.6kit/30.0kit rate:1.0s/it remaining:07:15 elapsed:09:56 postfix:- (373492:tqdm_logging.py:145)
+10:01:49.299 [I] Progress on: 29.6kit/30.0kit rate:1.0s/it remaining:07:09 elapsed:10:06 postfix:- (373492:tqdm_logging.py:145)
+10:01:59.592 [I] Progress on: 29.6kit/30.0kit rate:1.0s/it remaining:07:01 elapsed:10:16 postfix:- (373492:tqdm_logging.py:145)
+10:02:10.054 [I] Progress on: 29.6kit/30.0kit rate:1.0s/it remaining:06:47 elapsed:10:27 postfix:- (373492:tqdm_logging.py:145)
+10:02:20.278 [I] Progress on: 29.6kit/30.0kit rate:1.0s/it remaining:06:37 elapsed:10:37 postfix:- (373492:tqdm_logging.py:145)
+10:02:30.375 [I] Progress on: 29.6kit/30.0kit rate:1.0s/it remaining:06:21 elapsed:10:47 postfix:- (373492:tqdm_logging.py:145)
+10:02:40.591 [I] Progress on: 29.6kit/30.0kit rate:1.0s/it remaining:06:14 elapsed:10:57 postfix:- (373492:tqdm_logging.py:145)
+10:02:50.778 [I] Progress on: 29.6kit/30.0kit rate:1.0s/it remaining:06:05 elapsed:11:07 postfix:- (373492:tqdm_logging.py:145)
+10:03:00.948 [I] Progress on: 29.7kit/30.0kit rate:1.0s/it remaining:05:47 elapsed:11:17 postfix:- (373492:tqdm_logging.py:145)
+10:03:11.737 [I] Progress on: 29.7kit/30.0kit rate:1.0s/it remaining:05:49 elapsed:11:28 postfix:- (373492:tqdm_logging.py:145)
+10:03:21.953 [I] Progress on: 29.7kit/30.0kit rate:1.0s/it remaining:05:33 elapsed:11:38 postfix:- (373492:tqdm_logging.py:145)
+10:03:32.166 [I] Progress on: 29.7kit/30.0kit rate:1.0s/it remaining:05:20 elapsed:11:49 postfix:- (373492:tqdm_logging.py:145)
+10:03:42.367 [I] Progress on: 29.7kit/30.0kit rate:1.0s/it remaining:05:10 elapsed:11:59 postfix:- (373492:tqdm_logging.py:145)
+10:03:52.638 [I] Progress on: 29.7kit/30.0kit rate:1.0s/it remaining:05:02 elapsed:12:09 postfix:- (373492:tqdm_logging.py:145)
+10:04:03.113 [I] Progress on: 29.7kit/30.0kit rate:1.1s/it remaining:05:18 elapsed:12:20 postfix:- (373492:tqdm_logging.py:145)
+10:04:13.273 [I] Progress on: 29.7kit/30.0kit rate:1.0s/it remaining:04:40 elapsed:12:30 postfix:- (373492:tqdm_logging.py:145)
+10:04:23.473 [I] Progress on: 29.7kit/30.0kit rate:1.0s/it remaining:04:33 elapsed:12:40 postfix:- (373492:tqdm_logging.py:145)
+10:04:33.600 [I] Progress on: 29.7kit/30.0kit rate:1.0s/it remaining:04:19 elapsed:12:50 postfix:- (373492:tqdm_logging.py:145)
+10:04:43.799 [I] Progress on: 29.8kit/30.0kit rate:1.0s/it remaining:04:12 elapsed:13:00 postfix:- (373492:tqdm_logging.py:145)
+10:04:53.992 [I] Progress on: 29.8kit/30.0kit rate:1.0s/it remaining:04:00 elapsed:13:10 postfix:- (373492:tqdm_logging.py:145)
+10:05:04.784 [I] Progress on: 29.8kit/30.0kit rate:1.1s/it remaining:04:12 elapsed:13:21 postfix:- (373492:tqdm_logging.py:145)
+10:05:14.858 [I] Progress on: 29.8kit/30.0kit rate:1.0s/it remaining:03:37 elapsed:13:31 postfix:- (373492:tqdm_logging.py:145)
+10:05:24.966 [I] Progress on: 29.8kit/30.0kit rate:1.0s/it remaining:03:27 elapsed:13:41 postfix:- (373492:tqdm_logging.py:145)
+10:05:35.164 [I] Progress on: 29.8kit/30.0kit rate:1.0s/it remaining:03:20 elapsed:13:52 postfix:- (373492:tqdm_logging.py:145)
+10:05:45.396 [I] Progress on: 29.8kit/30.0kit rate:1.0s/it remaining:03:10 elapsed:14:02 postfix:- (373492:tqdm_logging.py:145)
+10:05:55.631 [I] Progress on: 29.8kit/30.0kit rate:1.0s/it remaining:02:57 elapsed:14:12 postfix:- (373492:tqdm_logging.py:145)
+10:06:06.431 [I] Progress on: 29.8kit/30.0kit rate:1.1s/it remaining:03:02 elapsed:14:23 postfix:- (373492:tqdm_logging.py:145)
+10:06:16.715 [I] Progress on: 29.8kit/30.0kit rate:1.0s/it remaining:02:41 elapsed:14:33 postfix:- (373492:tqdm_logging.py:145)
+10:06:26.876 [I] Progress on: 29.9kit/30.0kit rate:1.0s/it remaining:02:29 elapsed:14:43 postfix:- (373492:tqdm_logging.py:145)
+10:06:37.239 [I] Progress on: 29.9kit/30.0kit rate:1.0s/it remaining:02:21 elapsed:14:54 postfix:- (373492:tqdm_logging.py:145)
+10:06:47.304 [I] Progress on: 29.9kit/30.0kit rate:1.0s/it remaining:02:07 elapsed:15:04 postfix:- (373492:tqdm_logging.py:145)
+10:06:57.456 [I] Progress on: 29.9kit/30.0kit rate:1.0s/it remaining:01:57 elapsed:15:14 postfix:- (373492:tqdm_logging.py:145)
+10:07:08.041 [I] Progress on: 29.9kit/30.0kit rate:1.0s/it remaining:01:50 elapsed:15:25 postfix:- (373492:tqdm_logging.py:145)
+10:07:18.370 [I] Progress on: 29.9kit/30.0kit rate:1.0s/it remaining:01:38 elapsed:15:35 postfix:- (373492:tqdm_logging.py:145)
+10:07:28.618 [I] Progress on: 29.9kit/30.0kit rate:1.0s/it remaining:01:28 elapsed:15:45 postfix:- (373492:tqdm_logging.py:145)
+10:07:38.789 [I] Progress on: 29.9kit/30.0kit rate:1.0s/it remaining:01:17 elapsed:15:55 postfix:- (373492:tqdm_logging.py:145)
+10:07:48.892 [I] Progress on: 29.9kit/30.0kit rate:1.0s/it remaining:01:07 elapsed:16:05 postfix:- (373492:tqdm_logging.py:145)
+10:07:59.249 [I] Progress on: 29.9kit/30.0kit rate:1.0s/it remaining:00:57 elapsed:16:16 postfix:- (373492:tqdm_logging.py:145)
+10:08:09.695 [I] Progress on: 30.0kit/30.0kit rate:1.0s/it remaining:00:46 elapsed:16:26 postfix:- (373492:tqdm_logging.py:145)
+10:08:22.107 [I] Progress on: 30.0kit/30.0kit rate:1.6s/it remaining:00:58 elapsed:16:39 postfix:- (373492:tqdm_logging.py:145)
+10:08:32.344 [I] Progress on: 30.0kit/30.0kit rate:1.0s/it remaining:00:26 elapsed:16:49 postfix:- (373492:tqdm_logging.py:145)
+10:08:42.933 [I] Progress on: 30.0kit/30.0kit rate:1.0s/it remaining:00:16 elapsed:16:59 postfix:- (373492:tqdm_logging.py:145)
+10:08:53.075 [I] Progress on: 30.0kit/30.0kit rate:1.0s/it remaining:00:06 elapsed:17:10 postfix:- (373492:tqdm_logging.py:145)
+10:08:59.207 [I] [process=0][thread=MainThread][wait_until_finished] No Save Finalize thread to wait for. Returning. (373492:checkpoint_manager.py:1987)
+10:08:59.207 [I] [process=0] Saving checkpoint at step 29999                                      (373492:checkpoint_manager.py:1408)
+10:08:59.208 [I] [process=0] Started async saving checkpoint to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999. (373492:async_checkpointer.py:439)
+10:08:59.209 [I] Using ThreadSafeKeyValueSignalingClient                                          (373492:signaling_client.py:332)
+10:08:59.216 [I] Creating tmp directory /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999.orbax-checkpoint-tmp-0 (373492:atomicity.py:144)
+10:08:59.225 [I] Wrote Metadata={'item_handlers': None, 'metrics': {}, 'performance_metrics': {}, 'init_timestamp_nsecs': 1775700539223546182, 'commit_timestamp_nsecs': None, 'custom_metadata': {}}, json={"item_handlers": null, "metrics": {}, "performance_metrics": {}, "init_timestamp_nsecs": 1775700539223546182, "commit_timestamp_nsecs": null, "custom_metadata": {}} to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999.orbax-checkpoint-tmp-0/_CHECKPOINT_METADATA (373492:checkpoint.py:186)
+10:08:59.225 [I] Creating tmp directory /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999.orbax-checkpoint-tmp-0/params.orbax-checkpoint-tmp-2 (373492:atomicity.py:144)
+10:08:59.226 [I] Creating tmp directory /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999.orbax-checkpoint-tmp-0/assets.orbax-checkpoint-tmp-1 (373492:atomicity.py:144)
+10:08:59.226 [I] Creating tmp directory /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999.orbax-checkpoint-tmp-0/train_state.orbax-checkpoint-tmp-3 (373492:atomicity.py:144)
+10:08:59.241 [I] Transferring arrays to host memory with options: use_replica_parallel=True, enable_pinned_host_transfer=False (373492:replica_slices.py:341)
+10:09:02.989 [I] Transferring arrays to host memory with options: use_replica_parallel=True, enable_pinned_host_transfer=False (373492:replica_slices.py:341)
+10:09:02.990 [I] Array name: 'params.PaliGemma.llm.layers.mlp.gating_einsum.value', global shape: (18, 2, 2048, 16384), write shape: (9, 2, 2048, 16384), chosen chunk shape: (3, 2, 2048, 16384) (373492:tensorstore_utils.py:408)
+10:09:03.002 [I] [process=0][thread=array_type_handler] Wrote 51 array_metadata.ArrayMetadata to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999.orbax-checkpoint-tmp-0/params.orbax-checkpoint-tmp-2/array_metadatas/process_0 (373492:array_metadata_store.py:198)
+10:09:09.627 [I] [process=0] /jax/checkpoint/write/blocking_bytes_per_sec: 1.2 GiB/s (total bytes: 12.5 GiB) (time elapsed: 10 seconds) (per-host) (373492:base_pytree_checkpoint_handler.py:114)
+10:09:09.628 [I] Array name: 'params.PaliGemma.llm.layers.mlp.gating_einsum.value', global shape: (18, 2, 2048, 16384), write shape: (9, 2, 2048, 16384), chosen chunk shape: (3, 2, 2048, 16384) (373492:tensorstore_utils.py:408)
+10:09:09.630 [I] [process=0] /jax/checkpoint/write/blocking_bytes_per_sec: 3.6 GiB/s (total bytes: 37.5 GiB) (time elapsed: 10 seconds) (per-host) (373492:base_pytree_checkpoint_handler.py:114)
+10:09:09.632 [I] Array name: 'opt_state.1.0.mu.PaliGemma.llm.layers.mlp.gating_einsum.value', global shape: (18, 2, 2048, 16384), write shape: (9, 2, 2048, 16384), chosen chunk shape: (3, 2, 2048, 16384) (373492:tensorstore_utils.py:408)
+10:09:09.634 [I] Array name: 'opt_state.1.0.nu.PaliGemma.llm.layers.mlp.gating_einsum.value', global shape: (18, 2, 2048, 16384), write shape: (9, 2, 2048, 16384), chosen chunk shape: (3, 2, 2048, 16384) (373492:tensorstore_utils.py:408)
+10:09:09.638 [I] [process=0][thread=async_save] Background save thread started.                   (373492:async_checkpointer.py:77)
+10:09:09.642 [I] Finished blocking save in 10.43 seconds. Continuing to save asynchronously to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999. (373492:async_checkpointer.py:548)
+10:09:09.651 [I] Preserving Checkpoint[step=5000 | time=2026-04-08 10:34:38.107177+00:00]: (Reason: on keep_period=5000). (373492:checkpoint_manager.py:1949)
+10:09:09.652 [I] Preserving Checkpoint[step=10000 | time=2026-04-08 12:08:06.689991+00:00]: (Reason: on keep_period=5000). (373492:checkpoint_manager.py:1949)
+10:09:09.652 [I] Preserving Checkpoint[step=15000 | time=2026-04-08 14:16:22.365054+00:00]: (Reason: on keep_period=5000). (373492:checkpoint_manager.py:1949)
+10:09:09.653 [I] Preserving Checkpoint[step=20000 | time=2026-04-08 16:02:33.252784+00:00]: (Reason: on keep_period=5000). (373492:checkpoint_manager.py:1949)
+10:09:09.653 [I] Preserving Checkpoint[step=25000 | time=2026-04-08 17:55:13.028174+00:00]: (Reason: on keep_period=5000). (373492:checkpoint_manager.py:1949)
+10:09:09.654 [I] Deleting Checkpoint[step=29000 | time=2026-04-08 19:25:24.011495+00:00]: (Reason: old checkpoint). (373492:checkpoint_manager.py:1963)
+10:09:09.654 [I] [process=0][thread=MainThread][step=29999] Starting CheckpointManager Save Finalize thread=save_finalize (373492:checkpoint_manager.py:1453)
+10:09:09.661 [I] [process=0][thread=save_finalize] Waiting for background save thread=async_save. (373492:async_checkpointer.py:258)
+10:09:09.663 [I] {'step': 29999, 'event_type': 'save', 'directory': '/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k', 'reached_preemption': False, 'preemption_received_at': None, 'synchronous': False, 'wait_for_prev_start_time': 1775700539.2071579, 'wait_for_prev_duration_secs': 0.0003578662872314453, 'checkpointer_blocking_start_time': 1775700539.208106, 'checkpointer_blocking_duration_secs': 10.443581819534302, 'get_old_steps_start_time': 1775700549.6518078, 'get_old_steps_duration_secs': 0.0025022029876708984, 'checkpoint_manager_blocking_start_time': 1775700539.206839, 'checkpoint_manager_blocking_duration_secs': 10.4568452835083} (373492:standard_logger.py:34)
+10:09:09.669 [I] Progress on: 30.0kit/30.0kit rate:4.2s/it remaining:00:00 elapsed:17:26 postfix:- (373492:tqdm_logging.py:145)
+10:09:09.670 [I] Progress on: 30.0kit/30.0kit rate:4.2s/it remaining:00:00 elapsed:17:26 postfix:- (373492:tqdm_logging.py:145)
+10:09:09.670 [I] Waiting for checkpoint manager to finish                                         (373492:train.py:275)
+10:09:09.671 [I] [process=0][thread=MainThread][step=29999][wait_until_finished] Waiting for Save Finalize thread (save_finalize) to complete. (373492:checkpoint_manager.py:1998)
+10:09:10.095 [I] [process=0][thread=array_type_handler] Wrote 156 array_metadata.ArrayMetadata to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999.orbax-checkpoint-tmp-0/train_state.orbax-checkpoint-tmp-3/array_metadatas/process_0 (373492:array_metadata_store.py:198)
+10:09:25.643 [I] [process=0] /jax/checkpoint/write/bytes_per_sec: 484.0 MiB/s (total bytes: 12.5 GiB) (time elapsed: 26 seconds) (per-host) (373492:base_pytree_checkpoint_handler.py:114)
+10:09:27.006 [I] [process=0] /jax/checkpoint/write/bytes_per_sec: 1.3 GiB/s (total bytes: 37.5 GiB) (time elapsed: 27 seconds) (per-host) (373492:base_pytree_checkpoint_handler.py:114)
+10:09:27.006 [I] [process=0][thread=async_save] 5 Handler Commit operations completed.            (373492:async_checkpointer.py:87)
+10:09:27.008 [I] Renaming /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999.orbax-checkpoint-tmp-0/assets.orbax-checkpoint-tmp-1 to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999.orbax-checkpoint-tmp-0/assets (373492:atomicity.py:289)
+10:09:27.010 [I] Updated Metadata={'item_handlers': {'assets': 'openpi.training.checkpoints.CallbackHandler', 'params': 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler', 'train_state': 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler'}, 'metrics': {}, 'performance_metrics': {}, 'init_timestamp_nsecs': 1775700539223546182, 'commit_timestamp_nsecs': None, 'custom_metadata': {}} to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999.orbax-checkpoint-tmp-0/_CHECKPOINT_METADATA (373492:checkpoint.py:245)
+10:09:27.014 [I] [process=0][thread=async_save] Skipped cross-host ArrayMetadata validation because only one process is found: process_index=0. (373492:array_metadata_store.py:362)
+10:09:27.024 [I] Renaming /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999.orbax-checkpoint-tmp-0/train_state.orbax-checkpoint-tmp-3 to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999.orbax-checkpoint-tmp-0/train_state (373492:atomicity.py:289)
+10:09:27.029 [I] [process=0][thread=async_save] Skipped cross-host ArrayMetadata validation because only one process is found: process_index=0. (373492:array_metadata_store.py:362)
+10:09:27.038 [I] Renaming /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999.orbax-checkpoint-tmp-0/params.orbax-checkpoint-tmp-2 to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999.orbax-checkpoint-tmp-0/params (373492:atomicity.py:289)
+10:09:27.041 [I] Renaming /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999.orbax-checkpoint-tmp-0 to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999 (373492:atomicity.py:289)
+10:09:27.045 [I] [process=0][thread=async_save] Finished saving checkpoint (finalized tmp dir) to `/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999`. (373492:atomicity.py:573)
+10:09:27.045 [I] Finished asynchronous save (blocking + background) in 27.84 seconds to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/from10k/pi05_libero_spatial_from_pi05libero_10k/ft_from_pi05libero_10k/29999 (373492:async_checkpointer.py:412)
+10:09:27.045 [I] [process=0][thread=async_save] Background save thread done.                      (373492:async_checkpointer.py:143)
+10:09:27.046 [I] [process=0][thread=save_finalize] Done with waiting for background save thread=async_save. (373492:async_checkpointer.py:266)
+10:09:27.046 [I] [process=0][thread=save_finalize] No errors found in background save thread=async_save. (373492:async_checkpointer.py:276)
+10:09:27.319 [I] Deleted step 29000.                                                              (373492:deleter.py:114)
+10:09:27.319 [I] [process=0][thread=save_finalize][step=29999] CheckpointManager Save Finalize is syncing with other hosts... (373492:checkpoint_manager.py:2095)
+10:09:27.320 [I] [process=0][thread=save_finalize][step=29999] CheckpointManager Save Finalize is done on all hosts. (373492:checkpoint_manager.py:2110)
+10:09:27.320 [I] [process=0][thread=MainThread][step=29999][wait_until_finished] Done waiting for Save Finalize thread (save_finalize) running at step=29999. (373492:checkpoint_manager.py:2010)

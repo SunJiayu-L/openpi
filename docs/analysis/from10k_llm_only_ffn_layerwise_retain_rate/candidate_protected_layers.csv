@@ -1,0 +1,7 @@
+module,layer,drop_r10,region
+gating_einsum,11,-0.242757069274,middle
+gating_einsum,10,-0.242660079089,middle
+gating_einsum,6,-0.242324567862,middle
+linear,1,-0.241611040232,front
+linear,4,-0.240850056694,front
+linear,2,-0.240791878033,front

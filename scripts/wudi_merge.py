@@ -12,12 +12,17 @@ Gemma attention and FFN parameters are WUDI-merged;
 other in-scope parameters use simple-averaged task vectors (aligned with wudi_merging2);
 out-of-scope parameters (e.g. vision model) keep base values unchanged.
 
-Parameter 2D decomposition (per layer, L dimension looped over):
-  q_einsum/w        (L,N,D,H)   → per layer (N,D,H)   → reshape(N*D, H)
-  kv_einsum/w       (L,2,K,D,H) → per layer (2,K,D,H) → split K/V → each reshape(D, K*H)
-  attn_vec_einsum/w (L,N,H,D)   → per layer (N,H,D)   → reshape(N*H, D)
-  gating_einsum     (L,2,D,Hff) → per layer (2,D,Hff) → split gate/value → each (D,Hff)
-  linear            (L,Hff,D)   → per layer (Hff,D)   → already 2D
+Parameter 2D decomposition (per layer, L dimension looped over).
+Each 2D block corresponds to exactly ONE semantic linear projection, matching
+the split in examples/convert_jax_model_to_pytorch.py (7 projections per layer):
+
+  q_einsum/w   (L,N,D,H)   → transpose(0,2,1).reshape(N*H,D)  → (N*H, D)  [1块 q_proj]
+  kv_einsum/w  (L,2,K,D,H) → each: transpose(0,2,1).reshape(K*H,D) → (K*H, D) [2块 k/v_proj]
+  attn_vec/w   (L,N,H,D)   → transpose(2,0,1).reshape(D,N*H)  → (D, N*H) [1块 o_proj]
+  gating       (L,2,D,Hff) → each: [x].transpose()            → (Hff, D)  [2块 gate/up_proj]
+  linear       (L,Hff,D)   → transpose()                      → (D, Hff)  [1块 down_proj]
+
+Total: 7 independent WUDI calls per layer, each exactly matching one PyTorch nn.Linear.weight.
 
 Usage:
     # Smoke test (CPU, tiny matrices):
@@ -179,67 +184,68 @@ def decompose_layer(ptype: str, layer: np.ndarray) -> list[np.ndarray]:
     Returns:
         list of 2D numpy arrays
     """
-    # q: (N, D, H) 展平成一个 2D 子块。
+    # q_proj: (N,D,H) → transpose(0,2,1) → (N,H,D) → reshape(N*H,D)
+    # 官方: llm_attention_q_einsum[i].transpose(0,2,1).reshape(N*H, hidden_size)
     if ptype == "q":
-        # (N, D, H) → (N*D, H)
         N, D, H = layer.shape
-        return [layer.reshape(N * D, H)]
+        return [layer.transpose(0, 2, 1).reshape(N * H, D)]
 
-    # kv: 拆成 K、V 两个 2D 子块，分别做 WUDI。
+    # k_proj + v_proj: layer[x]: (K,D,H) → transpose(0,2,1) → (K,H,D) → reshape(K*H,D)
+    # 官方: kv_einsum[i,0,0].transpose() = (D,H).T = (H,D) = (K*H,D) for K=1
     if ptype == "kv":
-        # (2, K, D, H) → split K / V → each (K, D, H) → (D, K*H)
         _, K, D, H = layer.shape
-        k_block = layer[0].transpose(1, 0, 2).reshape(D, K * H)  # (D, K*H)
-        v_block = layer[1].transpose(1, 0, 2).reshape(D, K * H)
+        k_block = layer[0].transpose(0, 2, 1).reshape(K * H, D)
+        v_block = layer[1].transpose(0, 2, 1).reshape(K * H, D)
         return [k_block, v_block]
 
-    # av: (N, H, D) 展平成 2D。
+    # o_proj: (N,H,D) → transpose(2,0,1) → (D,N,H) → reshape(D,N*H)
+    # 官方 action: reshape(N*H,D).transpose(1,0) = (D,N*H)
+    # 官方 language: transpose(2,0,1).reshape(N*H,D) — 当D=N*H时等价，通用形式用此路
     if ptype == "av":
-        # (N, H, D) → (N*H, D)
         N, H, D = layer.shape
-        return [layer.reshape(N * H, D)]
+        return [layer.transpose(2, 0, 1).reshape(D, N * H)]
 
-    # gate: 两个分支（gate/value）各自已经是 2D。
+    # gate_proj + up_proj: layer[x]: (D,Hff) → transpose() → (Hff,D)
+    # 官方: gating_einsum[i,0].transpose() = (D,Hff).T = (Hff,D)
     if ptype == "gate":
-        # (2, D, Hff) → gate (D, Hff), value (D, Hff)
         assert layer.shape[0] == 2
-        return [layer[0], layer[1]]
+        return [layer[0].transpose(), layer[1].transpose()]
 
-    # lin: 本身就是 2D。
+    # down_proj: (Hff,D) → transpose() → (D,Hff)
+    # 官方: mlp_linear[i].transpose() = (Hff,D).T = (D,Hff)
     if ptype == "lin":
-        # (Hff, D) — already 2D
         assert layer.ndim == 2
-        return [layer]
+        return [layer.transpose()]
 
     raise ValueError(f"Unknown ptype: {ptype!r}")
 
 
 def compose_layer(ptype: str, sub_blocks: list[np.ndarray], original_shape: tuple) -> np.ndarray:
     """Reconstruct a single-layer tensor from merged 2D sub-blocks."""
-    # q 的逆变换：把 (N*D, H) 还原为 (N, D, H)。
+    # q 逆变换：(N*H,D) → reshape(N,H,D) → transpose(0,2,1) → (N,D,H)
     if ptype == "q":
         N, D, H = original_shape
-        return sub_blocks[0].reshape(N, D, H)
+        return sub_blocks[0].reshape(N, H, D).transpose(0, 2, 1)
 
-    # kv 的逆变换：先还原 K/V，再 stack 回 (2, K, D, H)。
+    # kv 逆变换：(K*H,D) → reshape(K,H,D) → transpose(0,2,1) → (K,D,H) → stack → (2,K,D,H)
     if ptype == "kv":
         _, K, D, H = original_shape
-        k = sub_blocks[0].reshape(D, K, H).transpose(1, 0, 2)  # (K, D, H)
-        v = sub_blocks[1].reshape(D, K, H).transpose(1, 0, 2)
-        return np.stack([k, v], axis=0)  # (2, K, D, H)
+        k = sub_blocks[0].reshape(K, H, D).transpose(0, 2, 1)
+        v = sub_blocks[1].reshape(K, H, D).transpose(0, 2, 1)
+        return np.stack([k, v], axis=0)
 
-    # av 的逆变换。
+    # av 逆变换：(D,N*H) → reshape(D,N,H) → transpose(1,2,0) → (N,H,D)
     if ptype == "av":
         N, H, D = original_shape
-        return sub_blocks[0].reshape(N, H, D)
+        return sub_blocks[0].reshape(D, N, H).transpose(1, 2, 0)
 
-    # gate 的逆变换。
+    # gate 逆变换：(Hff,D) → transpose() → (D,Hff) → stack → (2,D,Hff)
     if ptype == "gate":
-        return np.stack([sub_blocks[0], sub_blocks[1]], axis=0)  # (2, D, Hff)
+        return np.stack([sub_blocks[0].transpose(), sub_blocks[1].transpose()], axis=0)
 
-    # lin 无需变换。
+    # lin 逆变换：(D,Hff) → transpose() → (Hff,D)
     if ptype == "lin":
-        return sub_blocks[0]
+        return sub_blocks[0].transpose()
 
     raise ValueError(f"Unknown ptype: {ptype!r}")
 
@@ -344,7 +350,7 @@ def wudi_optimize(
     taskvector = torch.stack(taskvector_list)  # (T, m, n)
 
     # 把可学习合并向量初始化为任务向量和。
-    merging = torch.nn.Parameter(vectors.sum(dim=0).clone())
+    merging = torch.nn.Parameter(vectors.mean(dim=0).clone())
     # Adam 优化器。
     opt = torch.optim.Adam([merging], lr=1e-5)
     # 每个任务向量范数平方，用于归一化损失。
@@ -419,8 +425,11 @@ def _load_flat(params_path: str | pathlib.Path) -> dict[str, np.ndarray]:
     import flax.traverse_util as traverse_util
     from openpi.models.model import restore_params
 
-    # 解析 checkpoint 路径并读取参数。
+    # 解析 checkpoint 路径：若给的是 checkpoint root（含 _CHECKPOINT_METADATA），
+    # 自动切换到 params/ 子目录（orbax 需要 _METADATA 在该目录下）。
     path = pathlib.Path(params_path).resolve()
+    if (path / "params" / "_METADATA").exists() and not (path / "_METADATA").exists():
+        path = path / "params"
     logger.info(f"  Loading: {path}")
     params = restore_params(path, restore_type=np.ndarray)
     # flatten_dict 后 key 是 tuple，把它拼成 '/' 路径字符串。

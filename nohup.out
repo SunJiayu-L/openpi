@@ -1,0 +1,68 @@
+╭─ Parsing error ──────────────────────────────────────────────────────────────╮
+│ Argument                                                                     │
+│ {pi0_aloha,pi05_aloha,pi0_aloha_towel,pi0_aloha_tupperware,pi0_droid,pi0_fas │
+│ t_droid,pi05_droid,pi0_libero,pi0_libero_low_mem_finetune,pi0_fast_libero,pi │
+│ 0_fast_libero_low_mem_finetune,pi05_libero,pi05_libero_from_merged_4task_gd, │
+│ pi05_libero_plus_lerobot,pi05_libero_no10,pi0_libero_10,pi0_libero_goal,pi0_ │
+│ libero_object,pi0_libero_spatial,pi05_libero_10,pi05_libero_goal,pi05_libero │
+│ _object,pi05_libero_spatial,pi05_libero_10_from_base29999,pi05_libero_10_fro │
+│ m_pi05libero_10k,pi05_libero_goal_from_base29999,pi05_libero_object_from_bas │
+│ e29999,pi05_libero_spatial_from_base29999,pi05_libero10_task0_retrain,pi05_l │
+│ ibero10_task6_retrain,pi05_libero10_task9_retrain,pi05_libero10_task4_ep7_re │
+│ train,pi05_libero10_task4_all43_retrain_100,pi05_libero10_task5_all33_from_t │
+│ 4step100_retrain_100,pi05_libero_goal_task14_all47_from_t4step100_retrain_10 │
+│ 0,pi05_libero_obj_t22_t23_t24_all135_from_libero10_5000_retrain_50,pi05_libe │
+│ ro_obj_task22_ep45_from_libero10_5000_retrain_15,pi05_libero_obj_task23_ep46 │
+│ _from_libero10_5000_retrain_15,pi05_libero_obj_task23_ep46_from_merged_t22w0 │
+│ 2_t24w08_retrain_15,pi05_libero_obj_task23_ep46_from_libero10_5000_retrain_3 │
+│ 0,pi05_libero_obj_task23_ep46_from_merged_t22w02_t24w08_retrain_30,pi05_libe │
+│ ro_obj_task23_ep46_from_libero10_5000_retrain_50,pi05_libero_obj_task23_ep46 │
+│ _from_merged_t22w02_t24w08_retrain_50,pi05_libero_obj_task23_ep46_from_mvl_b │
+│ act_retrain_50,pi05_libero_obj_task23_ep46_from_bvl_mact_retrain_50,pi05_lib │
+│ ero_obj_task24_ep44_from_libero10_5000_retrain_15,pi05_sgo_lm90_mix50_task0, │
+│ pi05_sgo_lm90_mix50_task6,pi05_sgo_lm90_mix50_task9,pi05_libero_sgo,pi05_lib │
+│ ero_sgo_lm90,pi0_aloha_pen_uncap,pi05_aloha_pen_uncap,pi0_fast_full_droid_fi │
+│ netune,pi05_full_droid_finetune,pi05_droid_finetune,pi0_aloha_sim,debug,debu │
+│ g_restore,debug_pi05,paligemma_binning_droid,paligemma_fast_droid,paligemma_ │
+│ fast_specialist_droid,paligemma_vq_droid,paligemma_diffusion_droid,pi05_droi │
+│ d_jointpos_polaris,pi0_fast_droid_jointpos_polaris,pi0_droid_jointpos_polari │
+│ s,pi0_droid_jointpos_100k_polaris,paligemma_binning_droid_jointpos}: invalid │
+│ choice: ' ' (choose from 'pi0_aloha', 'pi05_aloha', 'pi0_aloha_towel',       │
+│ 'pi0_aloha_tupperware', 'pi0_droid', 'pi0_fast_droid', 'pi05_droid',         │
+│ 'pi0_libero', 'pi0_libero_low_mem_finetune', 'pi0_fast_libero',              │
+│ 'pi0_fast_libero_low_mem_finetune', 'pi05_libero',                           │
+│ 'pi05_libero_from_merged_4task_gd', 'pi05_libero_plus_lerobot',              │
+│ 'pi05_libero_no10', 'pi0_libero_10', 'pi0_libero_goal', 'pi0_libero_object', │
+│ 'pi0_libero_spatial', 'pi05_libero_10', 'pi05_libero_goal',                  │
+│ 'pi05_libero_object', 'pi05_libero_spatial',                                 │
+│ 'pi05_libero_10_from_base29999', 'pi05_libero_10_from_pi05libero_10k',       │
+│ 'pi05_libero_goal_from_base29999', 'pi05_libero_object_from_base29999',      │
+│ 'pi05_libero_spatial_from_base29999', 'pi05_libero10_task0_retrain',         │
+│ 'pi05_libero10_task6_retrain', 'pi05_libero10_task9_retrain',                │
+│ 'pi05_libero10_task4_ep7_retrain', 'pi05_libero10_task4_all43_retrain_100',  │
+│ 'pi05_libero10_task5_all33_from_t4step100_retrain_100',                      │
+│ 'pi05_libero_goal_task14_all47_from_t4step100_retrain_100',                  │
+│ 'pi05_libero_obj_t22_t23_t24_all135_from_libero10_5000_retrain_50',          │
+│ 'pi05_libero_obj_task22_ep45_from_libero10_5000_retrain_15',                 │
+│ 'pi05_libero_obj_task23_ep46_from_libero10_5000_retrain_15',                 │
+│ 'pi05_libero_obj_task23_ep46_from_merged_t22w02_t24w08_retrain_15',          │
+│ 'pi05_libero_obj_task23_ep46_from_libero10_5000_retrain_30',                 │
+│ 'pi05_libero_obj_task23_ep46_from_merged_t22w02_t24w08_retrain_30',          │
+│ 'pi05_libero_obj_task23_ep46_from_libero10_5000_retrain_50',                 │
+│ 'pi05_libero_obj_task23_ep46_from_merged_t22w02_t24w08_retrain_50',          │
+│ 'pi05_libero_obj_task23_ep46_from_mvl_bact_retrain_50',                      │
+│ 'pi05_libero_obj_task23_ep46_from_bvl_mact_retrain_50',                      │
+│ 'pi05_libero_obj_task24_ep44_from_libero10_5000_retrain_15',                 │
+│ 'pi05_sgo_lm90_mix50_task0', 'pi05_sgo_lm90_mix50_task6',                    │
+│ 'pi05_sgo_lm90_mix50_task9', 'pi05_libero_sgo', 'pi05_libero_sgo_lm90',      │
+│ 'pi0_aloha_pen_uncap', 'pi05_aloha_pen_uncap',                               │
+│ 'pi0_fast_full_droid_finetune', 'pi05_full_droid_finetune',                  │
+│ 'pi05_droid_finetune', 'pi0_aloha_sim', 'debug', 'debug_restore',            │
+│ 'debug_pi05', 'paligemma_binning_droid', 'paligemma_fast_droid',             │
+│ 'paligemma_fast_specialist_droid', 'paligemma_vq_droid',                     │
+│ 'paligemma_diffusion_droid', 'pi05_droid_jointpos_polaris',                  │
+│ 'pi0_fast_droid_jointpos_polaris', 'pi0_droid_jointpos_polaris',             │
+│ 'pi0_droid_jointpos_100k_polaris', 'paligemma_binning_droid_jointpos')       │
+│ ──────────────────────────────────────────────────────────────────────────── │
+│ For full helptext, run train.py --help                                       │
+╰──────────────────────────────────────────────────────────────────────────────╯

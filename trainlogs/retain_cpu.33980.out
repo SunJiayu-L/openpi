@@ -1,0 +1,10 @@
+
+Global retain-rate summary (focus tasks):
+  libero_10      r2=0.524383610195  r4=0.287673270918  cos2=0.722786886598  cos4=0.536002289354
+  libero_spatial r2=0.524192959927  r4=0.288498481638  cos2=0.725365406601  cos4=0.539653707989
+  libero_object  r2=             -  r4=0.288610538952  cos2=             -  cos4=0.536245165709
+  libero_goal    r2=             -  r4=0.288223115723  cos2=             -  cos4=0.535652740969
+
+Saved: docs/analysis/from10k_llm_only_retain_rate/retain_rate_mean_2task_4task.csv
+Saved: docs/analysis/from10k_llm_only_retain_rate/retain_rate_by_module.csv
+Saved: docs/analysis/from10k_llm_only_retain_rate/retain_rate_drop_summary.csv
