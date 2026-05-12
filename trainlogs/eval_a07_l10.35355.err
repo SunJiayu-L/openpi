@@ -1,0 +1,1573 @@
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+2026-05-11 17:16:28.078005: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-05-11 17:16:28.078134: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-05-11 17:16:28.081911: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-05-11 17:16:29.185317: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+INFO:root:Loading model...
+INFO:openpi:train_config: TrainConfig(name='pi05_libero', project_name='openpi', exp_name=<PropagatingMissingType id='139623958972816'>, model=Pi0Config(action_dim=32, action_horizon=10, max_token_len=200, dtype='bfloat16', paligemma_variant='gemma_2b', action_expert_variant='gemma_300m', pi05=True, discrete_state_input=False), weight_loader=CheckpointWeightLoader(params_path='gs://openpi-assets/checkpoints/pi05_base/params'), pytorch_weight_path='/path/to/your/pytorch_weight_path', pytorch_training_precision='bfloat16', lr_schedule=CosineDecaySchedule(warmup_steps=10000, peak_lr=5e-05, decay_steps=1000000, decay_lr=5e-05), optimizer=AdamW(b1=0.9, b2=0.95, eps=1e-08, weight_decay=1e-10, clip_gradient_norm=1.0), ema_decay=0.999, freeze_filter=Nothing(), data=LeRobotLiberoDataConfig(repo_id='physical-intelligence/libero', assets=AssetsConfig(assets_dir=None, asset_id=None), base_config=DataConfig(repo_id=None, lerobot_root=None, asset_id=None, norm_stats=None, repack_transforms=Group(inputs=(), outputs=()), data_transforms=Group(inputs=(), outputs=()), model_transforms=Group(inputs=(), outputs=()), use_quantile_norm=False, action_sequence_keys=('actions',), prompt_from_task=True, episodes=None, extra_lerobot_datasets=(), dataset_mix_weights=None, rlds_data_dir=None, action_space=None, datasets=()), extra_delta_transform=False), assets_base_dir='./assets', checkpoint_base_dir='./checkpoints', seed=42, batch_size=256, num_workers=2, num_train_steps=30000, log_interval=100, save_interval=1000, keep_period=5000, overwrite=False, resume=False, wandb_enabled=True, policy_metadata=None, fsdp_devices=1)
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/assets/pi05_libero/physical-intelligence/libero
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/merged/base25k_ppo80_a07/assets/physical-intelligence/libero
+INFO:root:Creating server (host: gnho031, ip: 192.168.180.131)
+INFO:websockets.server:server listening on 0.0.0.0:8147
+INFO:websockets.server:connection rejected (200 OK)
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+INFO:root:Task suite: libero_10
+INFO:root:Waiting for server at ws://0.0.0.0:8147...
+INFO:websockets.server:connection open
+INFO:openpi.serving.websocket_policy_server:Connection from ('127.0.0.1', 42742) opened
+  0%|          | 0/10 [00:00<?, ?it/s]/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+
+  0%|          | 0/50 [00:00<?, ?it/s][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 1...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 1
+INFO:root:# successes: 1 (100.0%)
+
+  2%|▏         | 1/50 [00:25<20:30, 25.12s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 2...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 2
+INFO:root:# successes: 2 (100.0%)
+
+  4%|▍         | 2/50 [00:32<11:46, 14.71s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 3...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 3
+INFO:root:# successes: 3 (100.0%)
+
+  6%|▌         | 3/50 [00:40<09:04, 11.59s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 4...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 4
+INFO:root:# successes: 4 (100.0%)
+
+  8%|▊         | 4/50 [00:48<07:41, 10.04s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 5...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 5
+INFO:root:# successes: 5 (100.0%)
+
+ 10%|█         | 5/50 [00:55<06:46,  9.02s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 6...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 6
+INFO:root:# successes: 6 (100.0%)
+
+ 12%|█▏        | 6/50 [01:02<06:11,  8.44s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 7...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 7
+INFO:root:# successes: 7 (100.0%)
+
+ 14%|█▍        | 7/50 [01:10<05:53,  8.21s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 8...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 8
+INFO:root:# successes: 8 (100.0%)
+
+ 16%|█▌        | 8/50 [01:17<05:31,  7.90s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 9...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 9
+INFO:root:# successes: 9 (100.0%)
+
+ 18%|█▊        | 9/50 [01:24<05:06,  7.47s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 10...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 10
+INFO:root:# successes: 10 (100.0%)
+
+ 20%|██        | 10/50 [01:31<04:55,  7.38s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 11...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 11
+INFO:root:# successes: 11 (100.0%)
+
+ 22%|██▏       | 11/50 [01:38<04:45,  7.32s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 12...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 12
+INFO:root:# successes: 12 (100.0%)
+
+ 24%|██▍       | 12/50 [01:45<04:36,  7.29s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 13...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 13
+INFO:root:# successes: 13 (100.0%)
+
+ 26%|██▌       | 13/50 [01:53<04:32,  7.37s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 14...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 14
+INFO:root:# successes: 14 (100.0%)
+
+ 28%|██▊       | 14/50 [02:00<04:27,  7.43s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 15...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 15
+INFO:root:# successes: 15 (100.0%)
+
+ 30%|███       | 15/50 [02:09<04:31,  7.76s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 16...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 16
+INFO:root:# successes: 16 (100.0%)
+
+ 32%|███▏      | 16/50 [02:16<04:17,  7.58s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 17...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 17
+INFO:root:# successes: 17 (100.0%)
+
+ 34%|███▍      | 17/50 [02:23<04:00,  7.28s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 18...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 18
+INFO:root:# successes: 18 (100.0%)
+
+ 36%|███▌      | 18/50 [02:31<04:02,  7.59s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 19...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 19
+INFO:root:# successes: 19 (100.0%)
+
+ 38%|███▊      | 19/50 [02:43<04:38,  8.97s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 20...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 20
+INFO:root:# successes: 20 (100.0%)
+
+ 40%|████      | 20/50 [02:51<04:23,  8.79s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 21...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 21
+INFO:root:# successes: 21 (100.0%)
+
+ 42%|████▏     | 21/50 [02:59<04:05,  8.48s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 22...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 22
+INFO:root:# successes: 22 (100.0%)
+
+ 44%|████▍     | 22/50 [03:07<03:48,  8.17s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 23...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 23
+INFO:root:# successes: 23 (100.0%)
+
+ 46%|████▌     | 23/50 [03:16<03:51,  8.56s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 24...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 24
+INFO:root:# successes: 24 (100.0%)
+
+ 48%|████▊     | 24/50 [03:24<03:38,  8.40s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 25...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 25
+INFO:root:# successes: 25 (100.0%)
+
+ 50%|█████     | 25/50 [03:34<03:44,  8.97s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 26...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 26
+INFO:root:# successes: 26 (100.0%)
+
+ 52%|█████▏    | 26/50 [03:42<03:22,  8.43s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 27...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 27
+INFO:root:# successes: 27 (100.0%)
+
+ 54%|█████▍    | 27/50 [03:49<03:06,  8.11s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 28...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 28
+INFO:root:# successes: 28 (100.0%)
+
+ 56%|█████▌    | 28/50 [03:57<03:00,  8.20s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 29...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 29
+INFO:root:# successes: 29 (100.0%)
+
+ 58%|█████▊    | 29/50 [04:05<02:48,  8.03s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 30...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 30
+INFO:root:# successes: 30 (100.0%)
+
+ 60%|██████    | 30/50 [04:14<02:44,  8.22s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 31...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 31
+INFO:root:# successes: 31 (100.0%)
+
+ 62%|██████▏   | 31/50 [04:21<02:28,  7.81s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 32...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 32
+INFO:root:# successes: 32 (100.0%)
+
+ 64%|██████▍   | 32/50 [04:29<02:21,  7.86s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 33...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 33
+INFO:root:# successes: 33 (100.0%)
+
+ 66%|██████▌   | 33/50 [04:36<02:12,  7.79s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 34...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 34
+INFO:root:# successes: 34 (100.0%)
+
+ 68%|██████▊   | 34/50 [04:43<02:00,  7.51s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 35...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 35
+INFO:root:# successes: 35 (100.0%)
+
+ 70%|███████   | 35/50 [04:50<01:48,  7.23s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 36...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 36
+INFO:root:# successes: 36 (100.0%)
+
+ 72%|███████▏  | 36/50 [04:57<01:42,  7.29s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 37...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 37
+INFO:root:# successes: 37 (100.0%)
+
+ 74%|███████▍  | 37/50 [05:04<01:35,  7.34s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 38...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 38
+INFO:root:# successes: 38 (100.0%)
+
+ 76%|███████▌  | 38/50 [05:12<01:27,  7.25s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 39...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 39
+INFO:root:# successes: 39 (100.0%)
+
+ 78%|███████▊  | 39/50 [05:18<01:18,  7.13s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 40...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 40
+INFO:root:# successes: 40 (100.0%)
+
+ 80%|████████  | 40/50 [05:25<01:11,  7.12s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 41...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 41
+INFO:root:# successes: 41 (100.0%)
+
+ 82%|████████▏ | 41/50 [05:33<01:05,  7.29s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 42...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 42
+INFO:root:# successes: 42 (100.0%)
+
+ 84%|████████▍ | 42/50 [05:40<00:57,  7.19s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 43...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 43
+INFO:root:# successes: 43 (100.0%)
+
+ 86%|████████▌ | 43/50 [05:48<00:51,  7.34s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 44...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 44
+INFO:root:# successes: 44 (100.0%)
+
+ 88%|████████▊ | 44/50 [05:55<00:44,  7.42s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 45...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 45
+INFO:root:# successes: 45 (100.0%)
+
+ 90%|█████████ | 45/50 [06:03<00:37,  7.40s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 46...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 46
+INFO:root:# successes: 46 (100.0%)
+
+ 92%|█████████▏| 46/50 [06:10<00:28,  7.23s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 47...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 47
+INFO:root:# successes: 47 (100.0%)
+
+ 94%|█████████▍| 47/50 [06:17<00:21,  7.23s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 48...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 48
+INFO:root:# successes: 48 (100.0%)
+
+ 96%|█████████▌| 48/50 [06:23<00:14,  7.01s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 49...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 49
+INFO:root:# successes: 49 (100.0%)
+
+ 98%|█████████▊| 49/50 [06:30<00:07,  7.06s/it][AINFO:root:
+Task: put both the alphabet soup and the tomato sauce in the basket
+INFO:root:Starting episode 50...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 50
+INFO:root:# successes: 50 (100.0%)
+
+100%|██████████| 50/50 [06:45<00:00,  9.41s/it][A100%|██████████| 50/50 [06:45<00:00,  8.12s/it]
+INFO:root:Current task success rate: 1.0
+INFO:root:Current total success rate: 1.0
+ 10%|█         | 1/10 [06:47<1:01:08, 407.57s/it]
+  0%|          | 0/50 [00:00<?, ?it/s][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 1...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 51
+INFO:root:# successes: 51 (100.0%)
+
+  2%|▏         | 1/50 [00:06<05:29,  6.72s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 2...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 52
+INFO:root:# successes: 52 (100.0%)
+
+  4%|▍         | 2/50 [00:13<05:12,  6.51s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 3...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 53
+INFO:root:# successes: 53 (100.0%)
+
+  6%|▌         | 3/50 [00:19<05:04,  6.47s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 4...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 54
+INFO:root:# successes: 54 (100.0%)
+
+  8%|▊         | 4/50 [00:26<05:03,  6.60s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 5...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 55
+INFO:root:# successes: 55 (100.0%)
+
+ 10%|█         | 5/50 [00:33<05:01,  6.70s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 6...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 56
+INFO:root:# successes: 56 (100.0%)
+
+ 12%|█▏        | 6/50 [00:39<04:50,  6.61s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 7...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 57
+INFO:root:# successes: 57 (100.0%)
+
+ 14%|█▍        | 7/50 [00:46<04:47,  6.69s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 8...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 58
+INFO:root:# successes: 58 (100.0%)
+
+ 16%|█▌        | 8/50 [00:53<04:43,  6.76s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 9...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 59
+INFO:root:# successes: 59 (100.0%)
+
+ 18%|█▊        | 9/50 [01:01<04:51,  7.11s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 10...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 60
+INFO:root:# successes: 60 (100.0%)
+
+ 20%|██        | 10/50 [01:07<04:38,  6.96s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 11...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 61
+INFO:root:# successes: 61 (100.0%)
+
+ 22%|██▏       | 11/50 [01:14<04:25,  6.80s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 12...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 62
+INFO:root:# successes: 62 (100.0%)
+
+ 24%|██▍       | 12/50 [01:20<04:09,  6.58s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 13...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 63
+INFO:root:# successes: 63 (100.0%)
+
+ 26%|██▌       | 13/50 [01:26<03:57,  6.41s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 14...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 64
+INFO:root:# successes: 64 (100.0%)
+
+ 28%|██▊       | 14/50 [01:32<03:50,  6.39s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 15...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 65
+INFO:root:# successes: 65 (100.0%)
+
+ 30%|███       | 15/50 [01:39<03:50,  6.57s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 16...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 66
+INFO:root:# successes: 66 (100.0%)
+
+ 32%|███▏      | 16/50 [01:46<03:45,  6.63s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 17...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 67
+INFO:root:# successes: 67 (100.0%)
+
+ 34%|███▍      | 17/50 [01:54<03:47,  6.90s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 18...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 68
+INFO:root:# successes: 68 (100.0%)
+
+ 36%|███▌      | 18/50 [02:00<03:40,  6.89s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 19...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 69
+INFO:root:# successes: 69 (100.0%)
+
+ 38%|███▊      | 19/50 [02:07<03:28,  6.72s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 20...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 70
+INFO:root:# successes: 70 (100.0%)
+
+ 40%|████      | 20/50 [02:14<03:23,  6.78s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 21...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 71
+INFO:root:# successes: 71 (100.0%)
+
+ 42%|████▏     | 21/50 [02:20<03:16,  6.76s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 22...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 72
+INFO:root:# successes: 72 (100.0%)
+
+ 44%|████▍     | 22/50 [02:27<03:06,  6.68s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 23...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 73
+INFO:root:# successes: 73 (100.0%)
+
+ 46%|████▌     | 23/50 [02:33<02:58,  6.61s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 24...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 74
+INFO:root:# successes: 74 (100.0%)
+
+ 48%|████▊     | 24/50 [02:39<02:48,  6.48s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 25...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 75
+INFO:root:# successes: 75 (100.0%)
+
+ 50%|█████     | 25/50 [02:46<02:41,  6.46s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 26...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 76
+INFO:root:# successes: 76 (100.0%)
+
+ 52%|█████▏    | 26/50 [02:53<02:36,  6.50s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 27...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 77
+INFO:root:# successes: 77 (100.0%)
+
+ 54%|█████▍    | 27/50 [03:00<02:35,  6.77s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 28...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 78
+INFO:root:# successes: 78 (100.0%)
+
+ 56%|█████▌    | 28/50 [03:07<02:29,  6.78s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 29...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 79
+INFO:root:# successes: 79 (100.0%)
+
+ 58%|█████▊    | 29/50 [03:13<02:21,  6.73s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 30...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 80
+INFO:root:# successes: 80 (100.0%)
+
+ 60%|██████    | 30/50 [03:20<02:13,  6.68s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 31...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 81
+INFO:root:# successes: 81 (100.0%)
+
+ 62%|██████▏   | 31/50 [03:27<02:07,  6.72s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 32...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 82
+INFO:root:# successes: 82 (100.0%)
+
+ 64%|██████▍   | 32/50 [03:33<02:00,  6.70s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 33...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 83
+INFO:root:# successes: 83 (100.0%)
+
+ 66%|██████▌   | 33/50 [03:40<01:52,  6.61s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 34...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 84
+INFO:root:# successes: 83 (98.8%)
+
+ 68%|██████▊   | 34/50 [03:54<02:22,  8.91s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 35...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 85
+INFO:root:# successes: 84 (98.8%)
+
+ 70%|███████   | 35/50 [04:02<02:08,  8.56s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 36...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 86
+INFO:root:# successes: 85 (98.8%)
+
+ 72%|███████▏  | 36/50 [04:09<01:55,  8.25s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 37...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 87
+INFO:root:# successes: 86 (98.9%)
+
+ 74%|███████▍  | 37/50 [04:16<01:42,  7.89s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 38...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 88
+INFO:root:# successes: 87 (98.9%)
+
+ 76%|███████▌  | 38/50 [04:23<01:30,  7.57s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 39...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 89
+INFO:root:# successes: 88 (98.9%)
+
+ 78%|███████▊  | 39/50 [04:30<01:19,  7.26s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 40...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 90
+INFO:root:# successes: 89 (98.9%)
+
+ 80%|████████  | 40/50 [04:37<01:11,  7.17s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 41...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 91
+INFO:root:# successes: 90 (98.9%)
+
+ 82%|████████▏ | 41/50 [04:43<01:03,  7.07s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 42...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 92
+INFO:root:# successes: 91 (98.9%)
+
+ 84%|████████▍ | 42/50 [04:50<00:55,  6.92s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 43...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 93
+INFO:root:# successes: 92 (98.9%)
+
+ 86%|████████▌ | 43/50 [04:56<00:47,  6.72s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 44...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 94
+INFO:root:# successes: 93 (98.9%)
+
+ 88%|████████▊ | 44/50 [05:06<00:45,  7.62s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 45...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 95
+INFO:root:# successes: 94 (98.9%)
+
+ 90%|█████████ | 45/50 [05:13<00:36,  7.34s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 46...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 96
+INFO:root:# successes: 95 (99.0%)
+
+ 92%|█████████▏| 46/50 [05:20<00:28,  7.20s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 47...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 97
+INFO:root:# successes: 96 (99.0%)
+
+ 94%|█████████▍| 47/50 [05:30<00:24,  8.02s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 48...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 98
+INFO:root:# successes: 97 (99.0%)
+
+ 96%|█████████▌| 48/50 [05:37<00:15,  7.74s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 49...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 99
+INFO:root:# successes: 98 (99.0%)
+
+ 98%|█████████▊| 49/50 [05:44<00:07,  7.65s/it][AINFO:root:
+Task: put both the cream cheese box and the butter in the basket
+INFO:root:Starting episode 50...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 100
+INFO:root:# successes: 99 (99.0%)
+
+100%|██████████| 50/50 [05:51<00:00,  7.46s/it][A100%|██████████| 50/50 [05:51<00:00,  7.03s/it]
+INFO:root:Current task success rate: 0.98
+INFO:root:Current total success rate: 0.99
+ 20%|██        | 2/10 [12:39<50:00, 375.04s/it]  
+  0%|          | 0/50 [00:00<?, ?it/s][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 1...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 101
+INFO:root:# successes: 100 (99.0%)
+
+  2%|▏         | 1/50 [00:05<04:09,  5.09s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 2...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 102
+INFO:root:# successes: 101 (99.0%)
+
+  4%|▍         | 2/50 [00:11<04:32,  5.68s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 3...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 103
+INFO:root:# successes: 102 (99.0%)
+
+  6%|▌         | 3/50 [00:18<04:51,  6.21s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 4...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 104
+INFO:root:# successes: 103 (99.0%)
+
+  8%|▊         | 4/50 [00:25<05:14,  6.84s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 5...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 105
+INFO:root:# successes: 104 (99.0%)
+
+ 10%|█         | 5/50 [00:31<04:44,  6.31s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 6...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 106
+INFO:root:# successes: 105 (99.1%)
+
+ 12%|█▏        | 6/50 [00:36<04:23,  5.99s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 7...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 107
+INFO:root:# successes: 106 (99.1%)
+
+ 14%|█▍        | 7/50 [00:43<04:24,  6.15s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 8...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 108
+INFO:root:# successes: 107 (99.1%)
+
+ 16%|█▌        | 8/50 [00:48<04:04,  5.83s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 9...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 109
+INFO:root:# successes: 108 (99.1%)
+
+ 18%|█▊        | 9/50 [00:53<03:54,  5.73s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 10...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 110
+INFO:root:# successes: 109 (99.1%)
+
+ 20%|██        | 10/50 [00:59<03:50,  5.75s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 11...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 111
+INFO:root:# successes: 110 (99.1%)
+
+ 22%|██▏       | 11/50 [01:05<03:41,  5.68s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 12...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 112
+INFO:root:# successes: 111 (99.1%)
+
+ 24%|██▍       | 12/50 [01:10<03:30,  5.54s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 13...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 113
+INFO:root:# successes: 112 (99.1%)
+
+ 26%|██▌       | 13/50 [01:15<03:22,  5.46s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 14...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 114
+INFO:root:# successes: 113 (99.1%)
+
+ 28%|██▊       | 14/50 [01:26<04:12,  7.01s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 15...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 115
+INFO:root:# successes: 114 (99.1%)
+
+ 30%|███       | 15/50 [01:31<03:51,  6.60s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 16...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 116
+INFO:root:# successes: 115 (99.1%)
+
+ 32%|███▏      | 16/50 [01:37<03:33,  6.28s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 17...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 117
+INFO:root:# successes: 116 (99.1%)
+
+ 34%|███▍      | 17/50 [01:42<03:21,  6.10s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 18...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 118
+INFO:root:# successes: 117 (99.2%)
+
+ 36%|███▌      | 18/50 [01:48<03:12,  6.01s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 19...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 119
+INFO:root:# successes: 118 (99.2%)
+
+ 38%|███▊      | 19/50 [01:54<03:04,  5.95s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 20...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 120
+INFO:root:# successes: 119 (99.2%)
+
+ 40%|████      | 20/50 [02:00<02:53,  5.80s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 21...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 121
+INFO:root:# successes: 120 (99.2%)
+
+ 42%|████▏     | 21/50 [02:05<02:46,  5.73s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 22...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 122
+INFO:root:# successes: 121 (99.2%)
+
+ 44%|████▍     | 22/50 [02:11<02:43,  5.83s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 23...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 123
+INFO:root:# successes: 122 (99.2%)
+
+ 46%|████▌     | 23/50 [02:16<02:31,  5.62s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 24...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 124
+INFO:root:# successes: 123 (99.2%)
+
+ 48%|████▊     | 24/50 [02:22<02:28,  5.73s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 25...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 125
+INFO:root:# successes: 124 (99.2%)
+
+ 50%|█████     | 25/50 [02:28<02:20,  5.61s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 26...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 126
+INFO:root:# successes: 125 (99.2%)
+
+ 52%|█████▏    | 26/50 [02:33<02:13,  5.56s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 27...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 127
+INFO:root:# successes: 126 (99.2%)
+
+ 54%|█████▍    | 27/50 [02:40<02:14,  5.87s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 28...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 128
+INFO:root:# successes: 127 (99.2%)
+
+ 56%|█████▌    | 28/50 [02:45<02:05,  5.69s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 29...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 129
+INFO:root:# successes: 128 (99.2%)
+
+ 58%|█████▊    | 29/50 [02:51<01:58,  5.66s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 30...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 130
+INFO:root:# successes: 129 (99.2%)
+
+ 60%|██████    | 30/50 [02:56<01:54,  5.74s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 31...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 131
+INFO:root:# successes: 130 (99.2%)
+
+ 62%|██████▏   | 31/50 [03:02<01:46,  5.58s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 32...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 132
+INFO:root:# successes: 131 (99.2%)
+
+ 64%|██████▍   | 32/50 [03:08<01:42,  5.67s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 33...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 133
+INFO:root:# successes: 132 (99.2%)
+
+ 66%|██████▌   | 33/50 [03:13<01:37,  5.73s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 34...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 134
+INFO:root:# successes: 133 (99.3%)
+
+ 68%|██████▊   | 34/50 [03:19<01:29,  5.58s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 35...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 135
+INFO:root:# successes: 134 (99.3%)
+
+ 70%|███████   | 35/50 [03:25<01:27,  5.83s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 36...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 136
+INFO:root:# successes: 135 (99.3%)
+
+ 72%|███████▏  | 36/50 [03:31<01:21,  5.85s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 37...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 137
+INFO:root:# successes: 136 (99.3%)
+
+ 74%|███████▍  | 37/50 [03:36<01:14,  5.72s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 38...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 138
+INFO:root:# successes: 137 (99.3%)
+
+ 76%|███████▌  | 38/50 [03:42<01:09,  5.77s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 39...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 139
+INFO:root:# successes: 138 (99.3%)
+
+ 78%|███████▊  | 39/50 [03:48<01:02,  5.73s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 40...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 140
+INFO:root:# successes: 139 (99.3%)
+
+ 80%|████████  | 40/50 [03:54<00:57,  5.71s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 41...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 141
+INFO:root:# successes: 140 (99.3%)
+
+ 82%|████████▏ | 41/50 [04:00<00:53,  5.94s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 42...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 142
+INFO:root:# successes: 141 (99.3%)
+
+ 84%|████████▍ | 42/50 [04:06<00:47,  5.93s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 43...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 143
+INFO:root:# successes: 142 (99.3%)
+
+ 86%|████████▌ | 43/50 [04:11<00:40,  5.80s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 44...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 144
+INFO:root:# successes: 143 (99.3%)
+
+ 88%|████████▊ | 44/50 [04:17<00:34,  5.70s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 45...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 145
+INFO:root:# successes: 144 (99.3%)
+
+ 90%|█████████ | 45/50 [04:22<00:28,  5.63s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 46...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 146
+INFO:root:# successes: 145 (99.3%)
+
+ 92%|█████████▏| 46/50 [04:28<00:22,  5.53s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 47...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 147
+INFO:root:# successes: 146 (99.3%)
+
+ 94%|█████████▍| 47/50 [04:34<00:16,  5.66s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 48...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 148
+INFO:root:# successes: 147 (99.3%)
+
+ 96%|█████████▌| 48/50 [04:40<00:11,  5.93s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 49...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 149
+INFO:root:# successes: 148 (99.3%)
+
+ 98%|█████████▊| 49/50 [04:47<00:06,  6.06s/it][AINFO:root:
+Task: turn on the stove and put the moka pot on it
+INFO:root:Starting episode 50...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 150
+INFO:root:# successes: 149 (99.3%)
+
+100%|██████████| 50/50 [04:52<00:00,  5.94s/it][A100%|██████████| 50/50 [04:52<00:00,  5.85s/it]
+INFO:root:Current task success rate: 1.0
+INFO:root:Current total success rate: 0.9933333333333333
+ 30%|███       | 3/10 [17:33<39:23, 337.65s/it]
+  0%|          | 0/50 [00:00<?, ?it/s][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 1...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 151
+INFO:root:# successes: 150 (99.3%)
+
+  2%|▏         | 1/50 [00:05<04:13,  5.18s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 2...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 152
+INFO:root:# successes: 151 (99.3%)
+
+  4%|▍         | 2/50 [00:09<03:52,  4.84s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 3...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 153
+INFO:root:# successes: 152 (99.3%)
+
+  6%|▌         | 3/50 [00:16<04:25,  5.64s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 4...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 154
+INFO:root:# successes: 153 (99.4%)
+
+  8%|▊         | 4/50 [00:21<04:14,  5.54s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 5...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 155
+INFO:root:# successes: 154 (99.4%)
+
+ 10%|█         | 5/50 [00:26<04:00,  5.34s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 6...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 156
+INFO:root:# successes: 155 (99.4%)
+
+ 12%|█▏        | 6/50 [00:31<03:45,  5.12s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 7...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 157
+INFO:root:# successes: 156 (99.4%)
+
+ 14%|█▍        | 7/50 [00:36<03:37,  5.06s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 8...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 158
+INFO:root:# successes: 157 (99.4%)
+
+ 16%|█▌        | 8/50 [00:41<03:36,  5.16s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 9...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 159
+INFO:root:# successes: 158 (99.4%)
+
+ 18%|█▊        | 9/50 [00:46<03:31,  5.17s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 10...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 160
+INFO:root:# successes: 159 (99.4%)
+
+ 20%|██        | 10/50 [00:52<03:27,  5.20s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 11...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 161
+INFO:root:# successes: 160 (99.4%)
+
+ 22%|██▏       | 11/50 [00:57<03:21,  5.18s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 12...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 162
+INFO:root:# successes: 161 (99.4%)
+
+ 24%|██▍       | 12/50 [01:02<03:20,  5.28s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 13...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 163
+INFO:root:# successes: 162 (99.4%)
+
+ 26%|██▌       | 13/50 [01:07<03:13,  5.22s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 14...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 164
+INFO:root:# successes: 163 (99.4%)
+
+ 28%|██▊       | 14/50 [01:12<03:05,  5.15s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 15...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 165
+INFO:root:# successes: 164 (99.4%)
+
+ 30%|███       | 15/50 [01:18<03:05,  5.31s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 16...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 166
+INFO:root:# successes: 165 (99.4%)
+
+ 32%|███▏      | 16/50 [01:23<02:58,  5.24s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 17...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 167
+INFO:root:# successes: 166 (99.4%)
+
+ 34%|███▍      | 17/50 [01:28<02:51,  5.21s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 18...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 168
+INFO:root:# successes: 167 (99.4%)
+
+ 36%|███▌      | 18/50 [01:33<02:41,  5.04s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 19...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 169
+INFO:root:# successes: 168 (99.4%)
+
+ 38%|███▊      | 19/50 [01:38<02:35,  5.03s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 20...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 170
+INFO:root:# successes: 169 (99.4%)
+
+ 40%|████      | 20/50 [01:43<02:32,  5.10s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 21...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 171
+INFO:root:# successes: 170 (99.4%)
+
+ 42%|████▏     | 21/50 [01:50<02:39,  5.51s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 22...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 172
+INFO:root:# successes: 171 (99.4%)
+
+ 44%|████▍     | 22/50 [01:54<02:27,  5.27s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 23...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 173
+INFO:root:# successes: 172 (99.4%)
+
+ 46%|████▌     | 23/50 [01:59<02:17,  5.09s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 24...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 174
+INFO:root:# successes: 173 (99.4%)
+
+ 48%|████▊     | 24/50 [02:04<02:07,  4.92s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 25...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 175
+INFO:root:# successes: 174 (99.4%)
+
+ 50%|█████     | 25/50 [02:09<02:02,  4.92s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 26...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 176
+INFO:root:# successes: 175 (99.4%)
+
+ 52%|█████▏    | 26/50 [02:14<01:59,  5.00s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 27...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 177
+INFO:root:# successes: 176 (99.4%)
+
+ 54%|█████▍    | 27/50 [02:20<02:03,  5.35s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 28...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 178
+INFO:root:# successes: 177 (99.4%)
+
+ 56%|█████▌    | 28/50 [02:25<01:57,  5.32s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 29...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 179
+INFO:root:# successes: 178 (99.4%)
+
+ 58%|█████▊    | 29/50 [02:30<01:51,  5.29s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 30...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 180
+INFO:root:# successes: 179 (99.4%)
+
+ 60%|██████    | 30/50 [02:35<01:44,  5.23s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 31...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 181
+INFO:root:# successes: 180 (99.4%)
+
+ 62%|██████▏   | 31/50 [02:41<01:39,  5.21s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 32...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 182
+INFO:root:# successes: 181 (99.5%)
+
+ 64%|██████▍   | 32/50 [02:46<01:34,  5.27s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 33...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 183
+INFO:root:# successes: 182 (99.5%)
+
+ 66%|██████▌   | 33/50 [02:51<01:30,  5.30s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 34...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 184
+INFO:root:# successes: 183 (99.5%)
+
+ 68%|██████▊   | 34/50 [02:56<01:22,  5.14s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 35...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 185
+INFO:root:# successes: 184 (99.5%)
+
+ 70%|███████   | 35/50 [03:01<01:17,  5.14s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 36...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 186
+INFO:root:# successes: 185 (99.5%)
+
+ 72%|███████▏  | 36/50 [03:06<01:09,  4.99s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 37...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 187
+INFO:root:# successes: 186 (99.5%)
+
+ 74%|███████▍  | 37/50 [03:11<01:05,  5.03s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 38...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 188
+INFO:root:# successes: 187 (99.5%)
+
+ 76%|███████▌  | 38/50 [03:16<00:59,  4.97s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 39...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 189
+INFO:root:# successes: 188 (99.5%)
+
+ 78%|███████▊  | 39/50 [03:21<00:54,  4.97s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 40...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 190
+INFO:root:# successes: 189 (99.5%)
+
+ 80%|████████  | 40/50 [03:26<00:49,  4.93s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 41...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 191
+INFO:root:# successes: 190 (99.5%)
+
+ 82%|████████▏ | 41/50 [03:30<00:44,  4.89s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 42...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 192
+INFO:root:# successes: 191 (99.5%)
+
+ 84%|████████▍ | 42/50 [03:36<00:39,  4.97s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 43...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 193
+INFO:root:# successes: 192 (99.5%)
+
+ 86%|████████▌ | 43/50 [03:41<00:36,  5.19s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 44...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 194
+INFO:root:# successes: 193 (99.5%)
+
+ 88%|████████▊ | 44/50 [03:47<00:32,  5.35s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 45...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 195
+INFO:root:# successes: 194 (99.5%)
+
+ 90%|█████████ | 45/50 [03:52<00:26,  5.27s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 46...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 196
+INFO:root:# successes: 195 (99.5%)
+
+ 92%|█████████▏| 46/50 [03:57<00:20,  5.17s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 47...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 197
+INFO:root:# successes: 196 (99.5%)
+
+ 94%|█████████▍| 47/50 [04:02<00:15,  5.12s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 48...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 198
+INFO:root:# successes: 197 (99.5%)
+
+ 96%|█████████▌| 48/50 [04:07<00:10,  5.17s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 49...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 199
+INFO:root:# successes: 198 (99.5%)
+
+ 98%|█████████▊| 49/50 [04:12<00:05,  5.08s/it][AINFO:root:
+Task: put the black bowl in the bottom drawer of the cabinet and close it
+INFO:root:Starting episode 50...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 200
+INFO:root:# successes: 199 (99.5%)
+
+100%|██████████| 50/50 [04:18<00:00,  5.24s/it][A100%|██████████| 50/50 [04:18<00:00,  5.17s/it]
+INFO:root:Current task success rate: 1.0
+INFO:root:Current total success rate: 0.995
+ 40%|████      | 4/10 [21:52<30:40, 306.71s/it]
+  0%|          | 0/50 [00:00<?, ?it/s][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 1...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 201
+INFO:root:# successes: 200 (99.5%)
+
+  2%|▏         | 1/50 [00:05<04:42,  5.76s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 2...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 202
+INFO:root:# successes: 201 (99.5%)
+
+  4%|▍         | 2/50 [00:10<04:18,  5.38s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 3...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 203
+INFO:root:# successes: 202 (99.5%)
+
+  6%|▌         | 3/50 [00:16<04:08,  5.29s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 4...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 204
+INFO:root:# successes: 203 (99.5%)
+
+  8%|▊         | 4/50 [00:21<04:03,  5.29s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 5...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 205
+INFO:root:# successes: 204 (99.5%)
+
+ 10%|█         | 5/50 [00:27<04:06,  5.48s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 6...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 206
+INFO:root:# successes: 205 (99.5%)
+
+ 12%|█▏        | 6/50 [00:32<04:01,  5.49s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 7...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 207
+INFO:root:# successes: 206 (99.5%)
+
+ 14%|█▍        | 7/50 [00:39<04:09,  5.81s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 8...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 208
+INFO:root:# successes: 207 (99.5%)
+
+ 16%|█▌        | 8/50 [00:45<04:06,  5.86s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 9...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 209
+INFO:root:# successes: 208 (99.5%)
+
+ 18%|█▊        | 9/50 [00:50<03:52,  5.67s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 10...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 210
+INFO:root:# successes: 209 (99.5%)
+
+ 20%|██        | 10/50 [00:55<03:43,  5.59s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 11...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 211
+INFO:root:# successes: 210 (99.5%)
+
+ 22%|██▏       | 11/50 [01:01<03:36,  5.55s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 12...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 212
+INFO:root:# successes: 211 (99.5%)
+
+ 24%|██▍       | 12/50 [01:07<03:35,  5.66s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 13...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 213
+INFO:root:# successes: 212 (99.5%)
+
+ 26%|██▌       | 13/50 [01:13<03:38,  5.90s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 14...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 214
+INFO:root:# successes: 213 (99.5%)
+
+ 28%|██▊       | 14/50 [01:19<03:27,  5.76s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 15...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 215
+INFO:root:# successes: 214 (99.5%)
+
+ 30%|███       | 15/50 [01:24<03:20,  5.72s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 16...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 216
+INFO:root:# successes: 215 (99.5%)
+
+ 32%|███▏      | 16/50 [01:30<03:13,  5.68s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 17...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 217
+INFO:root:# successes: 216 (99.5%)
+
+ 34%|███▍      | 17/50 [01:36<03:08,  5.70s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 18...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 218
+INFO:root:# successes: 217 (99.5%)
+
+ 36%|███▌      | 18/50 [01:41<03:02,  5.69s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate
+INFO:root:Starting episode 19...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 219
+INFO:root:# successes: 218 (99.5%)
+
+ 38%|███▊      | 19/50 [01:47<02:55,  5.65s/it][AINFO:root:
+Task: put the white mug on the left plate and put the yellow and white mug on the right plate

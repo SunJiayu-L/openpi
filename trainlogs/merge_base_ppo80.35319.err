@@ -1,0 +1,48 @@
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+2026-05-11 14:58:32,057 INFO Loading base: checkpoints/pt_converted/base_25k
+2026-05-11 14:58:32,756 INFO   loaded 812 tensors from checkpoints/pt_converted/base_25k/model.safetensors
+2026-05-11 14:58:32,756 INFO Loading 1 fine-tuned ckpt(s)…
+2026-05-11 14:58:33,508 INFO   loaded 812 tensors from checkpoints/pt_rl/ppo_step80/model.safetensors
+2026-05-11 14:58:33,508 INFO Computing task_arithmetic with alpha=0.3, exclude=[]
+2026-05-11 14:58:42,856 INFO   changed 208 / 812 tensors vs base
+2026-05-11 14:58:44,386 INFO   saved merged model.safetensors → checkpoints/merged/base25k_ppo80_a03/model.safetensors
+2026-05-11 14:58:44,389 INFO   copied config.json
+2026-05-11 14:58:44,396 INFO   copied assets/
+2026-05-11 14:58:44,401 INFO   copied physical-intelligence/
+2026-05-11 14:58:44,401 INFO Done: checkpoints/merged/base25k_ppo80_a03
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+2026-05-11 14:58:46,083 INFO Loading base: checkpoints/pt_converted/base_25k
+2026-05-11 14:58:46,148 INFO   loaded 812 tensors from checkpoints/pt_converted/base_25k/model.safetensors
+2026-05-11 14:58:46,148 INFO Loading 1 fine-tuned ckpt(s)…
+2026-05-11 14:58:46,199 INFO   loaded 812 tensors from checkpoints/pt_rl/ppo_step80/model.safetensors
+2026-05-11 14:58:46,199 INFO Computing task_arithmetic with alpha=0.5, exclude=[]
+2026-05-11 14:58:55,065 INFO   changed 208 / 812 tensors vs base
+2026-05-11 14:58:56,605 INFO   saved merged model.safetensors → checkpoints/merged/base25k_ppo80_a05/model.safetensors
+2026-05-11 14:58:56,607 INFO   copied config.json
+2026-05-11 14:58:56,614 INFO   copied assets/
+2026-05-11 14:58:56,618 INFO   copied physical-intelligence/
+2026-05-11 14:58:56,618 INFO Done: checkpoints/merged/base25k_ppo80_a05
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+2026-05-11 14:58:58,306 INFO Loading base: checkpoints/pt_converted/base_25k
+2026-05-11 14:58:58,348 INFO   loaded 812 tensors from checkpoints/pt_converted/base_25k/model.safetensors
+2026-05-11 14:58:58,348 INFO Loading 1 fine-tuned ckpt(s)…
+2026-05-11 14:58:58,407 INFO   loaded 812 tensors from checkpoints/pt_rl/ppo_step80/model.safetensors
+2026-05-11 14:58:58,407 INFO Computing task_arithmetic with alpha=0.7, exclude=[]
+2026-05-11 14:59:07,251 INFO   changed 208 / 812 tensors vs base
+2026-05-11 14:59:08,861 INFO   saved merged model.safetensors → checkpoints/merged/base25k_ppo80_a07/model.safetensors
+2026-05-11 14:59:08,863 INFO   copied config.json
+2026-05-11 14:59:08,871 INFO   copied assets/
+2026-05-11 14:59:08,876 INFO   copied physical-intelligence/
+2026-05-11 14:59:08,876 INFO Done: checkpoints/merged/base25k_ppo80_a07
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+2026-05-11 14:59:10,606 INFO Loading base: checkpoints/pt_converted/base_25k
+2026-05-11 14:59:10,656 INFO   loaded 812 tensors from checkpoints/pt_converted/base_25k/model.safetensors
+2026-05-11 14:59:10,656 INFO Loading 1 fine-tuned ckpt(s)…
+2026-05-11 14:59:10,715 INFO   loaded 812 tensors from checkpoints/pt_rl/ppo_step80/model.safetensors
+2026-05-11 14:59:10,715 INFO Computing task_arithmetic with alpha=1.0, exclude=[]
+2026-05-11 14:59:19,563 INFO   changed 208 / 812 tensors vs base
+2026-05-11 14:59:21,254 INFO   saved merged model.safetensors → checkpoints/merged/base25k_ppo80_a10/model.safetensors
+2026-05-11 14:59:21,257 INFO   copied config.json
+2026-05-11 14:59:21,264 INFO   copied assets/
+2026-05-11 14:59:21,268 INFO   copied physical-intelligence/
+2026-05-11 14:59:21,269 INFO Done: checkpoints/merged/base25k_ppo80_a10

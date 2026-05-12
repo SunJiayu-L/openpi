@@ -1,0 +1,408 @@
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+2026-05-10 17:08:48.823205: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-05-10 17:08:48.823335: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-05-10 17:08:48.825034: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-05-10 17:08:49.428692: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+INFO:root:Loading model...
+INFO:openpi:train_config: TrainConfig(name='pi05_libero', project_name='openpi', exp_name=<PropagatingMissingType id='140522363816208'>, model=Pi0Config(action_dim=32, action_horizon=10, max_token_len=200, dtype='bfloat16', paligemma_variant='gemma_2b', action_expert_variant='gemma_300m', pi05=True, discrete_state_input=False), weight_loader=CheckpointWeightLoader(params_path='gs://openpi-assets/checkpoints/pi05_base/params'), pytorch_weight_path='/path/to/your/pytorch_weight_path', pytorch_training_precision='bfloat16', lr_schedule=CosineDecaySchedule(warmup_steps=10000, peak_lr=5e-05, decay_steps=1000000, decay_lr=5e-05), optimizer=AdamW(b1=0.9, b2=0.95, eps=1e-08, weight_decay=1e-10, clip_gradient_norm=1.0), ema_decay=0.999, freeze_filter=Nothing(), data=LeRobotLiberoDataConfig(repo_id='physical-intelligence/libero', assets=AssetsConfig(assets_dir=None, asset_id=None), base_config=DataConfig(repo_id=None, lerobot_root=None, asset_id=None, norm_stats=None, repack_transforms=Group(inputs=(), outputs=()), data_transforms=Group(inputs=(), outputs=()), model_transforms=Group(inputs=(), outputs=()), use_quantile_norm=False, action_sequence_keys=('actions',), prompt_from_task=True, episodes=None, extra_lerobot_datasets=(), dataset_mix_weights=None, rlds_data_dir=None, action_space=None, datasets=()), extra_delta_transform=False), assets_base_dir='./assets', checkpoint_base_dir='./checkpoints', seed=42, batch_size=256, num_workers=2, num_train_steps=30000, log_interval=100, save_interval=1000, keep_period=5000, overwrite=False, resume=False, wandb_enabled=True, policy_metadata=None, fsdp_devices=1)
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/assets/pi05_libero/physical-intelligence/libero
+INFO:root:Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pt_rl/ppo_step100/assets/physical-intelligence/libero
+INFO:root:Creating server (host: gnho031, ip: 192.168.180.131)
+INFO:websockets.server:server listening on 0.0.0.0:8036
+INFO:websockets.server:connection rejected (200 OK)
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+INFO:root:Task suite: libero_spatial
+INFO:root:Waiting for server at ws://0.0.0.0:8036...
+INFO:websockets.server:connection open
+INFO:openpi.serving.websocket_policy_server:Connection from ('127.0.0.1', 46202) opened
+  0%|          | 0/10 [00:00<?, ?it/s]/storage/yukaichengLab/lishiwen/jiayusun/openpi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+
+  0%|          | 0/50 [00:00<?, ?it/s][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 1...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 1
+INFO:root:# successes: 1 (100.0%)
+
+  2%|▏         | 1/50 [00:21<17:26, 21.35s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 2...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 2
+INFO:root:# successes: 2 (100.0%)
+
+  4%|▍         | 2/50 [00:24<08:20, 10.43s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 3...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 3
+INFO:root:# successes: 3 (100.0%)
+
+  6%|▌         | 3/50 [00:26<05:26,  6.94s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 4...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 4
+INFO:root:# successes: 4 (100.0%)
+
+  8%|▊         | 4/50 [00:29<04:00,  5.24s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 5...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 5
+INFO:root:# successes: 5 (100.0%)
+
+ 10%|█         | 5/50 [00:32<03:13,  4.31s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 6...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 6
+INFO:root:# successes: 6 (100.0%)
+
+ 12%|█▏        | 6/50 [00:35<02:50,  3.88s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 7...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 7
+INFO:root:# successes: 7 (100.0%)
+
+ 14%|█▍        | 7/50 [00:38<02:33,  3.56s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 8...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 8
+INFO:root:# successes: 8 (100.0%)
+
+ 16%|█▌        | 8/50 [00:40<02:19,  3.33s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 9...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 9
+INFO:root:# successes: 9 (100.0%)
+
+ 18%|█▊        | 9/50 [00:44<02:20,  3.44s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 10...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 10
+INFO:root:# successes: 10 (100.0%)
+
+ 20%|██        | 10/50 [00:47<02:09,  3.24s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 11...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 11
+INFO:root:# successes: 11 (100.0%)
+
+ 22%|██▏       | 11/50 [00:50<01:59,  3.05s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 12...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 12
+INFO:root:# successes: 12 (100.0%)
+
+ 24%|██▍       | 12/50 [00:52<01:51,  2.94s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 13...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 13
+INFO:root:# successes: 13 (100.0%)
+
+ 26%|██▌       | 13/50 [00:55<01:47,  2.90s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 14...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 14
+INFO:root:# successes: 14 (100.0%)
+
+ 28%|██▊       | 14/50 [00:59<01:53,  3.16s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 15...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 15
+INFO:root:# successes: 15 (100.0%)
+
+ 30%|███       | 15/50 [01:02<01:46,  3.04s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 16...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 16
+INFO:root:# successes: 16 (100.0%)
+
+ 32%|███▏      | 16/50 [01:04<01:40,  2.94s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 17...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 17
+INFO:root:# successes: 17 (100.0%)
+
+ 34%|███▍      | 17/50 [01:07<01:34,  2.86s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 18...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 18
+INFO:root:# successes: 18 (100.0%)
+
+ 36%|███▌      | 18/50 [01:10<01:29,  2.78s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 19...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 19
+INFO:root:# successes: 19 (100.0%)
+
+ 38%|███▊      | 19/50 [01:13<01:27,  2.83s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 20...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 20
+INFO:root:# successes: 20 (100.0%)
+
+ 40%|████      | 20/50 [01:15<01:25,  2.85s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 21...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 21
+INFO:root:# successes: 21 (100.0%)
+
+ 42%|████▏     | 21/50 [01:18<01:22,  2.83s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 22...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 22
+INFO:root:# successes: 22 (100.0%)
+
+ 44%|████▍     | 22/50 [01:21<01:18,  2.82s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 23...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 23
+INFO:root:# successes: 23 (100.0%)
+
+ 46%|████▌     | 23/50 [01:24<01:21,  3.02s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 24...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 24
+INFO:root:# successes: 24 (100.0%)
+
+ 48%|████▊     | 24/50 [01:27<01:15,  2.90s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 25...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 25
+INFO:root:# successes: 25 (100.0%)
+
+ 50%|█████     | 25/50 [01:30<01:10,  2.83s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 26...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 26
+INFO:root:# successes: 26 (100.0%)
+
+ 52%|█████▏    | 26/50 [01:33<01:08,  2.85s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 27...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 27
+INFO:root:# successes: 27 (100.0%)
+
+ 54%|█████▍    | 27/50 [01:36<01:05,  2.85s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 28...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 28
+INFO:root:# successes: 28 (100.0%)
+
+ 56%|█████▌    | 28/50 [01:38<01:01,  2.80s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 29...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 29
+INFO:root:# successes: 29 (100.0%)
+
+ 58%|█████▊    | 29/50 [01:41<00:57,  2.75s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 30...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 30
+INFO:root:# successes: 30 (100.0%)
+
+ 60%|██████    | 30/50 [01:44<00:55,  2.77s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 31...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 31
+INFO:root:# successes: 31 (100.0%)
+
+ 62%|██████▏   | 31/50 [01:47<00:57,  3.00s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 32...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 32
+INFO:root:# successes: 32 (100.0%)
+
+ 64%|██████▍   | 32/50 [01:50<00:52,  2.94s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 33...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 33
+INFO:root:# successes: 33 (100.0%)
+
+ 66%|██████▌   | 33/50 [01:54<00:53,  3.14s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 34...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 34
+INFO:root:# successes: 34 (100.0%)
+
+ 68%|██████▊   | 34/50 [01:56<00:48,  3.02s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 35...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 35
+INFO:root:# successes: 35 (100.0%)
+
+ 70%|███████   | 35/50 [01:59<00:43,  2.89s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 36...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 36
+INFO:root:# successes: 36 (100.0%)
+
+ 72%|███████▏  | 36/50 [02:02<00:43,  3.08s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 37...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 37
+INFO:root:# successes: 37 (100.0%)
+
+ 74%|███████▍  | 37/50 [02:05<00:38,  2.97s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 38...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 38
+INFO:root:# successes: 38 (100.0%)
+
+ 76%|███████▌  | 38/50 [02:08<00:34,  2.91s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 39...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 39
+INFO:root:# successes: 39 (100.0%)
+
+ 78%|███████▊  | 39/50 [02:11<00:31,  2.87s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 40...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 40
+INFO:root:# successes: 40 (100.0%)
+
+ 80%|████████  | 40/50 [02:13<00:28,  2.81s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 41...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 41
+INFO:root:# successes: 41 (100.0%)
+
+ 82%|████████▏ | 41/50 [02:16<00:25,  2.78s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 42...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 42
+INFO:root:# successes: 42 (100.0%)
+
+ 84%|████████▍ | 42/50 [02:19<00:22,  2.78s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 43...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 43
+INFO:root:# successes: 43 (100.0%)
+
+ 86%|████████▌ | 43/50 [02:22<00:19,  2.80s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 44...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 44
+INFO:root:# successes: 44 (100.0%)
+
+ 88%|████████▊ | 44/50 [02:24<00:16,  2.78s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 45...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 45
+INFO:root:# successes: 45 (100.0%)
+
+ 90%|█████████ | 45/50 [02:27<00:13,  2.72s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 46...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 46
+INFO:root:# successes: 46 (100.0%)
+
+ 92%|█████████▏| 46/50 [02:30<00:10,  2.72s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 47...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 47
+INFO:root:# successes: 47 (100.0%)
+
+ 94%|█████████▍| 47/50 [02:32<00:08,  2.73s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 48...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 48
+INFO:root:# successes: 48 (100.0%)
+
+ 96%|█████████▌| 48/50 [02:35<00:05,  2.70s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 49...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 49
+INFO:root:# successes: 49 (100.0%)
+
+ 98%|█████████▊| 49/50 [02:38<00:02,  2.68s/it][AINFO:root:
+Task: pick up the black bowl between the plate and the ramekin and place it on the plate
+INFO:root:Starting episode 50...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 50
+INFO:root:# successes: 50 (100.0%)
+
+100%|██████████| 50/50 [02:40<00:00,  2.67s/it][A100%|██████████| 50/50 [02:40<00:00,  3.22s/it]
+INFO:root:Current task success rate: 1.0
+INFO:root:Current total success rate: 1.0
+ 10%|█         | 1/10 [02:42<24:21, 162.36s/it]
+  0%|          | 0/50 [00:00<?, ?it/s][AINFO:root:
+Task: pick up the black bowl next to the ramekin and place it on the plate
+INFO:root:Starting episode 1...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 51
+INFO:root:# successes: 51 (100.0%)
+
+  2%|▏         | 1/50 [00:03<02:55,  3.58s/it][AINFO:root:
+Task: pick up the black bowl next to the ramekin and place it on the plate
+INFO:root:Starting episode 2...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 52
+INFO:root:# successes: 52 (100.0%)
+
+  4%|▍         | 2/50 [00:06<02:45,  3.45s/it][AINFO:root:
+Task: pick up the black bowl next to the ramekin and place it on the plate
+INFO:root:Starting episode 3...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 53
+INFO:root:# successes: 53 (100.0%)
+
+  6%|▌         | 3/50 [00:10<02:44,  3.50s/it][AINFO:root:
+Task: pick up the black bowl next to the ramekin and place it on the plate
+INFO:root:Starting episode 4...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 54
+INFO:root:# successes: 54 (100.0%)
+
+  8%|▊         | 4/50 [00:13<02:38,  3.45s/it][AINFO:root:
+Task: pick up the black bowl next to the ramekin and place it on the plate
+INFO:root:Starting episode 5...
+slurmstepd: error: *** JOB 35273 ON gnho031 CANCELLED AT 2026-05-10T17:12:28 ***

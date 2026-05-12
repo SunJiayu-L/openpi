@@ -1,0 +1,165 @@
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+2026-04-29 18:57:55.887215: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-04-29 18:57:55.887306: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-04-29 18:57:55.889299: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-04-29 18:57:57.139539: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+INFO:root:Loading model...
+INFO:2026-04-29 18:58:02,833:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:jax._src.xla_bridge:Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+INFO:2026-04-29 18:58:02,834:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:jax._src.xla_bridge:Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+INFO:absl:orbax-checkpoint version: 0.11.13
+INFO:absl:Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7fe26e103150>
+INFO:absl:Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_4task_from_wudi_4task_1k/ft_from_wudi_4task_1k/9000/params.
+INFO:absl:[thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID.
+INFO:absl:[process=0] /jax/checkpoint/read/bytes_per_sec: 2.0 GiB/s (total bytes: 6.2 GiB) (time elapsed: 3 seconds) (per-host)
+INFO:absl:Finished restoring checkpoint in 3.16 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_4task_from_wudi_4task_1k/ft_from_wudi_4task_1k/9000/params.
+INFO:openpi.shared.download:Downloading gs://big_vision/paligemma_tokenizer.model to /storage/yukaichengLab/lishiwen/jiayusun/.cache/openpi/big_vision/paligemma_tokenizer.model
+ERROR:gcsfs:_request out of retries on exception: Cannot connect to host storage.googleapis.com:443 ssl:default [Name or service not known]
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1414, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1051, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1082, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 868, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/socket.py", line 974, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/gcsfs/retry.py", line 135, in retry_request
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 456, in _request
+    async with self.session.request(
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1469, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 760, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 715, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/connector.py", line 596, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1112, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1420, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host storage.googleapis.com:443 ssl:default [Name or service not known]
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1414, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1051, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1082, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 868, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/socket.py", line 974, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/serve_policy.py", line 122, in <module>
+    main(tyro.cli(Args))
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/serve_policy.py", line 100, in main
+    policy = create_policy(args)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/scripts/serve_policy.py", line 92, in create_policy
+    return _policy_config.create_trained_policy(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/policies/policy_config.py", line 58, in create_trained_policy
+    data_config = train_config.data.create(train_config.assets_dirs, train_config.model)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/training/config.py", line 365, in create
+    model_transforms = ModelTransformFactory()(model_config)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/training/config.py", line 151, in __call__
+    _tokenizer.PaligemmaTokenizer(model_config.max_token_len),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/models/tokenizer.py", line 18, in __init__
+    path = download.maybe_download("gs://big_vision/paligemma_tokenizer.model", gs={"token": "anon"})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/shared/download.py", line 86, in maybe_download
+    _download_fsspec(url, scratch_path, **kwargs)
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/src/openpi/shared/download.py", line 104, in _download_fsspec
+    info = fs.info(url)
+           ^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 118, in wrapper
+    return sync(self.loop, func, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 103, in sync
+    raise return_result
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/fsspec/asyn.py", line 56, in _runner
+    result[0] = await coro
+                ^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 1024, in _info
+    exact = await self._get_object(path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 557, in _get_object
+    res = await self._call(
+          ^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 477, in _call
+    status, headers, info, contents = await self._request(
+                                      ^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/decorator.py", line 224, in fun
+    return await caller(func, *(extras + args), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/gcsfs/retry.py", line 165, in retry_request
+    raise e
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/gcsfs/retry.py", line 135, in retry_request
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/gcsfs/core.py", line 456, in _request
+    async with self.session.request(
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 1469, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 760, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/client.py", line 715, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/connector.py", line 596, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1112, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/aiohttp/connector.py", line 1420, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host storage.googleapis.com:443 ssl:default [Name or service not known]

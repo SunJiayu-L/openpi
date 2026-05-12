@@ -1,0 +1,348 @@
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+18:57:07.464 [I] Running on: nv-h100-007                                                          (1651456:train.py:196)
+INFO:2026-04-27 18:57:08,579:jax._src.xla_bridge:925: Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+18:57:08.579 [I] Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig' (1651456:xla_bridge.py:925)
+INFO:2026-04-27 18:57:08,585:jax._src.xla_bridge:925: Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+18:57:08.585 [I] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory (1651456:xla_bridge.py:925)
+18:57:09.078 [I] Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f1ea449a8d0> (1651456:base_pytree_checkpoint_handler.py:334)
+18:57:09.078 [I] Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f1ea449a8d0> (1651456:base_pytree_checkpoint_handler.py:334)
+18:57:09.078 [I] [thread=MainThread] Failed to get flag value for EXPERIMENTAL_ORBAX_USE_DISTRIBUTED_PROCESS_ID. (1651456:multihost.py:390)
+18:57:09.079 [I] [process=0][thread=MainThread] CheckpointManager init: checkpointers=None, item_names=None, item_handlers={'assets': <openpi.training.checkpoints.CallbackHandler object at 0x7f1d17615210>, 'train_state': <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7f1d17eba450>, 'params': <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7f1d179324d0>}, handler_registry=None (1651456:checkpoint_manager.py:620)
+18:57:09.079 [I] Deferred registration for item: "assets". Adding handler `<openpi.training.checkpoints.CallbackHandler object at 0x7f1d17615210>` for item "assets" and save args `<class 'openpi.training.checkpoints.CallbackSave'>` and restore args `<class 'openpi.training.checkpoints.CallbackRestore'>` to `_handler_registry`. (1651456:composite_checkpoint_handler.py:234)
+18:57:09.079 [I] Deferred registration for item: "train_state". Adding handler `<orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7f1d17eba450>` for item "train_state" and save args `<class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeSaveArgs'>` and restore args `<class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeRestoreArgs'>` to `_handler_registry`. (1651456:composite_checkpoint_handler.py:234)
+18:57:09.079 [I] Deferred registration for item: "params". Adding handler `<orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7f1d179324d0>` for item "params" and save args `<class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeSaveArgs'>` and restore args `<class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeRestoreArgs'>` to `_handler_registry`. (1651456:composite_checkpoint_handler.py:234)
+18:57:09.079 [I] Deferred registration for item: "metrics". Adding handler `<orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonCheckpointHandler object at 0x7f1d17892690>` for item "metrics" and save args `<class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonSaveArgs'>` and restore args `<class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonRestoreArgs'>` to `_handler_registry`. (1651456:composite_checkpoint_handler.py:234)
+18:57:09.079 [I] Initialized registry DefaultCheckpointHandlerRegistry({('assets', <class 'openpi.training.checkpoints.CallbackSave'>): <openpi.training.checkpoints.CallbackHandler object at 0x7f1d17615210>, ('assets', <class 'openpi.training.checkpoints.CallbackRestore'>): <openpi.training.checkpoints.CallbackHandler object at 0x7f1d17615210>, ('train_state', <class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeSaveArgs'>): <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7f1d17eba450>, ('train_state', <class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeRestoreArgs'>): <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7f1d17eba450>, ('params', <class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeSaveArgs'>): <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7f1d179324d0>, ('params', <class 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeRestoreArgs'>): <orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler object at 0x7f1d179324d0>, ('metrics', <class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonSaveArgs'>): <orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonCheckpointHandler object at 0x7f1d17892690>, ('metrics', <class 'orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonRestoreArgs'>): <orbax.checkpoint._src.handlers.json_checkpoint_handler.JsonCheckpointHandler object at 0x7f1d17892690>}). (1651456:composite_checkpoint_handler.py:502)
+18:57:09.079 [I] orbax-checkpoint version: 0.11.13                                                (1651456:abstract_checkpointer.py:35)
+18:57:09.079 [I] [process=0][thread=MainThread] Using barrier_sync_fn: <function get_barrier_sync_fn.<locals>.<lambda> at 0x7f1d172af560> timeout: 7200 secs and primary_host=0 for async checkpoint writes (1651456:async_checkpointer.py:170)
+18:57:09.081 [I] Found 0 checkpoint steps in /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k (1651456:checkpoint_manager.py:1701)
+18:57:09.081 [I] [process=0][thread=MainThread] CheckpointManager created,  primary_host=0, CheckpointManagerOptions=CheckpointManagerOptions(save_interval_steps=1, max_to_keep=1, keep_time_interval=None, keep_period=100, should_keep_fn=None, best_fn=None, best_mode='max', keep_checkpoints_without_metrics=True, step_prefix=None, step_format_fixed_length=None, step_name_format=None, create=False, cleanup_tmp_directories=False, save_on_steps=frozenset(), single_host_load_and_broadcast=False, todelete_subdir=None, enable_background_delete=False, read_only=False, enable_async_checkpointing=True, async_options=AsyncOptions(timeout_secs=7200, barrier_sync_fn=None, post_finalization_callback=None, create_directories_asynchronously=True), multiprocessing_options=MultiprocessingOptions(primary_host=0, active_processes=None, barrier_sync_key_prefix=None), should_save_fn=None, file_options=FileOptions(path_permission_mode=None), save_root_metadata=True, temporary_path_class=None, save_decision_policy=None, prevent_write_metrics=False), root_directory=/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k: <orbax.checkpoint.checkpoint_manager.CheckpointManager object at 0x7f1d172e14d0> (1651456:checkpoint_manager.py:801)
+wandb: Tracking run with wandb version 0.19.11
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+18:57:11.253 [I] Loaded norm stats from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/15000/assets/physical-intelligence/libero (1651456:config.py:214)
+18:57:11.254 [I] data_config: DataConfig(repo_id='physical-intelligence/libero', lerobot_root='/storage/yukaichengLab/lishiwen/jiayusun/libero', asset_id='physical-intelligence/libero', norm_stats={'state': NormStats(mean=array([-0.04651536,  0.03437928,  0.76449764,  2.97217774, -0.22033744,
+       -0.12564771,  0.02691822, -0.02719478]), std=array([0.10494291, 0.15176797, 0.37853545, 0.34430304, 0.90699339,
+       0.32538688, 0.01417407, 0.01405702]), q01=array([-3.99227868e-01, -2.68878135e-01,  3.80015922e-02,  1.50832780e+00,
+       -2.72100443e+00, -1.08132181e+00,  1.73520013e-03, -4.00442422e-02]), q99=array([ 1.35320103e-01,  3.35663146e-01,  1.27014405e+00,  3.27650592e+00,
+        2.40543680e+00,  5.97152898e-01,  4.03033407e-02, -1.78783794e-03])), 'actions': NormStats(mean=array([ 0.0550874 ,  0.08771197, -0.08736418,  0.00071264,  0.00547544,
+       -0.00553408, -0.04571558]), std=array([0.33181563, 0.37583771, 0.44807112, 0.03933164, 0.06357799,
+       0.07857697, 0.99895447]), q01=array([-0.70725   , -0.798375  , -0.9375    , -0.11467779, -0.1641    ,
+       -0.22404901, -1.        ]), q99=array([0.937125  , 0.86775   , 0.937125  , 0.13163036, 0.1917    ,
+       0.3374295 , 0.9996    ]))}, repack_transforms=Group(inputs=[RepackTransform(structure={'observation/image': 'image', 'observation/wrist_image': 'wrist_image', 'observation/state': 'state', 'actions': 'actions', 'prompt': 'prompt'})], outputs=()), data_transforms=Group(inputs=[LiberoInputs(model_type=<ModelType.PI05: 'pi05'>)], outputs=[LiberoOutputs()]), model_transforms=Group(inputs=[InjectDefaultPrompt(prompt=None), ResizeImages(height=224, width=224), TokenizePrompt(tokenizer=<openpi.models.tokenizer.PaligemmaTokenizer object at 0x7f1d17e8ad10>, discrete_state_input=False), PadStatesAndActions(model_action_dim=32)], outputs=()), use_quantile_norm=True, action_sequence_keys=('actions',), prompt_from_task=True, episodes=[2, 3, 10, 20, 23, 34, 35, 44, 46, 51, 54, 57, 59, 67, 70, 73, 80, 84, 86, 99, 100, 106, 115, 123, 126, 139, 140, 142, 143, 145, 149, 164, 173, 178, 179, 186, 187, 193, 194, 204, 214, 217, 226, 230, 245, 269, 270, 276, 282, 283, 285, 288, 306, 312, 314, 316, 324, 339, 341, 342, 357, 365, 376], extra_lerobot_datasets=(), dataset_mix_weights=None, rlds_data_dir=None, action_space=None, datasets=()) (1651456:data_loader.py:290)
+18:57:11.261 [W] 
+The dataset you requested (physical-intelligence/libero) is in 2.0 format.
+While current version of LeRobot is backward-compatible with it, the version of your dataset still uses global
+stats instead of per-episode stats. Update your dataset stats to the new format using this command:
+```
+python lerobot/common/datasets/v21/convert_dataset_v20_to_v21.py --repo-id=physical-intelligence/libero
+```
+
+If you encounter a problem, contact LeRobot maintainers on [Discord](https://discord.com/invite/s3KuuzsPFb)
+or open an [issue on GitHub](https://github.com/huggingface/lerobot/issues/new/choose).
+ (1651456:utils.py:303)
+18:57:11.283 [W] 
+The dataset you requested (physical-intelligence/libero) is in 2.0 format.
+While current version of LeRobot is backward-compatible with it, the version of your dataset still uses global
+stats instead of per-episode stats. Update your dataset stats to the new format using this command:
+```
+python lerobot/common/datasets/v21/convert_dataset_v20_to_v21.py --repo-id=physical-intelligence/libero
+```
+
+If you encounter a problem, contact LeRobot maintainers on [Discord](https://discord.com/invite/s3KuuzsPFb)
+or open an [issue on GitHub](https://github.com/huggingface/lerobot/issues/new/choose).
+ (1651456:utils.py:303)
+18:57:22.335 [I] Filtering to 63 episodes: 21798/273465 frames                                    (1651456:data_loader.py:162)
+18:57:22.336 [I] local_batch_size: 32                                                             (1651456:data_loader.py:400)
+18:57:59.402 [I] Initialized data loader:
+[0].images['base_0_rgb']: (32, 224, 224, 3)@float32
+[0].images['left_wrist_0_rgb']: (32, 224, 224, 3)@float32
+[0].images['right_wrist_0_rgb']: (32, 224, 224, 3)@float32
+[0].image_masks['base_0_rgb']: (32,)@bool
+[0].image_masks['left_wrist_0_rgb']: (32,)@bool
+[0].image_masks['right_wrist_0_rgb']: (32,)@bool
+[0].state: (32, 32)@float32
+[0].tokenized_prompt: (32, 200)@int32
+[0].tokenized_prompt_mask: (32, 200)@bool
+[1]: (32, 10, 32)@float32 (1651456:train.py:227)
+18:58:00.692 [I] Sharding .params['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_0']['kernel'].value of shape (27, 1152, 4304) (510.68 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.693 [I] Sharding .params['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_1']['kernel'].value of shape (27, 4304, 1152) (510.68 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.693 [I] Sharding .params['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['key']['kernel'].value of shape (27, 1152, 16, 72) (136.69 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.693 [I] Sharding .params['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['out']['kernel'].value of shape (27, 16, 72, 1152) (136.69 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.693 [I] Sharding .params['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['query']['kernel'].value of shape (27, 1152, 16, 72) (136.69 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.693 [I] Sharding .params['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['value']['kernel'].value of shape (27, 1152, 16, 72) (136.69 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.693 [I] Sharding .params['PaliGemma']['img']['head']['kernel'].value of shape (1152, 2048) (9.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.693 [I] Sharding .params['PaliGemma']['llm']['embedder']['input_embedding'].value of shape (257152, 2048) (2009.00 MiB) along axis 0 (1651456:sharding.py:89)
+18:58:00.693 [I] Sharding .params['PaliGemma']['llm']['final_norm_1']['Dense_0']['kernel'].value of shape (1024, 3072) (12.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.694 [I] Sharding .params['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum']['w'].value of shape (18, 8, 256, 2048) (288.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.694 [I] Sharding .params['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum_1']['w'].value of shape (18, 8, 256, 1024) (144.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.694 [I] Sharding .params['PaliGemma']['llm']['layers']['attn']['kv_einsum']['w'].value of shape (18, 2, 1, 2048, 256) (72.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.694 [I] Sharding .params['PaliGemma']['llm']['layers']['attn']['kv_einsum_1']['w'].value of shape (18, 2, 1, 1024, 256) (36.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.694 [I] Sharding .params['PaliGemma']['llm']['layers']['attn']['q_einsum']['w'].value of shape (18, 8, 2048, 256) (288.00 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.694 [I] Sharding .params['PaliGemma']['llm']['layers']['attn']['q_einsum_1']['w'].value of shape (18, 8, 1024, 256) (144.00 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.694 [I] Sharding .params['PaliGemma']['llm']['layers']['mlp']['gating_einsum'].value of shape (18, 2, 2048, 16384) (4608.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.694 [I] Sharding .params['PaliGemma']['llm']['layers']['mlp']['linear'].value of shape (18, 16384, 2048) (2304.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.694 [I] Sharding .params['PaliGemma']['llm']['layers']['mlp_1']['gating_einsum'].value of shape (18, 2, 1024, 4096) (576.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.694 [I] Sharding .params['PaliGemma']['llm']['layers']['mlp_1']['linear'].value of shape (18, 4096, 1024) (288.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.694 [I] Sharding .params['PaliGemma']['llm']['layers']['pre_attention_norm_1']['Dense_0']['kernel'].value of shape (18, 1024, 3072) (216.00 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.694 [I] Sharding .params['PaliGemma']['llm']['layers']['pre_ffw_norm_1']['Dense_0']['kernel'].value of shape (18, 1024, 3072) (216.00 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.694 [I] Sharding .params['time_mlp_in']['kernel'].value of shape (1024, 1024) (4.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.695 [I] Sharding .params['time_mlp_out']['kernel'].value of shape (1024, 1024) (4.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.695 [I] Sharding .opt_state[1][0].mu['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_0']['kernel'].value of shape (27, 1152, 4304) (510.68 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.695 [I] Sharding .opt_state[1][0].mu['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_1']['kernel'].value of shape (27, 4304, 1152) (510.68 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.695 [I] Sharding .opt_state[1][0].mu['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['key']['kernel'].value of shape (27, 1152, 16, 72) (136.69 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.695 [I] Sharding .opt_state[1][0].mu['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['out']['kernel'].value of shape (27, 16, 72, 1152) (136.69 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.695 [I] Sharding .opt_state[1][0].mu['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['query']['kernel'].value of shape (27, 1152, 16, 72) (136.69 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.695 [I] Sharding .opt_state[1][0].mu['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['value']['kernel'].value of shape (27, 1152, 16, 72) (136.69 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.696 [I] Sharding .opt_state[1][0].mu['PaliGemma']['img']['head']['kernel'].value of shape (1152, 2048) (9.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.696 [I] Sharding .opt_state[1][0].mu['PaliGemma']['llm']['embedder']['input_embedding'].value of shape (257152, 2048) (2009.00 MiB) along axis 0 (1651456:sharding.py:89)
+18:58:00.696 [I] Sharding .opt_state[1][0].mu['PaliGemma']['llm']['final_norm_1']['Dense_0']['kernel'].value of shape (1024, 3072) (12.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.696 [I] Sharding .opt_state[1][0].mu['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum']['w'].value of shape (18, 8, 256, 2048) (288.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.696 [I] Sharding .opt_state[1][0].mu['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum_1']['w'].value of shape (18, 8, 256, 1024) (144.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.696 [I] Sharding .opt_state[1][0].mu['PaliGemma']['llm']['layers']['attn']['kv_einsum']['w'].value of shape (18, 2, 1, 2048, 256) (72.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.696 [I] Sharding .opt_state[1][0].mu['PaliGemma']['llm']['layers']['attn']['kv_einsum_1']['w'].value of shape (18, 2, 1, 1024, 256) (36.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.696 [I] Sharding .opt_state[1][0].mu['PaliGemma']['llm']['layers']['attn']['q_einsum']['w'].value of shape (18, 8, 2048, 256) (288.00 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.696 [I] Sharding .opt_state[1][0].mu['PaliGemma']['llm']['layers']['attn']['q_einsum_1']['w'].value of shape (18, 8, 1024, 256) (144.00 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.696 [I] Sharding .opt_state[1][0].mu['PaliGemma']['llm']['layers']['mlp']['gating_einsum'].value of shape (18, 2, 2048, 16384) (4608.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.696 [I] Sharding .opt_state[1][0].mu['PaliGemma']['llm']['layers']['mlp']['linear'].value of shape (18, 16384, 2048) (2304.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.697 [I] Sharding .opt_state[1][0].mu['PaliGemma']['llm']['layers']['mlp_1']['gating_einsum'].value of shape (18, 2, 1024, 4096) (576.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.697 [I] Sharding .opt_state[1][0].mu['PaliGemma']['llm']['layers']['mlp_1']['linear'].value of shape (18, 4096, 1024) (288.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.697 [I] Sharding .opt_state[1][0].mu['PaliGemma']['llm']['layers']['pre_attention_norm_1']['Dense_0']['kernel'].value of shape (18, 1024, 3072) (216.00 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.697 [I] Sharding .opt_state[1][0].mu['PaliGemma']['llm']['layers']['pre_ffw_norm_1']['Dense_0']['kernel'].value of shape (18, 1024, 3072) (216.00 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.697 [I] Sharding .opt_state[1][0].mu['time_mlp_in']['kernel'].value of shape (1024, 1024) (4.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.697 [I] Sharding .opt_state[1][0].mu['time_mlp_out']['kernel'].value of shape (1024, 1024) (4.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.698 [I] Sharding .opt_state[1][0].nu['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_0']['kernel'].value of shape (27, 1152, 4304) (510.68 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.698 [I] Sharding .opt_state[1][0].nu['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_1']['kernel'].value of shape (27, 4304, 1152) (510.68 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.698 [I] Sharding .opt_state[1][0].nu['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['key']['kernel'].value of shape (27, 1152, 16, 72) (136.69 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.698 [I] Sharding .opt_state[1][0].nu['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['out']['kernel'].value of shape (27, 16, 72, 1152) (136.69 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.698 [I] Sharding .opt_state[1][0].nu['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['query']['kernel'].value of shape (27, 1152, 16, 72) (136.69 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.698 [I] Sharding .opt_state[1][0].nu['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['value']['kernel'].value of shape (27, 1152, 16, 72) (136.69 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.698 [I] Sharding .opt_state[1][0].nu['PaliGemma']['img']['head']['kernel'].value of shape (1152, 2048) (9.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.698 [I] Sharding .opt_state[1][0].nu['PaliGemma']['llm']['embedder']['input_embedding'].value of shape (257152, 2048) (2009.00 MiB) along axis 0 (1651456:sharding.py:89)
+18:58:00.698 [I] Sharding .opt_state[1][0].nu['PaliGemma']['llm']['final_norm_1']['Dense_0']['kernel'].value of shape (1024, 3072) (12.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.698 [I] Sharding .opt_state[1][0].nu['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum']['w'].value of shape (18, 8, 256, 2048) (288.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.698 [I] Sharding .opt_state[1][0].nu['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum_1']['w'].value of shape (18, 8, 256, 1024) (144.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.698 [I] Sharding .opt_state[1][0].nu['PaliGemma']['llm']['layers']['attn']['kv_einsum']['w'].value of shape (18, 2, 1, 2048, 256) (72.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.699 [I] Sharding .opt_state[1][0].nu['PaliGemma']['llm']['layers']['attn']['kv_einsum_1']['w'].value of shape (18, 2, 1, 1024, 256) (36.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.699 [I] Sharding .opt_state[1][0].nu['PaliGemma']['llm']['layers']['attn']['q_einsum']['w'].value of shape (18, 8, 2048, 256) (288.00 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.699 [I] Sharding .opt_state[1][0].nu['PaliGemma']['llm']['layers']['attn']['q_einsum_1']['w'].value of shape (18, 8, 1024, 256) (144.00 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.699 [I] Sharding .opt_state[1][0].nu['PaliGemma']['llm']['layers']['mlp']['gating_einsum'].value of shape (18, 2, 2048, 16384) (4608.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.699 [I] Sharding .opt_state[1][0].nu['PaliGemma']['llm']['layers']['mlp']['linear'].value of shape (18, 16384, 2048) (2304.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.699 [I] Sharding .opt_state[1][0].nu['PaliGemma']['llm']['layers']['mlp_1']['gating_einsum'].value of shape (18, 2, 1024, 4096) (576.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.699 [I] Sharding .opt_state[1][0].nu['PaliGemma']['llm']['layers']['mlp_1']['linear'].value of shape (18, 4096, 1024) (288.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.699 [I] Sharding .opt_state[1][0].nu['PaliGemma']['llm']['layers']['pre_attention_norm_1']['Dense_0']['kernel'].value of shape (18, 1024, 3072) (216.00 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.699 [I] Sharding .opt_state[1][0].nu['PaliGemma']['llm']['layers']['pre_ffw_norm_1']['Dense_0']['kernel'].value of shape (18, 1024, 3072) (216.00 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.699 [I] Sharding .opt_state[1][0].nu['time_mlp_in']['kernel'].value of shape (1024, 1024) (4.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.699 [I] Sharding .opt_state[1][0].nu['time_mlp_out']['kernel'].value of shape (1024, 1024) (4.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.699 [I] Sharding .ema_params['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_0']['kernel'].value of shape (27, 1152, 4304) (510.68 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.700 [I] Sharding .ema_params['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_1']['kernel'].value of shape (27, 4304, 1152) (510.68 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.700 [I] Sharding .ema_params['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['key']['kernel'].value of shape (27, 1152, 16, 72) (136.69 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.700 [I] Sharding .ema_params['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['out']['kernel'].value of shape (27, 16, 72, 1152) (136.69 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.700 [I] Sharding .ema_params['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['query']['kernel'].value of shape (27, 1152, 16, 72) (136.69 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.700 [I] Sharding .ema_params['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['value']['kernel'].value of shape (27, 1152, 16, 72) (136.69 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.700 [I] Sharding .ema_params['PaliGemma']['img']['head']['kernel'].value of shape (1152, 2048) (9.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.700 [I] Sharding .ema_params['PaliGemma']['llm']['embedder']['input_embedding'].value of shape (257152, 2048) (2009.00 MiB) along axis 0 (1651456:sharding.py:89)
+18:58:00.700 [I] Sharding .ema_params['PaliGemma']['llm']['final_norm_1']['Dense_0']['kernel'].value of shape (1024, 3072) (12.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.700 [I] Sharding .ema_params['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum']['w'].value of shape (18, 8, 256, 2048) (288.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.700 [I] Sharding .ema_params['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum_1']['w'].value of shape (18, 8, 256, 1024) (144.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.700 [I] Sharding .ema_params['PaliGemma']['llm']['layers']['attn']['kv_einsum']['w'].value of shape (18, 2, 1, 2048, 256) (72.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.700 [I] Sharding .ema_params['PaliGemma']['llm']['layers']['attn']['kv_einsum_1']['w'].value of shape (18, 2, 1, 1024, 256) (36.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.700 [I] Sharding .ema_params['PaliGemma']['llm']['layers']['attn']['q_einsum']['w'].value of shape (18, 8, 2048, 256) (288.00 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.700 [I] Sharding .ema_params['PaliGemma']['llm']['layers']['attn']['q_einsum_1']['w'].value of shape (18, 8, 1024, 256) (144.00 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.701 [I] Sharding .ema_params['PaliGemma']['llm']['layers']['mlp']['gating_einsum'].value of shape (18, 2, 2048, 16384) (4608.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.701 [I] Sharding .ema_params['PaliGemma']['llm']['layers']['mlp']['linear'].value of shape (18, 16384, 2048) (2304.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.701 [I] Sharding .ema_params['PaliGemma']['llm']['layers']['mlp_1']['gating_einsum'].value of shape (18, 2, 1024, 4096) (576.00 MiB) along axis 3 (1651456:sharding.py:89)
+18:58:00.701 [I] Sharding .ema_params['PaliGemma']['llm']['layers']['mlp_1']['linear'].value of shape (18, 4096, 1024) (288.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.701 [I] Sharding .ema_params['PaliGemma']['llm']['layers']['pre_attention_norm_1']['Dense_0']['kernel'].value of shape (18, 1024, 3072) (216.00 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.701 [I] Sharding .ema_params['PaliGemma']['llm']['layers']['pre_ffw_norm_1']['Dense_0']['kernel'].value of shape (18, 1024, 3072) (216.00 MiB) along axis 2 (1651456:sharding.py:89)
+18:58:00.701 [I] Sharding .ema_params['time_mlp_in']['kernel'].value of shape (1024, 1024) (4.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.701 [I] Sharding .ema_params['time_mlp_out']['kernel'].value of shape (1024, 1024) (4.00 MiB) along axis 1 (1651456:sharding.py:89)
+18:58:00.718 [I] Created BasePyTreeCheckpointHandler: use_ocdbt=True, use_zarr3=False, pytree_metadata_options=PyTreeMetadataOptions(support_rich_types=False), array_metadata_store=<orbax.checkpoint._src.metadata.array_metadata_store.Store object at 0x7f1ea449a8d0> (1651456:base_pytree_checkpoint_handler.py:334)
+18:58:00.763 [I] Restoring checkpoint from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_l10_mix50_from_15k/ft_l10_mix50_from_15k/1999/params. (1651456:checkpointer.py:298)
+18:58:03.712 [I] [process=0] /jax/checkpoint/read/bytes_per_sec: 4.2 GiB/s (total bytes: 12.5 GiB) (time elapsed: 2 seconds) (per-host) (1651456:base_pytree_checkpoint_handler.py:114)
+18:58:03.712 [I] Finished restoring checkpoint in 2.95 seconds from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_l10_mix50_from_15k/ft_l10_mix50_from_15k/1999/params. (1651456:checkpointer.py:309)
+/storage/yukaichengLab/lishiwen/jiayusun/openpi/.venv/lib/python3.11/site-packages/jax/_src/interpreters/mlir.py:1178: UserWarning: Some donated buffers were not usable: ShapedArray(float32[27,1152,4304]), ShapedArray(float32[27,4304,1152]), ShapedArray(float32[27,1152,16,72]), ShapedArray(float32[27,16,72,1152]), ShapedArray(float32[27,1152,16,72]), ShapedArray(float32[27,1152,16,72]), ShapedArray(float32[1152,2048]), ShapedArray(float32[257152,2048]), ShapedArray(float32[1024,3072]), ShapedArray(float32[18,8,256,2048]), ShapedArray(float32[18,2,1,2048,256]), ShapedArray(float32[18,8,2048,256]), ShapedArray(float32[18,2,2048,16384]), ShapedArray(float32[18,16384,2048]), ShapedArray(float32[18,2,1024,4096]), ShapedArray(float32[18,4096,1024]), ShapedArray(float32[18,1024,3072]), ShapedArray(float32[18,1024,3072]), ShapedArray(float32[1024,1024]), ShapedArray(float32[1024,1024]).
+See an explanation at https://jax.readthedocs.io/en/latest/faq.html#buffer-donation.
+  warnings.warn("Some donated buffers were not usable:"
+18:58:07.080 [I] Initialized train state:
+['PaliGemma']['img']['Transformer']['encoder_norm']['bias'].value: (1152,)@float32
+['PaliGemma']['img']['Transformer']['encoder_norm']['scale'].value: (1152,)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['LayerNorm_0']['bias'].value: (27, 1152)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['LayerNorm_0']['scale'].value: (27, 1152)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['LayerNorm_1']['bias'].value: (27, 1152)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['LayerNorm_1']['scale'].value: (27, 1152)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_0']['bias'].value: (27, 4304)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_0']['kernel'].value: (27, 1152, 4304)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_1']['bias'].value: (27, 1152)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MlpBlock_0']['Dense_1']['kernel'].value: (27, 4304, 1152)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['key']['bias'].value: (27, 16, 72)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['key']['kernel'].value: (27, 1152, 16, 72)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['out']['bias'].value: (27, 1152)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['out']['kernel'].value: (27, 16, 72, 1152)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['query']['bias'].value: (27, 16, 72)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['query']['kernel'].value: (27, 1152, 16, 72)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['value']['bias'].value: (27, 16, 72)@float32
+['PaliGemma']['img']['Transformer']['encoderblock']['MultiHeadDotProductAttention_0']['value']['kernel'].value: (27, 1152, 16, 72)@float32
+['PaliGemma']['img']['embedding']['bias'].value: (1152,)@float32
+['PaliGemma']['img']['embedding']['kernel'].value: (14, 14, 3, 1152)@float32
+['PaliGemma']['img']['head']['bias'].value: (2048,)@float32
+['PaliGemma']['img']['head']['kernel'].value: (1152, 2048)@float32
+['PaliGemma']['img']['pos_embedding'].value: (1, 256, 1152)@float32
+['PaliGemma']['llm']['embedder']['input_embedding'].value: (257152, 2048)@float32
+['PaliGemma']['llm']['final_norm']['scale'].value: (2048,)@float32
+['PaliGemma']['llm']['final_norm_1']['Dense_0']['bias'].value: (3072,)@float32
+['PaliGemma']['llm']['final_norm_1']['Dense_0']['kernel'].value: (1024, 3072)@float32
+['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum']['w'].value: (18, 8, 256, 2048)@float32
+['PaliGemma']['llm']['layers']['attn']['attn_vec_einsum_1']['w'].value: (18, 8, 256, 1024)@float32
+['PaliGemma']['llm']['layers']['attn']['kv_einsum']['w'].value: (18, 2, 1, 2048, 256)@float32
+['PaliGemma']['llm']['layers']['attn']['kv_einsum_1']['w'].value: (18, 2, 1, 1024, 256)@float32
+['PaliGemma']['llm']['layers']['attn']['q_einsum']['w'].value: (18, 8, 2048, 256)@float32
+['PaliGemma']['llm']['layers']['attn']['q_einsum_1']['w'].value: (18, 8, 1024, 256)@float32
+['PaliGemma']['llm']['layers']['mlp']['gating_einsum'].value: (18, 2, 2048, 16384)@float32
+['PaliGemma']['llm']['layers']['mlp']['linear'].value: (18, 16384, 2048)@float32
+['PaliGemma']['llm']['layers']['mlp_1']['gating_einsum'].value: (18, 2, 1024, 4096)@float32
+['PaliGemma']['llm']['layers']['mlp_1']['linear'].value: (18, 4096, 1024)@float32
+['PaliGemma']['llm']['layers']['pre_attention_norm']['scale'].value: (18, 2048)@float32
+['PaliGemma']['llm']['layers']['pre_attention_norm_1']['Dense_0']['bias'].value: (18, 3072)@float32
+['PaliGemma']['llm']['layers']['pre_attention_norm_1']['Dense_0']['kernel'].value: (18, 1024, 3072)@float32
+['PaliGemma']['llm']['layers']['pre_ffw_norm']['scale'].value: (18, 2048)@float32
+['PaliGemma']['llm']['layers']['pre_ffw_norm_1']['Dense_0']['bias'].value: (18, 3072)@float32
+['PaliGemma']['llm']['layers']['pre_ffw_norm_1']['Dense_0']['kernel'].value: (18, 1024, 3072)@float32
+['action_in_proj']['bias'].value: (1024,)@float32
+['action_in_proj']['kernel'].value: (32, 1024)@float32
+['action_out_proj']['bias'].value: (32,)@float32
+['action_out_proj']['kernel'].value: (1024, 32)@float32
+['time_mlp_in']['bias'].value: (1024,)@float32
+['time_mlp_in']['kernel'].value: (1024, 1024)@float32
+['time_mlp_out']['bias'].value: (1024,)@float32
+['time_mlp_out']['kernel'].value: (1024, 1024)@float32 (1651456:train.py:238)
+18:58:07.091 [I] Progress on: -/500 rate:- remaining:? elapsed:00:00 postfix:-                    (1651456:tqdm_logging.py:145)
+18:58:34.418 [I] Progress on: -/500 rate:- remaining:? elapsed:00:27 postfix:-                    (1651456:tqdm_logging.py:145)
+18:58:45.072 [I] Progress on: 13.0it/500it rate:1.0it/s remaining:08:04 elapsed:00:37 postfix:-   (1651456:tqdm_logging.py:145)
+18:58:55.697 [I] Progress on: 25.0it/500it rate:1.1it/s remaining:06:57 elapsed:00:48 postfix:-   (1651456:tqdm_logging.py:145)
+18:59:06.367 [I] Progress on: 37.0it/500it rate:1.1it/s remaining:06:48 elapsed:00:59 postfix:-   (1651456:tqdm_logging.py:145)
+18:59:17.012 [I] Progress on: 49.0it/500it rate:1.1it/s remaining:06:40 elapsed:01:09 postfix:-   (1651456:tqdm_logging.py:145)
+18:59:27.634 [I] Progress on: 61.0it/500it rate:1.1it/s remaining:06:27 elapsed:01:20 postfix:-   (1651456:tqdm_logging.py:145)
+18:59:38.302 [I] Progress on: 73.0it/500it rate:1.1it/s remaining:06:17 elapsed:01:31 postfix:-   (1651456:tqdm_logging.py:145)
+18:59:48.993 [I] Progress on: 85.0it/500it rate:1.1it/s remaining:06:08 elapsed:01:41 postfix:-   (1651456:tqdm_logging.py:145)
+18:59:59.706 [I] Progress on: 97.0it/500it rate:1.1it/s remaining:05:55 elapsed:01:52 postfix:-   (1651456:tqdm_logging.py:145)
+19:00:09.830 [I] Progress on: 108it/500it rate:1.1it/s remaining:05:55 elapsed:02:02 postfix:-    (1651456:tqdm_logging.py:145)
+19:00:19.982 [I] Progress on: 119it/500it rate:1.0it/s remaining:06:05 elapsed:02:12 postfix:-    (1651456:tqdm_logging.py:145)
+19:00:30.662 [I] Progress on: 131it/500it rate:1.1it/s remaining:05:29 elapsed:02:23 postfix:-    (1651456:tqdm_logging.py:145)
+19:00:41.328 [I] Progress on: 143it/500it rate:1.1it/s remaining:05:16 elapsed:02:34 postfix:-    (1651456:tqdm_logging.py:145)
+19:00:52.004 [I] Progress on: 155it/500it rate:1.1it/s remaining:05:05 elapsed:02:44 postfix:-    (1651456:tqdm_logging.py:145)
+19:01:02.640 [I] Progress on: 167it/500it rate:1.1it/s remaining:04:53 elapsed:02:55 postfix:-    (1651456:tqdm_logging.py:145)
+19:01:13.292 [I] Progress on: 179it/500it rate:1.1it/s remaining:04:45 elapsed:03:06 postfix:-    (1651456:tqdm_logging.py:145)
+19:01:23.964 [I] Progress on: 191it/500it rate:1.1it/s remaining:04:32 elapsed:03:16 postfix:-    (1651456:tqdm_logging.py:145)
+19:01:33.988 [I] Progress on: 202it/500it rate:1.1it/s remaining:04:38 elapsed:03:26 postfix:-    (1651456:tqdm_logging.py:145)
+19:01:44.690 [I] Progress on: 214it/500it rate:1.1it/s remaining:04:16 elapsed:03:37 postfix:-    (1651456:tqdm_logging.py:145)
+19:01:55.419 [I] Progress on: 226it/500it rate:1.1it/s remaining:04:04 elapsed:03:48 postfix:-    (1651456:tqdm_logging.py:145)
+19:02:06.111 [I] Progress on: 238it/500it rate:1.1it/s remaining:03:55 elapsed:03:59 postfix:-    (1651456:tqdm_logging.py:145)
+19:02:16.784 [I] Progress on: 250it/500it rate:1.1it/s remaining:03:42 elapsed:04:09 postfix:-    (1651456:tqdm_logging.py:145)
+19:02:27.462 [I] Progress on: 262it/500it rate:1.1it/s remaining:03:31 elapsed:04:20 postfix:-    (1651456:tqdm_logging.py:145)
+19:02:38.140 [I] Progress on: 274it/500it rate:1.1it/s remaining:03:22 elapsed:04:31 postfix:-    (1651456:tqdm_logging.py:145)
+19:02:48.786 [I] Progress on: 286it/500it rate:1.1it/s remaining:03:10 elapsed:04:41 postfix:-    (1651456:tqdm_logging.py:145)
+19:02:59.430 [I] Progress on: 298it/500it rate:1.1it/s remaining:02:59 elapsed:04:52 postfix:-    (1651456:tqdm_logging.py:145)
+19:03:02.238 [I] [process=0][thread=MainThread][wait_until_finished] No Save Finalize thread to wait for. Returning. (1651456:checkpoint_manager.py:1987)
+19:03:02.239 [I] [process=0] Saving checkpoint at step 300                                        (1651456:checkpoint_manager.py:1408)
+19:03:02.239 [I] [process=0] Started async saving checkpoint to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300. (1651456:async_checkpointer.py:439)
+19:03:02.246 [I] Using ThreadSafeKeyValueSignalingClient                                          (1651456:signaling_client.py:332)
+19:03:02.254 [I] Creating tmp directory /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300.orbax-checkpoint-tmp-0 (1651456:atomicity.py:144)
+19:03:02.265 [I] Wrote Metadata={'item_handlers': None, 'metrics': {}, 'performance_metrics': {}, 'init_timestamp_nsecs': 1777287782261717003, 'commit_timestamp_nsecs': None, 'custom_metadata': {}}, json={"item_handlers": null, "metrics": {}, "performance_metrics": {}, "init_timestamp_nsecs": 1777287782261717003, "commit_timestamp_nsecs": null, "custom_metadata": {}} to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300.orbax-checkpoint-tmp-0/_CHECKPOINT_METADATA (1651456:checkpoint.py:186)
+19:03:02.265 [I] Creating tmp directory /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300.orbax-checkpoint-tmp-0/assets.orbax-checkpoint-tmp-1 (1651456:atomicity.py:144)
+19:03:02.266 [I] Creating tmp directory /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300.orbax-checkpoint-tmp-0/train_state.orbax-checkpoint-tmp-3 (1651456:atomicity.py:144)
+19:03:02.266 [I] Creating tmp directory /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300.orbax-checkpoint-tmp-0/params.orbax-checkpoint-tmp-2 (1651456:atomicity.py:144)
+19:03:02.310 [I] Transferring arrays to host memory with options: use_replica_parallel=True, enable_pinned_host_transfer=False (1651456:replica_slices.py:341)
+19:03:05.614 [I] Transferring arrays to host memory with options: use_replica_parallel=True, enable_pinned_host_transfer=False (1651456:replica_slices.py:341)
+19:03:05.617 [I] Array name: 'params.PaliGemma.llm.layers.mlp.gating_einsum.value', global shape: (18, 2, 2048, 16384), write shape: (18, 2, 2048, 8192), chosen chunk shape: (18, 2, 2048, 4096) (1651456:tensorstore_utils.py:408)
+19:03:05.749 [I] [process=0][thread=array_type_handler] Wrote 51 array_metadata.ArrayMetadata to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300.orbax-checkpoint-tmp-0/params.orbax-checkpoint-tmp-2/array_metadatas/process_0 (1651456:array_metadata_store.py:198)
+19:03:20.943 [I] Array name: 'params.PaliGemma.llm.layers.mlp.gating_einsum.value', global shape: (18, 2, 2048, 16384), write shape: (18, 2, 2048, 8192), chosen chunk shape: (18, 2, 2048, 4096) (1651456:tensorstore_utils.py:408)
+19:03:20.949 [I] Array name: 'opt_state.1.0.mu.PaliGemma.llm.layers.mlp.gating_einsum.value', global shape: (18, 2, 2048, 16384), write shape: (18, 2, 2048, 8192), chosen chunk shape: (18, 2, 2048, 4096) (1651456:tensorstore_utils.py:408)
+19:03:20.954 [I] Array name: 'opt_state.1.0.nu.PaliGemma.llm.layers.mlp.gating_einsum.value', global shape: (18, 2, 2048, 16384), write shape: (18, 2, 2048, 8192), chosen chunk shape: (18, 2, 2048, 4096) (1651456:tensorstore_utils.py:408)
+19:03:20.960 [I] [process=0] /jax/checkpoint/write/blocking_bytes_per_sec: 683.7 MiB/s (total bytes: 12.5 GiB) (time elapsed: 18 seconds) (per-host) (1651456:base_pytree_checkpoint_handler.py:114)
+19:03:20.964 [I] [process=0] /jax/checkpoint/write/blocking_bytes_per_sec: 2.0 GiB/s (total bytes: 37.5 GiB) (time elapsed: 18 seconds) (per-host) (1651456:base_pytree_checkpoint_handler.py:114)
+19:03:20.990 [I] [process=0][thread=async_save] Background save thread started.                   (1651456:async_checkpointer.py:77)
+19:03:20.992 [I] Finished blocking save in 18.75 seconds. Continuing to save asynchronously to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300. (1651456:async_checkpointer.py:548)
+19:03:20.995 [I] [process=0][thread=MainThread][step=300] Starting CheckpointManager Save Finalize thread=save_finalize (1651456:checkpoint_manager.py:1453)
+19:03:21.004 [I] [process=0][thread=save_finalize] Waiting for background save thread=async_save. (1651456:async_checkpointer.py:258)
+19:03:21.055 [I] {'step': 300, 'event_type': 'save', 'directory': '/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k', 'reached_preemption': False, 'preemption_received_at': None, 'synchronous': False, 'wait_for_prev_start_time': 1777287782.238806, 'wait_for_prev_duration_secs': 0.0001990795135498047, 'checkpointer_blocking_start_time': 1777287782.2394135, 'checkpointer_blocking_duration_secs': 18.7555410861969, 'get_old_steps_start_time': 1777287800.9954624, 'get_old_steps_duration_secs': 8.344650268554688e-06, 'checkpoint_manager_blocking_start_time': 1777287782.2385926, 'checkpoint_manager_blocking_duration_secs': 18.81674098968506} (1651456:standard_logger.py:34)
+19:03:21.059 [I] Progress on: 301it/500it rate:6.6s/it remaining:21:48 elapsed:05:13 postfix:-    (1651456:tqdm_logging.py:145)
+19:03:21.606 [I] [process=0][thread=array_type_handler] Wrote 156 array_metadata.ArrayMetadata to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300.orbax-checkpoint-tmp-0/train_state.orbax-checkpoint-tmp-3/array_metadatas/process_0 (1651456:array_metadata_store.py:198)
+19:03:31.189 [I] Progress on: 308it/500it rate:1.6s/it remaining:05:10 elapsed:05:24 postfix:-    (1651456:tqdm_logging.py:145)
+19:03:41.446 [I] Progress on: 318it/500it rate:1.1s/it remaining:03:16 elapsed:05:34 postfix:-    (1651456:tqdm_logging.py:145)
+19:03:50.653 [I] [process=0] /jax/checkpoint/write/bytes_per_sec: 264.3 MiB/s (total bytes: 12.5 GiB) (time elapsed: 48 seconds) (per-host) (1651456:base_pytree_checkpoint_handler.py:114)
+19:03:51.989 [I] Progress on: 329it/500it rate:1.1it/s remaining:02:41 elapsed:05:44 postfix:-    (1651456:tqdm_logging.py:145)
+19:04:00.558 [I] [process=0] /jax/checkpoint/write/bytes_per_sec: 658.2 MiB/s (total bytes: 37.5 GiB) (time elapsed: 58 seconds) (per-host) (1651456:base_pytree_checkpoint_handler.py:114)
+19:04:00.559 [I] [process=0][thread=async_save] 5 Handler Commit operations completed.            (1651456:async_checkpointer.py:87)
+19:04:00.562 [I] Read Metadata={'item_handlers': None, 'metrics': {}, 'performance_metrics': {}, 'init_timestamp_nsecs': 1777287782261717003, 'commit_timestamp_nsecs': None, 'custom_metadata': {}} from /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300.orbax-checkpoint-tmp-0/_CHECKPOINT_METADATA (1651456:checkpoint.py:226)
+19:04:00.562 [I] Renaming /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300.orbax-checkpoint-tmp-0/assets.orbax-checkpoint-tmp-1 to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300.orbax-checkpoint-tmp-0/assets (1651456:atomicity.py:289)
+19:04:00.569 [I] Updated Metadata={'item_handlers': {'assets': 'openpi.training.checkpoints.CallbackHandler', 'params': 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler', 'train_state': 'orbax.checkpoint._src.handlers.pytree_checkpoint_handler.PyTreeCheckpointHandler'}, 'metrics': {}, 'performance_metrics': {}, 'init_timestamp_nsecs': 1777287782261717003, 'commit_timestamp_nsecs': None, 'custom_metadata': {}} to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300.orbax-checkpoint-tmp-0/_CHECKPOINT_METADATA (1651456:checkpoint.py:245)
+19:04:00.571 [I] [process=0][thread=async_save] Skipped cross-host ArrayMetadata validation because only one process is found: process_index=0. (1651456:array_metadata_store.py:362)
+19:04:00.599 [I] Renaming /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300.orbax-checkpoint-tmp-0/train_state.orbax-checkpoint-tmp-3 to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300.orbax-checkpoint-tmp-0/train_state (1651456:atomicity.py:289)
+19:04:00.608 [I] [process=0][thread=async_save] Skipped cross-host ArrayMetadata validation because only one process is found: process_index=0. (1651456:array_metadata_store.py:362)
+19:04:00.635 [I] Renaming /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300.orbax-checkpoint-tmp-0/params.orbax-checkpoint-tmp-2 to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300.orbax-checkpoint-tmp-0/params (1651456:atomicity.py:289)
+19:04:00.640 [I] Renaming /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300.orbax-checkpoint-tmp-0 to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300 (1651456:atomicity.py:289)
+19:04:00.648 [I] [process=0][thread=async_save] Finished saving checkpoint (finalized tmp dir) to `/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300`. (1651456:atomicity.py:573)
+19:04:00.648 [I] Finished asynchronous save (blocking + background) in 58.41 seconds to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/300 (1651456:async_checkpointer.py:412)
+19:04:00.648 [I] [process=0][thread=async_save] Background save thread done.                      (1651456:async_checkpointer.py:143)
+19:04:00.649 [I] [process=0][thread=save_finalize] Done with waiting for background save thread=async_save. (1651456:async_checkpointer.py:266)
+19:04:00.649 [I] [process=0][thread=save_finalize] No errors found in background save thread=async_save. (1651456:async_checkpointer.py:276)
+19:04:00.649 [I] [process=0][thread=save_finalize][step=300] CheckpointManager Save Finalize is syncing with other hosts... (1651456:checkpoint_manager.py:2095)
+19:04:00.649 [I] [process=0][thread=save_finalize][step=300] CheckpointManager Save Finalize is done on all hosts. (1651456:checkpoint_manager.py:2110)
+19:04:02.665 [I] Progress on: 341it/500it rate:1.1it/s remaining:02:21 elapsed:05:55 postfix:-    (1651456:tqdm_logging.py:145)
+19:04:13.260 [I] Progress on: 353it/500it rate:1.1it/s remaining:02:09 elapsed:06:06 postfix:-    (1651456:tqdm_logging.py:145)
+19:04:23.971 [I] Progress on: 365it/500it rate:1.1it/s remaining:02:00 elapsed:06:16 postfix:-    (1651456:tqdm_logging.py:145)
+19:04:34.648 [I] Progress on: 377it/500it rate:1.1it/s remaining:01:49 elapsed:06:27 postfix:-    (1651456:tqdm_logging.py:145)
+19:04:45.359 [I] Progress on: 389it/500it rate:1.1it/s remaining:01:38 elapsed:06:38 postfix:-    (1651456:tqdm_logging.py:145)
+19:04:56.190 [I] Progress on: 400it/500it rate:1.1it/s remaining:01:29 elapsed:06:49 postfix:-    (1651456:tqdm_logging.py:145)
+19:05:06.882 [I] Progress on: 413it/500it rate:1.1it/s remaining:01:17 elapsed:06:59 postfix:-    (1651456:tqdm_logging.py:145)
+19:05:17.584 [I] Progress on: 425it/500it rate:1.1it/s remaining:01:06 elapsed:07:10 postfix:-    (1651456:tqdm_logging.py:145)
+19:05:28.269 [I] Progress on: 437it/500it rate:1.1it/s remaining:00:55 elapsed:07:21 postfix:-    (1651456:tqdm_logging.py:145)
+19:05:38.977 [I] Progress on: 449it/500it rate:1.1it/s remaining:00:45 elapsed:07:31 postfix:-    (1651456:tqdm_logging.py:145)
+19:05:49.683 [I] Progress on: 461it/500it rate:1.1it/s remaining:00:34 elapsed:07:42 postfix:-    (1651456:tqdm_logging.py:145)
+19:06:00.354 [I] Progress on: 473it/500it rate:1.1it/s remaining:00:23 elapsed:07:53 postfix:-    (1651456:tqdm_logging.py:145)
+19:06:11.038 [I] Progress on: 485it/500it rate:1.1it/s remaining:00:13 elapsed:08:03 postfix:-    (1651456:tqdm_logging.py:145)
+19:06:21.607 [I] Progress on: 497it/500it rate:1.1it/s remaining:00:02 elapsed:08:14 postfix:-    (1651456:tqdm_logging.py:145)
+19:06:24.273 [I] [process=0][thread=MainThread][wait_until_finished] No Save Finalize thread to wait for. Returning. (1651456:checkpoint_manager.py:1987)
+19:06:24.273 [I] [process=0] Saving checkpoint at step 499                                        (1651456:checkpoint_manager.py:1408)
+19:06:24.275 [I] [process=0] Started async saving checkpoint to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499. (1651456:async_checkpointer.py:439)
+19:06:24.285 [I] Creating tmp directory /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499.orbax-checkpoint-tmp-4 (1651456:atomicity.py:144)
+19:06:24.295 [I] Creating tmp directory /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499.orbax-checkpoint-tmp-4/params.orbax-checkpoint-tmp-6 (1651456:atomicity.py:144)
+19:06:24.295 [I] Creating tmp directory /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499.orbax-checkpoint-tmp-4/assets.orbax-checkpoint-tmp-5 (1651456:atomicity.py:144)
+19:06:24.295 [I] Creating tmp directory /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499.orbax-checkpoint-tmp-4/train_state.orbax-checkpoint-tmp-7 (1651456:atomicity.py:144)
+19:06:24.314 [I] Transferring arrays to host memory with options: use_replica_parallel=True, enable_pinned_host_transfer=False (1651456:replica_slices.py:341)
+19:06:26.860 [I] Transferring arrays to host memory with options: use_replica_parallel=True, enable_pinned_host_transfer=False (1651456:replica_slices.py:341)
+19:06:26.864 [I] Array name: 'params.PaliGemma.llm.layers.mlp.gating_einsum.value', global shape: (18, 2, 2048, 16384), write shape: (18, 2, 2048, 8192), chosen chunk shape: (18, 2, 2048, 4096) (1651456:tensorstore_utils.py:408)
+19:06:26.884 [I] [process=0][thread=array_type_handler] Wrote 51 array_metadata.ArrayMetadata to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499.orbax-checkpoint-tmp-4/params.orbax-checkpoint-tmp-6/array_metadatas/process_0 (1651456:array_metadata_store.py:198)
+19:06:39.292 [I] Array name: 'params.PaliGemma.llm.layers.mlp.gating_einsum.value', global shape: (18, 2, 2048, 16384), write shape: (18, 2, 2048, 8192), chosen chunk shape: (18, 2, 2048, 4096) (1651456:tensorstore_utils.py:408)
+19:06:39.309 [I] [process=0] /jax/checkpoint/write/blocking_bytes_per_sec: 851.2 MiB/s (total bytes: 12.5 GiB) (time elapsed: 15 seconds) (per-host) (1651456:base_pytree_checkpoint_handler.py:114)
+19:06:39.311 [I] Array name: 'opt_state.1.0.mu.PaliGemma.llm.layers.mlp.gating_einsum.value', global shape: (18, 2, 2048, 16384), write shape: (18, 2, 2048, 8192), chosen chunk shape: (18, 2, 2048, 4096) (1651456:tensorstore_utils.py:408)
+19:06:39.319 [I] Array name: 'opt_state.1.0.nu.PaliGemma.llm.layers.mlp.gating_einsum.value', global shape: (18, 2, 2048, 16384), write shape: (18, 2, 2048, 8192), chosen chunk shape: (18, 2, 2048, 4096) (1651456:tensorstore_utils.py:408)
+19:06:39.326 [I] [process=0] /jax/checkpoint/write/blocking_bytes_per_sec: 2.5 GiB/s (total bytes: 37.5 GiB) (time elapsed: 15 seconds) (per-host) (1651456:base_pytree_checkpoint_handler.py:114)
+19:06:39.350 [I] [process=0][thread=async_save] Background save thread started.                   (1651456:async_checkpointer.py:77)
+19:06:39.368 [I] Finished blocking save in 15.09 seconds. Continuing to save asynchronously to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499. (1651456:async_checkpointer.py:548)
+19:06:39.430 [I] Preserving Checkpoint[step=300 | time=2026-04-27 11:03:20.995447+00:00]: (Reason: on keep_period=100). (1651456:checkpoint_manager.py:1949)
+19:06:39.434 [I] [process=0][thread=MainThread][step=499] Starting CheckpointManager Save Finalize thread=save_finalize (1651456:checkpoint_manager.py:1453)
+19:06:39.438 [I] [process=0][thread=save_finalize] Waiting for background save thread=async_save. (1651456:async_checkpointer.py:258)
+19:06:39.440 [I] {'step': 499, 'event_type': 'save', 'directory': '/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k', 'reached_preemption': False, 'preemption_received_at': None, 'synchronous': False, 'wait_for_prev_start_time': 1777287984.2731705, 'wait_for_prev_duration_secs': 0.0002448558807373047, 'checkpointer_blocking_start_time': 1777287984.2738533, 'checkpointer_blocking_duration_secs': 15.15404224395752, 'get_old_steps_start_time': 1777287999.4307396, 'get_old_steps_duration_secs': 0.0010128021240234375, 'checkpoint_manager_blocking_start_time': 1777287984.2729135, 'checkpoint_manager_blocking_duration_secs': 15.166673421859741} (1651456:standard_logger.py:34)
+19:06:39.443 [I] Progress on: 500it/500it rate:5.4s/it remaining:00:00 elapsed:08:32 postfix:-    (1651456:tqdm_logging.py:145)
+19:06:39.445 [I] Progress on: 500it/500it rate:5.4s/it remaining:00:00 elapsed:08:32 postfix:-    (1651456:tqdm_logging.py:145)
+19:06:39.447 [I] Waiting for checkpoint manager to finish                                         (1651456:train.py:275)
+19:06:39.448 [I] [process=0][thread=MainThread][step=499][wait_until_finished] Waiting for Save Finalize thread (save_finalize) to complete. (1651456:checkpoint_manager.py:1998)
+19:06:39.899 [I] [process=0][thread=array_type_handler] Wrote 156 array_metadata.ArrayMetadata to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499.orbax-checkpoint-tmp-4/train_state.orbax-checkpoint-tmp-7/array_metadatas/process_0 (1651456:array_metadata_store.py:198)
+19:07:07.919 [I] [process=0] /jax/checkpoint/write/bytes_per_sec: 293.1 MiB/s (total bytes: 12.5 GiB) (time elapsed: 43 seconds) (per-host) (1651456:base_pytree_checkpoint_handler.py:114)
+19:07:16.562 [I] [process=0] /jax/checkpoint/write/bytes_per_sec: 734.1 MiB/s (total bytes: 37.5 GiB) (time elapsed: 52 seconds) (per-host) (1651456:base_pytree_checkpoint_handler.py:114)
+19:07:16.571 [I] [process=0][thread=async_save] 5 Handler Commit operations completed.            (1651456:async_checkpointer.py:87)
+19:07:16.575 [I] Renaming /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499.orbax-checkpoint-tmp-4/assets.orbax-checkpoint-tmp-5 to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499.orbax-checkpoint-tmp-4/assets (1651456:atomicity.py:289)
+19:07:16.594 [I] [process=0][thread=async_save] Skipped cross-host ArrayMetadata validation because only one process is found: process_index=0. (1651456:array_metadata_store.py:362)
+19:07:16.626 [I] Renaming /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499.orbax-checkpoint-tmp-4/train_state.orbax-checkpoint-tmp-7 to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499.orbax-checkpoint-tmp-4/train_state (1651456:atomicity.py:289)
+19:07:16.635 [I] [process=0][thread=async_save] Skipped cross-host ArrayMetadata validation because only one process is found: process_index=0. (1651456:array_metadata_store.py:362)
+19:07:16.661 [I] Renaming /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499.orbax-checkpoint-tmp-4/params.orbax-checkpoint-tmp-6 to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499.orbax-checkpoint-tmp-4/params (1651456:atomicity.py:289)
+19:07:16.667 [I] Renaming /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499.orbax-checkpoint-tmp-4 to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499 (1651456:atomicity.py:289)
+19:07:16.675 [I] [process=0][thread=async_save] Finished saving checkpoint (finalized tmp dir) to `/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499`. (1651456:atomicity.py:573)
+19:07:16.675 [I] Finished asynchronous save (blocking + background) in 52.40 seconds to /storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_10_t89_from_l10mix50_2k/ft_l10_t89_from_l10mix50_2k/499 (1651456:async_checkpointer.py:412)
+19:07:16.675 [I] [process=0][thread=async_save] Background save thread done.                      (1651456:async_checkpointer.py:143)
+19:07:16.676 [I] [process=0][thread=save_finalize] Done with waiting for background save thread=async_save. (1651456:async_checkpointer.py:266)
+19:07:16.676 [I] [process=0][thread=save_finalize] No errors found in background save thread=async_save. (1651456:async_checkpointer.py:276)
+19:07:16.676 [I] [process=0][thread=save_finalize][step=499] CheckpointManager Save Finalize is syncing with other hosts... (1651456:checkpoint_manager.py:2095)
+19:07:16.676 [I] [process=0][thread=save_finalize][step=499] CheckpointManager Save Finalize is done on all hosts. (1651456:checkpoint_manager.py:2110)
+19:07:16.676 [I] [process=0][thread=MainThread][step=499][wait_until_finished] Done waiting for Save Finalize thread (save_finalize) running at step=499. (1651456:checkpoint_manager.py:2010)

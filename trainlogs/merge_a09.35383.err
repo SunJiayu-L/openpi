@@ -1,0 +1,12 @@
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+2026-05-11 19:21:46,383 INFO Loading base: checkpoints/pt_converted/base_25k
+2026-05-11 19:21:47,052 INFO   loaded 812 tensors from checkpoints/pt_converted/base_25k/model.safetensors
+2026-05-11 19:21:47,053 INFO Loading 1 fine-tuned ckpt(s)…
+2026-05-11 19:21:47,764 INFO   loaded 812 tensors from checkpoints/pt_rl/ppo_step80/model.safetensors
+2026-05-11 19:21:47,764 INFO Computing task_arithmetic alpha=0.9 preset=pi05_ppo (eligible=208/812 keys) exclude=[]
+2026-05-11 19:21:51,493 INFO   changed 208 / 812 tensors vs base
+2026-05-11 19:21:53,540 INFO   saved merged model.safetensors → checkpoints/merged/base25k_ppo80_a09/model.safetensors
+2026-05-11 19:21:53,543 INFO   copied config.json
+2026-05-11 19:21:53,551 INFO   copied assets/
+2026-05-11 19:21:53,556 INFO   copied physical-intelligence/
+2026-05-11 19:21:53,556 INFO Done: checkpoints/merged/base25k_ppo80_a09

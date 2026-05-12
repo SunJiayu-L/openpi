@@ -1,0 +1,7 @@
+warning: The `tool.uv.dev-dependencies` field (used in `packages/openpi-client/pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+Traceback (most recent call last):
+  File "examples/libero/main.py", line 8, in <module>
+    from libero.libero import benchmark
+  File "/storage/yukaichengLab/lishiwen/jiayusun/openpi/third_party/libero/libero/libero/__init__.py", line 69, in <module>
+    answer = input(
+EOFError: EOF when reading a line

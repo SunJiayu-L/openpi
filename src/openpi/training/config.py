@@ -2038,6 +2038,151 @@ _CONFIGS = [
         ),
         num_train_steps=1_000,
     ),
+    # Init: pi05_libero/my_experiment/15000 (full 30k FT @15k step)
+    # Dataset: 50/50 mix of libero_10 vs (spatial+object+goal)
+    # Steps: 2k, batch_size=32, save every 1k
+    TrainConfig(
+        name="pi05_libero_l10_mix50_from_15k",
+        model=pi0_config.Pi0Config(pi05=True, action_horizon=10, discrete_state_input=False),
+        data=LeRobotLiberoDataConfig(
+            repo_id="physical-intelligence/libero",
+            assets=AssetsConfig(
+                assets_dir="/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/15000/assets",
+            ),
+            base_config=DataConfig(
+                prompt_from_task=True,
+                lerobot_root="/storage/yukaichengLab/lishiwen/jiayusun/libero",
+                # primary: libero_10
+                episodes=_suite_eps.LIBERO_10_EPISODES,
+                # extra: spatial + object + goal (combined)
+                extra_lerobot_datasets=(
+                    (
+                        "physical-intelligence/libero",
+                        "/storage/yukaichengLab/lishiwen/jiayusun/libero",
+                        list(
+                            _suite_eps.LIBERO_SPATIAL_EPISODES
+                            + _suite_eps.LIBERO_OBJECT_EPISODES
+                            + _suite_eps.LIBERO_GOAL_EPISODES
+                        ),
+                    ),
+                ),
+                dataset_mix_weights=(0.5, 0.5),
+            ),
+            extra_delta_transform=False,
+        ),
+        batch_size=32,
+        lr_schedule=_optimizer.CosineDecaySchedule(warmup_steps=200, peak_lr=2.5e-5, decay_steps=2_000, decay_lr=2.5e-6),
+        optimizer=_optimizer.AdamW(clip_gradient_norm=1.0),
+        ema_decay=0.999,
+        weight_loader=weight_loaders.CheckpointWeightLoader(
+            "/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/15000/params"
+        ),
+        num_train_steps=2_000,
+        save_interval=1_000,
+        keep_period=1_000,
+    ),
+    # Init: pi05_libero_l10_mix50_from_15k/ft_l10_mix50_from_15k/1999 (best avg=96.6%)
+    # Dataset: ONLY libero_10 task 8 (moka pots) + task 9 (mug microwave) — 63 episodes
+    # Steps: 500, batch_size=32, save at step 300 and 500
+    # Goal: directly attack the weakest libero_10 tasks (task8=0.48, task9=0.90)
+    TrainConfig(
+        name="pi05_libero_10_t89_from_l10mix50_2k",
+        model=pi0_config.Pi0Config(pi05=True, action_horizon=10, discrete_state_input=False),
+        data=LeRobotLiberoDataConfig(
+            repo_id="physical-intelligence/libero",
+            assets=AssetsConfig(
+                assets_dir="/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/15000/assets",
+            ),
+            base_config=DataConfig(
+                prompt_from_task=True,
+                lerobot_root="/storage/yukaichengLab/lishiwen/jiayusun/libero",
+                episodes=_suite_eps.LIBERO_10_TASK89_EPISODES,
+            ),
+            extra_delta_transform=False,
+        ),
+        batch_size=32,
+        lr_schedule=_optimizer.CosineDecaySchedule(warmup_steps=50, peak_lr=2e-5, decay_steps=500, decay_lr=2e-6),
+        optimizer=_optimizer.AdamW(clip_gradient_norm=1.0),
+        ema_decay=0.999,
+        weight_loader=weight_loaders.CheckpointWeightLoader(
+            "/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero_l10_mix50_from_15k/ft_l10_mix50_from_15k/1999/params"
+        ),
+        num_train_steps=500,
+        save_interval=300,
+        keep_period=100,
+    ),
+    # Init: avg_merge/l10t89_step300_x07_base15k_x03 (0.7×t89_step300 + 0.3×base15k)
+    # Dataset: ONLY libero_10 task 8 — "put both moka pots on the stove" (29 eps)
+    # Steps: 500, batch_size=32, save at step 300 and 499
+    # Goal: targeted attack on task 8 (most stubborn, 0.48 in l10_mix50@2k)
+    TrainConfig(
+        name="pi05_libero_10_t8_from_avg_x07",
+        model=pi0_config.Pi0Config(pi05=True, action_horizon=10, discrete_state_input=False),
+        data=LeRobotLiberoDataConfig(
+            repo_id="physical-intelligence/libero",
+            assets=AssetsConfig(
+                assets_dir="/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/avg_merge/l10t89_step300_x07_base15k_x03/assets",
+            ),
+            base_config=DataConfig(
+                prompt_from_task=True,
+                lerobot_root="/storage/yukaichengLab/lishiwen/jiayusun/libero",
+                episodes=_suite_eps.LIBERO_10_TASK8_EPISODES,
+            ),
+            extra_delta_transform=False,
+        ),
+        batch_size=32,
+        lr_schedule=_optimizer.CosineDecaySchedule(warmup_steps=50, peak_lr=2e-5, decay_steps=500, decay_lr=2e-6),
+        optimizer=_optimizer.AdamW(clip_gradient_norm=1.0),
+        ema_decay=0.999,
+        weight_loader=weight_loaders.CheckpointWeightLoader(
+            "/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/avg_merge/l10t89_step300_x07_base15k_x03/params"
+        ),
+        num_train_steps=500,
+        save_interval=300,
+        keep_period=100,
+    ),
+    # Init: pi05_libero/my_experiment/15000 (full 30k FT @15k step)
+    # Dataset: 50/50 mix of libero_10 vs (spatial+object+goal)
+    # Steps: 5k, batch_size=32, save every 1k (keep all)
+    # Goal: scan training length to test if avg(4) breaks 97%
+    TrainConfig(
+        name="pi05_libero_l10_mix50_from_15k_5k",
+        model=pi0_config.Pi0Config(pi05=True, action_horizon=10, discrete_state_input=False),
+        data=LeRobotLiberoDataConfig(
+            repo_id="physical-intelligence/libero",
+            assets=AssetsConfig(
+                assets_dir="/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/15000/assets",
+            ),
+            base_config=DataConfig(
+                prompt_from_task=True,
+                lerobot_root="/storage/yukaichengLab/lishiwen/jiayusun/libero",
+                episodes=_suite_eps.LIBERO_10_EPISODES,
+                extra_lerobot_datasets=(
+                    (
+                        "physical-intelligence/libero",
+                        "/storage/yukaichengLab/lishiwen/jiayusun/libero",
+                        list(
+                            _suite_eps.LIBERO_SPATIAL_EPISODES
+                            + _suite_eps.LIBERO_OBJECT_EPISODES
+                            + _suite_eps.LIBERO_GOAL_EPISODES
+                        ),
+                    ),
+                ),
+                dataset_mix_weights=(0.5, 0.5),
+            ),
+            extra_delta_transform=False,
+        ),
+        batch_size=32,
+        lr_schedule=_optimizer.CosineDecaySchedule(warmup_steps=500, peak_lr=2.5e-5, decay_steps=5_000, decay_lr=2.5e-6),
+        optimizer=_optimizer.AdamW(clip_gradient_norm=1.0),
+        ema_decay=0.999,
+        weight_loader=weight_loaders.CheckpointWeightLoader(
+            "/storage/yukaichengLab/lishiwen/jiayusun/openpi/checkpoints/pi05_libero/my_experiment/15000/params"
+        ),
+        num_train_steps=5_000,
+        save_interval=1_000,
+        keep_period=1_000,
+    ),
     # --- pi0.5 all-task (1693 eps) fine-tuning from WUDI-MLLM 5k merged checkpoint ---
     # Dataset: /storage/yukaichengLab/lishiwen/jiayusun/huggingface/lerobot (40 tasks, 1693 eps)
     # Norm stats: pi05_libero/my_experiment/10000/assets

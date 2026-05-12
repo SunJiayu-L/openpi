@@ -266,6 +266,7 @@ def wudi_optimize(
     log_every: int = 50,
     curve_every: int = 1,
     progress_cb=None,
+    init_weights: list[float] | None = None,
 ) -> tuple["torch.Tensor", dict[str, float]]:
     """Minimize inter-task interference for a single 2D sub-block.
 
@@ -349,8 +350,15 @@ def wudi_optimize(
     low_rank = torch.stack(low_rank_list)    # (T, ?, n)
     taskvector = torch.stack(taskvector_list)  # (T, m, n)
 
-    # 把可学习合并向量初始化为任务向量和。
-    merging = torch.nn.Parameter(vectors.mean(dim=0).clone())
+    # 把可学习合并向量初始化：默认 mean(1/T 等权)，或按 init_weights 加权求和（不强制归一化）。
+    if init_weights is None:
+        init_vec = vectors.mean(dim=0)
+    else:
+        if len(init_weights) != T:
+            raise ValueError(f"init_weights length {len(init_weights)} != T={T}")
+        w = torch.tensor(init_weights, dtype=vectors.dtype, device=vectors.device)
+        init_vec = (vectors * w.view(T, 1, 1)).sum(dim=0)
+    merging = torch.nn.Parameter(init_vec.clone())
     # Adam 优化器。
     opt = torch.optim.Adam([merging], lr=1e-5)
     # 每个任务向量范数平方，用于归一化损失。
@@ -473,6 +481,7 @@ def run_merge(
     scaling2: float = 1.0,
     device: str = "cuda",
     curve_every: int = 1,
+    init_weights: list[float] | None = None,
 ) -> None:
     # scaling2: base_val 的系数，默认 1.0（等同原公式 base + scaling * tv）
     # 公式：merged = scaling2 * base_val + scaling * merged_tv
@@ -532,12 +541,14 @@ def run_merge(
             continue
 
         # 在 scope 内但非 attn/FFN → 简单平均 task vector（对齐 wudi_merging2 第二阶段）。
+        # 如果指定了 init_weights，则用加权求和替代等权平均（保持与 attn/FFN 初始化一致）。
         if key not in eligible:
             if all(key in ft for ft in fts):
-                avg_tv = np.mean(
-                    [ft[key].astype(np.float32) - base_val.astype(np.float32) for ft in fts],
-                    axis=0,
-                )
+                tvs = [ft[key].astype(np.float32) - base_val.astype(np.float32) for ft in fts]
+                if init_weights is None:
+                    avg_tv = np.mean(tvs, axis=0)
+                else:
+                    avg_tv = sum(w * tv for w, tv in zip(init_weights, tvs))
                 merged[key] = scaling2 * base_val + scaling * avg_tv
                 logger.info(f"  avg-tv {key}  {base_val.shape}")
             else:
@@ -597,6 +608,7 @@ def run_merge(
                     log_every=max(1, iter_num // 6),
                     curve_every=max(1, curve_every),
                     progress_cb=_curve_logger,
+                    init_weights=init_weights,
                 )
                 all_first_losses.append(loss_summary["first_loss"])
                 all_best_losses.append(loss_summary["best_loss"])
@@ -714,6 +726,10 @@ def main() -> None:
     ap.add_argument("--scaling",  type=float, default=1.0)
     ap.add_argument("--scaling2", type=float, default=1.0,
                     help="base_val 系数，默认 1.0。公式: scaling2*base + scaling*merged_tv")
+    ap.add_argument("--init-weights", type=float, nargs="+", default=None,
+                    help="WUDI 初始合并向量的每任务系数（长度需等于 --ft 数量）。"
+                         "默认为 None=均值初始化（1/T 等权）。指定后用加权求和初始化，不强制和为 1。"
+                         "例: --init-weights 0.4 0.4 0.4 0.6")
     ap.add_argument("--curve-every", type=int, default=1,
                     help="log unified wandb loss curve every N optimization steps")
     ap.add_argument("--device",   type=str, default="cuda", choices=["cuda", "cpu"])
@@ -729,6 +745,10 @@ def main() -> None:
     if not all([args.base, args.ft, args.output]):
         ap.error("--base, --ft, and --output are required (or use --test)")
 
+    # init-weights 长度校验。
+    if args.init_weights is not None and len(args.init_weights) != len(args.ft):
+        ap.error(f"--init-weights length {len(args.init_weights)} != --ft count {len(args.ft)}")
+
     # 执行主流程。
     run_merge(
         base_path=args.base,
@@ -740,6 +760,7 @@ def main() -> None:
         scaling2=args.scaling2,
         device=args.device,
         curve_every=args.curve_every,
+        init_weights=args.init_weights,
     )
 
 
